@@ -1,0 +1,36 @@
+name: PR Application Start Check
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  start-check:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: ⬇️ Checkout code
+      uses: actions/checkout@v3
+
+    - name: ⚙️ Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: 📦 Install dependencies
+      run: npm install
+
+    - name: 🔍 Check for start errors (headless)
+      run: |
+        npm run build
+        npx serve -s build &
+        sleep 10
+        curl -f http://localhost:3000 || exit 1
+
+    - name: ✅ Report status on PR
+      if: success()
+      run: echo "✅ App started successfully!" >> $GITHUB_STEP_SUMMARY
+
+    - name: ❌ Report failure
+      if: failure()
+      run: echo "❌ App failed to start. Check logs above." >> $GITHUB_STEP_SUMMARY
