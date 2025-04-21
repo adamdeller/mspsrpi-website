@@ -1,0 +1,128 @@
+[
+  {
+    "name": "PSR J0030+0451",
+    "parallax": "3.02 \u00b1 0.07",
+    "distance": "0.329 \u00b1 0.006",
+    "properMotion": "-6.13 \u00b1 0.07, 0.34 \u00b1 0.15",
+    "phase": "MSPSRPI"
+  },
+  {
+    "name": "PSR J0610-2100",
+    "parallax": "0.73 \u00b1 0.10",
+    "distance": "1.5 \u00b1 0.3",
+    "properMotion": "9.1 \u00b1 0.1, 16.0 \u00b1 0.2",
+    "phase": "MSPSRPI"
+  },
+  {
+    "name": "PSR J0621+1002",
+    "parallax": "0.86 \u00b1 0.15",
+    "distance": "1.6 \u00b1 0.4",
+    "properMotion": "3.5 \u00b1 0.2, -1.4 \u00b1 0.4",
+    "phase": "MSPSRPI"
+  },
+  {
+    "name": "PSR J1012+5307",
+    "parallax": "1.17 \u00b1 0.05",
+    "distance": "0.88 \u00b1 0.04",
+    "properMotion": "2.67 \u00b1 0.05, -25.39 \u00b1 0.15",
+    "phase": "MSPSRPI"
+  },
+  {
+    "name": "PSR J1024-0719",
+    "parallax": "0.94 \u00b1 0.06",
+    "distance": "1.08 \u00b1 0.06",
+    "properMotion": "-35.32 \u00b1 0.07, -48.1 \u00b1 0.2",
+    "phase": "MSPSRPI"
+  },
+  {
+    "name": "PSR J1518+4904",
+    "parallax": "1.24 \u00b1 0.03",
+    "distance": "0.81 \u00b1 0.02",
+    "properMotion": "-0.69 \u00b1 0.03, -8.52 \u00b1 0.07",
+    "phase": "MSPSRPI"
+  },
+  {
+    "name": "PSR J1537+1155",
+    "parallax": "1.06 \u00b1 0.10",
+    "distance": "0.94 \u00b1 0.07",
+    "properMotion": "1.51 \u00b1 0.03, -25.30 \u00b1 0.06",
+    "phase": "MSPSRPI"
+  },
+  {
+    "name": "PSR J1640+2224",
+    "parallax": "0.68 \u00b1 0.08",
+    "distance": "1.39 \u00b1 0.12",
+    "properMotion": "2.19 \u00b1 0.09, -11.30 \u00b1 0.14",
+    "phase": "MSPSRPI"
+  },
+  {
+    "name": "PSR J1643-1224",
+    "parallax": "1.31 \u00b1 0.18",
+    "distance": "0.95 \u00b1 0.13",
+    "properMotion": "6.2 \u00b1 0.2, 3.3 \u00b1 0.6",
+    "phase": "MSPSRPI"
+  },
+  {
+    "name": "PSR J1721-2457",
+    "parallax": "0.0 \u00b1 0.2",
+    "distance": "> 1.5",
+    "properMotion": "2.5 \u00b1 0.3, -1.9 \u00b1 0.9",
+    "phase": "MSPSRPI"
+  },
+  {
+    "name": "PSR J1730-2304",
+    "parallax": "1.57 \u00b1 0.18",
+    "distance": "0.51 \u00b1 0.03",
+    "properMotion": "20.3 \u00b1 0.2, -4.8 \u00b1 0.5",
+    "phase": "MSPSRPI"
+  },
+  {
+    "name": "PSR J1738+0333",
+    "parallax": "0.50 \u00b1 0.06",
+    "distance": "1.74 \u00b1 0.14",
+    "properMotion": "6.98 \u00b1 0.08, 5.18 \u00b1 0.16",
+    "phase": "MSPSRPI"
+  },
+  {
+    "name": "PSR J1824-2452A",
+    "parallax": "0.1 \u00b1 0.5",
+    "distance": "5.4 \u00b1 0.1",
+    "properMotion": "0.3 \u00b1 0.6, -3.9 \u00b1 1.3",
+    "phase": "MSPSRPI"
+  },
+  {
+    "name": "PSR J1853+1303",
+    "parallax": "0.49 \u00b1 0.07",
+    "distance": "2.0 \u00b1 0.3",
+    "properMotion": "-1.4 \u00b1 0.1, -2.8 \u00b1 0.2",
+    "phase": "MSPSRPI"
+  },
+  {
+    "name": "PSR J1910-1256",
+    "parallax": "0.25 \u00b1 0.04",
+    "distance": "3.4 \u00b1 0.8",
+    "properMotion": "0.50 \u00b1 0.04, -6.85 \u00b1 0.09",
+    "phase": "MSPSRPI"
+  },
+  {
+    "name": "PSR J1911+1347",
+    "parallax": "0.38 \u00b1 0.14",
+    "distance": "< 1.3",
+    "properMotion": "-13.8 \u00b1 0.2, -10.3 \u00b1 0.4",
+    "phase": "MSPSRPI"
+  },
+  {
+    "name": "PSR J1918-0642",
+    "parallax": "0.60 \u00b1 0.12",
+    "distance": "1.48 \u00b1 0.17",
+    "properMotion": "-7.1 \u00b1 0.1, -5.7 \u00b1 0.3",
+    "phase": "MSPSRPI"
+  },
+  {
+    "name": "PSR J1939+2134",
+    "parallax": "0.38 \u00b1 0.05",
+    "distance": "2.9 \u00b1 0.3",
+    "properMotion": "0.08 \u00b1 0.07, -0.43 \u00b1 0.11",
+    "phase": "MSPSRPI"
+  }
+]

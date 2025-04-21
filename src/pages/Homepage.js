@@ -29,8 +29,8 @@ const Homepage = () => {
     const fetchData = async () => {
       try {
         const [homepageRes, observationRes] = await Promise.all([
-          fetch('/data/HomePage.json'),
-          fetch('/data/observationData.json')
+          fetch('/data/homepage/HomePage.json'),
+          fetch('/data/mspsrpi2/observationData.json')
         ]);
   
         const homepageData = await homepageRes.json();

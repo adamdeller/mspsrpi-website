@@ -1,0 +1,142 @@
+[
+  {
+    "obsCode": "aq1",
+    "srcname": "J1653-2054",
+    "requestSubmitted": true,
+    "obsDate": "2024-02-23",
+    "status": "complete"
+  },
+  {
+    "obsCode": "as1",
+    "srcname": "J1719-1438",
+    "requestSubmitted": true,
+    "obsDate": "2024-03-02",
+    "status": "complete"
+  },
+  {
+    "obsCode": "ar2",
+    "srcname": "J1705-1903",
+    "requestSubmitted": true,
+    "obsDate": "2024-02-26",
+    "status": "complete"
+  },
+  {
+    "obsCode": "ar1",
+    "srcname": "J1705-1903",
+    "requestSubmitted": true,
+    "obsDate": "2024-02-26",
+    "status": "complete"
+  },
+  {
+    "obsCode": "bk1",
+    "srcname": "J2033+1734",
+    "requestSubmitted": true,
+    "obsDate": "2024-02-16",
+    "status": "complete"
+  },
+  {
+    "obsCode": "ak1",
+    "srcname": "J0740+6620",
+    "requestSubmitted": true,
+    "obsDate": "2024-03-15",
+    "status": "complete"
+  },
+  {
+    "obsCode": "bi1",
+    "srcname": "J1955+2908",
+    "requestSubmitted": true,
+    "obsDate": "2024-04-05",
+    "status": "complete"
+  },
+  {
+    "obsCode": "bh1",
+    "srcname": "J1946+3417",
+    "requestSubmitted": true,
+    "obsDate": "2024-04-10",
+    "status": "complete"
+  },
+  {
+    "obsCode": "af1",
+    "srcname": "J0613-0200",
+    "requestSubmitted": true,
+    "obsDate": "2024-03-08",
+    "status": "complete"
+  },
+  {
+    "obsCode": "ae1",
+    "srcname": "J0509+0856",
+    "requestSubmitted": true,
+    "obsDate": "2024-03-08",
+    "status": "complete"
+  },
+  {
+    "obsCode": "ap1",
+    "srcname": "J1614-2230",
+    "requestSubmitted": true,
+    "obsDate": "2024-02-19",
+    "status": "complete"
+  },
+  {
+    "obsCode": "aq2",
+    "srcname": "J1653-2054",
+    "requestSubmitted": true,
+    "obsDate": "2024-02-23",
+    "status": "complete"
+  },
+  {
+    "obsCode": "as2",
+    "srcname": "J1719-1438",
+    "requestSubmitted": true,
+    "obsDate": "2024-03-02",
+    "status": "complete"
+  },
+  {
+    "obsCode": "ad1",
+    "srcname": "J0340+4130",
+    "requestSubmitted": true,
+    "obsDate": "2024-03-08",
+    "status": "complete"
+  },
+  {
+    "obsCode": "am1",
+    "srcname": "J0824+0028",
+    "requestSubmitted": true,
+    "obsDate": "2024-02-17",
+    "status": "complete"
+  },
+  {
+    "obsCode": "am2",
+    "srcname": "J0824+0028",
+    "requestSubmitted": true,
+    "obsDate": "2024-02-17",
+    "status": "complete"
+  },
+  {
+    "obsCode": "aa1",
+    "srcname": "J0023+0923",
+    "requestSubmitted": true,
+    "obsDate": "2024-03-15",
+    "status": "complete"
+  },
+  {
+    "obsCode": "ac1",
+    "srcname": "J0125-2327",
+    "requestSubmitted": true,
+    "obsDate": "2024-03-08",
+    "status": "complete"
+  },
+  {
+    "obsCode": "at1",
+    "srcname": "J1737-0811",
+    "requestSubmitted": true,
+    "obsDate": "2024-03-10",
+    "status": "in-progress"
+  },
+  {
+    "obsCode": "au1",
+    "srcname": "J1741+1351",
+    "requestSubmitted": true,
+    "obsDate": "2024-02-19",
+    "status": "in-progress"
+  }
+]

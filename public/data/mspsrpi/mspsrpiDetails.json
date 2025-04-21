@@ -104,23 +104,19 @@
     "keyResults": [
       {
         "title": "Double Neutron Star System Distance",
-        "description": "Achieved the most significant model-independent distance measurement ever made for a double neutron star system (PSR J1518+4904), with a precision of 0.81 ± 0.02 kpc.",
-        "link": "/publications/dnsDistance"
+        "description": "Achieved the most significant model-independent distance measurement ever made for a double neutron star system (PSR J1518+4904), with a precision of 0.81 ± 0.02 kpc."
       },
       {
         "title": "Refined Orbital Decay Tests",
-        "description": "Enhanced tests of orbital decay in binary systems PSR J1012+5307 and PSR J1738+0333, placing new constraints on dipole gravitational radiation and the time derivative of Newton's gravitational constant.",
-        "link": "/publications/orbitalDecay"
+        "description": "Enhanced tests of orbital decay in binary systems PSR J1012+5307 and PSR J1738+0333, placing new constraints on dipole gravitational radiation and the time derivative of Newton's gravitational constant."
       },
       {
         "title": "Interstellar Medium Characterization",
-        "description": "Detected significant angular broadening for PSR J1643-1224, allowing independent verification of the association between the HII region Sh 2-27 and the main scattering screen of this pulsar.",
-        "link": "/publications/scatteringScreen"
+        "description": "Detected significant angular broadening for PSR J1643-1224, allowing independent verification of the association between the HII region Sh 2-27 and the main scattering screen of this pulsar."
       },
       {
         "title": "Gamma-ray Pulsar Death Line",
-        "description": "Refined the upper limit of the death line of γ-ray-emitting pulsars using the intrinsic spin-down power of PSR J1730-2304, the least energetic γ-ray pulsar known.",
-        "link": "/publications/gammaRayDeathLine"
+        "description": "Refined the upper limit of the death line of γ-ray-emitting pulsars using the intrinsic spin-down power of PSR J1730-2304, the least energetic γ-ray pulsar known."
       }
     ],
   
@@ -162,130 +158,148 @@
   
     "pulsars": [
       {
-        "name": "PSR J0030+0451",
-        "parallax": "3.02 ± 0.07",
-        "distance": "0.329 ± 0.006",
-        "properMotion": "-6.13 ± 0.07, 0.34 ± 0.15",
-        "status": "Complete"
+        "name": "J0030+0451",
+        "ra": "00:30:27.4250",
+        "dec": "04:51:39.0072",
+        "flux_density_1_4GHz": 10,
+        "inbeam_calibrators": 1,
+        "epochs_observed": 10
       },
       {
-        "name": "PSR J0610-2100",
-        "parallax": "0.73 ± 0.10",
-        "distance": "1.5 ± 0.3",
-        "properMotion": "9.1 ± 0.1, 16.0 ± 0.2",
-        "status": "Complete"
+        "name": "J0610-2100",
+        "ra": "06:10:13.6005",
+        "dec": "-21:00:27.0079",
+        "flux_density_1_4GHz": 5,
+        "inbeam_calibrators": 1,
+        "epochs_observed": 10
       },
       {
-        "name": "PSR J0621+1002",
-        "parallax": "0.86 ± 0.15",
-        "distance": "1.6 ± 0.4",
-        "properMotion": "3.5 ± 0.2, -1.4 ± 0.4",
-        "status": "Complete"
+        "name": "J0621+1002",
+        "ra": "06:21:22.1162",
+        "dec": "10:02:38.0073",
+        "flux_density_1_4GHz": 3,
+        "inbeam_calibrators": 1,
+        "epochs_observed": 10
       },
       {
-        "name": "PSR J1012+5307",
-        "parallax": "1.17 ± 0.05",
-        "distance": "0.88 ± 0.04",
-        "properMotion": "2.67 ± 0.05, -25.39 ± 0.15",
-        "status": "Complete"
+        "name": "J1012+5307",
+        "ra": "10:12:33.4399",
+        "dec": "53:07:02.0011",
+        "flux_density_1_4GHz": 30,
+        "inbeam_calibrators": 1,
+        "epochs_observed": 10
       },
       {
-        "name": "PSR J1024-0719",
-        "parallax": "0.94 ± 0.06",
-        "distance": "1.08 ± 0.06",
-        "properMotion": "-35.32 ± 0.07, -48.1 ± 0.2",
-        "status": "Complete"
+        "name": "J1024-0719",
+        "ra": "10:24:38.6573",
+        "dec": "-07:19:19.0080",
+        "flux_density_1_4GHz": 2,
+        "inbeam_calibrators": 1,
+        "epochs_observed": 10
       },
       {
-        "name": "PSR J1518+4904",
-        "parallax": "1.24 ± 0.03",
-        "distance": "0.81 ± 0.02",
-        "properMotion": "-0.69 ± 0.03, -8.52 ± 0.07",
-        "status": "Complete"
+        "name": "J1518+4904",
+        "ra": "15:18:16.7982",
+        "dec": "49:04:34.0011",
+        "flux_density_1_4GHz": 4,
+        "inbeam_calibrators": 2,
+        "epochs_observed": 10
       },
       {
-        "name": "PSR J1537+1155",
-        "parallax": "1.06 ± 0.10",
-        "distance": "0.94 ± 0.07",
-        "properMotion": "1.51 ± 0.03, -25.30 ± 0.06",
-        "status": "Complete"
+        "name": "J1537+1155",
+        "ra": "15:37:09.9635",
+        "dec": "11:55:55.0003",
+        "flux_density_1_4GHz": 2,
+        "inbeam_calibrators": 1,
+        "epochs_observed": 10
       },
       {
-        "name": "PSR J1640+2224",
-        "parallax": "0.68 ± 0.08",
-        "distance": "1.39 ± 0.12",
-        "properMotion": "2.19 ± 0.09, -11.30 ± 0.14",
-        "status": "Complete"
+        "name": "J1640+2224",
+        "ra": "16:40:16.7459",
+        "dec": "22:24:08.0076",
+        "flux_density_1_4GHz": 2,
+        "inbeam_calibrators": 1,
+        "epochs_observed": 10
       },
       {
-        "name": "PSR J1643-1224",
-        "parallax": "1.31 ± 0.18",
-        "distance": "0.95 ± 0.13",
-        "properMotion": "6.2 ± 0.2, 3.3 ± 0.6",
-        "status": "Complete"
+        "name": "J1643-1224",
+        "ra": "16:43:38.1641",
+        "dec": "-12:24:58.0065",
+        "flux_density_1_4GHz": 8,
+        "inbeam_calibrators": 1,
+        "epochs_observed": 10
       },
       {
-        "name": "PSR J1721-2457",
-        "parallax": "0.0 ± 0.2",
-        "distance": "> 1.5",
-        "properMotion": "2.5 ± 0.3, -1.9 ± 0.9",
-        "status": "Complete"
+        "name": "J1721-2457",
+        "ra": "17:21:05.4994",
+        "dec": "-24:57:06.0022",
+        "flux_density_1_4GHz": 1,
+        "inbeam_calibrators": 1,
+        "epochs_observed": 10
       },
       {
-        "name": "PSR J1730-2304",
-        "parallax": "1.57 ± 0.18",
-        "distance": "0.51 ± 0.03",
-        "properMotion": "20.3 ± 0.2, -4.8 ± 0.5",
-        "status": "Complete"
+        "name": "J1730-2304",
+        "ra": "17:30:21.6797",
+        "dec": "-23:04:31.0017",
+        "flux_density_1_4GHz": 4,
+        "inbeam_calibrators": 1,
+        "epochs_observed": 10
       },
       {
-        "name": "PSR J1738+0333",
-        "parallax": "0.50 ± 0.06",
-        "distance": "1.74 ± 0.14",
-        "properMotion": "6.98 ± 0.08, 5.18 ± 0.16",
-        "status": "Complete"
+        "name": "J1738+0333",
+        "ra": "17:38:53.9700",
+        "dec": "03:33:10.0091",
+        "flux_density_1_4GHz": 2,
+        "inbeam_calibrators": 1,
+        "epochs_observed": 9
       },
       {
-        "name": "PSR J1824-2452A",
-        "parallax": "0.1 ± 0.5",
-        "distance": "5.4 ± 0.1",
-        "properMotion": "0.3 ± 0.6, -3.9 ± 1.3",
-        "status": "Complete"
+        "name": "J1824-2452A",
+        "ra": "18:24:32.0079",
+        "dec": "-24:52:10.0091",
+        "flux_density_1_4GHz": 1,
+        "inbeam_calibrators": 1,
+        "epochs_observed": 10
       },
       {
-        "name": "PSR J1853+1303",
-        "parallax": "0.49 ± 0.07",
-        "distance": "2.0 ± 0.3",
-        "properMotion": "-1.4 ± 0.1, -2.8 ± 0.2",
-        "status": "Complete"
+        "name": "J1853+1303",
+        "ra": "18:53:57.3179",
+        "dec": "13:03:44.0005",
+        "flux_density_1_4GHz": 1,
+        "inbeam_calibrators": 1,
+        "epochs_observed": 10
       },
       {
-        "name": "PSR J1910-1256",
-        "parallax": "0.25 ± 0.04",
-        "distance": "3.4 ± 0.8",
-        "properMotion": "0.50 ± 0.04, -6.85 ± 0.09",
-        "status": "Complete"
+        "name": "J1910+1256",
+        "ra": "19:10:09.7017",
+        "dec": "12:56:25.0043",
+        "flux_density_1_4GHz": 1,
+        "inbeam_calibrators": 2,
+        "epochs_observed": 10
       },
       {
-        "name": "PSR J1911+1347",
-        "parallax": "0.38 ± 0.14",
-        "distance": "< 1.3",
-        "properMotion": "-13.8 ± 0.2, -10.3 ± 0.4",
-        "status": "Complete"
+        "name": "J1911-1114",
+        "ra": "19:11:49.2754",
+        "dec": "-11:14:22.0055",
+        "flux_density_1_4GHz": 2,
+        "inbeam_calibrators": 1,
+        "epochs_observed": 10
       },
       {
-        "name": "PSR J1918-0642",
-        "parallax": "0.60 ± 0.12",
-        "distance": "1.48 ± 0.17",
-        "properMotion": "-7.1 ± 0.1, -5.7 ± 0.3",
-        "status": "Complete"
+        "name": "J1918-0642",
+        "ra": "19:18:48.0296",
+        "dec": "-06:42:34.0093",
+        "flux_density_1_4GHz": 2,
+        "inbeam_calibrators": 1,
+        "epochs_observed": 10
       },
       {
-        "name": "PSR J1939+2134",
-        "parallax": "0.38 ± 0.05",
-        "distance": "2.9 ± 0.3",
-        "properMotion": "0.08 ± 0.07, -0.43 ± 0.11",
-        "status": "Complete"
+        "name": "J1939+2134",
+        "ra": "19:39:38.5613",
+        "dec": "21:34:59.0012",
+        "flux_density_1_4GHz": 10,
+        "inbeam_calibrators": 2,
+        "epochs_observed": 10
       }
     ],
   

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { 
   ChevronLeft,
   ExternalLink,
@@ -7,18 +7,15 @@ import {
   Radio,
   ChevronUp,
   ArrowRight,
-  RefreshCw  // Added RefreshCw icon for refresh button
+  Filter
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
-// Remove the direct import
-// import mspsrpiDataJson from '../data/mspsrpiDetails.json';
 
 const MSPSRPIDetailsPage = () => {
   const [activeTab, setActiveTab] = useState('overview');
   const [showScrollTop, setShowScrollTop] = useState(false);
   
-  // Add state for data, loading, refreshing, and lastUpdated
+  // Add state for data, loading, and lastUpdated
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
@@ -29,8 +26,17 @@ const MSPSRPIDetailsPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const pulsarsPerPage = 8;
   
-  // Function to fetch data
-  const fetchData = async () => {
+  // For flux density filtering
+  const [fluxFilter, setFluxFilter] = useState('all');
+  
+  // Function to fetch data - with timestamp check added
+  const fetchData = useCallback(async () => {
+    // Check if it's been less than 24 hours since the last update
+    // If we have a lastUpdated time and it's been less than 24 hours, skip fetch
+    if (lastUpdated && (new Date() - lastUpdated < 86400000)) {
+      return; // Skip the fetch if less than a day has passed
+    }
+    
     // If refreshing, set refreshing state, otherwise set loading state
     if (data) {
       setRefreshing(true);
@@ -40,7 +46,7 @@ const MSPSRPIDetailsPage = () => {
     
     try {
       // Use cache-busting query parameter
-      const response = await fetch(`/data/mspsrpiDetails.json?t=${Date.now()}`);
+      const response = await fetch(`/data/mspsrpi/mspsrpiDetails.json?t=${Date.now()}`);
       
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -48,7 +54,10 @@ const MSPSRPIDetailsPage = () => {
       
       const jsonData = await response.json();
       setData(jsonData);
-      setLastUpdated(new Date());
+      const now = new Date();
+      setLastUpdated(now);
+      // Single console log here when data is actually updated
+      console.log(`Data refreshed at: ${now.toLocaleTimeString()}`);
       setError(null);
     } catch (err) {
       console.error('Error fetching data:', err);
@@ -57,23 +66,50 @@ const MSPSRPIDetailsPage = () => {
       setLoading(false);
       setRefreshing(false);
     }
-  };
+  }, [data, lastUpdated]); // Added lastUpdated as dependency
   
-  // Fetch data on component mount
+  // Initial data load and set up auto-refresh
   useEffect(() => {
+    // Initial fetch
     fetchData();
-  }, []);
+    
+    // Set up auto-refresh daily
+    const refreshInterval = setInterval(() => {
+      fetchData();
+    }, 86400000); // 24 hours = 86,400,000 milliseconds
+    
+    // Clean up interval on component unmount
+    return () => clearInterval(refreshInterval);
+  }, []); // Removed fetchData dependency to prevent unnecessary interval resets
+  
+  // Filter pulsars based on flux density
+  const filteredPulsars = data?.pulsars 
+    ? data.pulsars.filter(pulsar => {
+        const flux = parseFloat(pulsar.flux_density_1_4GHz);
+        
+        switch(fluxFilter) {
+          case 'low':
+            return flux >= 0.2 && flux < 0.76;
+          case 'medium':
+            return flux >= 0.76 && flux < 1.2;
+          case 'high':
+            return flux >= 1.2;
+          default:
+            return true; // 'all' filter
+        }
+      })
+    : [];
   
   // Calculate pulsars to display based on pagination
-  const currentPulsars = data?.pulsars 
-    ? data.pulsars.slice(
+  const currentPulsars = filteredPulsars
+    ? filteredPulsars.slice(
         (currentPage - 1) * pulsarsPerPage, 
         currentPage * pulsarsPerPage
       ) 
     : [];
   
-  const totalPages = data?.pulsars 
-    ? Math.ceil(data.pulsars.length / pulsarsPerPage) 
+  const totalPages = filteredPulsars 
+    ? Math.ceil(filteredPulsars.length / pulsarsPerPage) 
     : 0;
 
   // Scroll to top function
@@ -151,7 +187,7 @@ const MSPSRPIDetailsPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-950 via-slate-900 to-black text-gray-100">
-      {/* Navigation - Same as homepage */}
+      {/* Navigation - Same as homepage, but without the refresh button */}
       <nav className="bg-slate-900/90 backdrop-blur-md fixed w-full z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
@@ -164,17 +200,6 @@ const MSPSRPIDetailsPage = () => {
               <a href="/data-release" className="text-gray-300 hover:text-purple-400 px-3 py-2 font-medium">Data Release</a>
               <a href="/publications" className="text-gray-300 hover:text-purple-400 px-3 py-2 font-medium">Publications</a>
               <a href="/team" className="text-gray-300 hover:text-purple-400 px-3 py-2 font-medium">Team</a>
-              
-              {/* Add refresh button */}
-              <button 
-                onClick={fetchData}
-                disabled={refreshing}
-                className={`flex items-center text-purple-300 hover:text-purple-400 px-3 py-2 font-medium ${refreshing ? 'opacity-70 cursor-not-allowed' : ''}`}
-                aria-label="Refresh data"
-              >
-                <RefreshCw className={`w-5 h-5 mr-1 ${refreshing ? 'animate-spin' : ''}`} />
-                {refreshing ? 'Refreshing...' : 'Refresh'}
-              </button>
             </div>
           </div>
         </div>
@@ -285,7 +310,7 @@ const MSPSRPIDetailsPage = () => {
                   : 'text-gray-400 hover:text-purple-300'
               }`}
             >
-              Pulsar List
+              Target Pulsars
             </button>
           </div>
         </div>
@@ -447,6 +472,57 @@ const MSPSRPIDetailsPage = () => {
                   </div>
                 </div>
                 
+                {/* Flux Density Filter */}
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold text-white mb-3">
+                    <span className="flex items-center">
+                      <Filter className="w-5 h-5 mr-2" /> Filter by Flux Density
+                    </span>
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    <button 
+                      className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                        fluxFilter === 'all' 
+                          ? 'bg-blue-900 text-blue-100' 
+                          : 'bg-slate-800 text-gray-300 hover:bg-slate-700'
+                      }`}
+                      onClick={() => setFluxFilter('all')}
+                    >
+                      All Pulsars
+                    </button>
+                    <button 
+                      className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                        fluxFilter === 'low' 
+                          ? 'bg-blue-900 text-blue-100' 
+                          : 'bg-slate-800 text-gray-300 hover:bg-slate-700'
+                      }`}
+                      onClick={() => setFluxFilter('low')}
+                    >
+                      0.2-0.76 mJy
+                    </button>
+                    <button 
+                      className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                        fluxFilter === 'medium' 
+                          ? 'bg-blue-900 text-blue-100' 
+                          : 'bg-slate-800 text-gray-300 hover:bg-slate-700'
+                      }`}
+                      onClick={() => setFluxFilter('medium')}
+                    >
+                      0.76-1.2 mJy
+                    </button>
+                    <button 
+                      className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                        fluxFilter === 'high' 
+                          ? 'bg-blue-900 text-blue-100' 
+                          : 'bg-slate-800 text-gray-300 hover:bg-slate-700'
+                      }`}
+                      onClick={() => setFluxFilter('high')}
+                    >
+                      &gt;1.2 mJy
+                    </button>
+                  </div>
+                </div>
+                
                 {/* Information about catalogue paper */}
                 <div className="bg-slate-800/50 rounded-lg p-4 mb-6 border border-purple-500/30">
                   <p className="text-gray-300">
@@ -468,10 +544,11 @@ const MSPSRPIDetailsPage = () => {
                     <thead className="bg-slate-800/50">
                       <tr>
                         <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-purple-300 uppercase tracking-wider">Pulsar</th>
-                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-purple-300 uppercase tracking-wider">Parallax (mas)</th>
-                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-purple-300 uppercase tracking-wider">Distance (kpc)</th>
-                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-purple-300 uppercase tracking-wider">Proper Motion</th>
-                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-purple-300 uppercase tracking-wider">Status</th>
+                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-purple-300 uppercase tracking-wider">RA</th>
+                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-purple-300 uppercase tracking-wider">Dec</th>
+                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-purple-300 uppercase tracking-wider">1.4 GHz flux density (mJy)</th>
+                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-purple-300 uppercase tracking-wider">Number of inbeam calibrators</th>
+                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-purple-300 uppercase tracking-wider">Number of epochs observed</th>
                       </tr>
                     </thead>
                     <tbody className="bg-slate-900/30 divide-y divide-slate-800/50">
@@ -483,20 +560,11 @@ const MSPSRPIDetailsPage = () => {
                               <span>{pulsar.name}</span>
                             </div>
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{pulsar.parallax}</td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{pulsar.distance}</td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{pulsar.properMotion}</td>
-                          <td className="px-6 py-4 whitespace-nowrap">
-                            <span className={`px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                              pulsar.status === 'Complete' 
-                                ? 'bg-green-900/40 text-green-300' 
-                                : pulsar.status === 'In Progress' 
-                                ? 'bg-amber-900/40 text-amber-300' 
-                                : 'bg-gray-800 text-gray-300'
-                            }`}>
-                              {pulsar.status}
-                            </span>
-                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{pulsar.ra}</td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{pulsar.dec}</td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{pulsar.flux_density_1_4GHz}</td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{pulsar.inbeam_calibrators}</td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{pulsar.epochs_observed}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -576,16 +644,6 @@ const MSPSRPIDetailsPage = () => {
           </p>
         </div>
       </div>
-
-      {/* Last updated indicator */}
-      {lastUpdated && (
-        <div className="fixed bottom-6 left-6 bg-slate-900/70 backdrop-blur-sm rounded-lg px-3 py-2 text-xs text-gray-300 border border-purple-900/30">
-          <div className="flex items-center">
-            <span className={`h-2 w-2 rounded-full mr-2 ${refreshing ? 'bg-blue-400 animate-pulse' : 'bg-green-400'}`}></span>
-            Last updated: {lastUpdated.toLocaleTimeString()}
-          </div>
-        </div>
-      )}
 
       {/* Scroll to top button */}
       {showScrollTop && (

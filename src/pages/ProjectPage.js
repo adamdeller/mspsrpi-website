@@ -1,18 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { 
   ChevronRight,
-  ExternalLink,
-  RefreshCw
+  ExternalLink
 } from 'lucide-react';
-
-// Remove direct imports
-// import projectDataJson from '../data/projectData.json';
-// import observationDataFromJson from '../data/observationData.json';
 
 const ProjectPage = () => {
   const [activePhase, setActivePhase] = useState('mspsrpi2');
   
-  // Add state for data, loading, refreshing, and lastUpdated
+  // Add state for data, loading, and refresh tracking 
   const [projectData, setProjectData] = useState(null);
   const [observationData, setObservationData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -20,8 +15,14 @@ const ProjectPage = () => {
   const [lastUpdated, setLastUpdated] = useState(null);
   const [error, setError] = useState(null);
   
-  // Function to fetch data
-  const fetchData = async () => {
+  // Function to fetch data - with timestamp check added
+  const fetchData = useCallback(async () => {
+    // Check if it's been less than 24 hours since the last update
+    // If we have a lastUpdated time and it's been less than 24 hours, skip fetch
+    if (lastUpdated && (new Date() - lastUpdated < 86400000)) {
+      return; // Skip the fetch if less than a day has passed
+    }
+    
     // If refreshing, set refreshing state, otherwise set loading state
     if (projectData && observationData) {
       setRefreshing(true);
@@ -32,8 +33,8 @@ const ProjectPage = () => {
     try {
       // Fetch both JSON files in parallel
       const [projectResponse, observationResponse] = await Promise.all([
-        fetch(`/data/projectData.json?t=${Date.now()}`),
-        fetch(`/data/observationData.json?t=${Date.now()}`)
+        fetch(`/data/projectpage/projectData.json?t=${Date.now()}`),
+        fetch(`/data/mspsrpi2/observationData.json?t=${Date.now()}`)
       ]);
       
       // Check if both responses are ok
@@ -52,7 +53,10 @@ const ProjectPage = () => {
       // Update state with the fetched data
       setProjectData(projectDataJson);
       setObservationData(observationDataJson);
-      setLastUpdated(new Date());
+      const now = new Date();
+      setLastUpdated(now);
+      // Single console log here when data is actually updated
+      console.log(`Data refreshed at: ${now.toLocaleTimeString()}`);
       setError(null);
     } catch (err) {
       console.error('Error fetching data:', err);
@@ -61,12 +65,21 @@ const ProjectPage = () => {
       setLoading(false);
       setRefreshing(false);
     }
-  };
+  }, [projectData, observationData, lastUpdated]); // Added lastUpdated as dependency
   
-  // Fetch data on component mount
+  // Initial data load and set up auto-refresh
   useEffect(() => {
+    // Initial fetch
     fetchData();
-  }, []);
+    
+    // Set up auto-refresh daily
+    const refreshInterval = setInterval(() => {
+      fetchData();
+    }, 86400000); // 24 hours = 86,400,000 milliseconds
+    
+    // Clean up interval on component unmount
+    return () => clearInterval(refreshInterval);
+  }, []); // Removed fetchData dependency to prevent unnecessary interval resets
   
   // Calculate simplified progress statistics - now using the state data
   const progressStats = React.useMemo(() => {
@@ -195,17 +208,6 @@ const ProjectPage = () => {
               <a href="/data-release" className="text-gray-300 hover:text-indigo-400 px-3 py-2 font-medium">Data Release</a>
               <a href="/publications" className="text-gray-300 hover:text-indigo-400 px-3 py-2 font-medium">Publications</a>
               <a href="/team" className="text-gray-300 hover:text-indigo-400 px-3 py-2 font-medium">Team</a>
-              
-              {/* Add refresh button */}
-              <button 
-                onClick={fetchData}
-                disabled={refreshing}
-                className={`flex items-center text-indigo-300 hover:text-indigo-400 px-3 py-2 font-medium ${refreshing ? 'opacity-70 cursor-not-allowed' : ''}`}
-                aria-label="Refresh data"
-              >
-                <RefreshCw className={`w-5 h-5 mr-1 ${refreshing ? 'animate-spin' : ''}`} />
-                {refreshing ? 'Refreshing...' : 'Refresh'}
-              </button>
             </div>
           </div>
         </div>
@@ -256,8 +258,6 @@ const ProjectPage = () => {
         {/* Timeline section - Now using data from siteInfo.timeline */}
         <div className="relative py-6 mb-6">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <h2 className="text-2xl font-bold text-white mb-6 text-center">Project Timeline</h2>
-            
             <div className="relative">
               {/* Timeline line */}
               <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-indigo-900/50 via-indigo-500/50 to-indigo-900/50"></div>
@@ -467,7 +467,6 @@ const ProjectPage = () => {
               <p className="text-sm text-amber-200 relative z-10">Currently being observed</p>
             </div>
             
-            
             {/* Completed */}
             <div className="bg-slate-900/60 backdrop-blur-sm border-2 border-emerald-500/30 rounded-lg p-4 text-center relative overflow-hidden group transition-all duration-300 hover:border-emerald-500/50 hover:shadow-[0_0_15px_rgba(16,185,129,0.3)]">
               <h3 className="text-lg font-semibold text-emerald-300 mb-2 relative z-10">Completed</h3>
@@ -489,15 +488,7 @@ const ProjectPage = () => {
         </div>
       </div>
       
-      {/* Last updated indicator */}
-      {lastUpdated && (
-        <div className="fixed bottom-6 left-6 bg-slate-900/70 backdrop-blur-sm rounded-lg px-3 py-2 text-xs text-gray-300 border border-indigo-900/30">
-          <div className="flex items-center">
-            <span className={`h-2 w-2 rounded-full mr-2 ${refreshing ? 'bg-indigo-400 animate-pulse' : 'bg-green-400'}`}></span>
-            Last updated: {lastUpdated.toLocaleTimeString()}
-          </div>
-        </div>
-      )}
+      {/* Removed the in-render console.log that was causing multiple logs */}
       
       {/* Footer */}
       <div className="py-6 border-t border-slate-800/50 bg-black">

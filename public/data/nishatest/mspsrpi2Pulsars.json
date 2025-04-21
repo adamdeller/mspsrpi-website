@@ -8,7 +8,13 @@
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
     "memberships": ["NANOGrav", "CPTA"],
-    "notes": ""
+    "notes": "",
+    "position": {
+      "rightAscension": "00h23m16.8765345s",
+      "declination": "+09°23'23.8769699\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "4.0 hours"
   },
   {
     "name": "J0034-0534",
@@ -19,7 +25,13 @@
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
     "memberships": ["CPTA"],
-    "notes": ""
+    "notes": "",
+    "position": {
+      "rightAscension": "00h34m21.8342200s",
+      "declination": "-05°34'36.7220000\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "4.0 hours"
   },
   {
     "name": "J0340+4130",
@@ -30,7 +42,13 @@
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
     "memberships": ["NANOGrav", "CPTA"],
-    "notes": ""
+    "notes": "",
+    "position": {
+      "rightAscension": "03h40m23.2877644s",
+      "declination": "+41°30'45.3013214\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "4.0 hours"
   },
   {
     "name": "J0645+5158",
@@ -41,7 +59,13 @@
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
     "memberships": ["NANOGrav", "CPTA"],
-    "notes": "Has significant timing parallax"
+    "notes": "Has significant timing parallax",
+    "position": {
+      "rightAscension": "06h45m59.0827386s",
+      "declination": "+51°58'14.9106167\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "4.0 hours"
   },
   {
     "name": "J0709+0458",
@@ -52,7 +76,13 @@
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
     "memberships": ["NANOGrav"],
-    "notes": ""
+    "notes": "",
+    "position": {
+      "rightAscension": "07h09m08.3653900s",
+      "declination": "+04°58'51.4941000\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "4.0 hours"
   },
   {
     "name": "J0732+2314",
@@ -63,7 +93,13 @@
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
     "memberships": ["CPTA"],
-    "notes": ""
+    "notes": "",
+    "position": {
+      "rightAscension": "07h32m37.5156000s",
+      "declination": "+23°14'54.2100000\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "4.0 hours"
   },
   {
     "name": "J0824+0028",
@@ -74,7 +110,13 @@
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
     "memberships": ["CPTA"],
-    "notes": ""
+    "notes": "",
+    "position": {
+      "rightAscension": "08h24m24.8402200s",
+      "declination": "+00°28'00.5670000\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "4.0 hours"
   },
   {
     "name": "J0931-1902",
@@ -85,7 +127,13 @@
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
     "memberships": ["NANOGrav", "MPTA"],
-    "notes": "Southerly position"
+    "notes": "Southerly position; Two 2-hr sessions due to southerly position",
+    "position": {
+      "rightAscension": "09h31m19.1159271s",
+      "declination": "-19°02'55.0405784\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "4.0 hours"
   },
   {
     "name": "J1653-2054",
@@ -96,7 +144,13 @@
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
     "memberships": ["MPTA"],
-    "notes": "Southerly position"
+    "notes": "Southerly position; Two 2-hr sessions due to southerly position",
+    "position": {
+      "rightAscension": "16h53m31.0300000s",
+      "declination": "-20°54'55.1000000\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "4.0 hours"
   },
   {
     "name": "J1705-1903",
@@ -107,7 +161,13 @@
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
     "memberships": ["NANOGrav", "MPTA"],
-    "notes": "Southerly position"
+    "notes": "Southerly position; Two 2-hr sessions due to southerly position",
+    "position": {
+      "rightAscension": "17h05m27.0000000s",
+      "declination": "-19°08'04.0000000\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "4.0 hours"
   },
   {
     "name": "J1719-1438",
@@ -118,7 +178,13 @@
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
     "memberships": ["NANOGrav", "MPTA"],
-    "notes": "Southerly position"
+    "notes": "Southerly position; Two 2-hr sessions due to southerly position",
+    "position": {
+      "rightAscension": "17h19m10.0729300s",
+      "declination": "-14°38'00.9420000\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "4.0 hours"
   },
   {
     "name": "J1741+1351",
@@ -129,7 +195,13 @@
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
     "memberships": ["NANOGrav", "PPTA", "CPTA"],
-    "notes": ""
+    "notes": "",
+    "position": {
+      "rightAscension": "17h41m31.1434937s",
+      "declination": "+13°51'44.1137304\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "4.0 hours"
   },
   {
     "name": "J1745+1017",
@@ -140,7 +212,13 @@
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
     "memberships": ["NANOGrav", "CPTA"],
-    "notes": ""
+    "notes": "",
+    "position": {
+      "rightAscension": "17h45m33.8371000s",
+      "declination": "+10°17'52.5230000\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "4.0 hours"
   },
   {
     "name": "J1802-2124",
@@ -151,7 +229,13 @@
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
     "memberships": ["NANOGrav", "MPTA"],
-    "notes": "Southerly position"
+    "notes": "Southerly position; Two 2-hr sessions due to southerly position",
+    "position": {
+      "rightAscension": "18h02m05.3355760s",
+      "declination": "-21°24'03.6490000\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "4.0 hours"
   },
   {
     "name": "J1903+0327",
@@ -162,7 +246,13 @@
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
     "memberships": ["NANOGrav", "CPTA"],
-    "notes": ""
+    "notes": "",
+    "position": {
+      "rightAscension": "19h03m05.7932130s",
+      "declination": "+03°27'19.2091100\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "4.0 hours"
   },
   {
     "name": "J1923+2515",
@@ -173,7 +263,13 @@
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
     "memberships": ["NANOGrav", "CPTA"],
-    "notes": ""
+    "notes": "",
+    "position": {
+      "rightAscension": "19h23m22.4907499s",
+      "declination": "+25°15'40.5862829\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "4.0 hours"
   },
   {
     "name": "J2019+2425",
@@ -184,7 +280,13 @@
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
     "memberships": ["CPTA"],
-    "notes": ""
+    "notes": "",
+    "position": {
+      "rightAscension": "20h19m31.9490000s",
+      "declination": "+24°25'15.3038000\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "4.0 hours"
   },
   {
     "name": "J2033+1734",
@@ -195,7 +297,13 @@
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
     "memberships": ["NANOGrav", "CPTA"],
-    "notes": ""
+    "notes": "",
+    "position": {
+      "rightAscension": "20h33m27.5102538s",
+      "declination": "+17°34'58.4726357\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "4.0 hours"
   },
   {
     "name": "J2150-0326",
@@ -206,7 +314,13 @@
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
     "memberships": ["CPTA", "MPTA"],
-    "notes": ""
+    "notes": "",
+    "position": {
+      "rightAscension": "21h50m00.0000000s",
+      "declination": "-3°26'00.0000000\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "4.0 hours"
   },
   {
     "name": "J2214+3000",
@@ -217,7 +331,13 @@
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
     "memberships": ["NANOGrav", "CPTA"],
-    "notes": ""
+    "notes": "",
+    "position": {
+      "rightAscension": "22h14m38.8524262s",
+      "declination": "+30°00'38.2061247\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "4.0 hours"
   },
   {
     "name": "J2234+0611",
@@ -228,7 +348,13 @@
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
     "memberships": ["NANOGrav", "CPTA"],
-    "notes": "Has significant timing parallax"
+    "notes": "Has significant timing parallax",
+    "position": {
+      "rightAscension": "22h34m23.0730900s",
+      "declination": "+06°11'28.6863300\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "4.0 hours"
   },
   {
     "name": "J2322+2057",
@@ -239,7 +365,13 @@
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
     "memberships": ["NANOGrav", "EPTA", "CPTA", "MPTA"],
-    "notes": ""
+    "notes": "",
+    "position": {
+      "rightAscension": "23h22m22.3351600s",
+      "declination": "+20°57'02.6772000\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "4.0 hours"
   },
   {
     "name": "J0636+5128",
@@ -250,7 +382,13 @@
     "fluxCategory": "0.76-1.2 mJy",
     "sessionDuration": "2 hr",
     "memberships": ["NANOGrav"],
-    "notes": "Has significant timing parallax"
+    "notes": "Has significant timing parallax",
+    "position": {
+      "rightAscension": "06h36m04.8478766s",
+      "declination": "+51°28'59.9636730\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "2.0 hours"
   },
   {
     "name": "J0740+6620",
@@ -261,7 +399,13 @@
     "fluxCategory": "0.76-1.2 mJy",
     "sessionDuration": "2 hr",
     "memberships": ["NANOGrav"],
-    "notes": ""
+    "notes": "",
+    "position": {
+      "rightAscension": "07h40m45.7941336s",
+      "declination": "+66°20'33.5133233\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "2.0 hours"
   },
   {
     "name": "J1125+7819",
@@ -272,7 +416,13 @@
     "fluxCategory": "0.76-1.2 mJy",
     "sessionDuration": "2 hr",
     "memberships": ["NANOGrav"],
-    "notes": ""
+    "notes": "",
+    "position": {
+      "rightAscension": "11h25m59.8567231s",
+      "declination": "+78°19'48.6991467\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "2.0 hours"
   },
   {
     "name": "J1614-2230",
@@ -283,7 +433,13 @@
     "fluxCategory": "0.76-1.2 mJy",
     "sessionDuration": "2 hr",
     "memberships": ["NANOGrav", "MPTA"],
-    "notes": "Has significant timing parallax"
+    "notes": "Has significant timing parallax",
+    "position": {
+      "rightAscension": "16h14m36.5069680s",
+      "declination": "-22°30'31.3042183\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "2.0 hours"
   },
   {
     "name": "J1737-0811",
@@ -294,7 +450,13 @@
     "fluxCategory": "0.76-1.2 mJy",
     "sessionDuration": "2 hr",
     "memberships": ["MPTA"],
-    "notes": ""
+    "notes": "",
+    "position": {
+      "rightAscension": "17h37m47.1123500s",
+      "declination": "-8°11'08.8870000\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "2.0 hours"
   },
   {
     "name": "J1756-2251",
@@ -305,7 +467,13 @@
     "fluxCategory": "0.76-1.2 mJy",
     "sessionDuration": "2 hr",
     "memberships": ["MPTA"],
-    "notes": ""
+    "notes": "",
+    "position": {
+      "rightAscension": "17h56m46.6338120s",
+      "declination": "-22°51'59.3500000\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "2.0 hours"
   },
   {
     "name": "J1832-0836",
@@ -316,7 +484,13 @@
     "fluxCategory": "0.76-1.2 mJy",
     "sessionDuration": "2 hr",
     "memberships": ["NANOGrav", "PPTA", "CPTA", "MPTA"],
-    "notes": "Has significant timing parallax"
+    "notes": "Has significant timing parallax",
+    "position": {
+      "rightAscension": "18h32m27.5916827s",
+      "declination": "-8°36'55.0320340\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "2.0 hours"
   },
   {
     "name": "J1911+1347",
@@ -327,7 +501,13 @@
     "fluxCategory": "0.76-1.2 mJy",
     "sessionDuration": "2 hr",
     "memberships": ["NANOGrav", "EPTA", "CPTA"],
-    "notes": "Has significant timing parallax"
+    "notes": "Has significant timing parallax",
+    "position": {
+      "rightAscension": "19h11m55.2022379s",
+      "declination": "+13°47'34.3601949\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "2.0 hours"
   },
   {
     "name": "J1946+3417",
@@ -338,7 +518,13 @@
     "fluxCategory": "0.76-1.2 mJy",
     "sessionDuration": "2 hr",
     "memberships": ["NANOGrav", "CPTA"],
-    "notes": ""
+    "notes": "",
+    "position": {
+      "rightAscension": "19h46m25.1282300s",
+      "declination": "+34°17'14.6968070\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "2.0 hours"
   },
   {
     "name": "J1955+2908",
@@ -349,7 +535,13 @@
     "fluxCategory": "0.76-1.2 mJy",
     "sessionDuration": "2 hr",
     "memberships": ["NANOGrav", "CPTA"],
-    "notes": ""
+    "notes": "",
+    "position": {
+      "rightAscension": "19h55m27.8737345s",
+      "declination": "+29°08'43.4405934\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "2.0 hours"
   },
   {
     "name": "J2229+2643",
@@ -360,7 +552,13 @@
     "fluxCategory": "0.76-1.2 mJy",
     "sessionDuration": "2 hr",
     "memberships": ["NANOGrav", "CPTA", "MPTA"],
-    "notes": ""
+    "notes": "",
+    "position": {
+      "rightAscension": "22h29m50.8832051s",
+      "declination": "+26°43'57.6590766\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "2.0 hours"
   },
   {
     "name": "J0125-2327",
@@ -371,7 +569,13 @@
     "fluxCategory": ">1.2 mJy",
     "sessionDuration": "1 hr",
     "memberships": ["PPTA", "MPTA"],
-    "notes": ""
+    "notes": "",
+    "position": {
+      "rightAscension": "01h25m10.0000000s",
+      "declination": "-23°27'26.0000000\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "1.0 hour"
   },
   {
     "name": "J0509+0856",
@@ -382,7 +586,13 @@
     "fluxCategory": ">1.2 mJy",
     "sessionDuration": "1 hr",
     "memberships": ["NANOGrav", "CPTA"],
-    "notes": ""
+    "notes": "",
+    "position": {
+      "rightAscension": "05h09m22.2348500s",
+      "declination": "+08°56'25.0248000\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "1.0 hour"
   },
   {
     "name": "J0613-0200",
@@ -393,7 +603,13 @@
     "fluxCategory": ">1.2 mJy",
     "sessionDuration": "1 hr",
     "memberships": ["NANOGrav", "EPTA", "PPTA", "CPTA", "MPTA"],
-    "notes": "Has significant timing parallax"
+    "notes": "Has significant timing parallax",
+    "position": {
+      "rightAscension": "06h13m43.9748894s",
+      "declination": "-2°00'47.2375938\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "1.0 hour"
   },
   {
     "name": "J0751+1807",
@@ -404,7 +620,13 @@
     "fluxCategory": ">1.2 mJy",
     "sessionDuration": "1 hr",
     "memberships": ["EPTA", "CPTA"],
-    "notes": "Has significant timing parallax"
+    "notes": "Has significant timing parallax",
+    "position": {
+      "rightAscension": "07h51m09.1553310s",
+      "declination": "+18°07'38.4864000\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "1.0 hour"
   },
   {
     "name": "J1744-1134",
@@ -415,7 +637,13 @@
     "fluxCategory": ">1.2 mJy",
     "sessionDuration": "1 hr",
     "memberships": ["NANOGrav", "EPTA", "PPTA", "CPTA", "MPTA"],
-    "notes": "Has significant timing parallax"
+    "notes": "Has significant timing parallax",
+    "position": {
+      "rightAscension": "17h44m29.4090302s",
+      "declination": "-11°34'54.7186693\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "1.0 hour"
   },
   {
     "name": "J1801-1417",
@@ -426,7 +654,13 @@
     "fluxCategory": ">1.2 mJy",
     "sessionDuration": "1 hr",
     "memberships": ["EPTA", "MPTA"],
-    "notes": ""
+    "notes": "",
+    "position": {
+      "rightAscension": "18h01m51.0733310s",
+      "declination": "-14°17'34.5260000\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "1.0 hour"
   },
   {
     "name": "J1811-2405",
@@ -437,7 +671,13 @@
     "fluxCategory": ">1.2 mJy",
     "sessionDuration": "1 hr",
     "memberships": ["NANOGrav", "MPTA"],
-    "notes": ""
+    "notes": "",
+    "position": {
+      "rightAscension": "18h11m19.8540500s",
+      "declination": "-24°05'18.4220000\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "1.0 hour"
   },
   {
     "name": "J1857+0943",
@@ -448,7 +688,13 @@
     "fluxCategory": ">1.2 mJy",
     "sessionDuration": "1 hr",
     "memberships": ["NANOGrav", "EPTA", "PPTA", "CPTA"],
-    "notes": "Has significant timing parallax"
+    "notes": "Has significant timing parallax",
+    "position": {
+      "rightAscension": "18h57m36.3891327s",
+      "declination": "+09°43'17.1951101\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "1.0 hour"
   },
   {
     "name": "J1944+0907",
@@ -459,7 +705,13 @@
     "fluxCategory": ">1.2 mJy",
     "sessionDuration": "1 hr",
     "memberships": ["NANOGrav", "CPTA"],
-    "notes": ""
+    "notes": "",
+    "position": {
+      "rightAscension": "19h44m09.3288409s",
+      "declination": "+09°07'23.0352749\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "1.0 hour"
   },
   {
     "name": "J2234+0944",
@@ -470,7 +722,13 @@
     "fluxCategory": ">1.2 mJy",
     "sessionDuration": "1 hr",
     "memberships": ["NANOGrav", "CPTA", "MPTA"],
-    "notes": ""
+    "notes": "",
+    "position": {
+      "rightAscension": "22h34m46.8531250s",
+      "declination": "+09°44'30.2376140\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "1.0 hour"
   },
   {
     "name": "J2302+4442",
@@ -481,6 +739,12 @@
     "fluxCategory": ">1.2 mJy",
     "sessionDuration": "1 hr",
     "memberships": ["NANOGrav", "CPTA"],
-    "notes": ""
+    "notes": "",
+    "position": {
+      "rightAscension": "23h02m46.9770909s",
+      "declination": "+44°42'22.0964087\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "1.0 hour"
   }
 ]

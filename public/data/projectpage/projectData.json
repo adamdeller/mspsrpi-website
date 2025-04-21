@@ -2,7 +2,7 @@
   "siteInfo": {
     "heroTitle": "Millisecond Pulsar Parallax Program",
     "heroSubtitle": "Mapping the Galaxy's Most Precise Timekeepers",
-    "heroDescription": "MSPSRπ measures millisecond pulsar positions with microarcsecond precision, now targeting 44 neutron stars vital for gravitational wave detection. This second-phase campaign establishes a definitive three-dimensional map of these extremely stable rotators, enabling rigorous tests of gravitational theories while providing essential astrometric foundations for detecting nanohertz gravitational waves from supermassive black hole binaries across cosmic history.",
+    "heroDescription": "Our multi-phase program (PSRπ, MSPSRπ, MSPSRπ2) uses Very Long Baseline Interferometry to measure millisecond pulsar positions throughout the Galaxy. The VLBA achieves parallax and proper motion accuracies of ~40 microarcseconds and ~40 microarcseconds/year for pulsars as faint as 1 mJy. These precise measurements help us enhance gravitational wave detection, test Einstein's theories, and map dark matter distribution, effectively creating a cosmic GPS network that reveals the invisible structure of spacetime.",
     "timeline": [
       {
         "period": "2011-2013",
@@ -39,7 +39,7 @@
     ],
     "stats": {
       "pulsars": 60,
-      "precision": "45 μas",
+      "precision": "10-45 μas",
       "publications": 2
     }
   },

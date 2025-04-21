@@ -1,0 +1,787 @@
+{
+  "pulsars": [
+    {
+      "name": "PSR J0610−2100",
+      "display_name": "PSR J0610−2100",
+      "type": "Black Widow Pulsar",
+      "discovery_year": 2006,
+      "discovered_by": "Burgay et al.",
+      "description": "The third black widow pulsar discovered, with a 7-hour orbit around an extremely low-mass companion star.",
+      "key_facts": [
+        "7-hour orbit with an extremely low-mass (≈0.02 M☉) companion star",
+        "Distance of 1.5 kpc (4,890 light-years), significantly closer than previous estimates",
+        "Shows unique dispersion measure discrepancy due to the Mon R2 H II region"
+      ],
+      "distance": {
+        "value": "1.5 kpc",
+        "uncertainty": "+0.3/-0.2"
+      },
+      "binary_properties": {
+        "orbital_period": "7 hours",
+        "companion_type": "Low-mass star",
+        "companion_mass": "0.02 solar masses",
+        "mass_function": "5.2 × 10^-6 solar masses",
+        "companion_temperature": "2820 ± 190 K (irradiation temperature)",
+        "orbital_semimajor_axis": "7.3 × 10^-3 light-seconds (projected)"
+      },
+      "emission_properties": {
+        "heating_luminosity": "9.1 × 10^32 erg/s",
+        "spin_down_power": "5.1 ± 0.5 × 10^33 erg/s",
+        "gamma_ray_efficiency": "0.37 (revised down from previous estimates of 0.5-3.7)",
+        "heating_efficiency": "0.17 (revised down from previous estimates of 0.15-0.77)"
+      },
+	  "astrometry": {
+  "parallax": "0.66 ± 0.12 mas",
+  "proper_motion_ra": "5.2 ± 0.1 mas/yr",
+  "proper_motion_dec": "-15.3 ± 0.1 mas/yr",
+  "transverse_velocity_kms": "124 ± 23",
+  "a_shklovskii": "7.9 ± 1.4 × 10² pm/s²",
+  "a_galactic": "-14.1 ± 1.1 pm/s²",
+  "dispersion_measure": "60.7 pc cm⁻³"
+},
+      "dispersion_measure": {
+        "measured": "60.7 pc cm^-3",
+        "model_prediction": "27.5 pc cm^-3",
+        "explanation": "Attributed to thermal plasma along the line of sight not captured by the NE2001 model"
+      },
+      "interstellar_medium": {
+        "related_region": "Mon R2 H II region at Galactic coordinates (214°, −12.6°)",
+        "h_alpha_intensity": "~13 Rayleighs (EM = 29 pc cm^-6)"
+      },
+      "recommended_visualizations": [
+        "Binary system showing the pulsar and its low-mass companion",
+        "Radiation beaming from the pulsar toward its companion",
+        "Map showing the line of sight through the Mon R2 H II region"
+      ],
+      "references": [
+        "Burgay et al. 2006 (discovery)",
+        "Pallanca et al. 2012 (companion mass)",
+        "van der Wateren et al. 2022 (emission properties)"
+      ]
+    },
+    {
+      "name": "PSR J0030+0451",
+      "display_name": "PSR J0030+0451",
+      "type": "Solitary Millisecond Pulsar",
+      "discovery_year": null,
+      "discovered_by": null,
+      "description": "A 4.87-millisecond solitary pulsar with a highly significant parallax measurement.",
+      "key_facts": [
+        "4.87-millisecond solitary pulsar",
+        "Precise distance of 0.329 kpc (1,073 light-years)",
+        "Transverse velocity of about 15 km/s"
+      ],
+      "period": "4.87 milliseconds",
+      "distance": {
+        "value": "0.329 kpc",
+        "uncertainty": "+0.006/-0.005"
+      },
+	  "astrometry": {
+  "parallax": "3.04 ± 0.05 mas",
+  "proper_motion_ra": "-6.15 ± 0.05 mas/yr",
+  "proper_motion_dec": "0.37 ± 0.14 mas/yr",
+  "transverse_velocity_kms": "15.4 ± 0.2",
+  "a_shklovskii": "9.1 ± 0.2 pm/s²",
+  "a_galactic": "-33.0 ± 3.7 pm/s²",
+  "dispersion_measure": "4.3 pc cm⁻³"
+},
+
+      "emission_properties": null,
+      "recommended_visualizations": [
+        "Pulsar position relative to the local stellar neighborhood",
+        "Proper motion vector diagram"
+      ],
+      "references": null
+    },
+    {
+      "name": "PSR J0621+1002",
+      "display_name": "PSR J0621+1002",
+      "type": "Millisecond Pulsar in Binary",
+      "discovery_year": null,
+      "discovered_by": null,
+      "description": "A 28.85-millisecond pulsar in an 8.3-day orbit with a companion, notable for its high systematic errors that were reduced through 1D interpolation techniques.",
+      "key_facts": [
+        "28.85-millisecond pulsar in 8.3-day orbit",
+        "Distance of 1.6 kpc (5,200 light-years)",
+        "Transverse velocity of about 20 km/s"
+      ],
+      "period": "28.85 milliseconds",
+      "binary_properties": {
+        "orbital_period": "8.3 days",
+        "companion_type": "Unknown"
+      },
+      "distance": {
+        "value": "1.6 kpc",
+        "uncertainty": "+0.5/-0.3"
+      },
+	  "astrometry": {
+  "parallax": "0.74 ± 0.14 mas",
+  "proper_motion_ra": "3.27 ± 0.09 mas/yr",
+  "proper_motion_dec": "-1.1 ± 0.3 mas/yr",
+  "transverse_velocity_kms": "20 ± 8/-5",
+  "a_shklovskii": "14 ± 4/-3 pm/s²",
+  "a_galactic": "23.8 ± 4.5 pm/s²",
+  "dispersion_measure": "36.5 pc cm⁻³"
+},
+      "recommended_visualizations": [
+        "Binary system configuration",
+        "Benefits of 1D interpolation for astrometric precision"
+      ],
+      "references": null
+    },
+    {
+      "name": "PSR J1012+5307",
+      "display_name": "PSR J1012+5307",
+      "type": "Millisecond Pulsar in Binary",
+      "discovery_year": null,
+      "discovered_by": null,
+      "description": "A 5.26-millisecond pulsar in a binary system with a white dwarf companion, important for tests of gravitational theories.",
+      "key_facts": [
+        "5.26-millisecond pulsar in a 0.6-day orbit with a white dwarf companion",
+        "Distance of 0.877 kpc (2,860 light-years)",
+        "Used to constrain alternative theories of gravity"
+      ],
+      "period": "5.26 milliseconds",
+      "binary_properties": {
+        "orbital_period": "0.60 days",
+        "companion_type": "White Dwarf",
+        "companion_mass": "0.174 solar masses"
+      },
+      "distance": {
+        "value": "0.877 kpc",
+        "uncertainty": "+0.035/-0.035"
+      },
+	  "astrometry": {
+  "parallax": "1.14 ± 0.04 mas",
+  "proper_motion_ra": "2.61 ± 0.01 mas/yr",
+  "proper_motion_dec": "-25.49 ± 0.01 mas/yr",
+  "transverse_velocity_kms": "95 ± 4",
+  "a_shklovskii": "419 ± 17/-15 pm/s²",
+  "a_galactic": "-23.5 ± 2.4 pm/s²",
+  "dispersion_measure": "9.02 pc cm⁻³"
+},
+      "gravitational_tests": {
+        "orbital_decay": "5.1 ± 5.1 fs/s",
+        "previous_estimate": "10.6 ± 6.1 fs/s"
+      },
+      "recommended_visualizations": [
+        "Binary system configuration with white dwarf companion",
+        "Comparison with Gaia observations of the companion"
+      ],
+      "references": [
+        "Ding et al. 2020b (previous astrometric measurements)"
+      ]
+    },
+    {
+      "name": "PSR J1024-0719",
+      "display_name": "PSR J1024-0719",
+      "type": "Millisecond Pulsar",
+      "discovery_year": null,
+      "discovered_by": null,
+      "description": "A 5.16-millisecond pulsar with an extremely high transverse velocity, theorized to be in an ultra-wide orbit with a companion star.",
+      "key_facts": [
+        "5.16-millisecond pulsar with extremely high space velocity (~300 km/s)",
+        "Likely ejected from a dense stellar region",
+        "May be in an ultra-wide orbit with a companion"
+      ],
+      "period": "5.16 milliseconds",
+      "binary_properties": {
+        "orbital_period": "Extremely long (if binary)",
+        "companion_type": "Postulated companion in ultra-wide orbit"
+      },
+      "distance": {
+        "value": "1.08 kpc",
+        "uncertainty": "+0.06/-0.06"
+      },
+	  "astrometry": {
+  "parallax": "0.93 ± 0.05 mas",
+  "proper_motion_ra": "-35.27 ± 0.02 mas/yr",
+  "proper_motion_dec": "-48.22 ± 0.03 mas/yr",
+  "transverse_velocity_kms": "300 ± 20",
+  "a_shklovskii": "2.8 ± 0.2 × 10³ pm/s²",
+  "a_galactic": "-40 ± 3 pm/s²",
+  "dispersion_measure": "6.5 pc cm⁻³"
+},
+      "unusual_properties": {
+        "negative_period_derivative": "Probably due to acceleration induced by a far-away companion",
+        "high_velocity": "~300 km/s, 3σ above the mean for MSPs"
+      },
+      "gaia_consistency": "Highly consistent between VLBI and Gaia measurements, strengthening the ultra-wide binary hypothesis",
+      "recommended_visualizations": [
+        "Comparison with typical MSP space velocities",
+        "Hypothesized ultra-wide binary configuration"
+      ],
+      "references": [
+        "Bassa et al. 2016",
+        "Kaplan et al. 2016"
+      ]
+    },
+    {
+      "name": "PSR J1518+4904",
+      "display_name": "PSR J1518+4904",
+      "type": "Double Neutron Star System",
+      "discovery_year": 1997,
+      "discovered_by": "Sayer, Nice & Taylor",
+      "description": "One of only two double neutron star (DNS) systems in the current sample, with a highly significant parallax measurement.",
+      "key_facts": [
+        "41-millisecond pulsar in a double neutron star system",
+        "40σ parallax measurement - the most significant for any DNS",
+        "High ecliptic latitude of 63° (timing parallax would take ~600 years)"
+      ],
+      "period": "41 milliseconds",
+      "orbital_characteristics": {
+        "system_type": "Double Neutron Star",
+        "inclination_constraint": "sin i ≤ 0.73 at 99% confidence level (from non-detection of Shapiro delay)",
+        "inclination": "Bi-modal probability distribution",
+        "longitude_ascending_node": "Multimodal with major peaks around 171°"
+      },
+      "astrometric_properties": {
+        "parallax_significance": "40σ (most significant for any DNS)",
+        "ecliptic_latitude": "63°",
+        "timing_parallax_note": "Would take approximately 600 years to detect"
+      },
+	  "astrometry": {
+  "parallax": "1.237 ± 0.035 mas",
+  "proper_motion_ra": "-0.683 ± 0.026 mas/yr",
+  "proper_motion_dec": "-8.528 ± 0.036 mas/yr",
+  "transverse_velocity_kms": "16.0 ± 0.6",
+  "a_shklovskii": "43 ± 1 pm/s²",
+  "a_galactic": "-48.5 ± 3.2 pm/s²",
+  "dispersion_measure": "11.61 pc cm⁻³"
+},
+      "recommended_visualizations": [
+        "Double neutron star orbital configuration",
+        "Probability distribution for inclination angle",
+        "Comparison of VLBI parallax vs timing parallax methods"
+      ],
+      "references": [
+        "Sayer, Nice & Taylor 1997 (discovery)",
+        "Janssen et al. 2008 (orbital parameters)"
+      ]
+    },
+    {
+      "name": "PSR J1537+1155",
+      "display_name": "PSR J1537+1155 (PSR B1534+12)",
+      "type": "Double Neutron Star System",
+      "discovery_year": 1991,
+      "discovered_by": "Wolszczan",
+      "description": "The second double neutron star system ever discovered, with exceptionally high proper motion and a stringent test of General Relativity.",
+      "key_facts": [
+        "Second double neutron star system ever discovered",
+        "Exceptionally high proper motion among all Galactic DNS systems",
+        "Used for precise orbital decay tests of General Relativity"
+      ],
+      "proper_motion": "Exceptionally high compared to other Galactic DNS systems",
+      "general_relativity_test": {
+        "shklovskii_contribution": "53.3+3.8−3.3 femtoseconds/second",
+        "galactic_contribution": "-5.1 ± 0.4 femtoseconds/second",
+        "orbital_decay_ratio": "0.96 ± 0.02 (ratio of intrinsic orbital period decay to GR-predicted decay)",
+        "previous_ratio": "0.977 ± 0.020 (corrected due to earlier coding error)"
+      },
+      "rotation_properties": {
+        "braking_index": "157 (extremely high, suggesting timing noise contributions)"
+      },
+      "limitations": "Distance precision remains the limiting factor for GR tests",
+      "recommended_visualizations": [
+        "Double neutron star system orbital visualization",
+        "Contributions to orbital period decay diagram",
+        "Graph showing agreement with General Relativity predictions"
+      ],
+	  "astrometry": {
+  "parallax": "1.07 ± 0.07 mas",
+  "proper_motion_ra": "1.484 ± 0.007 mas/yr",
+  "proper_motion_dec": "-25.286 ± 0.011 mas/yr",
+  "transverse_velocity_kms": "102 ± 8/-7",
+  "a_shklovskii": "4.4 ± 0.3 × 10² pm/s²",
+  "a_galactic": "-42 ± 3 pm/s²",
+  "dispersion_measure": "11.62 pc cm⁻³"
+},
+      "references": [
+        "Wolszczan 1991 (discovery)",
+        "Ding et al. 2021a (astrometric parameters)",
+        "Fonseca et al. 2014 (rotational frequency measurements)"
+      ]
+    },
+    {
+      "name": "PSR J1640+2224",
+      "display_name": "PSR J1640+2224",
+      "type": "Millisecond Pulsar",
+      "discovery_year": 1995,
+      "discovered_by": "Foster et al.",
+      "description": "A 3.2-millisecond pulsar in a wide 175-day orbit with a white dwarf companion.",
+      "key_facts": [
+        "3.2-millisecond rotation period",
+        "Wide 175-day orbit with a white dwarf companion",
+        "Consistent measurements across different astrometric techniques"
+      ],
+      "period": "3.2 milliseconds",
+      "binary_properties": {
+        "orbital_period": "175 days",
+        "companion_type": "White Dwarf",
+        "orbit_description": "Wide orbit"
+      },
+      "astrometric_measurements": {
+        "method": "Bootstrap and VLBI techniques",
+        "results": "Highly consistent across quasi-VLBI-only results and VLBI + timing results"
+      },
+      "bayesian_analysis": {
+        "longitude_ascending_node": "Four likelihood components at 0°, 140°, 200°, and 320°"
+      },
+	  "astrometry": {
+  "parallax": "0.73 ± 0.06 mas",
+  "proper_motion_ra": "2.08 ± 0.01 mas/yr",
+  "proper_motion_dec": "-11.34 ± 0.02 mas/yr",
+  "transverse_velocity_kms": "53 ± 5/-4",
+  "a_shklovskii": "1.3 ± 0.1 × 10² pm/s²",
+  "a_galactic": "-48.5 ± 4.3 pm/s²",
+  "dispersion_measure": "18.43 pc cm⁻³"
+},
+
+	  
+      "recommended_visualizations": [
+        "Binary system with pulsar and white dwarf companion",
+        "175-day wide orbit diagram",
+        "The four possible orbital orientations"
+      ],
+      "references": [
+        "Foster et al. 1995 (discovery)",
+        "Lundgren et al. 1996 (white dwarf companion)",
+        "Vigeland et al. 2018 (astrometric measurements)"
+      ]
+    },
+    {
+      "name": "PSR J1643−1224",
+      "display_name": "PSR J1643−1224",
+      "type": "Millisecond Pulsar",
+      "discovery_year": 1995,
+      "discovered_by": "Lorimer et al.",
+      "description": "A 4.6-millisecond pulsar showing significant interstellar medium effects including scattering and scintillation.",
+      "key_facts": [
+        "4.6-millisecond rotation period in a 147-day orbit with a white dwarf companion",
+        "Shows significant temporal and angular broadening due to interstellar medium effects",
+        "Associated with the HII region Sh 2-27 as its main scattering screen"
+      ],
+      "period": "4.6 milliseconds",
+      "binary_properties": {
+        "orbital_period": "147 days",
+        "companion_type": "White Dwarf"
+      },
+	  "astrometry": {
+  "parallax": "0.68 ± 0.06 mas",
+  "proper_motion_ra": "5.84 ± 0.05 mas/yr",
+  "proper_motion_dec": "2.63 ± 0.07 mas/yr",
+  "transverse_velocity_kms": "45 ± 4",
+  "a_shklovskii": "1.4 ± 0.2 × 10² pm/s²",
+  "a_galactic": "-7.1 ± 0.6 pm/s²",
+  "dispersion_measure": "62.41 pc cm⁻³"
+},
+      "interstellar_medium_effects": {
+        "temporal_broadening": "5 μs at 1 GHz (varies on yearly timescale)",
+        "angular_broadening": "3.65 ± 0.43 mas (measured with VLBI at 8 GHz)",
+        "frequency_scaling": "τsc ∝ ν^-3.9 (close to Kolmogorov turbulence model)",
+        "scintillation_models": {
+          "isotropic_model": {
+            "pulsar_distance": "1.0 ± 0.3 kpc",
+            "main_screen_distance": "0.21 ± 0.02 kpc",
+            "validity": "Inconsistent with angular broadening measurements"
+          },
+          "anisotropic_model": {
+            "pulsar_distance": "1.2 ± 0.3 kpc",
+            "main_screen_distance": "0.13 ± 0.02 kpc",
+            "secondary_screen_distance": "0.34 ± 0.09 kpc",
+            "validity": "Reconcilable with angular broadening measurements"
+          }
+        },
+        "hii_region": {
+          "name": "Sh 2-27",
+          "distance": "112 ± 3 pc",
+          "association": "Independently confirmed as the main scattering screen"
+        }
+      },
+      "scattering_screen_distance": {
+        "calculated": "86+30−24 pc",
+        "method": "Derived from angular broadening and temporal scattering relationship"
+      },
+      "recommended_visualizations": [
+        "Pulsar system with multiple scattering screens",
+        "Temporal broadening of pulse profiles",
+        "Earth-screens-pulsar geometry with the HII region Sh 2-27"
+      ],
+      "references": [
+        "Lorimer et al. 1995 (discovery)",
+        "Lentati et al. 2017 (temporal broadening)",
+        "Mall et al. 2022 (scintillation models)",
+        "Ocker, Cordes & Chatterjee 2020 (HII region distance)"
+      ]
+    },
+    {
+      "name": "PSR J1721−2457",
+      "display_name": "PSR J1721−2457",
+      "type": "Solitary Millisecond Pulsar",
+      "discovery_year": 2001,
+      "discovered_by": "Edwards & Bailes",
+      "description": "A 3.5-millisecond solitary pulsar discovered at intermediate Galactic latitudes with significant interstellar scattering effects.",
+      "key_facts": [
+        "3.5-millisecond solitary pulsar at intermediate Galactic latitudes",
+        "Secondary phase calibrator heavily resolved due to interstellar medium scattering",
+        "Non-detection of parallax likely due to refractive image wander"
+      ],
+	  "astrometry": {
+  "parallax": "Non-detection, (likely due to refractive image wander)",
+  "proper_motion_ra": "6.24 ± 0.06 mas/yr",
+  "proper_motion_dec": "-6.57 ± 0.09 mas/yr",
+  "transverse_velocity_kms": "⟶ Estimated > 50 km/s",
+  "a_shklovskii": "Not determined",
+  "a_galactic": "Not determined",
+  "dispersion_measure": "47.75 pc cm⁻³"
+},
+
+      "period": "3.5 milliseconds",
+      "observational_challenges": {
+        "calibrator_issues": "Main secondary phase calibrator is heavily resolved due to IISM scattering",
+        "baseline_problems": "Non-detections on the longest baselines and lack of calibration solutions for some antennas",
+        "resolution_impact": "Reduced spatial resolution of VLBI observations",
+        "refractive_effects": "Refractive image wander as the line-of-sight to the pulsar changes"
+      },
+	  
+      "recommended_visualizations": [
+        "Effects of interstellar scattering on pulsar observations",
+        "Diagram showing refractive image wander phenomenon",
+        "Illustration of calibration challenges in VLBI observations"
+      ],
+      "references": [
+        "Edwards & Bailes 2001 (discovery)",
+        "Kramer et al. 2021 (refractive image wander)"
+      ]
+    },
+    {
+      "name": "PSR J1730−2304",
+      "display_name": "PSR J1730−2304",
+      "type": "Solitary Millisecond Pulsar",
+      "discovery_year": 1995,
+      "discovered_by": "Lorimer et al.",
+      "description": "A solitary 8.1-millisecond pulsar notable for being the least-energetic gamma-ray pulsar discovered, helping define the death line for neutron star high-energy radiation.",
+      "key_facts": [
+        "8.1-millisecond solitary pulsar",
+        "Least-energetic gamma-ray pulsar discovered so far",
+        "Helps define the death line for neutron star high-energy radiation"
+      ],
+      "period": "8.1 milliseconds",
+      "emission_properties": {
+        "spin_down_power": "(1.15 ± 0.01) × 10^33 erg/s",
+        "death_line": "Refined the gamma-ray emission death line for all pulsars",
+        "previous_estimate": "(8.4 ± 2.2) × 10^32 erg/s (Guillemot et al. 2016)",
+        "gamma_ray_luminosity": "(3.1 ± 1.6) × 10^32 erg/s (above 100 MeV)",
+        "gamma_ray_efficiency": "0.27 ± 0.14"
+      },
+      "scientific_significance": "Plays a key role in exploring the death line of neutron star high-energy radiation",
+      "recommended_visualizations": [
+        "Graph showing the gamma-ray pulsar death line with this pulsar highlighted",
+        "Visualization of the pulsar's energy output compared to other gamma-ray pulsars",
+        "Pulsar position in the P-Pdot diagram highlighting its near-death-line status"
+      ],
+	  "astrometry": {
+  "parallax": "0.40 ± 0.02 mas",
+  "proper_motion_ra": "8.42 ± 0.04 mas/yr",
+  "proper_motion_dec": "-4.91 ± 0.06 mas/yr",
+  "transverse_velocity_kms": "65 ± 3",
+  "a_shklovskii": "2.4 ± 0.2 × 10² pm/s²",
+  "a_galactic": "-6.2 ± 0.6 pm/s²",
+  "dispersion_measure": "9.62 pc cm⁻³"
+},
+      "references": [
+        "Lorimer et al. 1995 (discovery)",
+        "Guillemot et al. 2016 (gamma-ray properties)"
+      ]
+    },
+    {
+      "name": "PSR J1738+0333",
+      "display_name": "PSR J1738+0333",
+      "type": "Millisecond Pulsar in Binary",
+      "discovery_year": 2009,
+      "discovered_by": "Jacoby et al.",
+      "description": "A 5.85-millisecond pulsar in a 8.5-hour orbit with a white dwarf companion, important for testing alternative gravitational theories.",
+      "key_facts": [
+        "5.85-millisecond pulsar in a 8.5-hour orbit with a white dwarf companion",
+        "Key system for constraining alternative gravitational theories",
+        "Tests predictions of dipole gravitational radiation"
+      ],
+      "period": "5.85 milliseconds",
+      "binary_properties": {
+        "orbital_period": "8.5 hours",
+        "companion_type": "White Dwarf"
+      },
+      "parallax_measurements": {
+        "vlbi_only": "2.3σ away from the most precise timing parallax",
+        "with_timing_priors": "0.589 ± 0.046 mas",
+        "timing_parallax": "0.68 ± 0.05 mas (Freire et al. 2012)"
+      },
+      "orbital_decay": {
+        "observed": "-17 ± 3 fs/s",
+        "intrinsic": "-26.1 ± 3.1 fs/s"
+      },
+      "scientific_importance": {
+        "gravitational_theories": "Plays a leading role in constraining alternative gravitational theories that predict dipole gravitational radiation",
+        "parallax_implications": "True parallax value has implications for white dwarf radius, neutron star mass, and gravitational wave predictions"
+      },
+      "recommended_visualizations": [
+        "Binary system with pulsar and white dwarf companion",
+        "Diagram illustrating tests of alternative gravitational theories",
+        "Comparison of different parallax measurement methods"
+      ],
+	  "astrometry": {
+  "parallax": "0.68 ± 0.05 mas (timing), 0.589 ± 0.046 mas (VLBI + priors)",
+  "proper_motion_ra": "7.041 ± 0.007 mas/yr",
+  "proper_motion_dec": "4.913 ± 0.009 mas/yr",
+  "transverse_velocity_kms": "63 ± 5",
+  "a_shklovskii": "1.8 ± 0.2 × 10² pm/s²",
+  "a_galactic": "-2.9 ± 0.4 pm/s²",
+  "dispersion_measure": "33.77 pc cm⁻³"
+},
+      "references": [
+        "Jacoby et al. 2009 (discovery)",
+        "Freire et al. 2012 (gravitational theory constraints)",
+        "Zhu et al. 2015 (dipole gravitational radiation)",
+        "Antoniadis et al. 2012 (white dwarf properties)"
+      ]
+    },
+    {
+      "name": "PSR J1824−2452A",
+      "display_name": "PSR J1824−2452A",
+      "type": "Globular Cluster Millisecond Pulsar",
+      "discovery_year": 1987,
+      "discovered_by": "Lyne et al.",
+      "description": "A 3-millisecond solitary pulsar discovered in the globular cluster M28 (NGC 6626), with proper motion suggesting it remains bound to the cluster.",
+      "key_facts": [
+        "3-millisecond solitary pulsar in globular cluster M28 (NGC 6626)",
+        "Transverse velocity of 28 ± 20 km/s, less than the cluster escape velocity",
+        "Likely bound to M28 as expected"
+      ],
+      "period": "3 milliseconds",
+      "cluster_properties": {
+        "host_cluster": "M28 (NGC 6626)",
+        "cluster_distance": "5.4 ± 0.1 kpc (Baumgardt & Vasiliev 2021)",
+        "cluster_proper_motion": {
+          "right_ascension": "-0.28 ± 0.03 mas/yr",
+          "declination": "-8.92 ± 0.03 mas/yr"
+        }
+      },
+      "relative_motion": {
+        "right_ascension": "0.03 ± 0.05 mas/yr",
+        "declination": "1.1 ± 0.8 mas/yr",
+        "transverse_velocity": "28 ± 20 km/s",
+        "escape_velocity": "≈50 km/s (typical for a globular cluster)"
+      },
+      "observational_challenges": {
+        "calibrator_issues": "Best in-beam phase calibrator was both resolved and faint (3.3 mJy)",
+        "consequence": "Noisy solutions, especially on the longest baselines, likely causing parallax non-detection"
+      },
+      "recommended_visualizations": [
+        "Position of the pulsar within M28 globular cluster",
+        "Vector diagram showing proper motion relative to the cluster",
+        "Illustration of the pulsar's binding to the cluster"
+      ],
+	  "astrometry": {
+  "parallax": "Non-detection (likely due to faint/resolved calibrator)",
+  "proper_motion_ra": "−0.25 ± 0.05 mas/yr (relative to cluster)",
+  "proper_motion_dec": "1.0 ± 0.8 mas/yr (relative to cluster)",
+  "transverse_velocity_kms": "28 ± 20",
+  "a_shklovskii": "Not meaningful (cluster-bound)",
+  "a_galactic": "−1.7 ± 0.3 pm/s²",
+  "dispersion_measure": "119.86 pc cm⁻³"
+},
+      "references": [
+        "Lyne et al. 1987 (discovery)",
+        "Vasiliev & Baumgardt 2021 (cluster proper motion)",
+        "Baumgardt & Vasiliev 2021 (cluster distance)"
+      ]
+    },
+{
+  "name": "PSR J1853+1303",
+  "display_name": "PSR J1853+1303",
+  "type": "Millisecond Pulsar in Binary",
+  "discovery_year": null,
+  "discovered_by": null,
+  "description": "A 4.09-millisecond pulsar in a 116-day orbit with a white dwarf companion.",
+  "key_facts": [
+    "4.09-millisecond pulsar in 116-day orbit with white dwarf companion",
+    "Orbital inclination of approximately 85° based on Shapiro delay",
+    "Distance of about 2.0 kpc (6,520 light-years)"
+  ],
+  "period": "4.09 milliseconds",
+  "binary_properties": {
+    "orbital_period": "116 days",
+    "companion_type": "White Dwarf",
+    "orbital_inclination": "85±14° (from Shapiro delay)"
+  },
+  "distance": {
+    "value": "2.0 kpc",
+    "uncertainty": "+0.3/-0.3"
+  },
+  "calibrator_issues": "Main calibrator shows jet structure that may contribute to astrometric uncertainties",
+  "recommended_visualizations": [
+    "Binary system configuration showing high inclination",
+    "Shapiro delay measurements visualization"
+  ],
+  "astrometry": {
+  "parallax": "0.50 ± 0.08 mas",
+  "proper_motion_ra": "-0.47 ± 0.04 mas/yr",
+  "proper_motion_dec": "-3.85 ± 0.05 mas/yr",
+  "transverse_velocity_kms": "37 ± 6",
+  "a_shklovskii": "0.6 ± 0.1 × 10² pm/s²",
+  "a_galactic": "-4.1 ± 0.5 pm/s²",
+  "dispersion_measure": "30.57 pc cm⁻³"
+},
+  "references": [
+    "Faisal Alam et al. 2021 (Shapiro delay measurements)"
+  ]
+},
+{
+  "name": "PSR J1910+1256",
+  "display_name": "PSR J1910+1256",
+  "type": "Millisecond Pulsar in Binary",
+  "discovery_year": null,
+  "discovered_by": null,
+  "description": "A 4.98-millisecond pulsar in a 58.5-day orbit with a companion.",
+  "key_facts": [
+    "4.98-millisecond pulsar in 58.5-day orbit",
+    "Disparity between VLBI and timing proper motion measurements",
+    "Possible Gaia counterpart candidate with inconsistent proper motion"
+  ],
+  "period": "4.98 milliseconds",
+  "binary_properties": {
+    "orbital_period": "58.5 days",
+    "companion_type": "Unknown"
+  },
+  "distance": {
+    "value": "3.4 kpc",
+    "uncertainty": "+1.0/-0.6"
+  },
+  "calibrator_issues": "Main calibrator shows jet structure at ~45° position angle",
+  "gaia_association": "Proposed Gaia counterpart remains inconclusive due to proper motion discrepancies",
+  "recommended_visualizations": [
+    "Binary system configuration",
+    "Comparison of VLBI, timing, and Gaia proper motion vectors"
+  ],
+  "astrometry": {
+  "parallax": "0.29 ± 0.06 mas",
+  "proper_motion_ra": "-3.5 ± 0.1 mas/yr",
+  "proper_motion_dec": "-5.3 ± 0.1 mas/yr",
+  "transverse_velocity_kms": "103 ± 21",
+  "a_shklovskii": "3.3 ± 0.6 × 10² pm/s²",
+  "a_galactic": "-6.7 ± 0.6 pm/s²",
+  "dispersion_measure": "38.07 pc cm⁻³"
+},
+  "references": [
+    "Mingarelli et al. 2018 (proposed Gaia counterpart)"
+  ]
+},
+{
+  "name": "PSR J1911-1114",
+  "display_name": "PSR J1911-1114",
+  "type": "Millisecond Pulsar in Binary",
+  "discovery_year": null,
+  "discovered_by": null,
+  "description": "A 3.63-millisecond pulsar in a 2.7-day orbit with a companion.",
+  "key_facts": [
+    "3.63-millisecond pulsar in 2.7-day orbit",
+    "No published timing parallax",
+    "Lower limit of distance approximately 1.3 kpc"
+  ],
+  "period": "3.63 milliseconds",
+  "binary_properties": {
+    "orbital_period": "2.7 days",
+    "companion_type": "Unknown"
+  },
+  "distance": {
+    "value": ">1.3 kpc",
+    "note": "Lower limit"
+  },
+  "recommended_visualizations": [
+    "Binary system configuration",
+    "Proper motion vector diagram"
+  ],
+  "astrometry": {
+  "parallax": "Lower limit only (>1.3 kpc)",
+  "proper_motion_ra": "−4.2 ± 0.3 mas/yr",
+  "proper_motion_dec": "−7.1 ± 0.3 mas/yr",
+  "transverse_velocity_kms": ">45",
+  "a_shklovskii": "Undetermined (lower bound)",
+  "a_galactic": "Undetermined",
+  "dispersion_measure": "30.98 pc cm⁻³"
+},
+  "references": null
+},
+{
+  "name": "PSR J1918-0642",
+  "display_name": "PSR J1918-0642",
+  "type": "Millisecond Pulsar in Binary",
+  "discovery_year": null,
+  "discovered_by": null,
+  "description": "A 7.65-millisecond pulsar in a 10.9-day orbit with a companion.",
+  "key_facts": [
+    "7.65-millisecond pulsar in 10.9-day orbit",
+    "Significant improvement in parallax precision when using timing priors",
+    "Distance of about 1.48 kpc (4,825 light-years)"
+  ],
+  "period": "7.65 milliseconds",
+  "binary_properties": {
+    "orbital_period": "10.9 days",
+    "companion_type": "Unknown"
+  },
+  "distance": {
+    "value": "1.48 kpc",
+    "uncertainty": "+0.19/-0.14"
+  },
+  "astrometric_note": "42% improvement in parallax precision when using timing priors (the most significant improvement in the sample)",
+  "recommended_visualizations": [
+    "Binary system configuration",
+    "Demonstration of parallax precision improvement"
+  ],
+  "astrometry": {
+  "parallax": "0.68 ± 0.07 mas (VLBI + priors)",
+  "proper_motion_ra": "−6.1 ± 0.1 mas/yr",
+  "proper_motion_dec": "−3.7 ± 0.1 mas/yr",
+  "transverse_velocity_kms": "59 ± 6",
+  "a_shklovskii": "1.8 ± 0.2 × 10² pm/s²",
+  "a_galactic": "−3.2 ± 0.4 pm/s²",
+  "dispersion_measure": "26.55 pc cm⁻³"
+},
+  "references": null
+},
+{
+  "name": "PSR J1939+2134",
+  "display_name": "PSR J1939+2134",
+  "type": "Solitary Millisecond Pulsar",
+  "discovery_year": null,
+  "discovered_by": null,
+  "description": "A 1.56-millisecond pulsar, the brightest MSP in the northern hemisphere, which was used as a secondary phase calibrator in inverse 1D interpolation.",
+  "key_facts": [
+    "1.56-millisecond solitary pulsar, brightest MSP in northern hemisphere",
+    "Used as a secondary phase calibrator in inverse 1D interpolation",
+    "Distance of about 2.9 kpc (9,455 light-years)"
+  ],
+  "period": "1.56 milliseconds",
+  "astrometric_note": "36% improvement in parallax precision when using timing priors",
+  "special_technique": "Inverse-referenced 1D interpolation using this pulsar as the in-beam calibrator",
+  "distance": {
+    "value": "2.9 kpc",
+    "uncertainty": "+0.3/-0.2"
+  },
+  "recommended_visualizations": [
+    "Inverse 1D interpolation technique diagram",
+    "Pulsar brightness compared to other MSPs"
+  ],
+  "astrometry": {
+  "parallax": "0.34 ± 0.03 mas",
+  "proper_motion_ra": "0.13 ± 0.01 mas/yr",
+  "proper_motion_dec": "−0.82 ± 0.01 mas/yr",
+  "transverse_velocity_kms": "38 ± 3",
+  "a_shklovskii": "0.7 ± 0.1 × 10² pm/s²",
+  "a_galactic": "-2.6 ± 0.3 pm/s²",
+  "dispersion_measure": "71.04 pc cm⁻³"
+},
+  "references": null
+}
+]
+}

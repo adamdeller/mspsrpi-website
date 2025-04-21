@@ -23,9 +23,8 @@ const DataReleasePage = () => {
       selectedObsPhase === 'MSPSRPI'
         ? '/data/mspsrpi.json'
         : selectedObsPhase === 'MSPSRPI2'
-          ? '/data/mspsrpi2Pulsars.json'
-          : '/data/pulsars.json';
-
+          ? '/data/nishatest/mspsrpi2Pulsars.json'
+          : '/data/nishatest/pulsars.json';
 
     fetch(file)
       .then((response) => response.json())
@@ -57,6 +56,13 @@ const DataReleasePage = () => {
               status: pulsar.status || 'Planned',
               fluxDensity: pulsar.fluxDensity,
               distance: pulsar.distance,
+              properMotion: pulsar.properMotion,
+              sessionDuration: pulsar.sessionDuration,
+              fluxCategory: pulsar.fluxCategory,
+              position: pulsar.position,
+              notes: pulsar.notes,
+              searchSession: pulsar.searchSession,
+              astrometrySession: pulsar.astrometrySession,
               description: pulsar.notes,
               memberships: pulsar.memberships || []
             }))
@@ -134,8 +140,7 @@ const DataReleasePage = () => {
               Explore our catalog of millisecond pulsar astrometric measurements
             </p>
             <p className="text-gray-300 mb-2">
-              This catalog includes parallax and proper motion measurements for pulsars observed
-              across all phases of the MSPSRπ program. Data is continuously updated as new observations
+              This catalog includes measurements for pulsars observed across MSPSRπ and MSPSRπ2 phases of the MSPSRπ program. Data is continuously updated as new observations
               are processed.
             </p>
           </div>
@@ -194,28 +199,67 @@ const DataReleasePage = () => {
               onClick={() => setActivePulsar(pulsar)}
               className="cursor-pointer bg-gradient-to-br from-slate-800/50 to-slate-900/80 p-5 rounded-2xl border border-slate-700 shadow-md hover:border-indigo-400 hover:shadow-indigo-500/30 transition"
             >
-              <h3 className="text-xl font-bold text-indigo-300 mb-3 tracking-wide">{pulsar.name}</h3>
+              <div className="flex justify-between items-start mb-3">
+                <h3 className="text-xl font-bold text-indigo-300 tracking-wide">{pulsar.name}</h3>
+                {/* Status badge */}
+                <span className={`text-xs px-2 py-1 rounded-full ${pulsar.status === 'Planned' ? 'bg-amber-900/60 text-amber-300' :
+                  pulsar.status === 'Active' ? 'bg-green-900/60 text-green-300' :
+                    pulsar.status === 'Complete' ? 'bg-blue-900/60 text-blue-300' :
+                      'bg-gray-800 text-gray-300'
+                  }`}>
+                  {pulsar.status}
+                </span>
+              </div>
 
               {pulsar.phase === 'MSPSRPI2' ? (
                 <div className="text-sm text-gray-300 space-y-2">
+                  {/* Core information */}
                   <div className="flex justify-between items-center border-b border-slate-700 pb-1">
                     <span className="text-cyan-300 font-medium">Flux Density</span>
                     <span className="text-white">{pulsar.fluxDensity} mJy</span>
                   </div>
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-between items-center border-b border-slate-700 pb-1">
                     <span className="text-cyan-300 font-medium">Distance</span>
                     <span className="text-white">{pulsar.distance} kpc</span>
                   </div>
+                  <div className="flex justify-between items-center border-b border-slate-700 pb-1">
+                    <span className="text-cyan-300 font-medium">Proper Motion</span>
+                    <span className="text-white">{pulsar.properMotion}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-cyan-300 font-medium">Next Session</span>
+                    <span className="text-white">{pulsar.sessionDuration}</span>
+                  </div>
+
+                  {/* Membership tags */}
+                  {pulsar.memberships && pulsar.memberships.length > 0 && (
+                    <div className="pt-2 mt-2 border-t border-slate-700">
+                      <div className="flex flex-wrap gap-1">
+                        {pulsar.memberships.map((org, idx) => (
+                          <span key={idx} className={`text-xs px-2 py-0.5 rounded-md ${org === 'NANOGrav' ? 'bg-indigo-900/60 text-indigo-300' :
+                            org === 'CPTA' ? 'bg-emerald-900/60 text-emerald-300' :
+                              org === 'MPTA' ? 'bg-violet-900/60 text-violet-300' :
+                                org === 'EPTA' ? 'bg-rose-900/60 text-rose-300' :
+                                  org === 'PPTA' ? 'bg-amber-900/60 text-amber-300' :
+                                    'bg-gray-800 text-gray-300'
+                            }`}>
+                            {org}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               ) : (
+                // For the MSPSRPI phase (keep existing code)
                 pulsar.originalData?.astrometry && (
                   <div className="text-sm text-gray-300 space-y-2">
                     <div className="flex justify-between items-center border-b border-slate-700 pb-1">
-                      <span className="text-indigo-400 font-medium">RA</span>
+                      <span className="text-indigo-400 font-medium">PM_RA</span>
                       <span className="text-white">{pulsar.originalData.astrometry.proper_motion_ra}</span>
                     </div>
                     <div className="flex justify-between items-center border-b border-slate-700 pb-1">
-                      <span className="text-indigo-400 font-medium">Dec</span>
+                      <span className="text-indigo-400 font-medium">PM_Dec</span>
                       <span className="text-white">{pulsar.originalData.astrometry.proper_motion_dec}</span>
                     </div>
                     <div className="flex justify-between items-center">
@@ -227,13 +271,13 @@ const DataReleasePage = () => {
               )}
             </div>
           ))}
-
         </div>
 
         {/* Pulsar Popup Modal */}
         {activePulsar && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
             <div className="bg-slate-900 border border-indigo-500/30 rounded-lg p-6 shadow-xl max-w-4xl w-full max-h-[80vh] overflow-y-auto">
+              {/* Header with name and close button */}
               <div className="flex justify-between items-center mb-4">
                 <h3 className="text-2xl font-bold text-white">{activePulsar.name}</h3>
                 <button
@@ -245,7 +289,7 @@ const DataReleasePage = () => {
               </div>
 
               {selectedObsPhase === 'MSPSRPI' && activePulsar.originalData ? (
-                // Display MSPSRPi JSON data
+                // Display MSPSRPi JSON data (keep existing code)
                 <div className="space-y-4">
                   {/* Type and Discovery */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -355,73 +399,85 @@ const DataReleasePage = () => {
                   </div>
                 </div>
               ) : (
-                // Standard format for other data
-                <div className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <h4 className="text-indigo-300 font-medium mb-1">Phase</h4>
-                      <p className="text-white">{activePulsar.phase}</p>
+                // Enhanced display for MSPSRPI2 data
+                <div className="space-y-6">
+                  {/* Main details section */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {/* Core properties column */}
+                    <div className="bg-slate-800/30 rounded-lg p-4 border border-slate-700">
+                      <h4 className="text-lg font-semibold text-indigo-300 mb-3 border-b border-slate-700 pb-2">Core Properties</h4>
+                      <div className="space-y-3">
+                        <div>
+                          <h5 className="text-cyan-300 text-sm font-medium">Status</h5>
+                          <p className="text-white">{activePulsar.status}</p>
+                        </div>
+                        <div>
+                          <h5 className="text-cyan-300 text-sm font-medium">Flux Density</h5>
+                          <p className="text-white">{activePulsar.fluxDensity} mJy</p>
+                        </div>
+                        <div>
+                          <h5 className="text-cyan-300 text-sm font-medium">Distance</h5>
+                          <p className="text-white">{activePulsar.distance} kpc</p>
+                        </div>
+                        <div>
+                          <h5 className="text-cyan-300 text-sm font-medium">Flux Category</h5>
+                          <p className="text-white">{activePulsar.fluxCategory}</p>
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="text-indigo-300 font-medium mb-1">Status</h4>
-                      <p className="text-white">{activePulsar.status}</p>
+
+                    {/* Position information column */}
+                    <div className="bg-slate-800/30 rounded-lg p-4 border border-slate-700">
+                      <h4 className="text-lg font-semibold text-indigo-300 mb-3 border-b border-slate-700 pb-2">Position</h4>
+                      {activePulsar.position ? (
+                        <div className="space-y-3">
+                          <div>
+                            <h5 className="text-cyan-300 text-sm font-medium">Right Ascension</h5>
+                            <p className="text-white font-mono">{activePulsar.position.rightAscension}</p>
+                          </div>
+                          <div>
+                            <h5 className="text-cyan-300 text-sm font-medium">Declination</h5>
+                            <p className="text-white font-mono">{activePulsar.position.declination}</p>
+                          </div>
+                          <div>
+                            <h5 className="text-cyan-300 text-sm font-medium">Proper Motion</h5>
+                            <p className="text-white">{activePulsar.properMotion}</p>
+                          </div>
+                        </div>
+                      ) : (
+                        <p className="text-gray-400 italic">Position data not available</p>
+                      )}
                     </div>
-                    <div>
-                      <h4 className="text-indigo-300 font-medium mb-1">Parallax</h4>
-                      <p className="text-white">{activePulsar.parallax} mas</p>
-                    </div>
-                    <div>
-                      <h4 className="text-indigo-300 font-medium mb-1">Proper Motion</h4>
-                      <p className="text-white">
-                        {activePulsar.properMotionRA && `RA: ${activePulsar.properMotionRA} mas/yr`}
-                        {activePulsar.properMotionDec && <><br />Dec: {activePulsar.properMotionDec} mas/yr</>}
-                      </p>
+
+                    {/* Observation details column */}
+                    <div className="bg-slate-800/30 rounded-lg p-4 border border-slate-700">
+                      <h4 className="text-lg font-semibold text-indigo-300 mb-3 border-b border-slate-700 pb-2">Observation Schedule</h4>
+                      <div className="space-y-3">
+                        <div>
+                          <h5 className="text-cyan-300 text-sm font-medium">Session Duration</h5>
+                          <p className="text-white">{activePulsar.sessionDuration}</p>
+                        </div>
+                        <div>
+                          <h5 className="text-cyan-300 text-sm font-medium">Search Session</h5>
+                          <p className="text-white">{activePulsar.searchSession}</p>
+                        </div>
+                        <div>
+                          <h5 className="text-cyan-300 text-sm font-medium">Astrometry Session</h5>
+                          <p className="text-white">{activePulsar.astrometrySession}</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
-                  {activePulsar.coordinates && (
-                    <div>
-                      <h4 className="text-indigo-300 font-medium mb-1">Coordinates</h4>
-                      <p className="text-white">
-                        RA: {activePulsar.coordinates.ra}<br />
-                        Dec: {activePulsar.coordinates.dec}
-                      </p>
+                  {/* Notes section */}
+                  {activePulsar.notes && (
+                    <div className="bg-slate-800/30 rounded-lg p-4 border border-slate-700">
+                      <h4 className="text-lg font-semibold text-indigo-300 mb-2">Notes</h4>
+                      <p className="text-gray-300">{activePulsar.notes}</p>
                     </div>
                   )}
 
-                  {activePulsar.description && (
-                    <div>
-                      <h4 className="text-indigo-300 font-medium mb-1">Description</h4>
-                      <p className="text-gray-300">{activePulsar.description}</p>
-                    </div>
-                  )}
-
-                  {activePulsar.observations && (
-                    <div>
-                      <h4 className="text-indigo-300 font-medium mb-1">Observations</h4>
-                      <div className="bg-slate-800/60 p-3 rounded">
-                        <table className="w-full text-sm">
-                          <thead>
-                            <tr className="text-left text-indigo-200">
-                              <th className="pb-2">Date</th>
-                              <th className="pb-2">Instrument</th>
-                              <th className="pb-2">Duration</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {activePulsar.observations.map((obs, index) => (
-                              <tr key={index} className="border-t border-slate-700">
-                                <td className="py-2">{obs.date}</td>
-                                <td className="py-2">{obs.instrument}</td>
-                                <td className="py-2">{obs.duration}</td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  )}
-
+                  {/* Download button */}
                   <div className="mt-6 pt-4 border-t border-slate-700">
                     <button
                       className="w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-md flex items-center justify-center"
@@ -436,6 +492,101 @@ const DataReleasePage = () => {
             </div>
           </div>
         )}
+        {/* Data Visualization Section */}
+        <div id="visualization" className="pt-12 mb-16">
+          <div className="mb-6">
+            <h2 className="text-2xl font-bold text-white mb-2">Data Visualizations</h2>
+            <p className="text-indigo-300">
+              Interactive visualizations of MSPSRπ parallax and proper motion measurements
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Galactic Distribution */}
+            <div className="bg-slate-900/60 backdrop-blur-sm border border-cyan-500/30 rounded-lg p-4 shadow-lg">
+              <h3 className="text-lg font-semibold text-cyan-300 mb-3">Galactic Distribution</h3>
+              <div className="h-80 bg-slate-800/50 rounded-md flex items-center justify-center">
+                <div className="text-center">
+                  <svg className="mx-auto h-48 w-48 text-cyan-300" viewBox="0 0 400 400">
+                    <ellipse cx="200" cy="200" rx="150" ry="30" stroke="#0e7490" strokeWidth="1" fill="none" />
+                    <path d="M200,200 C240,180 270,140 290,90" stroke="#0e7490" strokeWidth="1" fill="none" />
+                    <path d="M200,200 C160,180 130,140 110,90" stroke="#0e7490" strokeWidth="1" fill="none" />
+                    <path d="M200,200 C240,220 270,260 290,310" stroke="#0e7490" strokeWidth="1" fill="none" />
+                    <path d="M200,200 C160,220 130,260 110,310" stroke="#0e7490" strokeWidth="1" fill="none" />
+                    <circle cx="200" cy="200" r="8" fill="#0e7490" />
+                    <circle cx="180" cy="170" r="3" fill="#0ea5e9" />
+                    <circle cx="220" cy="190" r="3" fill="#0ea5e9" />
+                    <circle cx="170" cy="220" r="3" fill="#0ea5e9" />
+                    <circle cx="240" cy="160" r="3" fill="#0ea5e9" />
+                    <circle cx="160" cy="230" r="3" fill="#0ea5e9" />
+                    <circle cx="210" cy="240" r="3" fill="#0ea5e9" />
+                    <circle cx="250" cy="210" r="3" fill="#0ea5e9" />
+                    <circle cx="150" cy="190" r="3" fill="#0ea5e9" />
+                    <circle cx="230" cy="140" r="3" fill="#0ea5e9" />
+                    <circle cx="170" cy="250" r="3" fill="#0ea5e9" />
+                  </svg>
+                  <p className="text-gray-400 text-sm mt-2">Galactic distribution of observed pulsars</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Parallax vs Proper Motion */}
+            <div className="bg-slate-900/60 backdrop-blur-sm border border-indigo-500/30 rounded-lg p-4 shadow-lg">
+              <h3 className="text-lg font-semibold text-indigo-300 mb-3">Parallax vs. Proper Motion</h3>
+              <div className="h-80 bg-slate-800/50 rounded-md flex items-center justify-center">
+                <div className="text-center">
+                  <svg className="mx-auto h-48 w-48 text-indigo-300" viewBox="0 0 400 400">
+                    <line x1="50" y1="350" x2="350" y2="350" stroke="#6366f1" strokeWidth="2" />
+                    <line x1="50" y1="350" x2="50" y2="50" stroke="#6366f1" strokeWidth="2" />
+                    <text x="200" y="380" textAnchor="middle" fill="#6366f1" fontSize="12">Parallax (mas)</text>
+                    <text x="30" y="200" textAnchor="middle" fill="#6366f1" fontSize="12" transform="rotate(-90, 20, 200)">Proper Motion (mas/yr)</text>
+                    <circle cx="100" cy="300" r="4" fill="#818cf8" />
+                    <circle cx="150" cy="250" r="4" fill="#818cf8" />
+                    <circle cx="120" cy="280" r="4" fill="#818cf8" />
+                    <circle cx="200" cy="200" r="4" fill="#818cf8" />
+                    <circle cx="250" cy="150" r="4" fill="#818cf8" />
+                    <circle cx="180" cy="220" r="4" fill="#818cf8" />
+                    <circle cx="220" cy="180" r="4" fill="#818cf8" />
+                    <circle cx="140" cy="260" r="4" fill="#818cf8" />
+                    <circle cx="280" cy="120" r="4" fill="#818cf8" />
+                    <circle cx="300" cy="100" r="4" fill="#818cf8" />
+                  </svg>
+                  <p className="text-gray-400 text-sm mt-2">Correlation between parallax and proper motion</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* Pulsar Types Comparison */}
+          <div className="bg-slate-900/60 backdrop-blur-sm border border-pink-500/30 rounded-lg p-4 shadow-lg">
+            <h3 className="text-lg font-semibold text-pink-300 mb-3">Pulsar Types Comparison</h3>
+            <div className="h-80 bg-slate-800/50 rounded-md flex items-center justify-center">
+              <div className="text-center">
+                <svg className="mx-auto h-48 w-48 text-pink-300" viewBox="0 0 400 400">
+                  {/* Pie chart segments (fake data for now) */}
+                  <circle cx="200" cy="200" r="100" fill="none" stroke="#f472b6" strokeWidth="50" strokeDasharray="94 206" strokeDashoffset="0" />
+                  <circle cx="200" cy="200" r="100" fill="none" stroke="#ec4899" strokeWidth="50" strokeDasharray="66 234" strokeDashoffset="-94" />
+                  <circle cx="200" cy="200" r="100" fill="none" stroke="#db2777" strokeWidth="50" strokeDasharray="40 260" strokeDashoffset="-160" />
+
+                  {/* Center circle */}
+                  <circle cx="200" cy="200" r="30" fill="#1e1b4b" />
+                </svg>
+                <div className="text-sm mt-3 space-y-1">
+                  <p><span className="inline-block w-3 h-3 mr-2 rounded-full bg-pink-300"></span>Millisecond</p>
+                  <p><span className="inline-block w-3 h-3 mr-2 rounded-full bg-pink-400"></span>Binary</p>
+                  <p><span className="inline-block w-3 h-3 mr-2 rounded-full bg-pink-500"></span>Solitary</p>
+                </div>
+                <p className="text-gray-400 text-sm mt-2">Distribution of pulsar types in the dataset</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-8">
+            <a href="/visualizations" className="inline-flex items-center px-5 py-3 border border-cyan-500/40 rounded-md text-cyan-300 bg-slate-900/60 hover:bg-slate-800/80 transition duration-300">
+              View Full Interactive Visualizations <ChevronRight className="ml-2 h-5 w-5" />
+            </a>
+          </div>
+        </div>
+
         {/* Data Releases Section */}
         <div className="mb-12">
           <div className="mb-6">
