@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import PulsarGalaxy from './Galatic'
 import { Link } from 'react-router-dom';
 import {
   Search,
@@ -505,28 +506,8 @@ const DataReleasePage = () => {
             {/* Galactic Distribution */}
             <div className="bg-slate-900/60 backdrop-blur-sm border border-cyan-500/30 rounded-lg p-4 shadow-lg">
               <h3 className="text-lg font-semibold text-cyan-300 mb-3">Galactic Distribution</h3>
-              <div className="h-80 bg-slate-800/50 rounded-md flex items-center justify-center">
-                <div className="text-center">
-                  <svg className="mx-auto h-48 w-48 text-cyan-300" viewBox="0 0 400 400">
-                    <ellipse cx="200" cy="200" rx="150" ry="30" stroke="#0e7490" strokeWidth="1" fill="none" />
-                    <path d="M200,200 C240,180 270,140 290,90" stroke="#0e7490" strokeWidth="1" fill="none" />
-                    <path d="M200,200 C160,180 130,140 110,90" stroke="#0e7490" strokeWidth="1" fill="none" />
-                    <path d="M200,200 C240,220 270,260 290,310" stroke="#0e7490" strokeWidth="1" fill="none" />
-                    <path d="M200,200 C160,220 130,260 110,310" stroke="#0e7490" strokeWidth="1" fill="none" />
-                    <circle cx="200" cy="200" r="8" fill="#0e7490" />
-                    <circle cx="180" cy="170" r="3" fill="#0ea5e9" />
-                    <circle cx="220" cy="190" r="3" fill="#0ea5e9" />
-                    <circle cx="170" cy="220" r="3" fill="#0ea5e9" />
-                    <circle cx="240" cy="160" r="3" fill="#0ea5e9" />
-                    <circle cx="160" cy="230" r="3" fill="#0ea5e9" />
-                    <circle cx="210" cy="240" r="3" fill="#0ea5e9" />
-                    <circle cx="250" cy="210" r="3" fill="#0ea5e9" />
-                    <circle cx="150" cy="190" r="3" fill="#0ea5e9" />
-                    <circle cx="230" cy="140" r="3" fill="#0ea5e9" />
-                    <circle cx="170" cy="250" r="3" fill="#0ea5e9" />
-                  </svg>
-                  <p className="text-gray-400 text-sm mt-2">Galactic distribution of observed pulsars</p>
-                </div>
+              <div className="h-96 bg-slate-800/50 rounded-md">
+                <PulsarGalaxy pulsars={filteredPulsars} />
               </div>
             </div>
 
