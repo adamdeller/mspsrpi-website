@@ -121,12 +121,12 @@ const DataReleasePage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex-shrink-0 flex items-center">
-              <Link to="/test-deploy" className="text-xl font-bold">MSPSR<span className="text-indigo-400">π</span></Link>
+              <Link to="/" className="text-xl font-bold">MSPSR<span className="text-indigo-400">π</span></Link>
             </div>
             <div className="hidden md:flex items-center space-x-8">
               <Link
-                to="/test-deploy"
-                className={`${location.pathname === '/test-deploy' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
+                to="/"
+                className={`${location.pathname === '/' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
               >
                 Home
               </Link>
@@ -665,7 +665,8 @@ const DataReleasePage = () => {
           </div>
         </div>
       </div>
-      );
+    </div>
+  );
 };
 
-      export default DataReleasePage;
+export default DataReleasePage;

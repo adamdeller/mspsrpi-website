@@ -2,7 +2,7 @@
 //                           LIBRARY IMPORTS
 //---------------------------------------------------------------------------
 import React, { useState, useEffect, useMemo } from 'react';
-import {ChevronRight, ExternalLink} from 'lucide-react';
+import { ChevronRight, ExternalLink } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 //---------------------------------------------------------------------------
@@ -11,11 +11,11 @@ import { Link, useLocation } from 'react-router-dom';
 const ProjectPage = () => {
 
   // STATE VARIABLES AND HOOKS
-  const location = useLocation(); 
-  const [activePhase, setActivePhase] = useState('mspsrpi2'); 
-  const [projectData, setProjectData] = useState(null); 
-  const [observationData, setObservationData] = useState(null); 
-  const [loading, setLoading] = useState(true); 
+  const location = useLocation();
+  const [activePhase, setActivePhase] = useState('mspsrpi2');
+  const [projectData, setProjectData] = useState(null);
+  const [observationData, setObservationData] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   // DATA FETCHING
@@ -71,15 +71,15 @@ const ProjectPage = () => {
         percentComplete: 0
       };
     }
-  
+
     // track each pulsar's status
     const pulsarStatusMap = new Map();
-  
+
     // For each observation in our data
     observationData.forEach(obs => {
       // Get the current status of this pulsar 
       const currentStatus = pulsarStatusMap.get(obs.srcname);
-  
+
       // The logic below:
       // 1. If we've never observed this pulsar before, save its status
       // 2. If it was "scheduled" before but now has any other status, update it
@@ -90,12 +90,12 @@ const ProjectPage = () => {
         pulsarStatusMap.set(obs.srcname, obs.status);
       }
     });
-  
+
     // count how many pulsars are in each status
     let complete = 0;
     let inProgress = 0;
     let scheduled = 0;
-  
+
     // Loop through each pulsar in the map
     pulsarStatusMap.forEach(status => {
       // Increase the right counter based on the status
@@ -103,10 +103,10 @@ const ProjectPage = () => {
       else if (status === 'in-progress') inProgress++;
       else if (status === 'scheduled') scheduled++;
     });
-  
+
     // Total number of pulsars is just the size of the map
     const total = pulsarStatusMap.size;
-  
+
     // Return an object with all the stats
     return {
       total,
@@ -184,35 +184,35 @@ const ProjectPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex-shrink-0 flex items-center">
-              <Link to="/test-deploy" className="text-xl font-bold">MSPSR<span className="text-indigo-400">π</span></Link>
+              <Link to="/" className="text-xl font-bold">MSPSR<span className="text-indigo-400">π</span></Link>
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <Link 
-                to="/test-deploy" 
-                className={`${location.pathname === '/test-deploy' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
+              <Link
+                to="/"
+                className={`${location.pathname === '/' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
               >
                 Home
               </Link>
-              <Link 
-                to="/project" 
+              <Link
+                to="/project"
                 className={`${location.pathname === '/project' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
               >
                 Project
               </Link>
-              <Link 
-                to="/data-release" 
+              <Link
+                to="/data-release"
                 className={`${location.pathname === '/data-release' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
               >
                 Data Release
               </Link>
-              <Link 
-                to="/publications" 
+              <Link
+                to="/publications"
                 className={`${location.pathname === '/publications' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
               >
                 Publications
               </Link>
-              <Link 
-                to="/team" 
+              <Link
+                to="/team"
                 className={`${location.pathname === '/team' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
               >
                 Team
@@ -412,11 +412,11 @@ const ProjectPage = () => {
 
             <div className="text-center mt-6">
               {activePhase !== 'psrpi' && (
-                <Link 
-                    to={`/projects/${activePhase}-details`} 
-                    className="inline-flex items-center px-5 py-2 border border-indigo-500/40 rounded-md text-indigo-300 bg-indigo-900/30 hover:bg-indigo-800/50 transition duration-300 shadow-[0_0_10px_rgba(79,70,229,0.3)] hover:shadow-[0_0_15px_rgba(79,70,229,0.5)]"
+                <Link
+                  to={`/projects/${activePhase}-details`}
+                  className="inline-flex items-center px-5 py-2 border border-indigo-500/40 rounded-md text-indigo-300 bg-indigo-900/30 hover:bg-indigo-800/50 transition duration-300 shadow-[0_0_10px_rgba(79,70,229,0.3)] hover:shadow-[0_0_15px_rgba(79,70,229,0.5)]"
                 >
-                    View Detailed Project Information <ChevronRight className="ml-2 h-4 w-4" />
+                  View Detailed Project Information <ChevronRight className="ml-2 h-4 w-4" />
                 </Link>
               )}
               {activePhase === 'psrpi' && (
