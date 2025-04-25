@@ -1,10 +1,13 @@
-import { Canvas } from '@react-three/fiber'
-import { OrbitControls, Stars, Html } from '@react-three/drei'
+import { Canvas, useFrame, useLoader } from '@react-three/fiber'
+import { OrbitControls, Html, useGLTF } from '@react-three/drei'
 import * as THREE from 'three'
-import { useMemo, useState } from 'react'
+import { TextureLoader } from 'three'
+import { useMemo, useRef, useState } from 'react'
 
-// 工具函数：RA/Dec/Distance → x, y, z
+// Convert RA/Dec to 3D coordinates (in visual space units)
 function convertToXYZ(raStr, decStr, distanceKpc = 3) {
+  if (!raStr || !decStr) throw new Error("Missing RA or Dec")
+
   const parseRA = (ra) => {
     const [h, m, s] = ra.match(/\d+(\.\d+)?/g).map(Number)
     return (h + m / 60 + s / 3600) * 15
@@ -18,11 +21,7 @@ function convertToXYZ(raStr, decStr, distanceKpc = 3) {
 
   const ra = THREE.MathUtils.degToRad(parseRA(raStr))
   const dec = THREE.MathUtils.degToRad(parseDec(decStr))
-
-  // 🧠 改进点：加上偏移，避免靠近地球
-  const baseOffset = 1.5
-  const scaleFactor = 3.5
-  const r = baseOffset + Math.log10(distanceKpc + 1) * scaleFactor
+  const r = 1.5 + Math.log10(distanceKpc + 1) * 3.5
 
   const x = r * Math.cos(dec) * Math.cos(ra)
   const y = r * Math.sin(dec)
@@ -31,70 +30,100 @@ function convertToXYZ(raStr, decStr, distanceKpc = 3) {
   return [x, y, z]
 }
 
+function Earth() {
+  const texture = useLoader(TextureLoader, process.env.PUBLIC_URL + '/images/earth.jpg')
+  return (
+    <mesh>
+      <sphereGeometry args={[0.4, 64, 64]} />
+      <meshStandardMaterial map={texture} />
+    </mesh>
+  )
+}
 
+function StarBackground() {
+  const starTexture = useLoader(TextureLoader, process.env.PUBLIC_URL + '/images/starfield.jpg')
+  return (
+    <mesh>
+      <sphereGeometry args={[100, 64, 64]} />
+      <meshBasicMaterial map={starTexture} side={THREE.BackSide} />
+    </mesh>
+  )
+}
 
-// 🔭 主组件
-export default function PulsarGalaxy({ pulsars }) {
-  const [hovered, setHovered] = useState(null)
+function PulsarDot({ id, position, name, ra, dec, onHover, hovered }) {
+  const ref = useRef()
+  useFrame(({ clock }) => {
+    const t = clock.getElapsedTime()
+    const scale = 0.8 + 0.3 * Math.sin(t * 4 + id)
+    ref.current.scale.set(scale, scale, scale)
+  })
+
+  return (
+    <mesh
+      ref={ref}
+      position={position}
+      onPointerOver={() => onHover(id)}
+      onPointerOut={() => onHover(null)}
+    >
+      <sphereGeometry args={[0.1, 16, 16]} />
+      <meshStandardMaterial emissive="hotpink" emissiveIntensity={1.5} />
+      {hovered === id && (
+        <Html position={[0, 0.25, 0]} style={{ pointerEvents: 'none' }} zIndexRange={[100, 0]} occlude={false}>
+          <div className="bg-black/75 text-white text-xs px-3 py-2 rounded-lg max-w-[180px] whitespace-nowrap shadow-lg backdrop-blur">
+            <strong>{name}</strong><br />
+            RA: {ra}<br />
+            Dec: {dec}
+          </div>
+        </Html>
+      )}
+
+    </mesh>
+  )
+}
+
+export default function PulsarGalaxyBeautified({ pulsars }) {
+  const [isCanvasHovered, setIsCanvasHovered] = useState(false)
+  const [activeId, setActiveId] = useState(null)
+
 
   const points = useMemo(() => {
-    return pulsars
-      .map((pulsar, index) => {
-        const name = pulsar.name || pulsar.display_name
-        const ra =
-          pulsar.position?.rightAscension || pulsar.coordinates?.ra || pulsar.ra
-        const dec =
-          pulsar.position?.declination || pulsar.coordinates?.dec || pulsar.dec
-        const distance = pulsar.distance?.value || pulsar.distance || 1
+    return pulsars.map((pulsar, index) => {
+      const name = pulsar.name || pulsar.display_name
+      const ra = pulsar.position?.rightAscension || pulsar.coordinates?.ra || pulsar.ra
+      const dec = pulsar.position?.declination || pulsar.coordinates?.dec || pulsar.dec
+      const distance = pulsar.distance?.value || pulsar.distance || 3
 
-        // 🛡️ 加防御性检查：只处理合法字符串
-        if (typeof ra !== 'string' || typeof dec !== 'string') return null
+      if (!ra || !dec || typeof ra !== 'string' || typeof dec !== 'string') return null
 
-        try {
-          const position = convertToXYZ(ra, dec, distance)
-          return { id: index, name, ra, dec, position }
-        } catch (e) {
-          console.warn(`Failed to parse RA/Dec for ${name}:`, e)
-          return null
-        }
-      })
-      .filter(Boolean)
-
+      try {
+        const position = convertToXYZ(ra, dec, distance)
+        return { id: index, name, ra, dec, position }
+      } catch (e) {
+        console.warn(`Failed to parse RA/Dec for ${name}:`, e)
+        return null
+      }
+    }).filter(Boolean)
   }, [pulsars])
 
   return (
-    <Canvas camera={{ position: [0, 0, 10], fov: 45 }}>
-      <ambientLight intensity={0.3} />
-      <pointLight position={[10, 10, 10]} />
-      <OrbitControls />
-      <Stars radius={100} depth={50} count={5000} factor={4} fade />
+    <div
+      onMouseEnter={() => setIsCanvasHovered(true)}
+      onMouseLeave={() => setIsCanvasHovered(false)}
+      style={{ width: '100%', height: '100%' }}
+    >
 
-      {/* 地球 */}
-      <mesh>
-        <sphereGeometry args={[0.3, 32, 32]} />
-        <meshStandardMaterial emissive="skyblue" emissiveIntensity={0.5} />
-      </mesh>
+      <Canvas camera={{ position: [0, 0, 8], fov: 45 }}>
+        <ambientLight intensity={0.6} />
+        <pointLight position={[10, 10, 10]} intensity={1} />
+        <directionalLight position={[5, 5, 5]} intensity={1.2} castShadow />
+        <OrbitControls autoRotate={!isCanvasHovered} autoRotateSpeed={0.2} />
+        <StarBackground />
+        <Earth />
+        {points.map(p => (
+          <PulsarDot key={p.id} {...p} onHover={setActiveId} hovered={activeId} />
+        ))}
+      </Canvas>
+    </div>
 
-      {points.map(({ id, name, ra, dec, position }) => (
-        <mesh
-          key={id}
-          position={position}
-          onPointerOver={() => setHovered(id)}
-          onPointerOut={() => setHovered(null)}
-        >
-          <sphereGeometry args={[0.1, 8, 8]} />
-          <meshStandardMaterial emissive="deepskyblue" emissiveIntensity={1} />
-          {hovered === id && (
-            <Html distanceFactor={10}>
-              <div className="bg-black/60 text-white text-xs p-2 rounded shadow-md">
-                <strong>{name}</strong><br />
-                RA: {ra}<br />
-                Dec: {dec}
-              </div>
-            </Html>
-          )}
-        </mesh>
-      ))}
-    </Canvas>
   )
 }
