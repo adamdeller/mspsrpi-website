@@ -13,7 +13,7 @@ function App() {
     <Routes>
       {/* Redirect root path to /test-deploy */}
       <Route path="/" element={<Homepage />} />
-      <Route path="/mspsrpi-website" element={<Homepage />} />
+      <Route path="/#/mspsrpi-website" element={<Homepage />} />
       <Route path="/project" element={<ProjectPage />} />
       <Route path="/data-release" element={<DataReleasePage />} />
       <Route path="/publications" element={<PublicationsPage />} />
