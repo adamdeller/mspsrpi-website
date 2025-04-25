@@ -184,35 +184,35 @@ const MSPSRPI2DetailsPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex-shrink-0 flex items-center">
-              <Link to="/test-deploy" className="text-xl font-bold">MSPSR<span className="text-indigo-400">π</span></Link>
+              <Link to="/" className="text-xl font-bold">MSPSR<span className="text-indigo-400">π</span></Link>
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <Link 
-                to="/test-deploy" 
-                className={`${location.pathname === '/test-deploy' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
+              <Link
+                to="/"
+                className={`${location.pathname === '/' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
               >
                 {data.navLinks?.home || "Home"}
               </Link>
-              <Link 
-                to="/project" 
+              <Link
+                to="/project"
                 className={`${location.pathname.includes('project') ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
               >
                 {data.navLinks?.project || "Project"}
               </Link>
-              <Link 
-                to="/data-release" 
+              <Link
+                to="/data-release"
                 className={`${location.pathname === '/data-release' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
               >
                 {data.navLinks?.dataRelease || "Data Release"}
               </Link>
-              <Link 
-                to="/publications" 
+              <Link
+                to="/publications"
                 className={`${location.pathname === '/publications' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
               >
                 {data.navLinks?.publications || "Publications"}
               </Link>
-              <Link 
-                to="/team" 
+              <Link
+                to="/team"
                 className={`${location.pathname === '/team' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
               >
                 {data.navLinks?.team || "Team"}
@@ -435,22 +435,22 @@ const MSPSRPI2DetailsPage = () => {
                   <div className="absolute inset-0 bg-blue-950/90 overflow-hidden">
                     {/* Multiple star layers for depth */}
                     <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0ibm9uZSIvPjxjaXJjbGUgY3g9IjI1IiBjeT0iMjUiIHI9IjEiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuNiIvPjxjaXJjbGUgY3g9IjE3NSIgY3k9IjE1MCIgcj0iMS4yIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjciLz48Y2lyY2xlIGN4PSI3NSIgY3k9IjEwMCIgcj0iMSIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC42Ii8+PGNpcmNsZSBjeD0iMTAwIiBjeT0iMTUiIHI9IjEuNSIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC43Ii8+PGNpcmNsZSBjeD0iMTUwIiBjeT0iNTAiIHI9IjEuMiIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC42Ii8+PGNpcmNsZSBjeD0iNTAiIGN5PSIxNzUiIHI9IjEuNCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC43Ii8+PGNpcmNsZSBjeD0iMTI1IiBjeT0iMTc1IiByPSIxIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjYiLz48L3N2Zz4=')] opacity-70"></div>
-                    
+
                     {/* Blue cosmic glow */}
                     <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-500/20 via-blue-900/10 to-transparent"></div>
-                    
+
                     {/* Animated stars effect */}
                     <div className="absolute inset-0">
                       <div className="absolute h-1 w-1 bg-white rounded-full top-[10%] left-[15%] opacity-70 animate-pulse"></div>
-                      <div className="absolute h-1 w-1 bg-white rounded-full top-[20%] left-[25%] opacity-80 animate-pulse" style={{animationDelay: '0.5s'}}></div>
-                      <div className="absolute h-1 w-1 bg-white rounded-full top-[15%] left-[65%] opacity-60 animate-pulse" style={{animationDelay: '1.2s'}}></div>
-                      <div className="absolute h-1 w-1 bg-white rounded-full top-[40%] left-[80%] opacity-70 animate-pulse" style={{animationDelay: '0.7s'}}></div>
-                      <div className="absolute h-1 w-1 bg-white rounded-full top-[70%] left-[35%] opacity-80 animate-pulse" style={{animationDelay: '1.5s'}}></div>
-                      <div className="absolute h-1 w-1 bg-white rounded-full top-[60%] left-[15%] opacity-60 animate-pulse" style={{animationDelay: '0.3s'}}></div>
-                      <div className="absolute h-1 w-1 bg-white rounded-full top-[80%] left-[75%] opacity-70 animate-pulse" style={{animationDelay: '1s'}}></div>
+                      <div className="absolute h-1 w-1 bg-white rounded-full top-[20%] left-[25%] opacity-80 animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+                      <div className="absolute h-1 w-1 bg-white rounded-full top-[15%] left-[65%] opacity-60 animate-pulse" style={{ animationDelay: '1.2s' }}></div>
+                      <div className="absolute h-1 w-1 bg-white rounded-full top-[40%] left-[80%] opacity-70 animate-pulse" style={{ animationDelay: '0.7s' }}></div>
+                      <div className="absolute h-1 w-1 bg-white rounded-full top-[70%] left-[35%] opacity-80 animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+                      <div className="absolute h-1 w-1 bg-white rounded-full top-[60%] left-[15%] opacity-60 animate-pulse" style={{ animationDelay: '0.3s' }}></div>
+                      <div className="absolute h-1 w-1 bg-white rounded-full top-[80%] left-[75%] opacity-70 animate-pulse" style={{ animationDelay: '1s' }}></div>
                     </div>
                   </div>
-                  
+
                   {/* Content of the overlay */}
                   <div className="relative py-16 px-8 text-center">
                     <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-blue-900/60 mb-6 backdrop-blur-md border border-blue-500/50 shadow-[0_0_15px_rgba(59,130,246,0.5)]">
@@ -468,7 +468,7 @@ const MSPSRPI2DetailsPage = () => {
                   </div>
                 </div>
               )}
-              
+
               {/* Actual results content - conditionally shown based on overlay flag */}
               <div className={data.showResultsOverlay ? "hidden" : ""}>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
@@ -479,7 +479,7 @@ const MSPSRPI2DetailsPage = () => {
                     </div>
                   ))}
                 </div>
-                
+
                 <h3 className="text-xl font-bold text-white mb-4">
                   {data.sectionTitles?.scientificImpact || "Scientific Impact"}
                 </h3>
@@ -491,13 +491,13 @@ const MSPSRPI2DetailsPage = () => {
                   ))}
                 </div>
               </div>
-              
+
               {/* Publications section with conditional placeholder */}
               <div className="mt-8">
                 <h3 className="text-2xl font-bold text-white mb-4">
                   {data.sectionTitles?.publications || "Related Publications"}
                 </h3>
-                
+
                 {/* Conditional publications placeholder */}
                 {data.showPublicationsPlaceholder ? (
                   <div className="bg-slate-800/40 backdrop-blur-sm rounded-lg p-6 border border-blue-700/20">
@@ -519,8 +519,8 @@ const MSPSRPI2DetailsPage = () => {
                       <div key={index} className="bg-slate-800/30 p-4 rounded-lg border border-blue-700/20">
                         <p className="text-gray-300 mb-2">{pub.citation}</p>
                         <div className="flex items-center space-x-4">
-                          <a 
-                            href={pub.doi} 
+                          <a
+                            href={pub.doi}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-sm text-blue-400 hover:text-blue-300 transition flex items-center"
@@ -528,8 +528,8 @@ const MSPSRPI2DetailsPage = () => {
                             DOI <ExternalLink className="ml-1 h-3 w-3" />
                           </a>
                           {pub.arxiv && (
-                            <a 
-                              href={pub.arxiv} 
+                            <a
+                              href={pub.arxiv}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="text-sm text-blue-400 hover:text-blue-300 transition flex items-center"
@@ -541,8 +541,8 @@ const MSPSRPI2DetailsPage = () => {
                       </div>
                     ))}
                     <div className="mt-4 text-center">
-                      <a 
-                        href={data.publicationsUrl} 
+                      <a
+                        href={data.publicationsUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center px-4 py-2 border border-blue-500/40 rounded-md text-blue-300 bg-blue-900/30 hover:bg-blue-800/50 transition duration-300"

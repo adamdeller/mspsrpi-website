@@ -33,7 +33,7 @@ const MSPSRPIDetailsPage = () => {
 
   // For flux density filtering
   const [fluxFilter, setFluxFilter] = useState('all');
- 
+
   // DATA FETCHING
   useEffect(() => {
     const loadData = async () => {
@@ -180,35 +180,35 @@ const MSPSRPIDetailsPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex-shrink-0 flex items-center">
-              <Link to="/test-deploy" className="text-xl font-bold">MSPSR<span className="text-indigo-400">π</span></Link>
+              <Link to="/" className="text-xl font-bold">MSPSR<span className="text-indigo-400">π</span></Link>
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <Link 
-                to="/test-deploy" 
-                className={`${location.pathname === '/test-deploy' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
+              <Link
+                to="/"
+                className={`${location.pathname === '/' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
               >
                 Home
               </Link>
-              <Link 
-                to="/project" 
+              <Link
+                to="/project"
                 className={`${location.pathname.includes('project') ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
               >
                 Project
               </Link>
-              <Link 
-                to="/data-release" 
+              <Link
+                to="/data-release"
                 className={`${location.pathname === '/data-release' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
               >
                 Data Release
               </Link>
-              <Link 
-                to="/publications" 
+              <Link
+                to="/publications"
                 className={`${location.pathname === '/publications' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
               >
                 Publications
               </Link>
-              <Link 
-                to="/team" 
+              <Link
+                to="/team"
                 className={`${location.pathname === '/team' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
               >
                 Team
