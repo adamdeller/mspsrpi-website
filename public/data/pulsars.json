@@ -1,0 +1,669 @@
+[
+  {
+    "name": "J0023+0923",
+    "fluxDensity": 0.73,
+    "distance": 1.0,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.2-0.76 mJy",
+    "sessionDuration": "4 hr",
+    "memberships": [
+      "NANOGrav",
+      "CPTA"
+    ],
+    "notes": "",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J0034-0534",
+    "fluxDensity": 0.21,
+    "distance": 0.9,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.2-0.76 mJy",
+    "sessionDuration": "4 hr",
+    "memberships": [
+      "CPTA"
+    ],
+    "notes": "",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J0340+4130",
+    "fluxDensity": 0.3,
+    "distance": 1.7,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.2-0.76 mJy",
+    "sessionDuration": "4 hr",
+    "memberships": [
+      "NANOGrav",
+      "CPTA"
+    ],
+    "notes": "",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J0645+5158",
+    "fluxDensity": 0.3,
+    "distance": 0.7,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.2-0.76 mJy",
+    "sessionDuration": "4 hr",
+    "memberships": [
+      "NANOGrav",
+      "CPTA"
+    ],
+    "notes": "Has significant timing parallax",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J0709+0458",
+    "fluxDensity": 0.26,
+    "distance": 1.5,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.2-0.76 mJy",
+    "sessionDuration": "4 hr",
+    "memberships": [
+      "NANOGrav"
+    ],
+    "notes": "",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J0732+2314",
+    "fluxDensity": 0.73,
+    "distance": 1.4,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.2-0.76 mJy",
+    "sessionDuration": "4 hr",
+    "memberships": [
+      "CPTA"
+    ],
+    "notes": "",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J0824+0028",
+    "fluxDensity": 0.51,
+    "distance": 1.6,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.2-0.76 mJy",
+    "sessionDuration": "4 hr",
+    "memberships": [
+      "CPTA"
+    ],
+    "notes": "",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J0931-1902",
+    "fluxDensity": 0.52,
+    "distance": 2.8,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.2-0.76 mJy",
+    "sessionDuration": "4 hr",
+    "memberships": [
+      "NANOGrav",
+      "MPTA"
+    ],
+    "notes": "Southerly position",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J1653-2054",
+    "fluxDensity": 0.58,
+    "distance": 2.2,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.2-0.76 mJy",
+    "sessionDuration": "4 hr",
+    "memberships": [
+      "MPTA"
+    ],
+    "notes": "Southerly position",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J1705-1903",
+    "fluxDensity": 0.58,
+    "distance": 2.0,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.2-0.76 mJy",
+    "sessionDuration": "4 hr",
+    "memberships": [
+      "NANOGrav",
+      "MPTA"
+    ],
+    "notes": "Southerly position",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J1719-1438",
+    "fluxDensity": 0.43,
+    "distance": 0.8,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.2-0.76 mJy",
+    "sessionDuration": "4 hr",
+    "memberships": [
+      "NANOGrav",
+      "MPTA"
+    ],
+    "notes": "Southerly position",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J1741+1351",
+    "fluxDensity": 0.29,
+    "distance": 1.1,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.2-0.76 mJy",
+    "sessionDuration": "4 hr",
+    "memberships": [
+      "NANOGrav",
+      "PPTA",
+      "CPTA"
+    ],
+    "notes": "",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J1745+1017",
+    "fluxDensity": 0.51,
+    "distance": 1.2,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.2-0.76 mJy",
+    "sessionDuration": "4 hr",
+    "memberships": [
+      "NANOGrav",
+      "CPTA"
+    ],
+    "notes": "",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J1802-2124",
+    "fluxDensity": 0.73,
+    "distance": 3.0,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.2-0.76 mJy",
+    "sessionDuration": "4 hr",
+    "memberships": [
+      "NANOGrav",
+      "MPTA"
+    ],
+    "notes": "Southerly position",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J1903+0327",
+    "fluxDensity": 0.6,
+    "distance": 6.2,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.2-0.76 mJy",
+    "sessionDuration": "4 hr",
+    "memberships": [
+      "NANOGrav",
+      "CPTA"
+    ],
+    "notes": "",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J1923+2515",
+    "fluxDensity": 0.20,
+    "distance": 1.4,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.2-0.76 mJy",
+    "sessionDuration": "4 hr",
+    "memberships": [
+      "NANOGrav",
+      "CPTA"
+    ],
+    "notes": "",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J2019+2425",
+    "fluxDensity": 0.26,
+    "distance": 1.3,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.2-0.76 mJy",
+    "sessionDuration": "4 hr",
+    "memberships": [
+      "CPTA"
+    ],
+    "notes": "",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J2033+1734",
+    "fluxDensity": 0.28,
+    "distance": 1.9,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.2-0.76 mJy",
+    "sessionDuration": "4 hr",
+    "memberships": [
+      "NANOGrav",
+      "CPTA"
+    ],
+    "notes": "",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J2150-0326",
+    "fluxDensity": 0.48,
+    "distance": 1.5,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.2-0.76 mJy",
+    "sessionDuration": "4 hr",
+    "memberships": [
+      "CPTA",
+      "MPTA"
+    ],
+    "notes": "",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J2214+3000",
+    "fluxDensity": 0.53,
+    "distance": 1.6,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.2-0.76 mJy",
+    "sessionDuration": "4 hr",
+    "memberships": [
+      "NANOGrav",
+      "CPTA"
+    ],
+    "notes": "",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J2234+0611",
+    "fluxDensity": 0.46,
+    "distance": 0.77,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.2-0.76 mJy",
+    "sessionDuration": "4 hr",
+    "memberships": [
+      "NANOGrav",
+      "CPTA"
+    ],
+    "notes": "Has significant timing parallax",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J2322+2057",
+    "fluxDensity": 0.34,
+    "distance": 0.9,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.2-0.76 mJy",
+    "sessionDuration": "4 hr",
+    "memberships": [
+      "NANOGrav",
+      "EPTA",
+      "CPTA",
+      "MPTA"
+    ],
+    "notes": "",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J0636+5128",
+    "fluxDensity": 1.0,
+    "distance": 0.3,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.76-1.2 mJy",
+    "sessionDuration": "2 hr",
+    "memberships": [
+      "NANOGrav"
+    ],
+    "notes": "Has significant timing parallax",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J0740+6620",
+    "fluxDensity": 1.1,
+    "distance": 0.8,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.76-1.2 mJy",
+    "sessionDuration": "2 hr",
+    "memberships": [
+      "NANOGrav"
+    ],
+    "notes": "",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J1125+7819",
+    "fluxDensity": 1.1,
+    "distance": 0.8,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.76-1.2 mJy",
+    "sessionDuration": "2 hr",
+    "memberships": [
+      "NANOGrav"
+    ],
+    "notes": "",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J1614-2230",
+    "fluxDensity": 1.14,
+    "distance": 1.3,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.76-1.2 mJy",
+    "sessionDuration": "2 hr",
+    "memberships": [
+      "NANOGrav",
+      "MPTA"
+    ],
+    "notes": "Has significant timing parallax",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J1737-0811",
+    "fluxDensity": 1.1,
+    "distance": 1.0,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.76-1.2 mJy",
+    "sessionDuration": "2 hr",
+    "memberships": [
+      "MPTA"
+    ],
+    "notes": "",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J1756-2251",
+    "fluxDensity": 1.1,
+    "distance": 2.6,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.76-1.2 mJy",
+    "sessionDuration": "2 hr",
+    "memberships": [
+      "MPTA"
+    ],
+    "notes": "",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J1832-0836",
+    "fluxDensity": 0.92,
+    "distance": 1.0,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.76-1.2 mJy",
+    "sessionDuration": "2 hr",
+    "memberships": [
+      "NANOGrav",
+      "PPTA",
+      "CPTA",
+      "MPTA"
+    ],
+    "notes": "Has significant timing parallax",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J1911+1347",
+    "fluxDensity": 0.9,
+    "distance": 1.7,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.76-1.2 mJy",
+    "sessionDuration": "2 hr",
+    "memberships": [
+      "NANOGrav",
+      "EPTA",
+      "CPTA"
+    ],
+    "notes": "Has significant timing parallax",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J1946+3417",
+    "fluxDensity": 0.9,
+    "distance": 6.0,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.76-1.2 mJy",
+    "sessionDuration": "2 hr",
+    "memberships": [
+      "NANOGrav",
+      "CPTA"
+    ],
+    "notes": "",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J1955+2908",
+    "fluxDensity": 0.98,
+    "distance": 5.5,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.76-1.2 mJy",
+    "sessionDuration": "2 hr",
+    "memberships": [
+      "NANOGrav",
+      "CPTA"
+    ],
+    "notes": "",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J2229+2643",
+    "fluxDensity": 0.8,
+    "distance": 1.6,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.76-1.2 mJy",
+    "sessionDuration": "2 hr",
+    "memberships": [
+      "NANOGrav",
+      "CPTA",
+      "MPTA"
+    ],
+    "notes": "",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J0125-2327",
+    "fluxDensity": 2.5,
+    "distance": 0.7,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": ">1.2 mJy",
+    "sessionDuration": "1 hr",
+    "memberships": [
+      "PPTA",
+      "MPTA"
+    ],
+    "notes": "",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J0509+0856",
+    "fluxDensity": 1.5,
+    "distance": 1.1,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": ">1.2 mJy",
+    "sessionDuration": "1 hr",
+    "memberships": [
+      "NANOGrav",
+      "CPTA"
+    ],
+    "notes": "",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J0613-0200",
+    "fluxDensity": 2.3,
+    "distance": 1.4,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": ">1.2 mJy",
+    "sessionDuration": "1 hr",
+    "memberships": [
+      "NANOGrav",
+      "EPTA",
+      "PPTA",
+      "CPTA",
+      "MPTA"
+    ],
+    "notes": "Has significant timing parallax",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J0751+1807",
+    "fluxDensity": 1.35,
+    "distance": 0.8,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": ">1.2 mJy",
+    "sessionDuration": "1 hr",
+    "memberships": [
+      "EPTA",
+      "CPTA"
+    ],
+    "notes": "Has significant timing parallax",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J1744-1134",
+    "fluxDensity": 2.6,
+    "distance": 0.3,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": ">1.2 mJy",
+    "sessionDuration": "1 hr",
+    "memberships": [
+      "NANOGrav",
+      "EPTA",
+      "PPTA",
+      "CPTA",
+      "MPTA"
+    ],
+    "notes": "Has significant timing parallax",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J1801-1417",
+    "fluxDensity": 1.54,
+    "distance": 1.3,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": ">1.2 mJy",
+    "sessionDuration": "1 hr",
+    "memberships": [
+      "EPTA",
+      "MPTA"
+    ],
+    "notes": "",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J1811-2405",
+    "fluxDensity": 1.33,
+    "distance": 1.8,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": ">1.2 mJy",
+    "sessionDuration": "1 hr",
+    "memberships": [
+      "NANOGrav",
+      "MPTA"
+    ],
+    "notes": "",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J1857+0943",
+    "fluxDensity": 5.0,
+    "distance": 1.0,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": ">1.2 mJy",
+    "sessionDuration": "1 hr",
+    "memberships": [
+      "NANOGrav",
+      "EPTA",
+      "PPTA",
+      "CPTA"
+    ],
+    "notes": "Has significant timing parallax",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J1944+0907",
+    "fluxDensity": 2.1,
+    "distance": 1.5,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": ">1.2 mJy",
+    "sessionDuration": "1 hr",
+    "memberships": [
+      "NANOGrav",
+      "CPTA"
+    ],
+    "notes": "",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J2234+0944",
+    "fluxDensity": 1.9,
+    "distance": 1.3,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": ">1.2 mJy",
+    "sessionDuration": "1 hr",
+    "memberships": [
+      "NANOGrav",
+      "CPTA",
+      "MPTA"
+    ],
+    "notes": "",
+    "phase": "MSPSRPI2"
+  },
+  {
+    "name": "J2302+4442",
+    "fluxDensity": 1.4,
+    "distance": 1.0,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": ">1.2 mJy",
+    "sessionDuration": "1 hr",
+    "memberships": [
+      "NANOGrav",
+      "CPTA"
+    ],
+    "notes": "",
+    "phase": "MSPSRPI2"
+  }
+  
+  
+]
