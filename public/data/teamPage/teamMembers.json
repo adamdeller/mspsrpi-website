@@ -1,75 +1,81 @@
 {
-    "teamMembers": [
-      {
-        "name": "Adam Deller",
-        "role": "Principal Investigator",
-        "institution": "Swinburne University of Technology",
-        "photo": "/api/placeholder/250/250",
-        "quote": "Precise pulsar astrometry allows us to map our Galaxy's structure and test fundamental theories of gravity."
-      },
-      {
-        "name": "Walter Brisken",
-        "role": "Co-Investigator",
-        "institution": "NRAO",
-        "photo": "/api/placeholder/250/250",
-        "quote": "VLBI techniques enable us to measure pulsar distances with unprecedented accuracy."
-      },
-      {
-        "name": "Miller Goss",
-        "role": "Co-Investigator",
-        "institution": "NRAO",
-        "photo": "/api/placeholder/250/250",
-        "quote": "The mapping of millisecond pulsars provides crucial insights into galactic structure and evolution."
-      },
-      {
-        "name": "Shami Chatterjee",
-        "role": "Co-Investigator",
-        "institution": "Cornell",
-        "photo": "/api/placeholder/250/250",
-        "quote": "Pulsar astrometry is a key tool for understanding gravitational wave detection through pulsar timing arrays."
-      },
-      {
-        "name": "Jim Cordes",
-        "role": "Co-Investigator",
-        "institution": "Cornell",
-        "photo": "/api/placeholder/250/250",
-        "quote": "Millisecond pulsars are nature's most precise clocks, allowing us to probe the fabric of spacetime itself."
-      },
-      {
-        "name": "Joe Lazio",
-        "role": "Co-Investigator",
-        "institution": "JPL",
-        "photo": "/api/placeholder/250/250",
-        "quote": "MSPSRPI helps us understand the galactic electron density distribution and improve interstellar medium models."
-      },
-      {
-        "name": "Yuri Kovalev",
-        "role": "Co-Investigator",
-        "institution": "Lebedev Physical Institute",
-        "photo": "/api/placeholder/250/250",
-        "quote": "International collaboration in VLBI techniques enables us to achieve the highest possible astrometric precision."
-      },
-      {
-        "name": "Leonid Petrov",
-        "role": "Co-Investigator",
-        "institution": "ADNET Systems Inc./NASA GSFC",
-        "photo": "/api/placeholder/250/250",
-        "quote": "Precise reference frames are critical for measuring distances across the cosmos."
-      },
-      {
-        "name": "Gemma Janssen",
-        "role": "Co-Investigator",
-        "institution": "ASTRON",
-        "photo": "/api/placeholder/250/250",
-        "quote": "The MSPSRPI project provides essential astrometric measurements for pulsar timing array efforts."
-      },
-      {
-        "name": "Ben Stappers",
-        "role": "Co-Investigator",
-        "institution": "Jodrell Bank Centre for Astrophysics",
-        "photo": "/api/placeholder/250/250",
-        "quote": "Understanding pulsar distances is fundamental to interpreting their timing behavior and properties."
-      }
-    ]
-  }
-  
+  "teamMembers": [
+    {
+      "name": "Adam Deller",
+      "role": "Principal Investigator",
+      "institution": "Swinburne University of Technology",
+      "photo": "/api/placeholder/250/250",
+      "quote": "Precise pulsar astrometry allows us to map our Galaxy's structure and test fundamental theories of gravity.",
+      "email": "adeller@astro.swin.edu.au"
+    },
+    {
+      "name": "Walter Brisken",
+      "role": "Co-Investigator",
+      "institution": "NRAO",
+      "photo": "/api/placeholder/250/250",
+      "quote": "VLBI techniques enable us to measure pulsar distances with unprecedented accuracy."
+    },
+    {
+      "name": "Miller Goss",
+      "role": "Co-Investigator",
+      "institution": "NRAO",
+      "photo": "/api/placeholder/250/250",
+      "quote": "The mapping of millisecond pulsars provides crucial insights into galactic structure and evolution."
+    },
+    {
+      "name": "Shami Chatterjee",
+      "role": "Co-Investigator",
+      "institution": "Cornell",
+      "photo": "/api/placeholder/250/250",
+      "quote": "Pulsar astrometry is a key tool for understanding gravitational wave detection through pulsar timing arrays.",
+      "email": "sc433@cornell.edu"
+    },
+    {
+      "name": "Jim Cordes",
+      "role": "Co-Investigator",
+      "institution": "Cornell",
+      "photo": "/api/placeholder/250/250",
+      "quote": "Millisecond pulsars are nature's most precise clocks, allowing us to probe the fabric of spacetime itself.",
+      "email": "cordes@astro.cornell.edu"
+    },
+    {
+      "name": "Joe Lazio",
+      "role": "Co-Investigator",
+      "institution": "JPL",
+      "photo": "/api/placeholder/250/250",
+      "quote": "MSPSRPI helps us understand the galactic electron density distribution and improve interstellar medium models.",
+      "email": "lazio@jpl.nasa.gov"
+    },
+    {
+      "name": "Yuri Kovalev",
+      "role": "Co-Investigator",
+      "institution": "Lebedev Physical Institute",
+      "photo": "/api/placeholder/250/250",
+      "quote": "International collaboration in VLBI techniques enables us to achieve the highest possible astrometric precision.",
+      "email": "ykovalev@mpifr-bonn.mpg.de"
+    },
+    {
+      "name": "Leonid Petrov",
+      "role": "Co-Investigator",
+      "institution": "ADNET Systems Inc./NASA GSFC",
+      "photo": "/api/placeholder/250/250",
+      "quote": "Precise reference frames are critical for measuring distances across the cosmos."
+    },
+    {
+      "name": "Gemma Janssen",
+      "role": "Co-Investigator",
+      "institution": "ASTRON",
+      "photo": "/api/placeholder/250/250",
+      "quote": "The MSPSRPI project provides essential astrometric measurements for pulsar timing array efforts.",
+      "email": "gemma.janssen@manchester.ac.uk"
+    },
+    {
+      "name": "Ben Stappers",
+      "role": "Co-Investigator",
+      "institution": "Jodrell Bank Centre for Astrophysics",
+      "photo": "/api/placeholder/250/250",
+      "quote": "Understanding pulsar distances is fundamental to interpreting their timing behavior and properties.",
+      "email": "ben.stappers@manchester.ac.uk"
+    }
+  ]
+}

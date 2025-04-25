@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+ 
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,7 +10,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+ 
 /* Add the shimmer animation styles that were in style jsx in the Homepage component */
 @keyframes shimmer {
   0% {
@@ -40,17 +40,12 @@ body {
     opacity: 0.7;
   }
 }
-@keyframes rocket-fly {
-  0% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(100vw);
-    opacity: 0;
-  }
-}
 
-.animate-rocket-fly {
-  animation: rocket-fly 6s linear infinite;
+/* Cosmic fade animation */
+@keyframes cosmicFade {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+.animate-cosmic-fade {
+  animation: cosmicFade 3s ease-in-out infinite;
 }

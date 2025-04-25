@@ -39,7 +39,10 @@ const PublicationsPage = () => {
   
     try {
       // Path to the JSON file
-      const fileUrl = '/data/publicPage/publications.json';
+      const baseUrl = '/test-deploy';
+      const fileUrl = `${baseUrl}/data/publicPage/publications.json`;
+
+      console.log('Fetching from:', fileUrl)
       
       const response = await fetch(fileUrl);
       

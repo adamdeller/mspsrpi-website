@@ -21,6 +21,10 @@
       }
     ]
   },
+  "projectPhasesTitle": "Project Phases",
+  "projectPhasesDescription": "Spanning over a decade of research, our program has evolved through three phases",
+  "progressTrackerTitle": "MSPSRPI2 Progress Tracker",
+  "progressTrackerDescription": "Current status of pulsar observations",
   "psrpi": {
     "title": "PSRPI (2011-2013)",
     "subtitle": "Original Pulsar Parallax Initiative",

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { MapPin, Star, Book, ChevronRight, Users, ExternalLink, Search, Download } from 'lucide-react';
 import { Rocket, Telescope, MapPinned, BookOpenText, Stars, Ruler, BookOpen, Sparkles } from "lucide-react";
 import PulsarVisualizations from './PulsarVisualizations'; // Import the PulsarVisualizations component
 
 
 const Homepage = () => {
+  const location = useLocation(); // Add this line to get current location
   const [activeResearchQuestion, setActiveResearchQuestion] = useState(null);
   const [questionSlide, setQuestionSlide] = useState(0);
   const [teamMemberSlide, setTeamMemberSlide] = useState(0);
@@ -33,9 +34,9 @@ const Homepage = () => {
     const fetchData = async () => {
       try {
         const [homepageRes, observationRes, teamRes] = await Promise.all([
-          fetch('/data/homepage/homePage.json'),
-          fetch('/data/mspsrpi2/observationData.json'),
-          fetch('/data/teamPage/teamMembers.json')
+          fetch(`${process.env.PUBLIC_URL}/data/homepage/HomePage.json`),
+          fetch(`${process.env.PUBLIC_URL}/data/mspsrpi2/observationData.json`),
+          fetch(`${process.env.PUBLIC_URL}/data/teamPage/teamMembers.json`)
         ]);
 
         const homepageData = await homepageRes.json();
@@ -101,14 +102,39 @@ const Homepage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex-shrink-0 flex items-center">
-              <span className="text-xl font-bold">MSPSR<span className="text-indigo-400">π</span></span>
+              <Link to="/test-deploy" className="text-xl font-bold">MSPSR<span className="text-indigo-400">π</span></Link>
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <Link to="/" className="text-indigo-400 px-3 py-2 font-medium">Home</Link>
-              <Link to="/project" className="text-gray-300 hover:text-indigo-400 px-3 py-2 font-medium">Project</Link>
-              <Link to="/data-release" className="text-gray-300 hover:text-indigo-400 px-3 py-2 font-medium">Data Release</Link>
-              <Link to="/publications" className="text-gray-300 hover:text-indigo-400 px-3 py-2 font-medium">Publications</Link>
-              <Link to="/team" className="text-gray-300 hover:text-indigo-400 px-3 py-2 font-medium">Team</Link>
+              <Link
+                to="/test-deploy"
+                className={`${location.pathname === '/test-deploy' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
+              >
+                Home
+              </Link>
+              <Link
+                to="/project"
+                className={`${location.pathname === '/project' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
+              >
+                Project
+              </Link>
+              <Link
+                to="/data-release"
+                className={`${location.pathname === '/data-release' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
+              >
+                Data Release
+              </Link>
+              <Link
+                to="/publications"
+                className={`${location.pathname === '/publications' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
+              >
+                Publications
+              </Link>
+              <Link
+                to="/team"
+                className={`${location.pathname === '/team' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
+              >
+                Team
+              </Link>
             </div>
           </div>
         </div>
@@ -161,7 +187,7 @@ const Homepage = () => {
               </div>
 
               <div className="flex justify-between text-sm text-indigo-300 mb-3">
-                <span>Phase 1: {phase1Progress.observedPulsars}/{phase1Progress.totalPulsars} Pulsars observed ✓</span>
+                {/* <span>Phase 1: {phase1Progress.observedPulsars}/{phase1Progress.totalPulsars} Pulsars observed ✓</span> */}
                 <span>Phase 2: {phase2Progress.observedPulsars}/{phase2Progress.totalPulsars} Pulsars observed</span>
               </div>
 
