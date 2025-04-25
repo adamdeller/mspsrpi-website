@@ -1,14 +1,101 @@
 {
+  "heroTagline": "Project Phase 2023-2025",
+  "heroTitle": "MSPSRπ2",
   "heroSubtitle": "Turbocharging the most precisely timed pulsars with VLBI astrometry",
   "heroDescription": "MSPSRπ2 is an extension of the original MSPSRπ program, aiming to nearly triple the number of millisecond pulsars (MSPs) with VLBI astrometric measurements to enhance pulsar timing array sensitivity.",
-  "dataReleaseUrl": "/data-release",
-  "publicationsUrl": "/publications",
+  "dataReleaseUrl": "/test-deploy/#/data-release",
+  "dataReleaseButtonText": "Access Data Release",
+  "publicationsUrl": "/test-deploy/#/publications",
+  "publicationsButtonText": "View Publications",
+  "viewAllPublicationsText": "View All Publications",
+  
+  "backLinkText": "Back to Project Overview",
+  "nextLinkText": "Go to MSPSRπ",
+  
+  "navLinks": {
+    "home": "Home",
+    "project": "Project",
+    "dataRelease": "Data Release",
+    "publications": "Publications",
+    "team": "Team"
+  },
+  
+  "tabLabels": {
+    "overview": "Overview",
+    "objectives": "Details",
+    "results": "Key Results",
+    "pulsars": "Target Pulsars"
+  },
+  
+  "sectionTitles": {
+    "overview": "Project Overview",
+    "timeline": "Project Timeline",
+    "objectives": "Project Objectives",
+    "technicalApproach": "Technical Approach",
+    "keyResults": "Key Results & Impact",
+    "scientificImpact": "Scientific Impact",
+    "publications": "Related Publications",
+    "pulsars": "Target Pulsars",
+    "dataPipeline": "Data Processing Pipeline"
+  },
+  
+  "fluxFilterTitle": "Filter by Flux Density",
+  "fluxCategories": ["all", "0.2-0.76 mJy", "0.76-1.2 mJy", ">1.2 mJy"],
+  "fluxFilterLabels": {
+    "all": "All Pulsars"
+  },
+  "fluxFilterDescriptions": {
+    "low": "Showing fainter pulsars (4-hour sessions)",
+    "medium": "Showing medium brightness pulsars (2-hour sessions)",
+    "high": "Showing brighter pulsars (1-hour sessions)"
+  },
+  
+  "pulsarTableHeaders": {
+    "name": "Pulsar",
+    "ra": "RA",
+    "dec": "Dec",
+    "fluxDensity": "1.4 GHz Flux Density (mJy)",
+    "inbeamCalibrators": "Inbeam Calibrators",
+    "epochsObserved": "Epochs Observed"
+  },
+  
+  "paginationLabels": {
+    "previous": "Previous",
+    "next": "Next",
+    "pageLabel": "Page",
+    "ofLabel": "of"
+  },
+  
+  "footerText": "© 2025 - MSPSRπ2 Project. All rights reserved.",
+  
+  "loadingText": "Loading MSPSRπ2 data...",
+  "errorTitle": "Something went wrong",
+  "tryAgainText": "Try Again",
+  "noDataText": "No data available. Please refresh the page.",
+  "refreshText": "Refresh Data",
+  "noResultsText": "No pulsars match the selected filter.",
+  
+  "showResultsOverlay": true,
+  "resultsOverlay": {
+    "icon": "🔭",
+    "title": "Results Coming Soon",
+    "subtitle": "The key results will be available shortly after the observations are complete",
+    "description": "Our team is currently conducting observations and analyzing data. Check back later to see the groundbreaking discoveries from the MSPSRπ2 project."
+  },
+  
+  "showPublicationsPlaceholder": true,
+  "publicationsPlaceholder": {
+    "title": "Publications Coming Soon",
+    "description": "Publications related to the MSPSRπ2 project will be listed here once research papers have been published. Please check back later."
+  },
+  
   "overview": [
     "Millisecond pulsars (MSPs) are the most precise celestial timekeepers, providing unparalleled tests of gravitational phenomena, including the direct detection of the stochastic gravitational-wave background (GWB). Pulsar timing arrays (PTAs) - arrays of precisely timed MSPs - are key tools for these studies.",
     "MSPSRπ2 is an extension of the original MSPSRπ program that ran from 2014-2018. While the original program astrometrically studied 18 MSP systems and achieved 15 significant parallaxes, this new campaign targets 44 additional PTA MSPs that currently lack VLBI constraints.",
     "By applying Very Long Baseline Interferometry (VLBI) techniques to these pulsars, we can measure their positions, proper motions, and parallaxes with unprecedented precision. These measurements will significantly enhance PTA sensitivity and accelerate the study of the gravitational wave background.",
     "The project follows a staged approach with a pilot program to establish the calibrator environment and determine reference positions, followed by a precision program for full astrometric measurements. When complete, MSPSRπ2 will nearly triple the number of MSPs with VLBI astrometric measurements."
   ],
+
   "statistics": [
     {
       "label": "Target Pulsars",
@@ -31,6 +118,7 @@
       "description": "Depending on pulsar brightness"
     }
   ],
+
   "timeline": [
     {
       "date": "2023",
@@ -58,6 +146,7 @@
       "description": "Anticipated start of the precision program for full astrometric measurements of selected sources."
     }
   ],
+
   "objectives": [
     {
       "title": "Enhance PTA Sensitivity",
@@ -84,12 +173,14 @@
       "description": "Improve understanding of interstellar medium propagation effects by removing degeneracies in scintillation models and constraining the properties of scattering screens."
     }
   ],
+
   "technicalApproach": [
     "MSPSRπ2 employs a staged approach to efficiently allocate observing time. The program begins with a pilot phase to establish the calibrator environment, detect the candidates, and determine reference positions and preliminary proper motion with two sessions per target.",
     "For each target, one 1-hour in-beam calibrator search session is conducted to identify suitable calibration sources within 30 arcminutes of the target pulsar. Following this, two astrometry sessions are performed, with session durations adjusted based on the target's flux density: 4 hours for fainter sources (0.2-0.76 mJy), 2 hours for medium brightness sources (0.76-1.2 mJy), and 1 hour for brighter sources (>1.2 mJy).",
     "The astrometry sessions are arranged around parallax maxima, with the second session occurring approximately 1 year after the first to optimize proper motion determination while minimizing parallax effects. The VLBA with all 10 stations is used, with a minimum of 8 stations required for adequate sensitivity.",
     "The project utilizes the psrvlbireduce pipeline, developed and optimized during previous projects, for consistent and efficient data reduction. All data products and results will be made publicly available through the gDMCP platform to enable reproducibility of the astrometric measurements."
   ],
+
   "keyResults": [
     {
       "title": "Tripled MSP Sample",
@@ -108,33 +199,37 @@
       "description": "The expanded sample will allow for rigorous testing of whether the MSP peculiar velocity distribution is multimodal, providing insights into their formation channels."
     }
   ],
+
   "scientificImpact": [
     "MSPSRπ2 will have a profound impact on gravitational wave astronomy through pulsar timing arrays. The direct detection of the stochastic gravitational wave background by PTAs in 2023 opened a new window for studying the astrophysical history of the universe. MSPSRπ2 will enhance and accelerate these studies by providing independent, high-precision astrometric measurements for a substantially expanded set of PTA pulsars.",
     "Beyond gravitational wave detection, the project will contribute to multiple areas of astrophysics, including tests of relativistic gravity, studies of MSP formation and evolution, mapping of the Galactic gravitational potential, and improved models of the interstellar medium. The comprehensive dataset will serve as a valuable resource for the broader astronomical community for years to come."
   ],
+
   "publications": [
     {
-      "citation": "Ding, H., et al. (2023). \"MSPSRπ: VLBI astrometry of 18 millisecond pulsars.\" Monthly Notices of the Royal Astronomical Society, 519, 4982",
-      "doi": "https://doi.org/10.1093/mnras/stac3672",
-      "arxiv": "https://arxiv.org/abs/2211.09112"
+      "citation": "just as an example: Ding, H., et al. (2023). \"MSPSRπ2: Turbocharging the most precisely timed pulsars with VLBI astrometry.\" Monthly Notices of the Royal Astronomical Society, 520, 1, 1-12",
+      "doi": "there should be a doi link here",
+      "arxiv": "there should be an arxiv link here" 
     },
     {
-      "citation": "Ding, H., et al. (2021). \"A Precise Mass Measurement of PSR J2045+3633 with a Highly Eccentric Orbit.\" The Astrophysical Journal Letters, 921, L19",
-      "doi": "https://doi.org/10.3847/2041-8213/ac32d6",
-      "arxiv": "https://arxiv.org/abs/2110.15368"
+      "citation": "just as an example: Ding, H., et al. (2023). \"MSPSRπ2: Turbocharging the most precisely timed pulsars with VLBI astrometry.\" Monthly Notices of the Royal Astronomical Society, 520, 1, 1-12",
+      "doi": "there should be a doi link here",
+      "arxiv": "there should be an arxiv link here" 
     },
     {
-      "citation": "Ding, H., et al. (2020). \"VLBI Astrometry of PSR J1012+5307: A Pulsar-White Dwarf Binary.\" The Astrophysical Journal, 896, 85",
-      "doi": "https://doi.org/10.3847/1538-4357/ab8f29",
-      "arxiv": "https://arxiv.org/abs/2005.01717"
+      "citation": "just as an example: Ding, H., et al. (2023). \"MSPSRπ2: Turbocharging the most precisely timed pulsars with VLBI astrometry.\" Monthly Notices of the Royal Astronomical Society, 520, 1, 1-12",
+      "doi": "there should be a doi link here",
+      "arxiv": "there should be an arxiv link here" 
     }
   ],
+
   "pulsarsStudied": {
     "overview": "MSPSRπ2 targets 44 millisecond pulsars from various pulsar timing arrays (PTAs) including NANOGrav, EPTA, PPTA, CPTA, and MPTA.",
     "catalogueInfo": "The targets are divided into three groups based on their 1.4 GHz flux density, which determines the observing time required for each pulsar.",
-    "catalogueTitle": "MSPSRπ2: Turbocharging the most precisely timed pulsars with VLBI astrometry",
-    "catalogueUrl": "/publications/mspsrpi2-catalogue"
+    "catalogueTitle": "",
+    "catalogueUrl": ""
   },
+
   "dataPipeline": {
     "description": "MSPSRπ2 uses the psrvlbireduce pipeline developed during the original PSRπ and MSPSRπ projects. This pipeline provides consistent and efficient data reduction for high-precision pulsar astrometry.",
     "steps": [

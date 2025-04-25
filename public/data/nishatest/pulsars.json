@@ -30,15 +30,15 @@
         "gamma_ray_efficiency": "0.37 (revised down from previous estimates of 0.5-3.7)",
         "heating_efficiency": "0.17 (revised down from previous estimates of 0.15-0.77)"
       },
-	  "astrometry": {
-  "parallax": "0.66 ± 0.12 mas",
-  "proper_motion_ra": "5.2 ± 0.1 mas/yr",
-  "proper_motion_dec": "-15.3 ± 0.1 mas/yr",
-  "transverse_velocity_kms": "124 ± 23",
-  "a_shklovskii": "7.9 ± 1.4 × 10² pm/s²",
-  "a_galactic": "-14.1 ± 1.1 pm/s²",
-  "dispersion_measure": "60.7 pc cm⁻³"
-},
+      "astrometry": {
+        "parallax": "0.66 ± 0.12 mas",
+        "proper_motion_ra": "5.2 ± 0.1 mas/yr",
+        "proper_motion_dec": "-15.3 ± 0.1 mas/yr",
+        "transverse_velocity_kms": "124 ± 23",
+        "a_shklovskii": "7.9 ± 1.4 × 10² pm/s²",
+        "a_galactic": "-14.1 ± 1.1 pm/s²",
+        "dispersion_measure": "60.7 pc cm⁻³"
+      },
       "dispersion_measure": {
         "measured": "60.7 pc cm^-3",
         "model_prediction": "27.5 pc cm^-3",
@@ -76,16 +76,15 @@
         "value": "0.329 kpc",
         "uncertainty": "+0.006/-0.005"
       },
-	  "astrometry": {
-  "parallax": "3.04 ± 0.05 mas",
-  "proper_motion_ra": "-6.15 ± 0.05 mas/yr",
-  "proper_motion_dec": "0.37 ± 0.14 mas/yr",
-  "transverse_velocity_kms": "15.4 ± 0.2",
-  "a_shklovskii": "9.1 ± 0.2 pm/s²",
-  "a_galactic": "-33.0 ± 3.7 pm/s²",
-  "dispersion_measure": "4.3 pc cm⁻³"
-},
-
+      "astrometry": {
+        "parallax": "3.04 ± 0.05 mas",
+        "proper_motion_ra": "-6.15 ± 0.05 mas/yr",
+        "proper_motion_dec": "0.37 ± 0.14 mas/yr",
+        "transverse_velocity_kms": "15.4 ± 0.2",
+        "a_shklovskii": "9.1 ± 0.2 pm/s²",
+        "a_galactic": "-33.0 ± 3.7 pm/s²",
+        "dispersion_measure": "4.3 pc cm⁻³"
+      },
       "emission_properties": null,
       "recommended_visualizations": [
         "Pulsar position relative to the local stellar neighborhood",
@@ -114,15 +113,15 @@
         "value": "1.6 kpc",
         "uncertainty": "+0.5/-0.3"
       },
-	  "astrometry": {
-  "parallax": "0.74 ± 0.14 mas",
-  "proper_motion_ra": "3.27 ± 0.09 mas/yr",
-  "proper_motion_dec": "-1.1 ± 0.3 mas/yr",
-  "transverse_velocity_kms": "20 ± 8/-5",
-  "a_shklovskii": "14 ± 4/-3 pm/s²",
-  "a_galactic": "23.8 ± 4.5 pm/s²",
-  "dispersion_measure": "36.5 pc cm⁻³"
-},
+      "astrometry": {
+        "parallax": "0.74 ± 0.14 mas",
+        "proper_motion_ra": "3.27 ± 0.09 mas/yr",
+        "proper_motion_dec": "-1.1 ± 0.3 mas/yr",
+        "transverse_velocity_kms": "20 ± 8/-5",
+        "a_shklovskii": "14 ± 4/-3 pm/s²",
+        "a_galactic": "23.8 ± 4.5 pm/s²",
+        "dispersion_measure": "36.5 pc cm⁻³"
+      },
       "recommended_visualizations": [
         "Binary system configuration",
         "Benefits of 1D interpolation for astrometric precision"
@@ -151,15 +150,15 @@
         "value": "0.877 kpc",
         "uncertainty": "+0.035/-0.035"
       },
-	  "astrometry": {
-  "parallax": "1.14 ± 0.04 mas",
-  "proper_motion_ra": "2.61 ± 0.01 mas/yr",
-  "proper_motion_dec": "-25.49 ± 0.01 mas/yr",
-  "transverse_velocity_kms": "95 ± 4",
-  "a_shklovskii": "419 ± 17/-15 pm/s²",
-  "a_galactic": "-23.5 ± 2.4 pm/s²",
-  "dispersion_measure": "9.02 pc cm⁻³"
-},
+      "astrometry": {
+        "parallax": "1.14 ± 0.04 mas",
+        "proper_motion_ra": "2.61 ± 0.01 mas/yr",
+        "proper_motion_dec": "-25.49 ± 0.01 mas/yr",
+        "transverse_velocity_kms": "95 ± 4",
+        "a_shklovskii": "419 ± 17/-15 pm/s²",
+        "a_galactic": "-23.5 ± 2.4 pm/s²",
+        "dispersion_measure": "9.02 pc cm⁻³"
+      },
       "gravitational_tests": {
         "orbital_decay": "5.1 ± 5.1 fs/s",
         "previous_estimate": "10.6 ± 6.1 fs/s"
@@ -193,15 +192,15 @@
         "value": "1.08 kpc",
         "uncertainty": "+0.06/-0.06"
       },
-	  "astrometry": {
-  "parallax": "0.93 ± 0.05 mas",
-  "proper_motion_ra": "-35.27 ± 0.02 mas/yr",
-  "proper_motion_dec": "-48.22 ± 0.03 mas/yr",
-  "transverse_velocity_kms": "300 ± 20",
-  "a_shklovskii": "2.8 ± 0.2 × 10³ pm/s²",
-  "a_galactic": "-40 ± 3 pm/s²",
-  "dispersion_measure": "6.5 pc cm⁻³"
-},
+      "astrometry": {
+        "parallax": "0.93 ± 0.05 mas",
+        "proper_motion_ra": "-35.27 ± 0.02 mas/yr",
+        "proper_motion_dec": "-48.22 ± 0.03 mas/yr",
+        "transverse_velocity_kms": "300 ± 20",
+        "a_shklovskii": "2.8 ± 0.2 × 10³ pm/s²",
+        "a_galactic": "-40 ± 3 pm/s²",
+        "dispersion_measure": "6.5 pc cm⁻³"
+      },
       "unusual_properties": {
         "negative_period_derivative": "Probably due to acceleration induced by a far-away companion",
         "high_velocity": "~300 km/s, 3σ above the mean for MSPs"
@@ -240,15 +239,15 @@
         "ecliptic_latitude": "63°",
         "timing_parallax_note": "Would take approximately 600 years to detect"
       },
-	  "astrometry": {
-  "parallax": "1.237 ± 0.035 mas",
-  "proper_motion_ra": "-0.683 ± 0.026 mas/yr",
-  "proper_motion_dec": "-8.528 ± 0.036 mas/yr",
-  "transverse_velocity_kms": "16.0 ± 0.6",
-  "a_shklovskii": "43 ± 1 pm/s²",
-  "a_galactic": "-48.5 ± 3.2 pm/s²",
-  "dispersion_measure": "11.61 pc cm⁻³"
-},
+      "astrometry": {
+        "parallax": "1.237 ± 0.035 mas",
+        "proper_motion_ra": "-0.683 ± 0.026 mas/yr",
+        "proper_motion_dec": "-8.528 ± 0.036 mas/yr",
+        "transverse_velocity_kms": "16.0 ± 0.6",
+        "a_shklovskii": "43 ± 1 pm/s²",
+        "a_galactic": "-48.5 ± 3.2 pm/s²",
+        "dispersion_measure": "11.61 pc cm⁻³"
+      },
       "recommended_visualizations": [
         "Double neutron star orbital configuration",
         "Probability distribution for inclination angle",
@@ -287,15 +286,15 @@
         "Contributions to orbital period decay diagram",
         "Graph showing agreement with General Relativity predictions"
       ],
-	  "astrometry": {
-  "parallax": "1.07 ± 0.07 mas",
-  "proper_motion_ra": "1.484 ± 0.007 mas/yr",
-  "proper_motion_dec": "-25.286 ± 0.011 mas/yr",
-  "transverse_velocity_kms": "102 ± 8/-7",
-  "a_shklovskii": "4.4 ± 0.3 × 10² pm/s²",
-  "a_galactic": "-42 ± 3 pm/s²",
-  "dispersion_measure": "11.62 pc cm⁻³"
-},
+      "astrometry": {
+        "parallax": "1.07 ± 0.07 mas",
+        "proper_motion_ra": "1.484 ± 0.007 mas/yr",
+        "proper_motion_dec": "-25.286 ± 0.011 mas/yr",
+        "transverse_velocity_kms": "102 ± 8/-7",
+        "a_shklovskii": "4.4 ± 0.3 × 10² pm/s²",
+        "a_galactic": "-42 ± 3 pm/s²",
+        "dispersion_measure": "11.62 pc cm⁻³"
+      },
       "references": [
         "Wolszczan 1991 (discovery)",
         "Ding et al. 2021a (astrometric parameters)",
@@ -327,17 +326,15 @@
       "bayesian_analysis": {
         "longitude_ascending_node": "Four likelihood components at 0°, 140°, 200°, and 320°"
       },
-	  "astrometry": {
-  "parallax": "0.73 ± 0.06 mas",
-  "proper_motion_ra": "2.08 ± 0.01 mas/yr",
-  "proper_motion_dec": "-11.34 ± 0.02 mas/yr",
-  "transverse_velocity_kms": "53 ± 5/-4",
-  "a_shklovskii": "1.3 ± 0.1 × 10² pm/s²",
-  "a_galactic": "-48.5 ± 4.3 pm/s²",
-  "dispersion_measure": "18.43 pc cm⁻³"
-},
-
-	  
+      "astrometry": {
+        "parallax": "0.73 ± 0.06 mas",
+        "proper_motion_ra": "2.08 ± 0.01 mas/yr",
+        "proper_motion_dec": "-11.34 ± 0.02 mas/yr",
+        "transverse_velocity_kms": "53 ± 5/-4",
+        "a_shklovskii": "1.3 ± 0.1 × 10² pm/s²",
+        "a_galactic": "-48.5 ± 4.3 pm/s²",
+        "dispersion_measure": "18.43 pc cm⁻³"
+      },
       "recommended_visualizations": [
         "Binary system with pulsar and white dwarf companion",
         "175-day wide orbit diagram",
@@ -366,15 +363,15 @@
         "orbital_period": "147 days",
         "companion_type": "White Dwarf"
       },
-	  "astrometry": {
-  "parallax": "0.68 ± 0.06 mas",
-  "proper_motion_ra": "5.84 ± 0.05 mas/yr",
-  "proper_motion_dec": "2.63 ± 0.07 mas/yr",
-  "transverse_velocity_kms": "45 ± 4",
-  "a_shklovskii": "1.4 ± 0.2 × 10² pm/s²",
-  "a_galactic": "-7.1 ± 0.6 pm/s²",
-  "dispersion_measure": "62.41 pc cm⁻³"
-},
+      "astrometry": {
+        "parallax": "0.68 ± 0.06 mas",
+        "proper_motion_ra": "5.84 ± 0.05 mas/yr",
+        "proper_motion_dec": "2.63 ± 0.07 mas/yr",
+        "transverse_velocity_kms": "45 ± 4",
+        "a_shklovskii": "1.4 ± 0.2 × 10² pm/s²",
+        "a_galactic": "-7.1 ± 0.6 pm/s²",
+        "dispersion_measure": "62.41 pc cm⁻³"
+      },
       "interstellar_medium_effects": {
         "temporal_broadening": "5 μs at 1 GHz (varies on yearly timescale)",
         "angular_broadening": "3.65 ± 0.43 mas (measured with VLBI at 8 GHz)",
@@ -426,16 +423,15 @@
         "Secondary phase calibrator heavily resolved due to interstellar medium scattering",
         "Non-detection of parallax likely due to refractive image wander"
       ],
-	  "astrometry": {
-  "parallax": "Non-detection, (likely due to refractive image wander)",
-  "proper_motion_ra": "6.24 ± 0.06 mas/yr",
-  "proper_motion_dec": "-6.57 ± 0.09 mas/yr",
-  "transverse_velocity_kms": "⟶ Estimated > 50 km/s",
-  "a_shklovskii": "Not determined",
-  "a_galactic": "Not determined",
-  "dispersion_measure": "47.75 pc cm⁻³"
-},
-
+      "astrometry": {
+        "parallax": "Non-detection, (likely due to refractive image wander)",
+        "proper_motion_ra": "6.24 ± 0.06 mas/yr",
+        "proper_motion_dec": "-6.57 ± 0.09 mas/yr",
+        "transverse_velocity_kms": "⟶ Estimated > 50 km/s",
+        "a_shklovskii": "Not determined",
+        "a_galactic": "Not determined",
+        "dispersion_measure": "47.75 pc cm⁻³"
+      },
       "period": "3.5 milliseconds",
       "observational_challenges": {
         "calibrator_issues": "Main secondary phase calibrator is heavily resolved due to IISM scattering",
@@ -443,7 +439,6 @@
         "resolution_impact": "Reduced spatial resolution of VLBI observations",
         "refractive_effects": "Refractive image wander as the line-of-sight to the pulsar changes"
       },
-	  
       "recommended_visualizations": [
         "Effects of interstellar scattering on pulsar observations",
         "Diagram showing refractive image wander phenomenon",
@@ -480,15 +475,15 @@
         "Visualization of the pulsar's energy output compared to other gamma-ray pulsars",
         "Pulsar position in the P-Pdot diagram highlighting its near-death-line status"
       ],
-	  "astrometry": {
-  "parallax": "0.40 ± 0.02 mas",
-  "proper_motion_ra": "8.42 ± 0.04 mas/yr",
-  "proper_motion_dec": "-4.91 ± 0.06 mas/yr",
-  "transverse_velocity_kms": "65 ± 3",
-  "a_shklovskii": "2.4 ± 0.2 × 10² pm/s²",
-  "a_galactic": "-6.2 ± 0.6 pm/s²",
-  "dispersion_measure": "9.62 pc cm⁻³"
-},
+      "astrometry": {
+        "parallax": "0.40 ± 0.02 mas",
+        "proper_motion_ra": "8.42 ± 0.04 mas/yr",
+        "proper_motion_dec": "-4.91 ± 0.06 mas/yr",
+        "transverse_velocity_kms": "65 ± 3",
+        "a_shklovskii": "2.4 ± 0.2 × 10² pm/s²",
+        "a_galactic": "-6.2 ± 0.6 pm/s²",
+        "dispersion_measure": "9.62 pc cm⁻³"
+      },
       "references": [
         "Lorimer et al. 1995 (discovery)",
         "Guillemot et al. 2016 (gamma-ray properties)"
@@ -529,15 +524,15 @@
         "Diagram illustrating tests of alternative gravitational theories",
         "Comparison of different parallax measurement methods"
       ],
-	  "astrometry": {
-  "parallax": "0.68 ± 0.05 mas (timing), 0.589 ± 0.046 mas (VLBI + priors)",
-  "proper_motion_ra": "7.041 ± 0.007 mas/yr",
-  "proper_motion_dec": "4.913 ± 0.009 mas/yr",
-  "transverse_velocity_kms": "63 ± 5",
-  "a_shklovskii": "1.8 ± 0.2 × 10² pm/s²",
-  "a_galactic": "-2.9 ± 0.4 pm/s²",
-  "dispersion_measure": "33.77 pc cm⁻³"
-},
+      "astrometry": {
+        "parallax": "0.68 ± 0.05 mas (timing), 0.589 ± 0.046 mas (VLBI + priors)",
+        "proper_motion_ra": "7.041 ± 0.007 mas/yr",
+        "proper_motion_dec": "4.913 ± 0.009 mas/yr",
+        "transverse_velocity_kms": "63 ± 5",
+        "a_shklovskii": "1.8 ± 0.2 × 10² pm/s²",
+        "a_galactic": "-2.9 ± 0.4 pm/s²",
+        "dispersion_measure": "33.77 pc cm⁻³"
+      },
       "references": [
         "Jacoby et al. 2009 (discovery)",
         "Freire et al. 2012 (gravitational theory constraints)",
@@ -581,207 +576,207 @@
         "Vector diagram showing proper motion relative to the cluster",
         "Illustration of the pulsar's binding to the cluster"
       ],
-	  "astrometry": {
-  "parallax": "Non-detection (likely due to faint/resolved calibrator)",
-  "proper_motion_ra": "−0.25 ± 0.05 mas/yr (relative to cluster)",
-  "proper_motion_dec": "1.0 ± 0.8 mas/yr (relative to cluster)",
-  "transverse_velocity_kms": "28 ± 20",
-  "a_shklovskii": "Not meaningful (cluster-bound)",
-  "a_galactic": "−1.7 ± 0.3 pm/s²",
-  "dispersion_measure": "119.86 pc cm⁻³"
-},
+      "astrometry": {
+        "parallax": "Non-detection (likely due to faint/resolved calibrator)",
+        "proper_motion_ra": "−0.25 ± 0.05 mas/yr (relative to cluster)",
+        "proper_motion_dec": "1.0 ± 0.8 mas/yr (relative to cluster)",
+        "transverse_velocity_kms": "28 ± 20",
+        "a_shklovskii": "Not meaningful (cluster-bound)",
+        "a_galactic": "−1.7 ± 0.3 pm/s²",
+        "dispersion_measure": "119.86 pc cm⁻³"
+      },
       "references": [
         "Lyne et al. 1987 (discovery)",
         "Vasiliev & Baumgardt 2021 (cluster proper motion)",
         "Baumgardt & Vasiliev 2021 (cluster distance)"
       ]
     },
-{
-  "name": "PSR J1853+1303",
-  "display_name": "PSR J1853+1303",
-  "type": "Millisecond Pulsar in Binary",
-  "discovery_year": null,
-  "discovered_by": null,
-  "description": "A 4.09-millisecond pulsar in a 116-day orbit with a white dwarf companion.",
-  "key_facts": [
-    "4.09-millisecond pulsar in 116-day orbit with white dwarf companion",
-    "Orbital inclination of approximately 85° based on Shapiro delay",
-    "Distance of about 2.0 kpc (6,520 light-years)"
-  ],
-  "period": "4.09 milliseconds",
-  "binary_properties": {
-    "orbital_period": "116 days",
-    "companion_type": "White Dwarf",
-    "orbital_inclination": "85±14° (from Shapiro delay)"
-  },
-  "distance": {
-    "value": "2.0 kpc",
-    "uncertainty": "+0.3/-0.3"
-  },
-  "calibrator_issues": "Main calibrator shows jet structure that may contribute to astrometric uncertainties",
-  "recommended_visualizations": [
-    "Binary system configuration showing high inclination",
-    "Shapiro delay measurements visualization"
-  ],
-  "astrometry": {
-  "parallax": "0.50 ± 0.08 mas",
-  "proper_motion_ra": "-0.47 ± 0.04 mas/yr",
-  "proper_motion_dec": "-3.85 ± 0.05 mas/yr",
-  "transverse_velocity_kms": "37 ± 6",
-  "a_shklovskii": "0.6 ± 0.1 × 10² pm/s²",
-  "a_galactic": "-4.1 ± 0.5 pm/s²",
-  "dispersion_measure": "30.57 pc cm⁻³"
-},
-  "references": [
-    "Faisal Alam et al. 2021 (Shapiro delay measurements)"
+    {
+      "name": "PSR J1853+1303",
+      "display_name": "PSR J1853+1303",
+      "type": "Millisecond Pulsar in Binary",
+      "discovery_year": null,
+      "discovered_by": null,
+      "description": "A 4.09-millisecond pulsar in a 116-day orbit with a white dwarf companion.",
+      "key_facts": [
+        "4.09-millisecond pulsar in 116-day orbit with white dwarf companion",
+        "Orbital inclination of approximately 85° based on Shapiro delay",
+        "Distance of about 2.0 kpc (6,520 light-years)"
+      ],
+      "period": "4.09 milliseconds",
+      "binary_properties": {
+        "orbital_period": "116 days",
+        "companion_type": "White Dwarf",
+        "orbital_inclination": "85±14° (from Shapiro delay)"
+      },
+      "distance": {
+        "value": "2.0 kpc",
+        "uncertainty": "+0.3/-0.3"
+      },
+      "calibrator_issues": "Main calibrator shows jet structure that may contribute to astrometric uncertainties",
+      "recommended_visualizations": [
+        "Binary system configuration showing high inclination",
+        "Shapiro delay measurements visualization"
+      ],
+      "astrometry": {
+        "parallax": "0.50 ± 0.08 mas",
+        "proper_motion_ra": "-0.47 ± 0.04 mas/yr",
+        "proper_motion_dec": "-3.85 ± 0.05 mas/yr",
+        "transverse_velocity_kms": "37 ± 6",
+        "a_shklovskii": "0.6 ± 0.1 × 10² pm/s²",
+        "a_galactic": "-4.1 ± 0.5 pm/s²",
+        "dispersion_measure": "30.57 pc cm⁻³"
+      },
+      "references": [
+        "Faisal Alam et al. 2021 (Shapiro delay measurements)"
+      ]
+    },
+    {
+      "name": "PSR J1910+1256",
+      "display_name": "PSR J1910+1256",
+      "type": "Millisecond Pulsar in Binary",
+      "discovery_year": null,
+      "discovered_by": null,
+      "description": "A 4.98-millisecond pulsar in a 58.5-day orbit with a companion.",
+      "key_facts": [
+        "4.98-millisecond pulsar in 58.5-day orbit",
+        "Disparity between VLBI and timing proper motion measurements",
+        "Possible Gaia counterpart candidate with inconsistent proper motion"
+      ],
+      "period": "4.98 milliseconds",
+      "binary_properties": {
+        "orbital_period": "58.5 days",
+        "companion_type": "Unknown"
+      },
+      "distance": {
+        "value": "3.4 kpc",
+        "uncertainty": "+1.0/-0.6"
+      },
+      "calibrator_issues": "Main calibrator shows jet structure at ~45° position angle",
+      "gaia_association": "Proposed Gaia counterpart remains inconclusive due to proper motion discrepancies",
+      "recommended_visualizations": [
+        "Binary system configuration",
+        "Comparison of VLBI, timing, and Gaia proper motion vectors"
+      ],
+      "astrometry": {
+        "parallax": "0.29 ± 0.06 mas",
+        "proper_motion_ra": "-3.5 ± 0.1 mas/yr",
+        "proper_motion_dec": "-5.3 ± 0.1 mas/yr",
+        "transverse_velocity_kms": "103 ± 21",
+        "a_shklovskii": "3.3 ± 0.6 × 10² pm/s²",
+        "a_galactic": "-6.7 ± 0.6 pm/s²",
+        "dispersion_measure": "38.07 pc cm⁻³"
+      },
+      "references": [
+        "Mingarelli et al. 2018 (proposed Gaia counterpart)"
+      ]
+    },
+    {
+      "name": "PSR J1911-1114",
+      "display_name": "PSR J1911-1114",
+      "type": "Millisecond Pulsar in Binary",
+      "discovery_year": null,
+      "discovered_by": null,
+      "description": "A 3.63-millisecond pulsar in a 2.7-day orbit with a companion.",
+      "key_facts": [
+        "3.63-millisecond pulsar in 2.7-day orbit",
+        "No published timing parallax",
+        "Lower limit of distance approximately 1.3 kpc"
+      ],
+      "period": "3.63 milliseconds",
+      "binary_properties": {
+        "orbital_period": "2.7 days",
+        "companion_type": "Unknown"
+      },
+      "distance": {
+        "value": ">1.3 kpc",
+        "note": "Lower limit"
+      },
+      "recommended_visualizations": [
+        "Binary system configuration",
+        "Proper motion vector diagram"
+      ],
+      "astrometry": {
+        "parallax": "Lower limit only (>1.3 kpc)",
+        "proper_motion_ra": "−4.2 ± 0.3 mas/yr",
+        "proper_motion_dec": "−7.1 ± 0.3 mas/yr",
+        "transverse_velocity_kms": ">45",
+        "a_shklovskii": "Undetermined (lower bound)",
+        "a_galactic": "Undetermined",
+        "dispersion_measure": "30.98 pc cm⁻³"
+      },
+      "references": null
+    },
+    {
+      "name": "PSR J1918-0642",
+      "display_name": "PSR J1918-0642",
+      "type": "Millisecond Pulsar in Binary",
+      "discovery_year": null,
+      "discovered_by": null,
+      "description": "A 7.65-millisecond pulsar in a 10.9-day orbit with a companion.",
+      "key_facts": [
+        "7.65-millisecond pulsar in 10.9-day orbit",
+        "Significant improvement in parallax precision when using timing priors",
+        "Distance of about 1.48 kpc (4,825 light-years)"
+      ],
+      "period": "7.65 milliseconds",
+      "binary_properties": {
+        "orbital_period": "10.9 days",
+        "companion_type": "Unknown"
+      },
+      "distance": {
+        "value": "1.48 kpc",
+        "uncertainty": "+0.19/-0.14"
+      },
+      "astrometric_note": "42% improvement in parallax precision when using timing priors (the most significant improvement in the sample)",
+      "recommended_visualizations": [
+        "Binary system configuration",
+        "Demonstration of parallax precision improvement"
+      ],
+      "astrometry": {
+        "parallax": "0.68 ± 0.07 mas (VLBI + priors)",
+        "proper_motion_ra": "−6.1 ± 0.1 mas/yr",
+        "proper_motion_dec": "−3.7 ± 0.1 mas/yr",
+        "transverse_velocity_kms": "59 ± 6",
+        "a_shklovskii": "1.8 ± 0.2 × 10² pm/s²",
+        "a_galactic": "−3.2 ± 0.4 pm/s²",
+        "dispersion_measure": "26.55 pc cm⁻³"
+      },
+      "references": null
+    },
+    {
+      "name": "PSR J1939+2134",
+      "display_name": "PSR J1939+2134",
+      "type": "Solitary Millisecond Pulsar",
+      "discovery_year": null,
+      "discovered_by": null,
+      "description": "A 1.56-millisecond pulsar, the brightest MSP in the northern hemisphere, which was used as a secondary phase calibrator in inverse 1D interpolation.",
+      "key_facts": [
+        "1.56-millisecond solitary pulsar, brightest MSP in northern hemisphere",
+        "Used as a secondary phase calibrator in inverse 1D interpolation",
+        "Distance of about 2.9 kpc (9,455 light-years)"
+      ],
+      "period": "1.56 milliseconds",
+      "astrometric_note": "36% improvement in parallax precision when using timing priors",
+      "special_technique": "Inverse-referenced 1D interpolation using this pulsar as the in-beam calibrator",
+      "distance": {
+        "value": "2.9 kpc",
+        "uncertainty": "+0.3/-0.2"
+      },
+      "recommended_visualizations": [
+        "Inverse 1D interpolation technique diagram",
+        "Pulsar brightness compared to other MSPs"
+      ],
+      "astrometry": {
+        "parallax": "0.34 ± 0.03 mas",
+        "proper_motion_ra": "0.13 ± 0.01 mas/yr",
+        "proper_motion_dec": "−0.82 ± 0.01 mas/yr",
+        "transverse_velocity_kms": "38 ± 3",
+        "a_shklovskii": "0.7 ± 0.1 × 10² pm/s²",
+        "a_galactic": "-2.6 ± 0.3 pm/s²",
+        "dispersion_measure": "71.04 pc cm⁻³"
+      },
+      "references": null
+    }
   ]
-},
-{
-  "name": "PSR J1910+1256",
-  "display_name": "PSR J1910+1256",
-  "type": "Millisecond Pulsar in Binary",
-  "discovery_year": null,
-  "discovered_by": null,
-  "description": "A 4.98-millisecond pulsar in a 58.5-day orbit with a companion.",
-  "key_facts": [
-    "4.98-millisecond pulsar in 58.5-day orbit",
-    "Disparity between VLBI and timing proper motion measurements",
-    "Possible Gaia counterpart candidate with inconsistent proper motion"
-  ],
-  "period": "4.98 milliseconds",
-  "binary_properties": {
-    "orbital_period": "58.5 days",
-    "companion_type": "Unknown"
-  },
-  "distance": {
-    "value": "3.4 kpc",
-    "uncertainty": "+1.0/-0.6"
-  },
-  "calibrator_issues": "Main calibrator shows jet structure at ~45° position angle",
-  "gaia_association": "Proposed Gaia counterpart remains inconclusive due to proper motion discrepancies",
-  "recommended_visualizations": [
-    "Binary system configuration",
-    "Comparison of VLBI, timing, and Gaia proper motion vectors"
-  ],
-  "astrometry": {
-  "parallax": "0.29 ± 0.06 mas",
-  "proper_motion_ra": "-3.5 ± 0.1 mas/yr",
-  "proper_motion_dec": "-5.3 ± 0.1 mas/yr",
-  "transverse_velocity_kms": "103 ± 21",
-  "a_shklovskii": "3.3 ± 0.6 × 10² pm/s²",
-  "a_galactic": "-6.7 ± 0.6 pm/s²",
-  "dispersion_measure": "38.07 pc cm⁻³"
-},
-  "references": [
-    "Mingarelli et al. 2018 (proposed Gaia counterpart)"
-  ]
-},
-{
-  "name": "PSR J1911-1114",
-  "display_name": "PSR J1911-1114",
-  "type": "Millisecond Pulsar in Binary",
-  "discovery_year": null,
-  "discovered_by": null,
-  "description": "A 3.63-millisecond pulsar in a 2.7-day orbit with a companion.",
-  "key_facts": [
-    "3.63-millisecond pulsar in 2.7-day orbit",
-    "No published timing parallax",
-    "Lower limit of distance approximately 1.3 kpc"
-  ],
-  "period": "3.63 milliseconds",
-  "binary_properties": {
-    "orbital_period": "2.7 days",
-    "companion_type": "Unknown"
-  },
-  "distance": {
-    "value": ">1.3 kpc",
-    "note": "Lower limit"
-  },
-  "recommended_visualizations": [
-    "Binary system configuration",
-    "Proper motion vector diagram"
-  ],
-  "astrometry": {
-  "parallax": "Lower limit only (>1.3 kpc)",
-  "proper_motion_ra": "−4.2 ± 0.3 mas/yr",
-  "proper_motion_dec": "−7.1 ± 0.3 mas/yr",
-  "transverse_velocity_kms": ">45",
-  "a_shklovskii": "Undetermined (lower bound)",
-  "a_galactic": "Undetermined",
-  "dispersion_measure": "30.98 pc cm⁻³"
-},
-  "references": null
-},
-{
-  "name": "PSR J1918-0642",
-  "display_name": "PSR J1918-0642",
-  "type": "Millisecond Pulsar in Binary",
-  "discovery_year": null,
-  "discovered_by": null,
-  "description": "A 7.65-millisecond pulsar in a 10.9-day orbit with a companion.",
-  "key_facts": [
-    "7.65-millisecond pulsar in 10.9-day orbit",
-    "Significant improvement in parallax precision when using timing priors",
-    "Distance of about 1.48 kpc (4,825 light-years)"
-  ],
-  "period": "7.65 milliseconds",
-  "binary_properties": {
-    "orbital_period": "10.9 days",
-    "companion_type": "Unknown"
-  },
-  "distance": {
-    "value": "1.48 kpc",
-    "uncertainty": "+0.19/-0.14"
-  },
-  "astrometric_note": "42% improvement in parallax precision when using timing priors (the most significant improvement in the sample)",
-  "recommended_visualizations": [
-    "Binary system configuration",
-    "Demonstration of parallax precision improvement"
-  ],
-  "astrometry": {
-  "parallax": "0.68 ± 0.07 mas (VLBI + priors)",
-  "proper_motion_ra": "−6.1 ± 0.1 mas/yr",
-  "proper_motion_dec": "−3.7 ± 0.1 mas/yr",
-  "transverse_velocity_kms": "59 ± 6",
-  "a_shklovskii": "1.8 ± 0.2 × 10² pm/s²",
-  "a_galactic": "−3.2 ± 0.4 pm/s²",
-  "dispersion_measure": "26.55 pc cm⁻³"
-},
-  "references": null
-},
-{
-  "name": "PSR J1939+2134",
-  "display_name": "PSR J1939+2134",
-  "type": "Solitary Millisecond Pulsar",
-  "discovery_year": null,
-  "discovered_by": null,
-  "description": "A 1.56-millisecond pulsar, the brightest MSP in the northern hemisphere, which was used as a secondary phase calibrator in inverse 1D interpolation.",
-  "key_facts": [
-    "1.56-millisecond solitary pulsar, brightest MSP in northern hemisphere",
-    "Used as a secondary phase calibrator in inverse 1D interpolation",
-    "Distance of about 2.9 kpc (9,455 light-years)"
-  ],
-  "period": "1.56 milliseconds",
-  "astrometric_note": "36% improvement in parallax precision when using timing priors",
-  "special_technique": "Inverse-referenced 1D interpolation using this pulsar as the in-beam calibrator",
-  "distance": {
-    "value": "2.9 kpc",
-    "uncertainty": "+0.3/-0.2"
-  },
-  "recommended_visualizations": [
-    "Inverse 1D interpolation technique diagram",
-    "Pulsar brightness compared to other MSPs"
-  ],
-  "astrometry": {
-  "parallax": "0.34 ± 0.03 mas",
-  "proper_motion_ra": "0.13 ± 0.01 mas/yr",
-  "proper_motion_dec": "−0.82 ± 0.01 mas/yr",
-  "transverse_velocity_kms": "38 ± 3",
-  "a_shklovskii": "0.7 ± 0.1 × 10² pm/s²",
-  "a_galactic": "-2.6 ± 0.3 pm/s²",
-  "dispersion_measure": "71.04 pc cm⁻³"
-},
-  "references": null
-}
-]
 }

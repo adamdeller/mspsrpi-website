@@ -1,335 +1,388 @@
 {
-    "heroSubtitle": "VLBA Astrometry of Millisecond Pulsars",
-    "heroDescription": "The MSPSRπ project was the second phase of our pulsar astrometry program, focusing exclusively on millisecond pulsars (MSPs) from 2014 to 2018. This phase targeted 18 MSPs with the Very Long Baseline Array (VLBA), achieving sub-milliarcsecond precision for parallax and proper motion measurements.",
-    "dataReleaseUrl": "/data-release",
-    "publicationsUrl": "/publications",
-    
-    "overview": [
-      "The MSPSRπ project was designed as a dedicated follow-up to the original PSRπ project, with a targeted focus on millisecond pulsars (MSPs) that are critical for tests of gravity and gravitational wave detection through pulsar timing arrays (PTAs).",
-      "Using the Very Long Baseline Array (VLBA), we conducted a series of observations of 18 carefully selected MSPs over a 4-year period. By implementing advanced phase-referencing techniques, we achieved unprecedented astrometric precision for these distant cosmic timekeepers.",
-      "The project resulted in 15 significant parallax measurements, roughly tripling the small number of MSPs with well-measured astrometric parameters. These measurements have contributed to enhanced tests of gravitational theories, improved our understanding of the Galactic electron distribution, and provided insights into the kinematic properties of the MSP population."
-    ],
+  "heroTagline": "Project Phase 2014-2018",
+  "heroTitle": "MSPSRπ",
+  "heroSubtitle": "VLBA Astrometry of Millisecond Pulsars",
+  "heroDescription": "The MSPSRπ project was the second phase of our pulsar astrometry program, focusing exclusively on millisecond pulsars (MSPs) from 2014 to 2018. This phase targeted 18 MSPs with the Very Long Baseline Array (VLBA), achieving sub-milliarcsecond precision for parallax and proper motion measurements.",
+  "dataReleaseUrl": "/test-deploy/#/data-release",
+  "dataReleaseButtonText": "Access Data Release",
+  "publicationsUrl": "/test-deploy/#/publications",
+  "publicationsButtonText": "View Publications",
+  "viewAllPublicationsText": "View All Publications",
   
-    "statistics": [
-      {
-        "label": "MSPs Observed",
-        "value": "18",
-        "description": "Carefully selected millisecond pulsars"
-      },
-      {
-        "label": "Parallax Precision",
-        "value": "< 100 μas",
-        "description": "Sub-milliarcsecond astrometric precision"
-      },
-      {
-        "label": "Distance Measurements",
-        "value": "15",
-        "description": "Significant parallax-based distance determinations"
-      },
-      {
-        "label": "Publications",
-        "value": "5",
-        "description": "Scientific papers based on project data"
-      }
-    ],
+  "backLinkText": "Back to Project Overview",
+  "nextLinkText": "Go to MSPSRπ2",
   
-    "timeline": [
-      {
-        "date": "2014",
-        "title": "Project Initiation",
-        "description": "Planning and preliminary observations began for the MSPSRπ program, building on the experience gained from the original PSRπ project."
-      },
-      {
-        "date": "2015",
-        "title": "First Observation Campaign",
-        "description": "Commenced regular VLBA observations of the selected MSPs using optimized phase-referencing techniques."
-      },
-      {
-        "date": "2016",
-        "title": "Mid-project Analysis",
-        "description": "Initial data reduction and analysis revealed promising parallax and proper motion measurements for several key sources."
-      },
-      {
-        "date": "2017",
-        "title": "Extended Observations",
-        "description": "Additional observations to refine parallax measurements and address challenges with the most difficult targets."
-      },
-      {
-        "date": "2018",
-        "title": "Project Completion",
-        "description": "Final observations completed and comprehensive analysis begun on the complete dataset."
-      },
-      {
-        "date": "2020",
-        "title": "First Results Published",
-        "description": "Publication of early results for individual sources of particular interest for tests of gravitational theories."
-      },
-      {
-        "date": "2023",
-        "title": "Full Catalog Release",
-        "description": "Release of the complete MSPSRπ catalog with astrometric measurements for all 18 MSPs."
-      }
-    ],
+  "tabLabels": {
+    "overview": "Overview",
+    "objectives": "Details",
+    "results": "Key Results",
+    "pulsars": "Target Pulsars"
+  },
   
-    "objectives": [
-      {
-        "title": "Precise Distance Measurements",
-        "description": "Determine parallax-based distances to millisecond pulsars with uncertainty < 10% to provide model-independent distance measurements."
-      },
-      {
-        "title": "Proper Motion Determination",
-        "description": "Measure precise proper motions to determine transverse velocities and correct for Shklovskii effects in pulsar timing parameters."
-      },
-      {
-        "title": "Enhance Gravitational Tests",
-        "description": "Provide independent astrometric parameters to improve tests of general relativity and alternative theories of gravity with binary pulsar systems."
-      },
-      {
-        "title": "Pulsar Timing Array Enhancement",
-        "description": "Improve the sensitivity of pulsar timing arrays for gravitational wave detection by providing model-independent astrometric parameters."
-      },
-      {
-        "title": "Pulsar Population Studies",
-        "description": "Investigate the kinematic properties and spatial distribution of millisecond pulsars to constrain their formation and evolutionary history."
-      }
-    ],
+  "sectionTitles": {
+    "overview": "Project Overview",
+    "timeline": "Project Timeline",
+    "objectives": "Project Objectives",
+    "technicalApproach": "Technical Approach",
+    "keyResults": "Key Results & Discoveries",
+    "scientificImpact": "Scientific Impact",
+    "publications": "MSPSRπ Publications",
+    "pulsars": "Pulsars Studied",
+    "dataPipeline": "Data Processing Pipeline"
+  },
   
-    "technicalApproach": [
-      "MSPSRπ utilized the Very Long Baseline Array (VLBA) at L-band (1.4 GHz) to achieve the highest possible astrometric precision. The observations were designed to maximize parallax sensitivity by scheduling sessions near the times of maximum parallactic excursion.",
-      "We implemented relayed phase-referencing techniques, where a secondary phase reference source very close to the target pulsar was observed to refine direction-dependent calibration effects. For three pulsars, we employed 1D interpolation to further suppress propagation-related systematic errors.",
-      "Pulsar gating was applied during correlation to improve the signal-to-noise ratio, effectively leveraging our knowledge of the pulsars' rotational phases to exclude off-pulse data. This resulted in an average improvement in sensitivity of a factor of approximately 1.8.",
-      "All data was processed with our custom psrvlbireduce pipeline, which automates many aspects of the calibration and imaging process. Systematic error analysis was performed using a Bayesian approach with the sterne package, specifically developed for this project."
-    ],
+  "fluxFilterTitle": "Filter by Flux Density",
+  "fluxFilterLabels": {
+    "all": "All Pulsars",
+    "low": "0.2-0.76 mJy",
+    "medium": "0.76-1.2 mJy",
+    "high": ">1.2 mJy"
+  },
   
-    "keyResults": [
-      {
-        "title": "Double Neutron Star System Distance",
-        "description": "Achieved the most significant model-independent distance measurement ever made for a double neutron star system (PSR J1518+4904), with a precision of 0.81 ± 0.02 kpc."
-      },
-      {
-        "title": "Refined Orbital Decay Tests",
-        "description": "Enhanced tests of orbital decay in binary systems PSR J1012+5307 and PSR J1738+0333, placing new constraints on dipole gravitational radiation and the time derivative of Newton's gravitational constant."
-      },
-      {
-        "title": "Interstellar Medium Characterization",
-        "description": "Detected significant angular broadening for PSR J1643-1224, allowing independent verification of the association between the HII region Sh 2-27 and the main scattering screen of this pulsar."
-      },
-      {
-        "title": "Gamma-ray Pulsar Death Line",
-        "description": "Refined the upper limit of the death line of γ-ray-emitting pulsars using the intrinsic spin-down power of PSR J1730-2304, the least energetic γ-ray pulsar known."
-      }
-    ],
+  "pulsarTableHeaders": {
+    "name": "Pulsar",
+    "ra": "RA",
+    "dec": "Dec",
+    "fluxDensity": "1.4 GHz flux density (mJy)",
+    "inbeamCalibrators": "Number of inbeam calibrators",
+    "epochsObserved": "Number of epochs observed"
+  },
   
-    "scientificImpact": [
-      "The MSPSRπ program has made significant contributions to multiple areas of pulsar astrophysics. By providing model-independent distances and proper motions for millisecond pulsars, we have enhanced the precision of gravitational tests with binary pulsar systems.",
-      "Our results have helped discriminate between competing models of the Galactic electron density distribution, which is crucial for understanding the interstellar medium and interpreting dispersion measures of pulsars and fast radio bursts.",
-      "The precise space velocities derived from our measurements have provided insights into the formation mechanisms of millisecond pulsars, suggesting a more complex evolutionary history than previously thought."
-    ],
+  "paginationLabels": {
+    "previous": "Previous",
+    "next": "Next",
+    "pageLabel": "Page",
+    "ofLabel": "of"
+  },
   
-    "publications": [
-      {
-        "citation": "Ding, H., Deller, A. T., Freire, P., et al. (2020). Strongly improved constraints on the transverse shift in the γ-ray emission region in three MSPs. The Astrophysical Journal, 896(1), 85.",
-        "doi": "https://doi.org/10.3847/1538-4357/ab8f29",
-        "arxiv": "https://arxiv.org/abs/2003.12694"
-      },
-      {
-        "citation": "Ding, H., Deller, A. T., Fonseca, E., et al. (2021). Strong New Constraints on the Black Widow PSR J1555–2908 from a VLBA Parallax Measurement. The Astrophysical Journal Letters, 921(2), L19.",
-        "doi": "https://doi.org/10.3847/2041-8213/ac2fff",
-        "arxiv": "https://arxiv.org/abs/2110.07544"
-      },
-      {
-        "citation": "Vigeland, S. J., Deller, A. T., Kaplan, D. L., et al. (2018). A Proper Motion Study of the Globular Cluster PSR J1623–2631. The Astrophysical Journal, 855(2), 122.",
-        "doi": "https://doi.org/10.3847/1538-4357/aaaa73",
-        "arxiv": "https://arxiv.org/abs/1802.07236"
-      },
-      {
-        "citation": "Ding, H., Deller, A. T., et al. (2023). The MSPSRPI catalogue: VLBA astrometry of 18 millisecond pulsars. Monthly Notices of the Royal Astronomical Society, 519(4), 4982-5007.",
-        "doi": "https://doi.org/10.1093/mnras/stac3725",
-        "arxiv": "https://arxiv.org/abs/2212.06351"
-      }
-    ],
+  "footerText": "© 2025 - MSPSRπ Project. All rights reserved.",
   
-    "pulsarsStudied": {
-      "overview": "The MSPSRπ program astrometrically studied 18 millisecond pulsars.",
-      "catalogueInfo": "This is a general overview of the pulsars studied in the MSPSRπ project. For comprehensive details, measurements, and analysis, please refer to the full catalogue paper:",
-      "catalogueTitle": "The MSPSRPI catalogue: VLBA astrometry of 18 millisecond pulsars",
-      "catalogueUrl": "https://ui.adsabs.harvard.edu/abs/2023MNRAS.519.4982D/abstract"
+  "overview": [
+    "The MSPSRπ project was designed as a dedicated follow-up to the original PSRπ project, with a targeted focus on millisecond pulsars (MSPs) that are critical for tests of gravity and gravitational wave detection through pulsar timing arrays (PTAs).",
+    "Using the Very Long Baseline Array (VLBA), we conducted a series of observations of 18 carefully selected MSPs over a 4-year period. By implementing advanced phase-referencing techniques, we achieved unprecedented astrometric precision for these distant cosmic timekeepers.",
+    "The project resulted in 15 significant parallax measurements, roughly tripling the small number of MSPs with well-measured astrometric parameters. These measurements have contributed to enhanced tests of gravitational theories, improved our understanding of the Galactic electron distribution, and provided insights into the kinematic properties of the MSP population."
+  ],
+
+  "statistics": [
+    {
+      "label": "MSPs Observed",
+      "value": "18",
+      "description": "Carefully selected millisecond pulsars"
     },
-  
-    "pulsars": [
-      {
-        "name": "J0030+0451",
-        "ra": "00:30:27.4250",
-        "dec": "04:51:39.0072",
-        "flux_density_1_4GHz": 10,
-        "inbeam_calibrators": 1,
-        "epochs_observed": 10
-      },
-      {
-        "name": "J0610-2100",
-        "ra": "06:10:13.6005",
-        "dec": "-21:00:27.0079",
-        "flux_density_1_4GHz": 5,
-        "inbeam_calibrators": 1,
-        "epochs_observed": 10
-      },
-      {
-        "name": "J0621+1002",
-        "ra": "06:21:22.1162",
-        "dec": "10:02:38.0073",
-        "flux_density_1_4GHz": 3,
-        "inbeam_calibrators": 1,
-        "epochs_observed": 10
-      },
-      {
-        "name": "J1012+5307",
-        "ra": "10:12:33.4399",
-        "dec": "53:07:02.0011",
-        "flux_density_1_4GHz": 30,
-        "inbeam_calibrators": 1,
-        "epochs_observed": 10
-      },
-      {
-        "name": "J1024-0719",
-        "ra": "10:24:38.6573",
-        "dec": "-07:19:19.0080",
-        "flux_density_1_4GHz": 2,
-        "inbeam_calibrators": 1,
-        "epochs_observed": 10
-      },
-      {
-        "name": "J1518+4904",
-        "ra": "15:18:16.7982",
-        "dec": "49:04:34.0011",
-        "flux_density_1_4GHz": 4,
-        "inbeam_calibrators": 2,
-        "epochs_observed": 10
-      },
-      {
-        "name": "J1537+1155",
-        "ra": "15:37:09.9635",
-        "dec": "11:55:55.0003",
-        "flux_density_1_4GHz": 2,
-        "inbeam_calibrators": 1,
-        "epochs_observed": 10
-      },
-      {
-        "name": "J1640+2224",
-        "ra": "16:40:16.7459",
-        "dec": "22:24:08.0076",
-        "flux_density_1_4GHz": 2,
-        "inbeam_calibrators": 1,
-        "epochs_observed": 10
-      },
-      {
-        "name": "J1643-1224",
-        "ra": "16:43:38.1641",
-        "dec": "-12:24:58.0065",
-        "flux_density_1_4GHz": 8,
-        "inbeam_calibrators": 1,
-        "epochs_observed": 10
-      },
-      {
-        "name": "J1721-2457",
-        "ra": "17:21:05.4994",
-        "dec": "-24:57:06.0022",
-        "flux_density_1_4GHz": 1,
-        "inbeam_calibrators": 1,
-        "epochs_observed": 10
-      },
-      {
-        "name": "J1730-2304",
-        "ra": "17:30:21.6797",
-        "dec": "-23:04:31.0017",
-        "flux_density_1_4GHz": 4,
-        "inbeam_calibrators": 1,
-        "epochs_observed": 10
-      },
-      {
-        "name": "J1738+0333",
-        "ra": "17:38:53.9700",
-        "dec": "03:33:10.0091",
-        "flux_density_1_4GHz": 2,
-        "inbeam_calibrators": 1,
-        "epochs_observed": 9
-      },
-      {
-        "name": "J1824-2452A",
-        "ra": "18:24:32.0079",
-        "dec": "-24:52:10.0091",
-        "flux_density_1_4GHz": 1,
-        "inbeam_calibrators": 1,
-        "epochs_observed": 10
-      },
-      {
-        "name": "J1853+1303",
-        "ra": "18:53:57.3179",
-        "dec": "13:03:44.0005",
-        "flux_density_1_4GHz": 1,
-        "inbeam_calibrators": 1,
-        "epochs_observed": 10
-      },
-      {
-        "name": "J1910+1256",
-        "ra": "19:10:09.7017",
-        "dec": "12:56:25.0043",
-        "flux_density_1_4GHz": 1,
-        "inbeam_calibrators": 2,
-        "epochs_observed": 10
-      },
-      {
-        "name": "J1911-1114",
-        "ra": "19:11:49.2754",
-        "dec": "-11:14:22.0055",
-        "flux_density_1_4GHz": 2,
-        "inbeam_calibrators": 1,
-        "epochs_observed": 10
-      },
-      {
-        "name": "J1918-0642",
-        "ra": "19:18:48.0296",
-        "dec": "-06:42:34.0093",
-        "flux_density_1_4GHz": 2,
-        "inbeam_calibrators": 1,
-        "epochs_observed": 10
-      },
-      {
-        "name": "J1939+2134",
-        "ra": "19:39:38.5613",
-        "dec": "21:34:59.0012",
-        "flux_density_1_4GHz": 10,
-        "inbeam_calibrators": 2,
-        "epochs_observed": 10
-      }
-    ],
-  
-    "dataPipeline": {
-      "description": "All MSPSRπ data was processed using a standardized pipeline specifically developed for pulsar astrometry. This approach ensures consistent results across all sources and enables systematic error analysis.",
-      "steps": [
-        {
-          "title": "VLBA Correlation with Pulsar Gating",
-          "description": "Raw data correlated using the DiFX software correlator with pulsar gating applied to improve signal-to-noise ratio."
-        },
-        {
-          "title": "Primary Calibration",
-          "description": "Initial calibration performed on the primary phase calibrator, including bandpass, amplitude, and phase calibration."
-        },
-        {
-          "title": "Secondary Calibrator Self-Calibration",
-          "description": "Self-calibration applied to the in-beam (secondary) calibrator to refine direction-dependent calibration effects."
-        },
-        {
-          "title": "Target Imaging",
-          "description": "Application of calibration solutions to target pulsar data and creation of interferometric images."
-        },
-        {
-          "title": "Position Measurement",
-          "description": "Precise position measurement through fitting to the interferometric image, with error estimation."
-        },
-        {
-          "title": "Astrometric Parameter Inference",
-          "description": "Bayesian inference of astrometric parameters (position, proper motion, parallax) using the sterne package, accounting for systematic errors."
-        }
-      ]
+    {
+      "label": "Parallax Precision",
+      "value": "< 100 μas",
+      "description": "Sub-milliarcsecond astrometric precision"
+    },
+    {
+      "label": "Distance Measurements",
+      "value": "15",
+      "description": "Significant parallax-based distance determinations"
+    },
+    {
+      "label": "Publications",
+      "value": "5",
+      "description": "Scientific papers based on project data"
     }
+  ],
+
+  "timeline": [
+    {
+      "date": "2014",
+      "title": "Project Initiation",
+      "description": "Planning and preliminary observations began for the MSPSRπ program, building on the experience gained from the original PSRπ project."
+    },
+    {
+      "date": "2015",
+      "title": "First Observation Campaign",
+      "description": "Commenced regular VLBA observations of the selected MSPs using optimized phase-referencing techniques."
+    },
+    {
+      "date": "2016",
+      "title": "Mid-project Analysis",
+      "description": "Initial data reduction and analysis revealed promising parallax and proper motion measurements for several key sources."
+    },
+    {
+      "date": "2017",
+      "title": "Extended Observations",
+      "description": "Additional observations to refine parallax measurements and address challenges with the most difficult targets."
+    },
+    {
+      "date": "2018",
+      "title": "Project Completion",
+      "description": "Final observations completed and comprehensive analysis begun on the complete dataset."
+    },
+    {
+      "date": "2020",
+      "title": "First Results Published",
+      "description": "Publication of early results for individual sources of particular interest for tests of gravitational theories."
+    },
+    {
+      "date": "2023",
+      "title": "Full Catalog Release",
+      "description": "Release of the complete MSPSRπ catalog with astrometric measurements for all 18 MSPs."
+    }
+  ],
+
+  "objectives": [
+    {
+      "title": "Precise Distance Measurements",
+      "description": "Determine parallax-based distances to millisecond pulsars with uncertainty < 10% to provide model-independent distance measurements."
+    },
+    {
+      "title": "Proper Motion Determination",
+      "description": "Measure precise proper motions to determine transverse velocities and correct for Shklovskii effects in pulsar timing parameters."
+    },
+    {
+      "title": "Enhance Gravitational Tests",
+      "description": "Provide independent astrometric parameters to improve tests of general relativity and alternative theories of gravity with binary pulsar systems."
+    },
+    {
+      "title": "Pulsar Timing Array Enhancement",
+      "description": "Improve the sensitivity of pulsar timing arrays for gravitational wave detection by providing model-independent astrometric parameters."
+    },
+    {
+      "title": "Pulsar Population Studies",
+      "description": "Investigate the kinematic properties and spatial distribution of millisecond pulsars to constrain their formation and evolutionary history."
+    }
+  ],
+
+  "technicalApproach": [
+    "MSPSRπ utilized the Very Long Baseline Array (VLBA) at L-band (1.4 GHz) to achieve the highest possible astrometric precision. The observations were designed to maximize parallax sensitivity by scheduling sessions near the times of maximum parallactic excursion.",
+    "We implemented relayed phase-referencing techniques, where a secondary phase reference source very close to the target pulsar was observed to refine direction-dependent calibration effects. For three pulsars, we employed 1D interpolation to further suppress propagation-related systematic errors.",
+    "Pulsar gating was applied during correlation to improve the signal-to-noise ratio, effectively leveraging our knowledge of the pulsars' rotational phases to exclude off-pulse data. This resulted in an average improvement in sensitivity of a factor of approximately 1.8.",
+    "All data was processed with our custom psrvlbireduce pipeline, which automates many aspects of the calibration and imaging process. Systematic error analysis was performed using a Bayesian approach with the sterne package, specifically developed for this project."
+  ],
+
+  "keyResults": [
+    {
+      "title": "Double Neutron Star System Distance",
+      "description": "Achieved the most significant model-independent distance measurement ever made for a double neutron star system (PSR J1518+4904), with a precision of 0.81 ± 0.02 kpc."
+    },
+    {
+      "title": "Refined Orbital Decay Tests",
+      "description": "Enhanced tests of orbital decay in binary systems PSR J1012+5307 and PSR J1738+0333, placing new constraints on dipole gravitational radiation and the time derivative of Newton's gravitational constant."
+    },
+    {
+      "title": "Interstellar Medium Characterization",
+      "description": "Detected significant angular broadening for PSR J1643-1224, allowing independent verification of the association between the HII region Sh 2-27 and the main scattering screen of this pulsar."
+    },
+    {
+      "title": "Gamma-ray Pulsar Death Line",
+      "description": "Refined the upper limit of the death line of γ-ray-emitting pulsars using the intrinsic spin-down power of PSR J1730-2304, the least energetic γ-ray pulsar known."
+    }
+  ],
+
+  "scientificImpact": [
+    "The MSPSRπ program has made significant contributions to multiple areas of pulsar astrophysics. By providing model-independent distances and proper motions for millisecond pulsars, we have enhanced the precision of gravitational tests with binary pulsar systems.",
+    "Our results have helped discriminate between competing models of the Galactic electron density distribution, which is crucial for understanding the interstellar medium and interpreting dispersion measures of pulsars and fast radio bursts.",
+    "The precise space velocities derived from our measurements have provided insights into the formation mechanisms of millisecond pulsars, suggesting a more complex evolutionary history than previously thought."
+  ],
+
+  "publications": [
+    {
+      "citation": "Ding, H., Deller, A. T., Freire, P., et al. (2020). Strongly improved constraints on the transverse shift in the γ-ray emission region in three MSPs. The Astrophysical Journal, 896(1), 85.",
+      "doi": "https://doi.org/10.3847/1538-4357/ab8f29",
+      "arxiv": "https://arxiv.org/abs/2003.12694"
+    },
+    {
+      "citation": "Ding, H., Deller, A. T., Fonseca, E., et al. (2021). Strong New Constraints on the Black Widow PSR J1555–2908 from a VLBA Parallax Measurement. The Astrophysical Journal Letters, 921(2), L19.",
+      "doi": "https://doi.org/10.3847/2041-8213/ac2fff",
+      "arxiv": "https://arxiv.org/abs/2110.07544"
+    },
+    {
+      "citation": "Vigeland, S. J., Deller, A. T., Kaplan, D. L., et al. (2018). A Proper Motion Study of the Globular Cluster PSR J1623–2631. The Astrophysical Journal, 855(2), 122.",
+      "doi": "https://doi.org/10.3847/1538-4357/aaaa73",
+      "arxiv": "https://arxiv.org/abs/1802.07236"
+    },
+    {
+      "citation": "Ding, H., Deller, A. T., et al. (2023). The MSPSRPI catalogue: VLBA astrometry of 18 millisecond pulsars. Monthly Notices of the Royal Astronomical Society, 519(4), 4982-5007.",
+      "doi": "https://doi.org/10.1093/mnras/stac3725",
+      "arxiv": "https://arxiv.org/abs/2212.06351"
+    }
+  ],
+
+  "pulsarsStudied": {
+    "overview": "The MSPSRπ program astrometrically studied 18 millisecond pulsars.",
+    "catalogueInfo": "This is a general overview of the pulsars studied in the MSPSRπ project. For comprehensive details, measurements, and analysis, please refer to the full catalogue paper:",
+    "catalogueTitle": "The MSPSRPI catalogue: VLBA astrometry of 18 millisecond pulsars",
+    "catalogueUrl": "https://ui.adsabs.harvard.edu/abs/2023MNRAS.519.4982D/abstract"
+  },
+
+  "pulsars": [
+    {
+      "name": "J0030+0451",
+      "ra": "00:30:27.4250",
+      "dec": "04:51:39.0072",
+      "flux_density_1_4GHz": 10,
+      "inbeam_calibrators": 1,
+      "epochs_observed": 10
+    },
+    {
+      "name": "J0610-2100",
+      "ra": "06:10:13.6005",
+      "dec": "-21:00:27.0079",
+      "flux_density_1_4GHz": 5,
+      "inbeam_calibrators": 1,
+      "epochs_observed": 10
+    },
+    {
+      "name": "J0621+1002",
+      "ra": "06:21:22.1162",
+      "dec": "10:02:38.0073",
+      "flux_density_1_4GHz": 3,
+      "inbeam_calibrators": 1,
+      "epochs_observed": 10
+    },
+    {
+      "name": "J1012+5307",
+      "ra": "10:12:33.4399",
+      "dec": "53:07:02.0011",
+      "flux_density_1_4GHz": 30,
+      "inbeam_calibrators": 1,
+      "epochs_observed": 10
+    },
+    {
+      "name": "J1024-0719",
+      "ra": "10:24:38.6573",
+      "dec": "-07:19:19.0080",
+      "flux_density_1_4GHz": 2,
+      "inbeam_calibrators": 1,
+      "epochs_observed": 10
+    },
+    {
+      "name": "J1518+4904",
+      "ra": "15:18:16.7982",
+      "dec": "49:04:34.0011",
+      "flux_density_1_4GHz": 4,
+      "inbeam_calibrators": 2,
+      "epochs_observed": 10
+    },
+    {
+      "name": "J1537+1155",
+      "ra": "15:37:09.9635",
+      "dec": "11:55:55.0003",
+      "flux_density_1_4GHz": 2,
+      "inbeam_calibrators": 1,
+      "epochs_observed": 10
+    },
+    {
+      "name": "J1640+2224",
+      "ra": "16:40:16.7459",
+      "dec": "22:24:08.0076",
+      "flux_density_1_4GHz": 2,
+      "inbeam_calibrators": 1,
+      "epochs_observed": 10
+    },
+    {
+      "name": "J1643-1224",
+      "ra": "16:43:38.1641",
+      "dec": "-12:24:58.0065",
+      "flux_density_1_4GHz": 8,
+      "inbeam_calibrators": 1,
+      "epochs_observed": 10
+    },
+    {
+      "name": "J1721-2457",
+      "ra": "17:21:05.4994",
+      "dec": "-24:57:06.0022",
+      "flux_density_1_4GHz": 1,
+      "inbeam_calibrators": 1,
+      "epochs_observed": 10
+    },
+    {
+      "name": "J1730-2304",
+      "ra": "17:30:21.6797",
+      "dec": "-23:04:31.0017",
+      "flux_density_1_4GHz": 4,
+      "inbeam_calibrators": 1,
+      "epochs_observed": 10
+    },
+    {
+      "name": "J1738+0333",
+      "ra": "17:38:53.9700",
+      "dec": "03:33:10.0091",
+      "flux_density_1_4GHz": 2,
+      "inbeam_calibrators": 1,
+      "epochs_observed": 9
+    },
+    {
+      "name": "J1824-2452A",
+      "ra": "18:24:32.0079",
+      "dec": "-24:52:10.0091",
+      "flux_density_1_4GHz": 1,
+      "inbeam_calibrators": 1,
+      "epochs_observed": 10
+    },
+    {
+      "name": "J1853+1303",
+      "ra": "18:53:57.3179",
+      "dec": "13:03:44.0005",
+      "flux_density_1_4GHz": 1,
+      "inbeam_calibrators": 1,
+      "epochs_observed": 10
+    },
+    {
+      "name": "J1910+1256",
+      "ra": "19:10:09.7017",
+      "dec": "12:56:25.0043",
+      "flux_density_1_4GHz": 1,
+      "inbeam_calibrators": 2,
+      "epochs_observed": 10
+    },
+    {
+      "name": "J1911-1114",
+      "ra": "19:11:49.2754",
+      "dec": "-11:14:22.0055",
+      "flux_density_1_4GHz": 2,
+      "inbeam_calibrators": 1,
+      "epochs_observed": 10
+    },
+    {
+      "name": "J1918-0642",
+      "ra": "19:18:48.0296",
+      "dec": "-06:42:34.0093",
+      "flux_density_1_4GHz": 2,
+      "inbeam_calibrators": 1,
+      "epochs_observed": 10
+    },
+    {
+      "name": "J1939+2134",
+      "ra": "19:39:38.5613",
+      "dec": "21:34:59.0012",
+      "flux_density_1_4GHz": 10,
+      "inbeam_calibrators": 2,
+      "epochs_observed": 10
+    }
+  ],
+
+  "dataPipeline": {
+    "description": "All MSPSRπ data was processed using a standardized pipeline specifically developed for pulsar astrometry. This approach ensures consistent results across all sources and enables systematic error analysis.",
+    "steps": [
+      {
+        "title": "VLBA Correlation with Pulsar Gating",
+        "description": "Raw data correlated using the DiFX software correlator with pulsar gating applied to improve signal-to-noise ratio."
+      },
+      {
+        "title": "Primary Calibration",
+        "description": "Initial calibration performed on the primary phase calibrator, including bandpass, amplitude, and phase calibration."
+      },
+      {
+        "title": "Secondary Calibrator Self-Calibration",
+        "description": "Self-calibration applied to the in-beam (secondary) calibrator to refine direction-dependent calibration effects."
+      },
+      {
+        "title": "Target Imaging",
+        "description": "Application of calibration solutions to target pulsar data and creation of interferometric images."
+      },
+      {
+        "title": "Position Measurement",
+        "description": "Precise position measurement through fitting to the interferometric image, with error estimation."
+      },
+      {
+        "title": "Astrometric Parameter Inference",
+        "description": "Bayesian inference of astrometric parameters (position, proper motion, parallax) using the sterne package, accounting for systematic errors."
+      }
+    ]
   }
+}

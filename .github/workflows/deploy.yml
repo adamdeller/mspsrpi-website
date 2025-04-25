@@ -1,0 +1,64 @@
+name: Deploy to GitHub Pages
+on:
+  push:
+    branches: [ "main" ]
+  schedule:
+    - cron: '0 */12 * * *'
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      
+      - name: Update package.json with compatible dependencies
+        run: |
+          # 使用jq工具修改package.json文件
+          apt-get update && apt-get install -y jq
+          
+          # 降级React到稳定版本
+          jq '.dependencies."react" = "^18.2.0" | 
+              .dependencies."react-dom" = "^18.2.0" | 
+              .dependencies."react-router-dom" = "^6.18.0" | 
+              .dependencies."@testing-library/react" = "^14.0.0"' package.json > package.json.tmp
+          
+          mv package.json.tmp package.json
+          
+          echo "Updated package.json:"
+          cat package.json
+      
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+      
+      - name: Build
+        run: npm run build
+        env:
+          CI: false
+      
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './build'
+      
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

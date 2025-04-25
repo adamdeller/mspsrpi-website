@@ -1,172 +1,185 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Search, 
-  Download, 
   Book, 
   BookOpen, 
   Calendar, 
-  Users, 
   FileText, 
   ExternalLink,
   ChevronDown,
   ChevronUp,
   Filter,
   Tag,
-  Archive
+  Archive,
+  RefreshCw,
+  AlertTriangle,
+  Download,
+  Clock
 } from 'lucide-react';
-
-/* Hi Allen, this data is currently hard coded, but you need to create a page on github for this and retrive
-the data from there. It should be designed in a way that makes it easy for Adam and Bailey to add, delete or
-edit in the future. Feel free to play with the page and create your own design. I did not think about
-the information to show on the publication cards throughly so this was just a prototype. You go nuts! */
 
 const PublicationsPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filterPhase, setFilterPhase] = useState('all');
   const [filterYear, setFilterYear] = useState('all');
   const [expandedPaper, setExpandedPaper] = useState(null);
+  const [publications, setPublications] = useState({});
+  const [years, setYears] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // Publication data organized by project phase
-  const publications = {
-    psrpi: [
-      {
-        id: 'deller2019',
-        title: 'The PSRπ Pulsar Astrometry Project: Final Results',
-        authors: 'Deller, A. T., Goss, W. M., Brisken, W. F., Chatterjee, S., Cordes, J. M., Janssen, G. H., Kovalev, Y. Y., Lazio, T. J. W., Petrov, L., Stappers, B. W., Lyne, A.',
-        journal: 'The Astrophysical Journal',
-        volume: '875',
-        pages: '100',
-        year: '2019',
-        arxiv: 'https://arxiv.org/abs/1808.09046',
-        doi: 'https://doi.org/10.3847/1538-4357/ab11c7',
-        abstract: 'Very Long Baseline Interferometry (VLBI) astrometry of pulsars provides a straightforward and model-independent method to obtain distances via the detection of annual geometric parallax. The PSRπ program is a large VLBI pulsar astrometry program that has observed more than 60 pulsars with the Very Long Baseline Array. We summarize the astrometric results of the PSRπ program: parallax measurements (or upper limits) for each pulsar, and a three-dimensional map of the locations of the target pulsars in the Galaxy. The parallax measurements show that pulsar distances derived from the observed dispersion measure combined with Galactic electron density distribution models have an average error of 55% (80% when the predicted distance exceeds 6 kpc). The PSRπ observations also provided high-precision proper motions, enabling the accurate determination of pulsar velocities.',
-        keywords: ['astrometry', 'parallax', 'proper motion', 'pulsar'],
-        phase: 'PSRPI',
-        highlight: true
-      },
-      {
-        id: 'deller2016',
-        title: 'Microarcsecond VLBI Pulsar Astrometry with PSRπ II. Parallax Distances for 57 Pulsars',
-        authors: 'Deller, A. T., Vigeland, S. J., Kaplan, D. L., Goss, W. M., Brisken, W. F., Chatterjee, S., Cordes, J. M., Janssen, G. H., Lazio, T. J. W., Petrov, L., Stappers, B. W., Lyne, A.',
-        journal: 'The Astrophysical Journal',
-        volume: '828',
-        pages: '8',
-        year: '2016',
-        arxiv: 'https://arxiv.org/abs/1604.02367',
-        doi: 'https://doi.org/10.3847/0004-637X/828/1/8',
-        abstract: 'We present the results of astrometric observations of 60 pulsars with the Very Long Baseline Array (VLBA), which were obtained as part of the PSRπ program. We provide improved position measurements and new proper motions for all sources and measure parallaxes for 57 pulsars, with parallax distances ranging from 0.3 to 18 kpc. This represents one of the largest samples of these distances measured with consistent methodology and including pulsars from many regions of the Galaxy. We use these new measurements to study two millisecond pulsars with white dwarf companions, PSRs J1022+1001 and J2145-0750, and characterize the binary companion properties to aid in tests of theories of gravity.',
-        keywords: ['astrometry', 'parallax', 'proper motion', 'binary pulsar', 'white dwarf', 'tests of gravity'],
-        phase: 'PSRPI',
-        highlight: false
+  // Fetch publications data on component mount
+  useEffect(() => {
+    fetchPublicationsData();
+  }, []);
+
+  const fetchPublicationsData = async () => {
+    setLoading(true);
+    setError(null);
+  
+    try {
+      // Path to the JSON file
+      const baseUrl = '/test-deploy';
+      const fileUrl = `${baseUrl}/data/publicPage/publications.json`;
+
+      console.log('Fetching from:', fileUrl)
+      
+      const response = await fetch(fileUrl);
+      
+      if (!response.ok) {
+        throw new Error(`Failed to fetch data: ${response.status} ${response.statusText}`);
       }
-    ],
-    mspsrpi: [
-      {
-        id: 'ding2023',
-        title: 'The MSPSRπ catalogue: VLBA astrometry of 18 millisecond pulsars',
-        authors: 'Ding, H., Deller, A. T., Stappers, B. W., Lazio, T. J. W., Kaplan, D., Chatterjee, S., Brisken, W., Cordes, J., Freire, P. C. C., Fonseca, E., Stairs, I. H., Guillemot, L., Lyne, A., Cognard, I., Reardon, D. J., Theureau, G.',
-        journal: 'Monthly Notices of the Royal Astronomical Society',
-        volume: '519',
-        pages: '4982-5007',
-        year: '2023',
-        arxiv: 'https://arxiv.org/abs/2212.06351',
-        doi: 'https://doi.org/10.1093/mnras/stac3725',
-        abstract: 'With unparalleled rotational stability, millisecond pulsars (MSPs) serve as ideal laboratories for numerous astrophysical studies, many of which require precise knowledge of the distance and/or velocity of the MSP. Here, we present the astrometric results for 18 MSPs of the "MSPSRπ" project focusing exclusively on astrometry of MSPs, which includes the re-analysis of 3 previously published sources. On top of a standardized data reduction protocol, more complex strategies (i.e., normal and inverse-referenced 1D interpolation) were employed where possible to further improve astrometric precision. We derived astrometric parameters using sterne, a new Bayesian astrometry inference package that allows the incorporation of prior information based on pulsar timing where applicable. We measured significant parallax-based distances for 15 MSPs, including 0.81±0.02 kpc for PSR J1518+4904 — the most significant model-independent distance ever measured for a double neutron star system.',
-        keywords: ['astrometry', 'millisecond pulsar', 'parallax', 'proper motion', 'double neutron star'],
-        phase: 'MSPSRPI',
-        highlight: true
-      },
-      {
-        id: 'ding2021',
-        title: 'A VLBI Distance and Transverse Velocity for PSR J1537+1155: A Double Neutron Star with a History',
-        authors: 'Ding, H., Deller, A. T., Fonseca, E., Stairs, I. H., Stappers, B., Lyne, A.',
-        journal: 'The Astrophysical Journal Letters',
-        volume: '921',
-        pages: 'L19',
-        year: '2021',
-        arxiv: 'https://arxiv.org/abs/2110.03702',
-        doi: 'https://doi.org/10.3847/2041-8213/ac31cf',
-        abstract: 'The double neutron star (DNS) system PSR J1537+1155 (also known as PSR B1534+12) is one of the most highly relativistic DNSs known, and has been used to test various aspects of gravity. The orbital decay of the system, characterized by the time derivative of the orbital period, can be predicted by Einstein\'s theory of general relativity. A comparison between the observed and the predicted orbital decay requires precise knowledge of the system\'s distance, which we measured using the Very Long Baseline Array with very long baseline interferometry astrometry, yielding a distance of 0.94±0.07 kpc. The new, precise distance allows us to predict the orbital decay rate with significantly improved precision, enhancing the test of Einstein\'s theory of general relativity by a factor of 10.',
-        keywords: ['astrometry', 'double neutron star', 'orbital decay', 'general relativity'],
-        phase: 'MSPSRPI',
-        highlight: false
-      },
-      {
-        id: 'ding2020',
-        title: 'Testing Theories of Gravity and Superdense Matter with PSR J1012+5307',
-        authors: 'Ding, H., Deller, A. T., Freire, P., Kaplan, D. L., Lazio, T. J. W., Shannon, R., Stappers, B.',
-        journal: 'The Astrophysical Journal',
-        volume: '896',
-        pages: '85',
-        year: '2020',
-        arxiv: 'https://arxiv.org/abs/2004.12594',
-        doi: 'https://doi.org/10.3847/1538-4357/ab8f28',
-        abstract: 'PSR J1012+5307 is a millisecond pulsar with a helium white dwarf companion. Through measuring orbital decay, it has been used as a testbed for theories of gravity. The observed orbital decay rate comes primarily from extrinsic effects, namely the Shklovskii effect (transverse motion) and the Galactic differential potential, which must be subtracted from the observed values in order to test intrinsic orbital decay due to dipole gravitational radiation—a phenomenon forbidden in general relativity. Using recent VLBI astrometry of PSR J1012+5307, obtained as part of the MSPSRπ program, we precisely measured the system\'s distance at 0.86±0.03 kpc. The distance significantly improves constraints on the orbital decay components, which leads to tighter constraints on alternative theories of gravity.',
-        keywords: ['astrometry', 'millisecond pulsar', 'white dwarf', 'theories of gravity'],
-        phase: 'MSPSRPI',
-        highlight: false
-      },
-      {
-        id: 'vigeland2018',
-        title: 'Precision VLBI Astrometry: Instrumentation, Algorithms, and Pulsar Applications',
-        authors: 'Vigeland, S. J., Deller, A. T., Kaplan, D. L., Istrate, A. G., Stappers, B. W., Tauris, T. M.',
-        journal: 'The Astrophysical Journal',
-        volume: '855',
-        pages: '122',
-        year: '2018',
-        arxiv: 'https://arxiv.org/abs/1802.03960',
-        doi: 'https://doi.org/10.3847/1538-4357/aaad0c',
-        abstract: 'Very Long Baseline Interferometry (VLBI) provides the highest-precision astronomical astrometry, enabling submilliarcsecond measurements of positions, parallaxes, and proper motions. We present algorithms and instrumentation designed to push the limits of precision astrometry with VLBI, and demonstrate their application to millisecond pulsar J1640+2224. Using three years of astrometric observations, we measure a significant parallax of 0.66±0.05 mas, corresponding to a distance of 1.52±0.12 kpc, which is consistent with the DM-based distance. This precision enables us to constrain the binary parameters of the system.',
-        keywords: ['astrometry', 'VLBI', 'millisecond pulsar', 'binary systems'],
-        phase: 'MSPSRPI',
-        highlight: false
+      
+      const publicationsData = await response.json();
+      
+      // Check if there's any valid data
+      if (!publicationsData || Object.keys(publicationsData).length === 0) {
+        setError('No publication data found');
+        setLoading(false);
+        return;
       }
-    ],
-    mspsrpi2: [
-      {
-        id: 'future1',
-        title: 'Initial Results from the MSPSRπ2 Program: Precise Astrometry of Millisecond Pulsars for Gravitational Wave Detection',
-        authors: 'Deller, A. T., et al.',
-        journal: 'In preparation',
-        year: '2025',
-        abstract: 'The MSPSRπ2 program extends our previous work to a larger sample of 44 millisecond pulsars that are key targets for pulsar timing arrays seeking to detect low-frequency gravitational waves. Initial results from this ongoing project demonstrate improvements in calibration techniques and provide parallax measurements for the first set of observed pulsars.',
-        keywords: ['astrometry', 'millisecond pulsar', 'gravitational waves', 'pulsar timing array'],
-        phase: 'MSPSRPI2',
-        highlight: true,
-        status: 'in preparation'
-      }
-    ]
+
+      // Group publications by phase if not already grouped
+      const processedData = processPublicationsData(publicationsData);
+      setPublications(processedData);
+      
+      // Extract unique years for filtering
+      const uniqueYears = [...new Set(
+        Object.values(processedData)
+          .flat()
+          .map(paper => paper.year)
+          .filter(year => year)
+      )].sort((a, b) => b - a); // Sort descending
+      
+      setYears(uniqueYears);
+      setLoading(false);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      setError(`Failed to fetch publications data: ${error.message}`);
+      setLoading(false);
+    }
+  };
+
+  // Process JSON data into required format
+  const processPublicationsData = (data) => {
+    // If already grouped by phase, return as is
+    if (data.psrpi || data.mspsrpi || data.mspsrpi2) {
+      return data;
+    }
+    
+    // Group by phase if it's a flat array
+    if (Array.isArray(data)) {
+      const groupedByPhase = {};
+      
+      data.forEach(paper => {
+        // Skip papers without a phase or title
+        if (!paper.phase || !paper.title) {
+          console.warn('Skipping paper due to missing phase or title:', 
+            paper.id || 'unknown id', 
+            'phase:', paper.phase,
+            'title:', paper.title ? paper.title.substring(0, 20) + '...' : 'missing'
+          );
+          return;
+        }
+        
+        // Normalize phase to lowercase
+        const phase = paper.phase.toString().toLowerCase();
+        
+        // Ensure phase is valid
+        if (!['psrpi', 'mspsrpi', 'mspsrpi2'].includes(phase)) {
+          console.warn(`Unexpected phase value: ${phase}`);
+          return;
+        }
+        
+        // Convert keywords to array if it's a string
+        let keywords = paper.keywords || [];
+        if (typeof keywords === 'string') {
+          if (keywords.includes(';')) {
+            keywords = keywords.split(';').map(k => k.trim());
+          } else if (keywords.includes(',')) {
+            keywords = keywords.split(',').map(k => k.trim());
+          } else {
+            keywords = [keywords.trim()];
+          }
+        }
+        
+        // Create standardized publication object
+        const publication = {
+          id: paper.id || `pub-${Math.random().toString(36).substr(2, 9)}`,
+          title: paper.title,
+          authors: paper.authors || '',
+          journal: paper.journal || '',
+          volume: paper.volume || '',
+          pages: paper.pages || '',
+          year: paper.year ? paper.year.toString() : '',
+          arxiv: paper.arxiv || '',
+          doi: paper.doi || '',
+          abstract: paper.abstract || '',
+          keywords: keywords,
+          phase: phase || '',
+          highlight: paper.highlight === true || paper.highlight === 'TRUE' || paper.highlight === 1,
+          status: paper.status || ''
+        };
+        
+        // Add to the appropriate phase group
+        if (!groupedByPhase[phase]) {
+          groupedByPhase[phase] = [];
+        }
+        
+        groupedByPhase[phase].push(publication);
+      });
+      
+      return groupedByPhase;
+    }
+    
+    // If not an array or already grouped, return as is
+    return data;
   };
 
   // Filter publications based on search and filters
-  const filteredPublications = Object.entries(publications).flatMap(([phase, papers]) => {
-    return papers.filter(paper => {
-      // Apply search filter
-      const matchesSearch = 
-        searchQuery === '' || 
-        paper.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        paper.authors.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        (paper.abstract && paper.abstract.toLowerCase().includes(searchQuery.toLowerCase())) ||
-        (paper.keywords && paper.keywords.some(keyword => keyword.toLowerCase().includes(searchQuery.toLowerCase())));
-      
-      // Apply phase filter
-      const matchesPhase = filterPhase === 'all' || paper.phase.toLowerCase() === filterPhase.toLowerCase();
-      
-      // Apply year filter
-      const matchesYear = filterYear === 'all' || paper.year === filterYear;
-      
-      return matchesSearch && matchesPhase && matchesYear;
+  const getFilteredPublications = () => {
+    if (!publications || Object.keys(publications).length === 0) return [];
+    
+    return Object.entries(publications).flatMap(([phase, papers]) => {
+      return papers.filter(paper => {
+        // Apply search filter
+        const matchesSearch = 
+          searchQuery === '' || 
+          paper.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          paper.authors.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          (paper.abstract && paper.abstract.toLowerCase().includes(searchQuery.toLowerCase())) ||
+          (paper.keywords && paper.keywords.some(keyword => keyword.toLowerCase().includes(searchQuery.toLowerCase())));
+        
+        // Apply phase filter
+        const matchesPhase = filterPhase === 'all' || paper.phase.toLowerCase() === filterPhase.toLowerCase();
+        
+        // Apply year filter
+        const matchesYear = filterYear === 'all' || paper.year === filterYear;
+        
+        return matchesSearch && matchesPhase && matchesYear;
+      });
     });
-  });
-
-  // Get unique years for filtering
-  const years = [...new Set(
-    Object.values(publications)
-      .flat()
-      .map(paper => paper.year)
-      .filter(year => year) // Remove undefined/null values
-  )].sort((a, b) => b - a); // Sort descending
+  };
 
   // Toggle expanded paper
   const toggleExpanded = (id) => {
@@ -176,6 +189,31 @@ const PublicationsPage = () => {
       setExpandedPaper(id);
     }
   };
+
+  // Check if paper is in preparation
+  const isInPreparation = (paper) => {
+    return paper.status && paper.status.toLowerCase().includes('preparation');
+  };
+
+  const filteredPublications = getFilteredPublications();
+
+  // Content for the "Not Found" state
+  const NotFoundContent = () => (
+    <div className="flex flex-col items-center justify-center py-16 bg-slate-900/30 rounded-lg border border-slate-800/50">
+      <Book className="h-16 w-16 text-slate-500 mb-6" />
+      <h2 className="text-2xl font-bold text-slate-300 mb-3">Publications Not Found</h2>
+      <p className="text-slate-400 text-center max-w-md mb-6">
+        We couldn't find the publications data. The file might be missing or there was an error loading the content.
+      </p>
+      <button 
+        onClick={fetchPublicationsData}
+        className="px-4 py-2 bg-indigo-700 hover:bg-indigo-600 text-white rounded-md transition-colors flex items-center"
+      >
+        <RefreshCw className="h-4 w-4 mr-2" />
+        Try Again
+      </button>
+    </div>
+  );
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-950 via-slate-900 to-black text-gray-100">
@@ -232,323 +270,403 @@ const PublicationsPage = () => {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Search and Filters */}
-        <div className="bg-slate-900/60 backdrop-blur-sm border border-slate-800/80 rounded-lg p-4 mb-8">
-          <div className="flex flex-col md:flex-row gap-4">
-            <div className="relative flex-grow">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <Search className="h-5 w-5 text-indigo-500/70" />
-              </div>
-              <input
-                type="text"
-                className="block w-full pl-10 pr-3 py-2 border border-slate-700/80 rounded-md leading-5 bg-slate-800/60 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-500/30"
-                placeholder="Search by title, author, or keyword..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-            </div>
+        {loading ? (
+          // Loading state
+          <div className="flex justify-center items-center py-12">
+            <RefreshCw className="animate-spin h-8 w-8 text-indigo-400 mr-3" />
+            <p className="text-indigo-200 text-lg">Loading publications data...</p>
+          </div>
+        ) : error || Object.keys(publications).length === 0 ? (
+          // Error or no data found state
+          <NotFoundContent />
+        ) : (
+          <>
+            {/* Search and Filters */}
+            <div className="bg-slate-900/60 backdrop-blur-sm border border-slate-800/80 rounded-lg p-4 mb-8">
+              <div className="flex flex-col md:flex-row gap-4">
+                <div className="relative flex-grow">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <Search className="h-5 w-5 text-indigo-500/70" />
+                  </div>
+                  <input
+                    type="text"
+                    className="block w-full pl-10 pr-3 py-2 border border-slate-700/80 rounded-md leading-5 bg-slate-800/60 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-500/30"
+                    placeholder="Search by title, author, or keyword..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                  />
+                </div>
 
-            <div className="flex flex-wrap gap-3">
-              {/* Phase Filter */}
-              <div className="relative inline-block text-left">
-                <select
-                  className="appearance-none block w-full py-2 pl-3 pr-10 border border-slate-700/80 rounded-md leading-5 bg-slate-800/60 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-500/30"
-                  value={filterPhase}
-                  onChange={(e) => setFilterPhase(e.target.value)}
-                >
-                  <option value="all">All Phases</option>
-                  <option value="psrpi">PSRPI</option>
-                  <option value="mspsrpi">MSPSRπ</option>
-                  <option value="mspsrpi2">MSPSRπ2</option>
-                </select>
-                <div className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-                  <Filter className="h-4 w-4 text-indigo-400" />
+                <div className="flex flex-wrap gap-3">
+                  {/* Phase Filter */}
+                  <div className="relative inline-block text-left">
+                    <select
+                      className="appearance-none block w-full py-2 pl-3 pr-10 border border-slate-700/80 rounded-md leading-5 bg-slate-800/60 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-500/30"
+                      value={filterPhase}
+                      onChange={(e) => setFilterPhase(e.target.value)}
+                    >
+                      <option value="all">All Phases</option>
+                      <option value="psrpi">PSRPI</option>
+                      <option value="mspsrpi">MSPSRπ</option>
+                      <option value="mspsrpi2">MSPSRπ2</option>
+                    </select>
+                    <div className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                      <Filter className="h-4 w-4 text-indigo-400" />
+                    </div>
+                  </div>
+                  
+                  {/* Year Filter */}
+                  <div className="relative inline-block text-left">
+                    <select
+                      className="appearance-none block w-full py-2 pl-3 pr-10 border border-slate-700/80 rounded-md leading-5 bg-slate-800/60 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-500/30"
+                      value={filterYear}
+                      onChange={(e) => setFilterYear(e.target.value)}
+                    >
+                      <option value="all">All Years</option>
+                      {years.map(year => (
+                        <option key={year} value={year}>{year}</option>
+                      ))}
+                    </select>
+                    <div className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                      <Calendar className="h-4 w-4 text-indigo-400" />
+                    </div>
+                  </div>
                 </div>
               </div>
               
-              {/* Year Filter */}
-              <div className="relative inline-block text-left">
-                <select
-                  className="appearance-none block w-full py-2 pl-3 pr-10 border border-slate-700/80 rounded-md leading-5 bg-slate-800/60 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-500/30"
-                  value={filterYear}
-                  onChange={(e) => setFilterYear(e.target.value)}
+              {/* Refresh data button */}
+              <div className="mt-4 text-right">
+                <button 
+                  onClick={fetchPublicationsData}
+                  className="inline-flex items-center text-xs text-indigo-400 hover:text-indigo-300 transition-colors"
                 >
-                  <option value="all">All Years</option>
-                  {years.map(year => (
-                    <option key={year} value={year}>{year}</option>
-                  ))}
-                </select>
-                <div className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-                  <Calendar className="h-4 w-4 text-indigo-400" />
-                </div>
+                  <RefreshCw className="h-3 w-3 mr-1" />
+                  Refresh data
+                </button>
               </div>
             </div>
-          </div>
-        </div>
 
-        {/* Publication List */}
-        <div className="space-y-10">
-          {/* Featured Publications */}
-          <div className="mb-10">
-            <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
-              <BookOpen className="mr-2 h-6 w-6 text-indigo-400" />
-              Featured Publications
-            </h2>
-            
-            <div className="grid md:grid-cols-2 gap-6">
-              {filteredPublications
-                .filter(paper => paper.highlight)
-                .map((paper) => (
-                  <div 
-                    key={paper.id}
-                    className="bg-gradient-to-br from-slate-900/90 via-indigo-950/50 to-slate-900/90 backdrop-blur-sm border border-indigo-500/30 rounded-lg p-6 shadow-xl hover:shadow-indigo-500/20 hover:border-indigo-500/50 transition-all duration-300"
-                  >
-                    <div className="flex justify-between items-start">
-                      <h3 className="text-xl font-bold text-indigo-200 mb-2">{paper.title}</h3>
-                      {paper.phase === 'PSRPI' && (
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-900/30 text-green-300 border border-green-500/30">
-                          PSRPI
-                        </span>
-                      )}
-                      {paper.phase === 'MSPSRPI' && (
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-900/30 text-purple-300 border border-purple-500/30">
-                          MSPSRπ
-                        </span>
-                      )}
-                      {paper.phase === 'MSPSRPI2' && (
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-900/30 text-blue-300 border border-blue-500/30">
-                          MSPSRπ2
-                        </span>
-                      )}
-                    </div>
-                    
-                    <p className="text-indigo-100 text-sm mb-3">{paper.authors}</p>
-                    <p className="text-gray-400 text-sm mb-4">
-                      {paper.journal && `${paper.journal}`}
-                      {paper.volume && `, ${paper.volume}`}
-                      {paper.pages && `, ${paper.pages}`}
-                      {paper.year && ` (${paper.year})`}
-                      {paper.status && ` - ${paper.status}`}
-                    </p>
-                    
-                    <p className="text-gray-300 text-sm line-clamp-3 mb-4">{paper.abstract}</p>
-                    
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {paper.keywords && paper.keywords.map((keyword, index) => (
-                        <span 
-                          key={index} 
-                          className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-slate-800/60 text-indigo-300 border border-indigo-500/20"
+            {/* Publication List */}
+            <div className="space-y-10">
+              {/* Featured Publications */}
+              {filteredPublications.some(paper => paper.highlight) && (
+                <div className="mb-10">
+                  <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
+                    <BookOpen className="mr-2 h-6 w-6 text-indigo-400" />
+                    Featured Publications
+                  </h2>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {filteredPublications
+                      .filter(paper => paper.highlight)
+                      .map((paper) => (
+                        <div 
+                          key={paper.id}
+                          className={`bg-gradient-to-br from-slate-900/90 via-indigo-950/50 to-slate-900/90 backdrop-blur-sm border ${isInPreparation(paper) ? 'border-amber-500/30' : 'border-indigo-500/30'} rounded-lg p-6 shadow-xl hover:shadow-indigo-500/20 ${isInPreparation(paper) ? 'hover:border-amber-500/50' : 'hover:border-indigo-500/50'} transition-all duration-300`}
                         >
-                          <Tag className="h-3 w-3 mr-1" />
-                          {keyword}
-                        </span>
-                      ))}
-                    </div>
-                    
-                    <div className="flex space-x-3">
-                      {paper.arxiv && (
-                        <a
-                          href={paper.arxiv}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center px-3 py-1.5 border border-indigo-500/30 rounded-md text-indigo-300 text-sm bg-slate-900/60 hover:bg-slate-800/80 transition duration-300"
-                        >
-                          <FileText className="mr-1.5 h-4 w-4" />
-                          arXiv
-                        </a>
-                      )}
-                      {paper.doi && (
-                        <a
-                          href={paper.doi}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center px-3 py-1.5 border border-indigo-500/30 rounded-md text-indigo-300 text-sm bg-slate-900/60 hover:bg-slate-800/80 transition duration-300"
-                        >
-                          <ExternalLink className="mr-1.5 h-4 w-4" />
-                          DOI
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                ))}
-            </div>
-          </div>
-
-          {/* Publication Timeline */}
-          <div className="mb-12">
-            <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
-              <Archive className="mr-2 h-6 w-6 text-indigo-400" />
-              Publication Timeline
-            </h2>
-
-            <div className="space-y-6">
-              {filteredPublications.length > 0 ? (
-                filteredPublications
-                  .sort((a, b) => parseInt(b.year) - parseInt(a.year))
-                  .map((paper) => (
-                    <div 
-                      key={paper.id}
-                      className={`bg-slate-900/60 backdrop-blur-sm border border-slate-800/50 rounded-lg overflow-hidden transition-all duration-300 ${expandedPaper === paper.id ? 'shadow-lg shadow-indigo-500/10' : 'shadow'}`}
-                    >
-                      <div 
-                        className="p-4 cursor-pointer"
-                        onClick={() => toggleExpanded(paper.id)}
-                      >
-                        <div className="flex justify-between items-start">
-                          <div className="flex-1">
-                            <div className="flex items-start justify-between">
-                              <h3 className="text-lg font-medium text-indigo-200 mb-1 pr-4">{paper.title}</h3>
-                              <div className="flex items-center space-x-2">
-                                {paper.phase === 'PSRPI' && (
-                                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-900/30 text-green-300 border border-green-500/30 whitespace-nowrap">
-                                    PSRPI
-                                  </span>
-                                )}
-                                {paper.phase === 'MSPSRPI' && (
-                                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-900/30 text-purple-300 border border-purple-500/30 whitespace-nowrap">
-                                    MSPSRπ
-                                  </span>
-                                )}
-                                {paper.phase === 'MSPSRPI2' && (
-                                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-900/30 text-blue-300 border border-blue-500/30 whitespace-nowrap">
-                                    MSPSRπ2
-                                  </span>
-                                )}
-                                {expandedPaper === paper.id ? 
-                                  <ChevronUp className="h-5 w-5 text-indigo-400" /> : 
-                                  <ChevronDown className="h-5 w-5 text-indigo-400" />
-                                }
+                          <div className="flex justify-between items-start">
+                            <h3 className="text-xl font-bold text-indigo-200 mb-2">{paper.title}</h3>
+                            {paper.phase === 'psrpi' && (
+                              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-900/30 text-green-300 border border-green-500/30">
+                                PSRPI
+                              </span>
+                            )}
+                            {paper.phase === 'mspsrpi' && (
+                              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-900/30 text-purple-300 border border-purple-500/30">
+                                MSPSRπ
+                              </span>
+                            )}
+                            {paper.phase === 'mspsrpi2' && (
+                              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-900/30 text-blue-300 border border-blue-500/30">
+                                MSPSRπ2
+                              </span>
+                            )}
+                          </div>
+                          
+                          <p className="text-indigo-100 text-sm mb-3">{paper.authors}</p>
+                          <p className="text-gray-400 text-sm mb-4">
+                            {paper.journal && `${paper.journal}`}
+                            {paper.volume && `, ${paper.volume}`}
+                            {paper.pages && `, ${paper.pages}`}
+                            {paper.year && ` (${paper.year})`}
+                            {isInPreparation(paper) && (
+                              <span className="ml-2 inline-flex items-center text-amber-400">
+                                <Clock className="h-3.5 w-3.5 mr-1" />
+                                {paper.status}
+                              </span>
+                            )}
+                          </p>
+                          
+                          <p className="text-gray-300 text-sm line-clamp-3 mb-4">{paper.abstract}</p>
+                          
+                          <div className="flex flex-wrap gap-2 mb-4">
+                            {paper.keywords && paper.keywords.map((keyword, index) => (
+                              <span 
+                                key={index} 
+                                className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-slate-800/60 text-indigo-300 border border-indigo-500/20"
+                              >
+                                <Tag className="h-3 w-3 mr-1" />
+                                {keyword}
+                              </span>
+                            ))}
+                          </div>
+                          
+                          <div className="flex space-x-3">
+                            {isInPreparation(paper) ? (
+                              <div className="inline-flex items-center px-3 py-1.5 border border-amber-500/30 rounded-md text-amber-300 text-sm bg-amber-900/20">
+                                <Clock className="mr-1.5 h-4 w-4" />
+                                Coming Soon
                               </div>
-                            </div>
-                            <p className="text-sm text-gray-400 mb-1">{paper.authors}</p>
-                            <p className="text-sm text-gray-500">
-                              {paper.journal && `${paper.journal}`}
-                              {paper.volume && `, ${paper.volume}`}
-                              {paper.pages && `, ${paper.pages}`}
-                              {paper.year && ` (${paper.year})`}
-                              {paper.status && ` - ${paper.status}`}
-                            </p>
+                            ) : (
+                              <>
+                                {paper.arxiv && (
+                                  <a
+                                    href={paper.arxiv}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center px-3 py-1.5 border border-indigo-500/50 rounded-md text-white text-sm bg-indigo-600 hover:bg-indigo-700 transition duration-300 shadow-md hover:shadow-lg"
+                                    title="View paper on arXiv"
+                                  >
+                                    <FileText className="mr-1.5 h-4 w-4" />
+                                    arXiv
+                                  </a>
+                                )}
+                                {paper.doi && (
+                                  <a
+                                    href={paper.doi}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center px-3 py-1.5 border border-sky-500/50 rounded-md text-white text-sm bg-sky-600 hover:bg-sky-700 transition duration-300 shadow-md hover:shadow-lg"
+                                    title="View paper via DOI"
+                                  >
+                                    <ExternalLink className="mr-1.5 h-4 w-4" />
+                                    DOI
+                                  </a>
+                                )}
+                              </>
+                            )}
                           </div>
                         </div>
-                      </div>
+                      ))}
+                  </div>
+                </div>
+              )}
 
-                      {/* Expanded content */}
-                      {expandedPaper === paper.id && (
-                        <div className="px-4 pb-4 pt-2 border-t border-slate-800/50">
-                          <div className="bg-slate-800/30 rounded-lg p-4 mb-4">
-                            <h4 className="text-sm font-medium text-indigo-300 mb-2">Abstract</h4>
-                            <p className="text-gray-300 text-sm">{paper.abstract}</p>
+              {/* Publication Timeline */}
+              <div className="mb-12">
+                <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
+                  <Archive className="mr-2 h-6 w-6 text-indigo-400" />
+                  Publication Timeline
+                </h2>
+
+                <div className="space-y-6">
+                  {filteredPublications.length > 0 ? (
+                    filteredPublications
+                      .sort((a, b) => parseInt(b.year) - parseInt(a.year))
+                      .map((paper) => (
+                        <div 
+                          key={paper.id}
+                          className={`bg-slate-900/60 backdrop-blur-sm border ${isInPreparation(paper) ? 'border-amber-500/30' : 'border-slate-800/50'} rounded-lg overflow-hidden transition-all duration-300 ${expandedPaper === paper.id ? 'shadow-lg shadow-indigo-500/10' : 'shadow'}`}
+                        >
+                          <div 
+                            className="p-4 cursor-pointer"
+                            onClick={() => toggleExpanded(paper.id)}
+                          >
+                            <div className="flex justify-between items-start">
+                              <div className="flex-1">
+                                <div className="flex items-start justify-between">
+                                  <h3 className="text-lg font-medium text-indigo-200 mb-1 pr-4">{paper.title}</h3>
+                                  <div className="flex items-center space-x-2">
+                                    {paper.phase === 'psrpi' && (
+                                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-900/30 text-green-300 border border-green-500/30 whitespace-nowrap">
+                                        PSRPI
+                                      </span>
+                                    )}
+                                    {paper.phase === 'mspsrpi' && (
+                                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-900/30 text-purple-300 border border-purple-500/30 whitespace-nowrap">
+                                        MSPSRπ
+                                      </span>
+                                    )}
+                                    {paper.phase === 'mspsrpi2' && (
+                                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-900/30 text-blue-300 border border-blue-500/30 whitespace-nowrap">
+                                        MSPSRπ2
+                                      </span>
+                                    )}
+                                  </div>
+                                </div>
+                                <p className="text-indigo-100 text-sm mb-1">{paper.authors}</p>
+                                <p className="text-gray-400 text-sm">
+                                  {paper.journal && `${paper.journal}`}
+                                  {paper.volume && `, ${paper.volume}`}
+                                  {paper.pages && `, ${paper.pages}`}
+                                  {paper.year && ` (${paper.year})`}
+                                  {isInPreparation(paper) && (
+                                    <span className="ml-2 inline-flex items-center text-amber-400">
+                                      <Clock className="h-3.5 w-3.5 mr-1" />
+                                      {paper.status}
+                                    </span>
+                                  )}
+                                </p>
+                              </div>
+                              <div className="ml-2 flex-shrink-0">
+                                {expandedPaper === paper.id ? (
+                                  <ChevronUp className="h-5 w-5 text-indigo-400" />
+                                ) : (
+                                  <ChevronDown className="h-5 w-5 text-indigo-400" />
+                                )}
+                              </div>
+                            </div>
                           </div>
 
-                          {paper.keywords && (
-                            <div className="mb-4">
-                              <h4 className="text-sm font-medium text-indigo-300 mb-2">Keywords</h4>
-                              <div className="flex flex-wrap gap-2">
-                                {paper.keywords.map((keyword, index) => (
-                                  <span 
-                                    key={index} 
-                                    className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-slate-800/60 text-indigo-300 border border-indigo-500/20"
-                                  >
-                                    <Tag className="h-3 w-3 mr-1" />
-                                    {keyword}
-                                  </span>
-                                ))}
+                          {/* Expanded paper details */}
+                          {expandedPaper === paper.id && (
+                            <div className="px-4 pb-4 bg-slate-800/30 border-t border-slate-700/30">
+                              {paper.abstract && (
+                                <div className="mb-4">
+                                  <h4 className="text-sm font-medium text-indigo-300 mb-2">Abstract</h4>
+                                  <p className="text-gray-300 text-sm">{paper.abstract}</p>
+                                </div>
+                              )}
+                              
+                              {paper.keywords && paper.keywords.length > 0 && (
+                                <div className="mb-4">
+                                  <h4 className="text-sm font-medium text-indigo-300 mb-2">Keywords</h4>
+                                  <div className="flex flex-wrap gap-2">
+                                    {paper.keywords.map((keyword, index) => (
+                                      <span 
+                                        key={index} 
+                                        className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-slate-800/60 text-indigo-300 border border-indigo-500/20"
+                                      >
+                                        <Tag className="h-3 w-3 mr-1" />
+                                        {keyword}
+                                      </span>
+                                    ))}
+                                  </div>
+                                </div>
+                              )}
+                              
+                              <div className="flex space-x-3">
+                                {isInPreparation(paper) ? (
+                                  <div className="inline-flex items-center px-3 py-1.5 border border-amber-500/30 rounded-md text-amber-300 text-sm bg-amber-900/20">
+                                    <Clock className="mr-1.5 h-4 w-4" />
+                                    Coming Soon
+                                  </div>
+                                ) : (
+                                  <>
+                                    {paper.arxiv && (
+                                      <a
+                                        href={paper.arxiv}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center px-3 py-1.5 border border-indigo-500/50 rounded-md text-white text-sm bg-indigo-600 hover:bg-indigo-700 transition duration-300 shadow-md hover:shadow-lg"
+                                        title="Read full paper on arXiv"
+                                      >
+                                        <FileText className="mr-1.5 h-4 w-4" />
+                                        Read on arXiv
+                                      </a>
+                                    )}
+                                    {paper.doi && (
+                                      <a
+                                        href={paper.doi}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center px-3 py-1.5 border border-sky-500/50 rounded-md text-white text-sm bg-sky-600 hover:bg-sky-700 transition duration-300 shadow-md hover:shadow-lg"
+                                        title="Access full paper via DOI"
+                                      >
+                                        <ExternalLink className="mr-1.5 h-4 w-4" />
+                                        Access via DOI
+                                      </a>
+                                    )}
+                                  </>
+                                )}
                               </div>
                             </div>
                           )}
-
-                          <div className="flex space-x-3">
-                            {paper.arxiv && (
-                              <a
-                                href={paper.arxiv}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center px-3 py-1.5 border border-indigo-500/30 rounded-md text-indigo-300 text-sm bg-slate-900/60 hover:bg-slate-800/80 transition duration-300"
-                              >
-                                <FileText className="mr-1.5 h-4 w-4" />
-                                arXiv
-                              </a>
-                            )}
-                            {paper.doi && (
-                              <a
-                                href={paper.doi}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center px-3 py-1.5 border border-indigo-500/30 rounded-md text-indigo-300 text-sm bg-slate-900/60 hover:bg-slate-800/80 transition duration-300"
-                              >
-                                <ExternalLink className="mr-1.5 h-4 w-4" />
-                                DOI
-                              </a>
-                            )}
-                          </div>
                         </div>
-                      )}
+                      ))
+                  ) : (
+                    // No publications match filter criteria
+                    <div className="text-center py-10 bg-slate-900/30 backdrop-blur-sm border border-slate-800/30 rounded-lg">
+                      <Book className="h-10 w-10 text-indigo-500/50 mx-auto mb-4" />
+                      <p className="text-gray-400">No publications match your search criteria.</p>
+                      <button 
+                        className="mt-4 inline-flex items-center px-4 py-2 border border-indigo-500/30 rounded-md text-indigo-300 bg-slate-900/60 hover:bg-slate-800/80 transition duration-300"
+                        onClick={() => {
+                          setSearchQuery('');
+                          setFilterPhase('all');
+                          setFilterYear('all');
+                        }}
+                      >
+                        <Filter className="mr-2 h-4 w-4" />
+                        Clear Filters
+                      </button>
                     </div>
-                  ))
-              ) : (
-                <div className="text-center py-10 bg-slate-900/30 backdrop-blur-sm border border-slate-800/30 rounded-lg">
-                  <Book className="h-10 w-10 text-indigo-500/50 mx-auto mb-4" />
-                  <p className="text-gray-400">No publications match your search criteria.</p>
-                  <button 
-                    className="mt-4 inline-flex items-center px-4 py-2 border border-indigo-500/30 rounded-md text-indigo-300 bg-slate-900/60 hover:bg-slate-800/80 transition duration-300"
-                    onClick={() => {
-                      setSearchQuery('');
-                      setFilterPhase('all');
-                      setFilterYear('all');
-                    }}
-                  >
-                    <Filter className="mr-2 h-4 w-4" />
-                    Clear Filters
-                  </button>
+                  )}
                 </div>
-              )}
-            </div>
-          </div>
+              </div>
 
-          {/* How to Cite Section */}
-          <div className="bg-slate-900/60 backdrop-blur-sm border border-indigo-500/20 rounded-lg p-6 mb-10">
-            <h2 className="text-xl font-bold text-white mb-4">How to Cite Our Work</h2>
-            <p className="text-gray-300 mb-4">
-              When using data from our publications in your research, please cite the appropriate paper:
-            </p>
-            
-            <div className="bg-slate-800/50 p-4 rounded-md mb-4">
-              <p className="text-indigo-200 text-sm italic">
-                "The MSPSRπ catalogue: VLBA astrometry of 18 millisecond pulsars"<br />
-                Ding et al., 2023, MNRAS, 519, 4982-5007
-              </p>
-              <div className="mt-2">
-                <a 
-                  href="https://ui.adsabs.harvard.edu/abs/2022MNRAS.519.4982D/abstract" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-cyan-300 text-sm hover:text-cyan-200 transition"
-                >
-                  <ExternalLink className="h-3 w-3 mr-1" />
-                  View on ADS
-                </a>
+              {/* How to Cite Section with clear download instructions */}
+              <div className="bg-slate-900/60 backdrop-blur-sm border border-indigo-500/20 rounded-lg p-6 mb-10">
+                <h2 className="text-xl font-bold text-white mb-4">How to Cite Our Work</h2>
+                <p className="text-gray-300 mb-4">
+                  When using data from our publications in your research, please cite the appropriate paper:
+                </p>
+                
+                <div className="bg-slate-800/50 p-4 rounded-md mb-4">
+                  <p className="text-indigo-200 text-sm italic">
+                    "The MSPSRπ catalogue: VLBA astrometry of 18 millisecond pulsars"<br />
+                    Ding et al., 2023, MNRAS, 519, 4982-5007
+                  </p>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    <a 
+                      href="https://ui.adsabs.harvard.edu/abs/2023MNRAS.519.4982D/abstract" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-cyan-300 text-sm hover:text-cyan-200 transition"
+                    >
+                      <ExternalLink className="h-3 w-3 mr-1" />
+                      View on ADS
+                    </a>
+                    <a 
+                      href="/bibtex/ding2023.bib" 
+                      download="ding2023.bib"
+                      className="inline-flex items-center px-3 py-1 border border-indigo-500/50 rounded-md text-white text-sm bg-indigo-600 hover:bg-indigo-700 transition duration-300 shadow-sm"
+                    >
+                      <Download className="mr-1.5 h-3 w-3" />
+                      Download BibTeX
+                    </a>
+                  </div>
+                </div>
+
+                <div className="bg-slate-800/50 p-4 rounded-md">
+                  <p className="text-indigo-200 text-sm italic">
+                    "The PSRπ Pulsar Astrometry Project: Final Results"<br />
+                    Deller et al., 2019, ApJ, 875, 100
+                  </p>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    <a 
+                      href="https://ui.adsabs.harvard.edu/abs/2019ApJ...875..100D/abstract" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-cyan-300 text-sm hover:text-cyan-200 transition"
+                    >
+                      <ExternalLink className="h-3 w-3 mr-1" />
+                      View on ADS
+                    </a>
+                    <a 
+                      href="/bibtex/deller2019.bib" 
+                      download="deller2019.bib"
+                      className="inline-flex items-center px-3 py-1 border border-indigo-500/50 rounded-md text-white text-sm bg-indigo-600 hover:bg-indigo-700 transition duration-300 shadow-sm"
+                    >
+                      <Download className="mr-1.5 h-3 w-3" />
+                      Download BibTeX
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
-            
-            <div className="bg-slate-800/50 p-4 rounded-md">
-              <p className="text-indigo-200 text-sm italic">
-                "The PSRπ Pulsar Astrometry Project: Final Results"<br />
-                Deller et al., 2019, ApJ, 875, 100
-              </p>
-              <div className="mt-2">
-                <a 
-                  href="https://ui.adsabs.harvard.edu/abs/2019ApJ...875..100D/abstract" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-cyan-300 text-sm hover:text-cyan-200 transition"
-                >
-                  <ExternalLink className="h-3 w-3 mr-1" />
-                  View on ADS
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+          </>
+        )}
       </div>
 
       {/* Footer */}
