@@ -36,6 +36,8 @@ jobs:
           jq '.dependencies."react" = "^18.2.0" | 
               .dependencies."react-dom" = "^18.2.0" | 
               .dependencies."react-router-dom" = "^6.18.0" | 
+              .dependencies."@react-three/fiber" = "^8.15.11" |
+              .dependencies."@react-three/drei" = "^9.88.17" |
               .dependencies."@testing-library/react" = "^14.0.0"' package.json > package.json.tmp
           
           mv package.json.tmp package.json
