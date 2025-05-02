@@ -51,24 +51,95 @@ function StarBackground() {
 }
 
 function PulsarDot({ id, position, name, ra, dec, onHover, hovered }) {
-  const ref = useRef()
+  const coreRef = useRef()
+  const beamRef = useRef()
+  const glowRef = useRef()
+
   useFrame(({ clock }) => {
     const t = clock.getElapsedTime()
-    const scale = 0.8 + 0.3 * Math.sin(t * 4 + id)
-    ref.current.scale.set(scale, scale, scale)
+
+    // 
+    if (hovered === id) {
+      coreRef.current.scale.set(1.1, 1.1, 1.1)
+    } else {
+      // 
+      const coreScale = 0.8 + 0.2 * Math.sin(t * 4 + id)
+      coreRef.current.scale.set(coreScale, coreScale, coreScale)
+    }
+
+    // 脉冲星光束旋转动画
+    // beamRef.current.rotation.y = t * 3 + id * 0.5
+
+    // 
+    const glowScale = 1 + 0.15 * Math.sin(t * 2 + id)
+    glowRef.current.scale.set(glowScale, glowScale, glowScale)
   })
 
+  // 
+  const randomRotation = useMemo(() => [
+    Math.random() * Math.PI * 0.2,
+    Math.random() * Math.PI * 0.2,
+    Math.random() * Math.PI * 0.2
+  ], [])
+
   return (
-    <mesh
-      ref={ref}
+    <group
       position={position}
+      //rotation={randomRotation}
       onPointerOver={() => onHover(id)}
       onPointerOut={() => onHover(null)}
     >
-      <sphereGeometry args={[0.1, 16, 16]} />
-      <meshStandardMaterial emissive="hotpink" emissiveIntensity={1.5} />
+      {/* Core */}
+      <mesh ref={coreRef}>
+        <sphereGeometry args={[0.06, 16, 16]} />
+        <meshStandardMaterial
+          color="white"
+          emissive="white"
+          emissiveIntensity={2}
+        />
+      </mesh>
+
+      {/* 
+
+      <group ref={beamRef}>
+        <mesh position={[0, 0.15, 0]}>
+          <coneGeometry args={[0.05, 0.3, 16, 1, true]} />
+          <meshBasicMaterial
+            color="#00ffff"
+            transparent={true}
+            opacity={0.7}
+          />
+        </mesh>
+        <mesh position={[0, -0.15, 0]} rotation={[Math.PI, 0, 0]}>
+          <coneGeometry args={[0.05, 0.3, 16, 1, true]} />
+          <meshBasicMaterial
+            color="#00ffff"
+            transparent={true}
+            opacity={0.7}
+          />
+        </mesh>
+      </group>
+      */}
+
+
+      {/*  */}
+      <mesh ref={glowRef}>
+        <sphereGeometry args={[0.15, 16, 16]} />
+        <meshBasicMaterial
+          color="#60a5fa"
+          transparent={true}
+          opacity={0.3}
+        />
+      </mesh>
+
+      {/* Basic info of pulsars */}
       {hovered === id && (
-        <Html position={[0, 0.25, 0]} style={{ pointerEvents: 'none' }} zIndexRange={[100, 0]} occlude={false}>
+        <Html
+          position={[0, 0.35, 0]}
+          style={{ pointerEvents: 'none' }}
+          zIndexRange={[100, 0]}
+          occlude={false}
+        >
           <div className="bg-black/75 text-white text-xs px-3 py-2 rounded-lg max-w-[180px] whitespace-nowrap shadow-lg backdrop-blur">
             <strong>{name}</strong><br />
             RA: {ra}<br />
@@ -76,15 +147,13 @@ function PulsarDot({ id, position, name, ra, dec, onHover, hovered }) {
           </div>
         </Html>
       )}
-
-    </mesh>
+    </group>
   )
 }
 
 export default function PulsarGalaxyBeautified({ pulsars }) {
   const [isCanvasHovered, setIsCanvasHovered] = useState(false)
   const [activeId, setActiveId] = useState(null)
-
 
   const points = useMemo(() => {
     return pulsars.map((pulsar, index) => {
@@ -111,7 +180,6 @@ export default function PulsarGalaxyBeautified({ pulsars }) {
       onMouseLeave={() => setIsCanvasHovered(false)}
       style={{ width: '100%', height: '100%' }}
     >
-
       <Canvas camera={{ position: [0, 0, 8], fov: 45 }}>
         <ambientLight intensity={0.6} />
         <pointLight position={[10, 10, 10]} intensity={1} />
@@ -124,6 +192,5 @@ export default function PulsarGalaxyBeautified({ pulsars }) {
         ))}
       </Canvas>
     </div>
-
   )
 }

@@ -7,7 +7,10 @@
     "status": "Planned",
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
-    "memberships": ["NANOGrav", "CPTA"],
+    "memberships": [
+      "NANOGrav",
+      "CPTA"
+    ],
     "notes": "",
     "position": {
       "rightAscension": "00h23m16.8765345s",
@@ -24,7 +27,9 @@
     "status": "Planned",
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
-    "memberships": ["CPTA"],
+    "memberships": [
+      "CPTA"
+    ],
     "notes": "",
     "position": {
       "rightAscension": "00h34m21.8342200s",
@@ -41,7 +46,10 @@
     "status": "Planned",
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
-    "memberships": ["NANOGrav", "CPTA"],
+    "memberships": [
+      "NANOGrav",
+      "CPTA"
+    ],
     "notes": "",
     "position": {
       "rightAscension": "03h40m23.2877644s",
@@ -58,7 +66,10 @@
     "status": "Planned",
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
-    "memberships": ["NANOGrav", "CPTA"],
+    "memberships": [
+      "NANOGrav",
+      "CPTA"
+    ],
     "notes": "Has significant timing parallax",
     "position": {
       "rightAscension": "06h45m59.0827386s",
@@ -75,7 +86,9 @@
     "status": "Planned",
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
-    "memberships": ["NANOGrav"],
+    "memberships": [
+      "NANOGrav"
+    ],
     "notes": "",
     "position": {
       "rightAscension": "07h09m08.3653900s",
@@ -92,7 +105,9 @@
     "status": "Planned",
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
-    "memberships": ["CPTA"],
+    "memberships": [
+      "CPTA"
+    ],
     "notes": "",
     "position": {
       "rightAscension": "07h32m37.5156000s",
@@ -109,7 +124,9 @@
     "status": "Planned",
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
-    "memberships": ["CPTA"],
+    "memberships": [
+      "CPTA"
+    ],
     "notes": "",
     "position": {
       "rightAscension": "08h24m24.8402200s",
@@ -126,7 +143,10 @@
     "status": "Planned",
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
-    "memberships": ["NANOGrav", "MPTA"],
+    "memberships": [
+      "NANOGrav",
+      "MPTA"
+    ],
     "notes": "Southerly position; Two 2-hr sessions due to southerly position",
     "position": {
       "rightAscension": "09h31m19.1159271s",
@@ -143,7 +163,9 @@
     "status": "Planned",
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
-    "memberships": ["MPTA"],
+    "memberships": [
+      "MPTA"
+    ],
     "notes": "Southerly position; Two 2-hr sessions due to southerly position",
     "position": {
       "rightAscension": "16h53m31.0300000s",
@@ -160,7 +182,10 @@
     "status": "Planned",
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
-    "memberships": ["NANOGrav", "MPTA"],
+    "memberships": [
+      "NANOGrav",
+      "MPTA"
+    ],
     "notes": "Southerly position; Two 2-hr sessions due to southerly position",
     "position": {
       "rightAscension": "17h05m27.0000000s",
@@ -177,7 +202,10 @@
     "status": "Planned",
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
-    "memberships": ["NANOGrav", "MPTA"],
+    "memberships": [
+      "NANOGrav",
+      "MPTA"
+    ],
     "notes": "Southerly position; Two 2-hr sessions due to southerly position",
     "position": {
       "rightAscension": "17h19m10.0729300s",
@@ -194,7 +222,11 @@
     "status": "Planned",
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
-    "memberships": ["NANOGrav", "PPTA", "CPTA"],
+    "memberships": [
+      "NANOGrav",
+      "PPTA",
+      "CPTA"
+    ],
     "notes": "",
     "position": {
       "rightAscension": "17h41m31.1434937s",
@@ -211,7 +243,10 @@
     "status": "Planned",
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
-    "memberships": ["NANOGrav", "CPTA"],
+    "memberships": [
+      "NANOGrav",
+      "CPTA"
+    ],
     "notes": "",
     "position": {
       "rightAscension": "17h45m33.8371000s",
@@ -228,7 +263,10 @@
     "status": "Planned",
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
-    "memberships": ["NANOGrav", "MPTA"],
+    "memberships": [
+      "NANOGrav",
+      "MPTA"
+    ],
     "notes": "Southerly position; Two 2-hr sessions due to southerly position",
     "position": {
       "rightAscension": "18h02m05.3355760s",
@@ -245,7 +283,10 @@
     "status": "Planned",
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
-    "memberships": ["NANOGrav", "CPTA"],
+    "memberships": [
+      "NANOGrav",
+      "CPTA"
+    ],
     "notes": "",
     "position": {
       "rightAscension": "19h03m05.7932130s",
@@ -262,7 +303,10 @@
     "status": "Planned",
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
-    "memberships": ["NANOGrav", "CPTA"],
+    "memberships": [
+      "NANOGrav",
+      "CPTA"
+    ],
     "notes": "",
     "position": {
       "rightAscension": "19h23m22.4907499s",
@@ -279,7 +323,9 @@
     "status": "Planned",
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
-    "memberships": ["CPTA"],
+    "memberships": [
+      "CPTA"
+    ],
     "notes": "",
     "position": {
       "rightAscension": "20h19m31.9490000s",
@@ -296,7 +342,10 @@
     "status": "Planned",
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
-    "memberships": ["NANOGrav", "CPTA"],
+    "memberships": [
+      "NANOGrav",
+      "CPTA"
+    ],
     "notes": "",
     "position": {
       "rightAscension": "20h33m27.5102538s",
@@ -313,7 +362,10 @@
     "status": "Planned",
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
-    "memberships": ["CPTA", "MPTA"],
+    "memberships": [
+      "CPTA",
+      "MPTA"
+    ],
     "notes": "",
     "position": {
       "rightAscension": "21h50m00.0000000s",
@@ -330,7 +382,10 @@
     "status": "Planned",
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
-    "memberships": ["NANOGrav", "CPTA"],
+    "memberships": [
+      "NANOGrav",
+      "CPTA"
+    ],
     "notes": "",
     "position": {
       "rightAscension": "22h14m38.8524262s",
@@ -347,7 +402,10 @@
     "status": "Planned",
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
-    "memberships": ["NANOGrav", "CPTA"],
+    "memberships": [
+      "NANOGrav",
+      "CPTA"
+    ],
     "notes": "Has significant timing parallax",
     "position": {
       "rightAscension": "22h34m23.0730900s",
@@ -364,7 +422,12 @@
     "status": "Planned",
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
-    "memberships": ["NANOGrav", "EPTA", "CPTA", "MPTA"],
+    "memberships": [
+      "NANOGrav",
+      "EPTA",
+      "CPTA",
+      "MPTA"
+    ],
     "notes": "",
     "position": {
       "rightAscension": "23h22m22.3351600s",
@@ -381,7 +444,9 @@
     "status": "Planned",
     "fluxCategory": "0.76-1.2 mJy",
     "sessionDuration": "2 hr",
-    "memberships": ["NANOGrav"],
+    "memberships": [
+      "NANOGrav"
+    ],
     "notes": "Has significant timing parallax",
     "position": {
       "rightAscension": "06h36m04.8478766s",
@@ -398,7 +463,9 @@
     "status": "Planned",
     "fluxCategory": "0.76-1.2 mJy",
     "sessionDuration": "2 hr",
-    "memberships": ["NANOGrav"],
+    "memberships": [
+      "NANOGrav"
+    ],
     "notes": "",
     "position": {
       "rightAscension": "07h40m45.7941336s",
@@ -415,7 +482,9 @@
     "status": "Planned",
     "fluxCategory": "0.76-1.2 mJy",
     "sessionDuration": "2 hr",
-    "memberships": ["NANOGrav"],
+    "memberships": [
+      "NANOGrav"
+    ],
     "notes": "",
     "position": {
       "rightAscension": "11h25m59.8567231s",
@@ -432,7 +501,10 @@
     "status": "Planned",
     "fluxCategory": "0.76-1.2 mJy",
     "sessionDuration": "2 hr",
-    "memberships": ["NANOGrav", "MPTA"],
+    "memberships": [
+      "NANOGrav",
+      "MPTA"
+    ],
     "notes": "Has significant timing parallax",
     "position": {
       "rightAscension": "16h14m36.5069680s",
@@ -449,7 +521,9 @@
     "status": "Planned",
     "fluxCategory": "0.76-1.2 mJy",
     "sessionDuration": "2 hr",
-    "memberships": ["MPTA"],
+    "memberships": [
+      "MPTA"
+    ],
     "notes": "",
     "position": {
       "rightAscension": "17h37m47.1123500s",
@@ -466,7 +540,9 @@
     "status": "Planned",
     "fluxCategory": "0.76-1.2 mJy",
     "sessionDuration": "2 hr",
-    "memberships": ["MPTA"],
+    "memberships": [
+      "MPTA"
+    ],
     "notes": "",
     "position": {
       "rightAscension": "17h56m46.6338120s",
@@ -483,7 +559,12 @@
     "status": "Planned",
     "fluxCategory": "0.76-1.2 mJy",
     "sessionDuration": "2 hr",
-    "memberships": ["NANOGrav", "PPTA", "CPTA", "MPTA"],
+    "memberships": [
+      "NANOGrav",
+      "PPTA",
+      "CPTA",
+      "MPTA"
+    ],
     "notes": "Has significant timing parallax",
     "position": {
       "rightAscension": "18h32m27.5916827s",
@@ -500,7 +581,11 @@
     "status": "Planned",
     "fluxCategory": "0.76-1.2 mJy",
     "sessionDuration": "2 hr",
-    "memberships": ["NANOGrav", "EPTA", "CPTA"],
+    "memberships": [
+      "NANOGrav",
+      "EPTA",
+      "CPTA"
+    ],
     "notes": "Has significant timing parallax",
     "position": {
       "rightAscension": "19h11m55.2022379s",
@@ -517,7 +602,10 @@
     "status": "Planned",
     "fluxCategory": "0.76-1.2 mJy",
     "sessionDuration": "2 hr",
-    "memberships": ["NANOGrav", "CPTA"],
+    "memberships": [
+      "NANOGrav",
+      "CPTA"
+    ],
     "notes": "",
     "position": {
       "rightAscension": "19h46m25.1282300s",
@@ -534,7 +622,10 @@
     "status": "Planned",
     "fluxCategory": "0.76-1.2 mJy",
     "sessionDuration": "2 hr",
-    "memberships": ["NANOGrav", "CPTA"],
+    "memberships": [
+      "NANOGrav",
+      "CPTA"
+    ],
     "notes": "",
     "position": {
       "rightAscension": "19h55m27.8737345s",
@@ -551,7 +642,11 @@
     "status": "Planned",
     "fluxCategory": "0.76-1.2 mJy",
     "sessionDuration": "2 hr",
-    "memberships": ["NANOGrav", "CPTA", "MPTA"],
+    "memberships": [
+      "NANOGrav",
+      "CPTA",
+      "MPTA"
+    ],
     "notes": "",
     "position": {
       "rightAscension": "22h29m50.8832051s",
@@ -568,7 +663,10 @@
     "status": "Planned",
     "fluxCategory": ">1.2 mJy",
     "sessionDuration": "1 hr",
-    "memberships": ["PPTA", "MPTA"],
+    "memberships": [
+      "PPTA",
+      "MPTA"
+    ],
     "notes": "",
     "position": {
       "rightAscension": "01h25m10.0000000s",
@@ -585,7 +683,10 @@
     "status": "Planned",
     "fluxCategory": ">1.2 mJy",
     "sessionDuration": "1 hr",
-    "memberships": ["NANOGrav", "CPTA"],
+    "memberships": [
+      "NANOGrav",
+      "CPTA"
+    ],
     "notes": "",
     "position": {
       "rightAscension": "05h09m22.2348500s",
@@ -602,7 +703,13 @@
     "status": "Planned",
     "fluxCategory": ">1.2 mJy",
     "sessionDuration": "1 hr",
-    "memberships": ["NANOGrav", "EPTA", "PPTA", "CPTA", "MPTA"],
+    "memberships": [
+      "NANOGrav",
+      "EPTA",
+      "PPTA",
+      "CPTA",
+      "MPTA"
+    ],
     "notes": "Has significant timing parallax",
     "position": {
       "rightAscension": "06h13m43.9748894s",
@@ -619,7 +726,10 @@
     "status": "Planned",
     "fluxCategory": ">1.2 mJy",
     "sessionDuration": "1 hr",
-    "memberships": ["EPTA", "CPTA"],
+    "memberships": [
+      "EPTA",
+      "CPTA"
+    ],
     "notes": "Has significant timing parallax",
     "position": {
       "rightAscension": "07h51m09.1553310s",
@@ -636,7 +746,13 @@
     "status": "Planned",
     "fluxCategory": ">1.2 mJy",
     "sessionDuration": "1 hr",
-    "memberships": ["NANOGrav", "EPTA", "PPTA", "CPTA", "MPTA"],
+    "memberships": [
+      "NANOGrav",
+      "EPTA",
+      "PPTA",
+      "CPTA",
+      "MPTA"
+    ],
     "notes": "Has significant timing parallax",
     "position": {
       "rightAscension": "17h44m29.4090302s",
@@ -653,7 +769,10 @@
     "status": "Planned",
     "fluxCategory": ">1.2 mJy",
     "sessionDuration": "1 hr",
-    "memberships": ["EPTA", "MPTA"],
+    "memberships": [
+      "EPTA",
+      "MPTA"
+    ],
     "notes": "",
     "position": {
       "rightAscension": "18h01m51.0733310s",
@@ -670,7 +789,10 @@
     "status": "Planned",
     "fluxCategory": ">1.2 mJy",
     "sessionDuration": "1 hr",
-    "memberships": ["NANOGrav", "MPTA"],
+    "memberships": [
+      "NANOGrav",
+      "MPTA"
+    ],
     "notes": "",
     "position": {
       "rightAscension": "18h11m19.8540500s",
@@ -687,7 +809,12 @@
     "status": "Planned",
     "fluxCategory": ">1.2 mJy",
     "sessionDuration": "1 hr",
-    "memberships": ["NANOGrav", "EPTA", "PPTA", "CPTA"],
+    "memberships": [
+      "NANOGrav",
+      "EPTA",
+      "PPTA",
+      "CPTA"
+    ],
     "notes": "Has significant timing parallax",
     "position": {
       "rightAscension": "18h57m36.3891327s",
@@ -704,7 +831,10 @@
     "status": "Planned",
     "fluxCategory": ">1.2 mJy",
     "sessionDuration": "1 hr",
-    "memberships": ["NANOGrav", "CPTA"],
+    "memberships": [
+      "NANOGrav",
+      "CPTA"
+    ],
     "notes": "",
     "position": {
       "rightAscension": "19h44m09.3288409s",
@@ -721,7 +851,11 @@
     "status": "Planned",
     "fluxCategory": ">1.2 mJy",
     "sessionDuration": "1 hr",
-    "memberships": ["NANOGrav", "CPTA", "MPTA"],
+    "memberships": [
+      "NANOGrav",
+      "CPTA",
+      "MPTA"
+    ],
     "notes": "",
     "position": {
       "rightAscension": "22h34m46.8531250s",
@@ -738,7 +872,10 @@
     "status": "Planned",
     "fluxCategory": ">1.2 mJy",
     "sessionDuration": "1 hr",
-    "memberships": ["NANOGrav", "CPTA"],
+    "memberships": [
+      "NANOGrav",
+      "CPTA"
+    ],
     "notes": "",
     "position": {
       "rightAscension": "23h02m46.9770909s",
@@ -746,5 +883,24 @@
     },
     "searchSession": "1.0 hour",
     "astrometrySession": "1.0 hour"
+  },
+  {
+    "name": "Fake pulsar",
+    "fluxDensity": 1.2,
+    "distance": 1.7,
+    "properMotion": "TBD",
+    "status": "Planned",
+    "fluxCategory": "0.76-1.2 mJy",
+    "sessionDuration": "2 hr",
+    "memberships": [
+      "MPTA"
+    ],
+    "notes": "",
+    "position": {
+      "rightAscension": "19h36m11.8478766s",
+      "declination": "-02°39'33.4091100\""
+    },
+    "searchSession": "1.0 hour",
+    "astrometrySession": "2.0 hours"
   }
 ]
