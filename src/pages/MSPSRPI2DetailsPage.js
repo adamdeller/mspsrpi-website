@@ -228,8 +228,8 @@ const MSPSRPI2DetailsPage = () => {
           <ChevronLeft className="w-5 h-5 mr-1" />
           {data.backLinkText || "Back to Project Overview"}
         </Link>
-        <Link to="/projects/mspsrpi-details" className="inline-flex items-center text-blue-300 hover:text-blue-400 transition">
-          {data.nextLinkText || "Go to MSPSRπ"}
+        <Link to="/projects/psrpi-details" className="inline-flex items-center text-blue-300 hover:text-blue-400 transition">
+          {data.nextLinkText || "Go to PSRπ"}
           <ArrowRight className="w-5 h-5 ml-1" />
         </Link>
       </div>
