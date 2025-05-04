@@ -7,6 +7,7 @@ import TeamPage from './pages/TeamPage';
 import RestrictedArea from './pages/RestrictedArea';
 import MSPSRPIDetailsPage from './pages/MSPSRPIDetailsPage';
 import MSPSRPI2DetailsPage from './pages/MSPSRPI2DetailsPage';
+import PSRPIDetailsPage from './pages/PSRPIDetailsPage';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Route path="/team" element={<TeamPage />} />
       <Route path="/projects/mspsrpi-details" element={<MSPSRPIDetailsPage />} />
       <Route path="/projects/mspsrpi2-details" element={<MSPSRPI2DetailsPage />} />
+      <Route path="/projects/psrpi-details" element={<PSRPIDetailsPage />} />
       {/* Other routes */}
     </Routes>
   );
