@@ -1,408 +1,408 @@
 {
-    "heroTagline": "Project Phase 2010-2013",
-    "heroTitle": "PSRπ",
-    "heroSubtitle": "VLBA Astrometry of Pulsars",
-    "heroDescription": "The PSRπ project was the pioneering first phase of our pulsar astrometry program, operating from 2010 to 2013. This initiative targeted 60 ordinary pulsars with the Very Long Baseline Array (VLBA), achieving unprecedented sub-milliarcsecond precision for parallax and proper motion measurements.",
-    "dataReleaseUrl": "/test-deploy/#/data-release",
-    "dataReleaseButtonText": "Access Data Release",
-    "publicationsUrl": "/test-deploy/#/publications",
-    "publicationsButtonText": "View Publications",
-    "viewAllPublicationsText": "View All Publications",
-    
-    "backLinkText": "Back to Project Overview",
-    "nextLinkText": "Go to MSPSRπ",
-    
-    "tabLabels": {
-      "overview": "Overview",
-      "objectives": "Details",
-      "results": "Key Results",
-      "pulsars": "Target Pulsars"
+  "heroTagline": "Project Phase 2010-2013",
+  "heroTitle": "PSRπ",
+  "heroSubtitle": "VLBA Astrometry of Pulsars",
+  "heroDescription": "PSRπ is a project to map the Galactic distribution of radio pulsars, using Very Long Baseline Interferometry (VLBI). The VLBA can measure the parallax and proper motion of pulsars as faint as approximately 1 mJy to a typical accuracy of around 40 microarcseconds and 40 microarcseconds/year respectively. This is sufficient to calculate the distance and velocity of a source at 4 kpc - halfway to the Galactic center - to an accuracy of around 15%.",
+  "dataReleaseUrl": "/#/data-release",
+  "dataReleaseButtonText": "Access Data Release",
+  "publicationsUrl": "/#/publications",
+  "publicationsButtonText": "View Publications",
+  "viewAllPublicationsText": "View All Publications",
+  
+  "backLinkText": "Back to Project Overview",
+  "nextLinkText": "Go to MSPSRπ",
+  
+  "tabLabels": {
+    "overview": "Overview",
+    "objectives": "Details",
+    "results": "Key Results",
+    "pulsars": "Target Pulsars"
+  },
+  
+  "sectionTitles": {
+    "overview": "Project Overview",
+    "timeline": "Project Timeline",
+    "objectives": "Project Objectives",
+    "technicalApproach": "Technical Approach",
+    "keyResults": "Key Results & Discoveries",
+    "scientificImpact": "Scientific Impact",
+    "publications": "PSRπ Publications",
+    "pulsars": "Pulsars Studied",
+    "dataPipeline": "Data Processing Pipeline"
+  },
+  
+  "fluxFilterTitle": "Filter by Flux Density",
+  "fluxFilterLabels": {
+    "all": "All Pulsars",
+    "low": "0.5-2.0 mJy",
+    "medium": "2.0-5.0 mJy",
+    "high": ">5.0 mJy"
+  },
+  
+  "pulsarTableHeaders": {
+    "name": "Pulsar",
+    "ra": "RA",
+    "dec": "Dec",
+    "fluxDensity": "1.4 GHz flux density (mJy)",
+    "inbeamCalibrators": "Number of inbeam calibrators",
+    "epochsObserved": "Number of epochs observed"
+  },
+  
+  "paginationLabels": {
+    "previous": "Previous",
+    "next": "Next",
+    "pageLabel": "Page",
+    "ofLabel": "of"
+  },
+  
+  "footerText": "© 2025 - PSRπ Project. All rights reserved.",
+  
+  "overview": [
+    "The PSRπ project maps the Galactic distribution of radio pulsars using Very Long Baseline Interferometry (VLBI). The VLBA can measure the parallax and proper motion of pulsars as faint as approximately 1 mJy to a typical accuracy of around 40 microarcseconds and 40 microarcseconds/year respectively.",
+    "We have been approved for 760 hours of VLBA time from 2011 to 2013. Of this, approximately 100 hours were used to search for in-beam calibrators for the astrometric observations. During this in-beam search, we imaged around 10,000 potential calibrators, making this one of the largest VLBI surveys ever.",
+    "Observations for the initial PSRπ sample of 60 pulsars have now concluded. 84.7 hours were observed on the VLBA (plus 12 hours from a pilot project) searching for in-beam calibrators around 245 pulsars, and 690.2 hours were utilised for 285 astrometric observations. The median target-calibrator separation is 14.5' and the median inbeam calibrator flux is 9.2 mJy."
+  ],
+
+  "statistics": [
+    {
+      "label": "Pulsars Observed",
+      "value": "60",
+      "description": "Selected pulsars across the Galaxy"
     },
-    
-    "sectionTitles": {
-      "overview": "Project Overview",
-      "timeline": "Project Timeline",
-      "objectives": "Project Objectives",
-      "technicalApproach": "Technical Approach",
-      "keyResults": "Key Results & Discoveries",
-      "scientificImpact": "Scientific Impact",
-      "publications": "PSRπ Publications",
-      "pulsars": "Pulsars Studied",
-      "dataPipeline": "Data Processing Pipeline"
+    {
+      "label": "VLBA Hours",
+      "value": "760",
+      "description": "Total observation time approved (2011-2013)"
     },
-    
-    "fluxFilterTitle": "Filter by Flux Density",
-    "fluxFilterLabels": {
-      "all": "All Pulsars",
-      "low": "0.5-2.0 mJy",
-      "medium": "2.0-5.0 mJy",
-      "high": ">5.0 mJy"
+    {
+      "label": "In-beam Calibrators",
+      "value": "10,000",
+      "description": "Potential calibrators imaged during survey"
     },
-    
-    "pulsarTableHeaders": {
-      "name": "Pulsar",
-      "ra": "RA",
-      "dec": "Dec",
-      "fluxDensity": "1.4 GHz flux density (mJy)",
-      "inbeamCalibrators": "Number of inbeam calibrators",
-      "epochsObserved": "Number of epochs observed"
-    },
-    
-    "paginationLabels": {
-      "previous": "Previous",
-      "next": "Next",
-      "pageLabel": "Page",
-      "ofLabel": "of"
-    },
-    
-    "footerText": "© 2025 - PSRπ Project. All rights reserved.",
-    
-    "overview": [
-      "The PSRπ project was the first large-scale pulsar astrometry program using the Very Long Baseline Array (VLBA), focusing on measuring precise distances and velocities of radio pulsars through parallax and proper motion determinations.",
-      "From 2010 to 2013, we conducted a systematic campaign of observations targeting 60 carefully selected pulsars distributed across the Galactic plane. By implementing innovative phase-referencing techniques, we achieved unprecedented astrometric precision for these distant neutron stars.",
-      "This pioneering project resulted in 53 significant parallax measurements, which represented a dramatic increase in the number of pulsars with well-measured distances. These measurements have helped refine pulsar population models, improved our understanding of the Galactic electron density distribution, and provided valuable insights into neutron star formation mechanisms."
-    ],
-  
-    "statistics": [
-      {
-        "label": "Pulsars Observed",
-        "value": "60",
-        "description": "Selected ordinary pulsars"
-      },
-      {
-        "label": "Parallax Precision",
-        "value": "< 200 μas",
-        "description": "Sub-milliarcsecond astrometric precision"
-      },
-      {
-        "label": "Distance Measurements",
-        "value": "53",
-        "description": "Significant parallax-based distance determinations"
-      },
-      {
-        "label": "Publications",
-        "value": "7",
-        "description": "Scientific papers based on project data"
-      }
-    ],
-  
-    "timeline": [
-      {
-        "date": "2009",
-        "title": "Project Planning",
-        "description": "Development of the PSRπ program concept and initial target selection for the first large-scale pulsar astrometry campaign."
-      },
-      {
-        "date": "2010",
-        "title": "First Observations",
-        "description": "Commenced VLBA observations of the first set of target pulsars using traditional phase-referencing techniques."
-      },
-      {
-        "date": "2011",
-        "title": "Methodology Refinement",
-        "description": "Developed enhanced calibration procedures to improve astrometric precision, particularly for fainter targets."
-      },
-      {
-        "date": "2012",
-        "title": "Preliminary Results",
-        "description": "First analysis of parallax measurements for a subset of pulsars, revealing the potential for systematic improvements to the pulsar distance scale."
-      },
-      {
-        "date": "2013",
-        "title": "Project Completion",
-        "description": "Final observations conducted, completing the baseline necessary for precise parallax measurements."
-      },
-      {
-        "date": "2014",
-        "title": "First Results Published",
-        "description": "Publication of initial results for 19 pulsars, demonstrating the success of the measurement technique."
-      },
-      {
-        "date": "2016",
-        "title": "Complete Catalog Release",
-        "description": "Release of the full PSRπ catalog with astrometric measurements for all 60 target pulsars."
-      }
-    ],
-  
-    "objectives": [
-      {
-        "title": "Establish Distance Scale",
-        "description": "Develop a reliable, model-independent cosmic distance ladder for pulsars to replace dispersion measure-based distances which can have errors of >50%."
-      },
-      {
-        "title": "Measure Galactic Distribution",
-        "description": "Determine the spatial distribution of pulsars throughout the Galaxy to constrain neutron star population synthesis models."
-      },
-      {
-        "title": "Characterize Pulsar Velocities",
-        "description": "Measure the distribution of pulsar transverse velocities to understand their birth kicks and subsequent Galactic dynamics."
-      },
-      {
-        "title": "Refine Electron Density Model",
-        "description": "Improve models of the Galactic free electron density distribution by comparing independent distance measurements with dispersion measures."
-      },
-      {
-        "title": "Enable Future Precision Studies",
-        "description": "Create a foundation for future high-precision pulsar timing studies by providing accurate astrometric parameters."
-      }
-    ],
-  
-    "technicalApproach": [
-      "The PSRπ program utilized the Very Long Baseline Array (VLBA) at L-band (1.4 GHz) to achieve the highest possible astrometric precision. Each target pulsar was observed at 6-8 epochs spread over approximately 2 years, with epochs strategically scheduled near the times of maximum parallactic excursion.",
-      "We implemented phase-referencing techniques to calibrate atmospheric effects, using compact extragalactic radio sources as position references. For many targets, we included observations of in-beam calibrators — background sources that appear in the same primary beam as the target pulsar — to reduce systematic errors.",
-      "To optimize sensitivity for the relatively faint pulsar signals, we implemented pulsar gating during correlation. This technique increases the signal-to-noise ratio by accumulating data only during the on-pulse portion of the pulsar's rotation, effectively reducing the noise contribution from the off-pulse intervals.",
-      "Data calibration and imaging were performed using a customized pipeline developed specifically for pulsar astrometry, addressing the unique challenges of these observations. Positional measurements and their uncertainties were determined through fitting to the interferometric images, with careful attention to systematic error analysis."
-    ],
-  
-    "keyResults": [
-      {
-        "title": "Vela Pulsar Kinematics",
-        "description": "Achieved the most precise measurement of the Vela pulsar's proper motion and parallax, confirming its association with the Vela supernova remnant and refining its age estimate to 11,000 ± 500 years."
-      },
-      {
-        "title": "Crab Pulsar Distance",
-        "description": "Resolved the long-standing discrepancy in the distance to the Crab pulsar, obtaining a parallax measurement of 0.27 ± 0.03 milliarcseconds, corresponding to a distance of 3.7 ± 0.4 kpc."
-      },
-      {
-        "title": "Pulsar Velocity Distribution",
-        "description": "Established that the transverse velocity distribution of ordinary pulsars is bimodal, with peaks at approximately 200 km/s and 400 km/s, suggesting two distinct neutron star formation channels."
-      },
-      {
-        "title": "Local Electron Density Anomalies",
-        "description": "Discovered significant deviations from existing Galactic electron density models, particularly in the direction of the Gum Nebula, requiring substantial revisions to these models."
-      }
-    ],
-  
-    "scientificImpact": [
-      "The PSRπ program has fundamentally transformed our understanding of the Galactic pulsar population. By providing model-independent distances to a statistically significant sample of pulsars, we have placed pulsar population studies on a firm empirical foundation for the first time.",
-      "Our measurements have revealed systematic biases in previous distance estimates based on dispersion measures, leading to significant revisions of the Galactic electron density model. These improvements benefit not only pulsar astronomy but also studies of fast radio bursts and other transient phenomena.",
-      "The precise space velocities derived from our measurements have provided crucial insights into neutron star formation, confirming that many pulsars receive substantial kicks at birth and revealing correlations between kick magnitude and other pulsar properties."
-    ],
-  
-    "publications": [
-      {
-        "citation": "Deller, A. T., Boyles, J., Lorimer, D. R., et al. (2013). VLBI Astrometry of PSR J2222-0137: A Pulsar Distance Measured to 0.4% Accuracy. The Astrophysical Journal, 770(2), 145.",
-        "doi": "https://doi.org/10.1088/0004-637X/770/2/145",
-        "arxiv": "https://arxiv.org/abs/1304.3389"
-      },
-      {
-        "citation": "Chatterjee, S., Brisken, W. F., Vlemmings, W. H. T., et al. (2009). Precision Astrometry with the Very Long Baseline Array: Parallaxes and Proper Motions for 14 Pulsars. The Astrophysical Journal, 698(1), 250-265.",
-        "doi": "https://doi.org/10.1088/0004-637X/698/1/250",
-        "arxiv": "https://arxiv.org/abs/0901.1436"
-      },
-      {
-        "citation": "Brisken, W. F., Benson, J. M., Goss, W. M., & Thorsett, S. E. (2002). Very Long Baseline Array Measurement of Nine Pulsar Parallaxes. The Astrophysical Journal, 571(2), 906-917.",
-        "doi": "https://doi.org/10.1086/340098",
-        "arxiv": "https://arxiv.org/abs/astro-ph/0108172"
-      },
-      {
-        "citation": "Deller, A. T., Vigeland, S. J., Kaplan, D. L., et al. (2016). The PSRPI catalogue: VLBA astrometry of 60 pulsars. The Astrophysical Journal, 828(1), 8.",
-        "doi": "https://doi.org/10.3847/0004-637X/828/1/8",
-        "arxiv": "https://arxiv.org/abs/1604.02367"
-      }
-    ],
-  
-    "pulsarsStudied": {
-      "overview": "The PSRπ program astrometrically studied 60 ordinary pulsars selected based on their signal strength and sky distribution.",
-      "catalogueInfo": "This is a general overview of the pulsars studied in the PSRπ project. For comprehensive details, measurements, and analysis, please refer to the full catalogue paper:",
-      "catalogueTitle": "The PSRPI catalogue: VLBA astrometry of 60 pulsars",
-      "catalogueUrl": "https://ui.adsabs.harvard.edu/abs/2016ApJ...828....8D/abstract"
-    },
-  
-    "pulsars": [
-      {
-        "name": "B0329+54",
-        "ra": "03:32:59.3862",
-        "dec": "54:34:43.3832",
-        "flux_density_1_4GHz": "203",
-        "inbeam_calibrators": "2",
-        "epochs_observed": "7"
-      },
-      {
-        "name": "B0355+54",
-        "ra": "03:58:53.7164",
-        "dec": "54:13:13.7273",
-        "flux_density_1_4GHz": "45",
-        "inbeam_calibrators": "1",
-        "epochs_observed": "8"
-      },
-      {
-        "name": "B0525+21",
-        "ra": "05:28:52.3031",
-        "dec": "22:00:00.9519",
-        "flux_density_1_4GHz": "9",
-        "inbeam_calibrators": "1",
-        "epochs_observed": "6"
-      },
-      {
-        "name": "B0531+21",
-        "ra": "05:34:31.9383",
-        "dec": "22:00:52.1758",
-        "flux_density_1_4GHz": "14",
-        "inbeam_calibrators": "2",
-        "epochs_observed": "8"
-      },
-      {
-        "name": "B0540+23",
-        "ra": "05:43:09.6561",
-        "dec": "23:59:06.7681",
-        "flux_density_1_4GHz": "9",
-        "inbeam_calibrators": "1",
-        "epochs_observed": "6"
-      },
-      {
-        "name": "B0611+22",
-        "ra": "06:14:17.0053",
-        "dec": "22:29:57.7644",
-        "flux_density_1_4GHz": "2.5",
-        "inbeam_calibrators": "1",
-        "epochs_observed": "7"
-      },
-      {
-        "name": "B0656+14",
-        "ra": "06:59:48.1472",
-        "dec": "14:14:21.1563",
-        "flux_density_1_4GHz": "3.7",
-        "inbeam_calibrators": "1",
-        "epochs_observed": "8"
-      },
-      {
-        "name": "B0736-40",
-        "ra": "07:38:32.2525",
-        "dec": "-40:42:40.9532",
-        "flux_density_1_4GHz": "80",
-        "inbeam_calibrators": "2",
-        "epochs_observed": "6"
-      },
-      {
-        "name": "B0823+26",
-        "ra": "08:26:51.3816",
-        "dec": "26:37:23.7901",
-        "flux_density_1_4GHz": "10",
-        "inbeam_calibrators": "1",
-        "epochs_observed": "7"
-      },
-      {
-        "name": "B0833-45",
-        "ra": "08:35:20.6114",
-        "dec": "-45:10:34.8751",
-        "flux_density_1_4GHz": "1100",
-        "inbeam_calibrators": "2",
-        "epochs_observed": "8"
-      },
-      {
-        "name": "B0919+06",
-        "ra": "09:22:14.0246",
-        "dec": "06:38:23.3013",
-        "flux_density_1_4GHz": "10",
-        "inbeam_calibrators": "1",
-        "epochs_observed": "7"
-      },
-      {
-        "name": "B1133+16",
-        "ra": "11:36:03.1827",
-        "dec": "15:51:00.6881",
-        "flux_density_1_4GHz": "30",
-        "inbeam_calibrators": "1",
-        "epochs_observed": "8"
-      },
-      {
-        "name": "B1237+25",
-        "ra": "12:39:40.3585",
-        "dec": "24:53:49.2885",
-        "flux_density_1_4GHz": "12",
-        "inbeam_calibrators": "1",
-        "epochs_observed": "7"
-      },
-      {
-        "name": "B1451-68",
-        "ra": "14:56:00.0894",
-        "dec": "-68:43:39.1932",
-        "flux_density_1_4GHz": "16",
-        "inbeam_calibrators": "1",
-        "epochs_observed": "6"
-      },
-      {
-        "name": "B1534+12",
-        "ra": "15:37:09.9617",
-        "dec": "11:55:55.4991",
-        "flux_density_1_4GHz": "4",
-        "inbeam_calibrators": "1",
-        "epochs_observed": "8"
-      },
-      {
-        "name": "B1556-44",
-        "ra": "16:00:39.4853",
-        "dec": "-44:31:32.6795",
-        "flux_density_1_4GHz": "11",
-        "inbeam_calibrators": "1",
-        "epochs_observed": "6"
-      },
-      {
-        "name": "B1641-45",
-        "ra": "16:45:02.0427",
-        "dec": "-45:09:27.9430",
-        "flux_density_1_4GHz": "254",
-        "inbeam_calibrators": "2",
-        "epochs_observed": "7"
-      },
-      {
-        "name": "B1706-44",
-        "ra": "17:09:42.7469",
-        "dec": "-44:29:07.2430",
-        "flux_density_1_4GHz": "5",
-        "inbeam_calibrators": "1",
-        "epochs_observed": "8"
-      },
-      {
-        "name": "B1749-28",
-        "ra": "17:52:58.6605",
-        "dec": "-28:06:37.3258",
-        "flux_density_1_4GHz": "67",
-        "inbeam_calibrators": "2",
-        "epochs_observed": "7"
-      },
-      {
-        "name": "B1818-04",
-        "ra": "18:21:55.3895",
-        "dec": "-04:34:30.5697",
-        "flux_density_1_4GHz": "2.5",
-        "inbeam_calibrators": "1",
-        "epochs_observed": "6"
-      }
-    ],
-  
-    "dataPipeline": {
-      "description": "All PSRπ data was processed using a standardized pipeline developed for pulsar astrometry. This approach ensures consistent results across all sources and enables systematic error analysis.",
-      "steps": [
-        {
-          "title": "VLBA Observation",
-          "description": "Data collection using the Very Long Baseline Array with 8-hour observation sessions per target, typically across 6-8 epochs over 2 years."
-        },
-        {
-          "title": "Pulsar Gated Correlation",
-          "description": "Raw data correlated with pulsar gating using the VLBA correlator, enhancing signal-to-noise by 40-70% by excluding off-pulse data."
-        },
-        {
-          "title": "A Priori Calibration",
-          "description": "Initial calibration including ionospheric correction, Earth orientation parameter updates, and amplitude calibration using measured system temperatures."
-        },
-        {
-          "title": "Phase Referencing",
-          "description": "Transfer of phase solutions from primary calibrator sources to the target pulsar to correct for atmospheric and instrumental effects."
-        },
-        {
-          "title": "Pulsar Imaging",
-          "description": "Production of interferometric images of the target pulsar for each epoch, with careful attention to data weighting and resolution optimization."
-        },
-        {
-          "title": "Position Measurement",
-          "description": "Determination of precise pulsar positions at each epoch through two-dimensional Gaussian fitting to the interferometric images."
-        },
-        {
-          "title": "Astrometric Parameter Fitting",
-          "description": "Least-squares fitting of five astrometric parameters (position, proper motion, parallax) to the multi-epoch position measurements."
-        }
-      ]
+    {
+      "label": "Astrometric Precision",
+      "value": "~40 μas",
+      "description": "Typical parallax measurement accuracy"
     }
+  ],
+
+  "timeline": [
+    {
+      "date": "2011",
+      "title": "Project Launch",
+      "description": "Received approval for 760 hours of VLBA time (2011-2013) and began observations."
+    },
+    {
+      "date": "2011-2012",
+      "title": "In-beam Calibrator Search",
+      "description": "Approximately 100 hours used to search for in-beam calibrators, imaging around 10,000 potential calibrators."
+    },
+    {
+      "date": "2012-2013",
+      "title": "Astrometric Observations",
+      "description": "Conducted 285 astrometric observations using 690.2 hours of VLBA time for the 60 selected pulsars."
+    },
+    {
+      "date": "December 2013",
+      "title": "Initial Phase Completion",
+      "description": "Completed observations for the initial PSRπ sample of 60 pulsars."
+    },
+    {
+      "date": "2014",
+      "title": "MSPSRπ Preparation",
+      "description": "Calibrator identification observations for the millisecond pulsar parallax program (MSPSRπ)."
+    },
+    {
+      "date": "2015",
+      "title": "MSPSRπ Initial Observations",
+      "description": "Two initial astrometric observations per pulsar for the MSPSRπ program."
+    },
+    {
+      "date": "2015-2018",
+      "title": "MSPSRπ Program",
+      "description": "Next phase of the PSRπ project targeting millisecond pulsars to improve timing models and frame ties."
+    }
+  ],
+
+  "objectives": [
+    {
+      "title": "Calibrated Luminosities and Distances",
+      "description": "Obtain accurately calibrated luminosities and distances for a large number of pulsars, and determine the magnitude of the effect that distance errors have had on previous estimations of the pulsar distance and luminosity functions."
+    },
+    {
+      "title": "Improve Electron Density Models",
+      "description": "Greatly improve the Galactic electron density distribution models used to estimate distances to other pulsars from their dispersion measures."
+    },
+    {
+      "title": "Pulsar-Supernova Associations",
+      "description": "Make associations between pulsars and supernova remnants."
+    },
+    {
+      "title": "Reference Frame Ties",
+      "description": "Improve reference frame ties between the ICRF, optical and solar system barycenter frames."
+    },
+    {
+      "title": "MSPSRπ Specific Goals",
+      "description": "Improve the timing models of millisecond pulsars used for gravitational wave detection and GR tests, as well as significantly improving the frame tie between the optical, radio and timing frames."
+    }
+  ],
+
+  "technicalApproach": [
+    "To obtain our quality astrometric results, we observe 8 epochs on each source with the VLBA. Each source has an associated in-beam calibrator to reduce the systematic error contributions of the ionosphere. These in beam sources are located using an efficient multiple field search with the DiFX software correlator of the VLBA.",
+    "The VLBA can measure the parallax and proper motion of pulsars as faint as approximately 1 mJy to a typical accuracy of around 40 microarcseconds and 40 microarcseconds/year respectively. This is sufficient to calculate the distance and velocity of a source at 4 kpc - halfway to the Galactic center - to an accuracy of around 15%.",
+    "For the first phase, we inspected candidate in-beams for 245 potential target pulsars and selected 60 for immediate astrometric observations. The median target-calibrator separation is 14.5' and the median inbeam calibrator flux is 9.2 mJy.",
+    "The next phase of the project - MSPSRπ - was undertaken from 2015-2018. This phase targets millisecond pulsars exclusively, and is focused on improving the timing models of pulsars used for gravitational wave detection and GR tests."
+  ],
+
+  "keyResults": [
+    {
+      "title": "Large-Scale VLBI Survey",
+      "description": "During the in-beam calibrator search, we imaged around 10,000 potential calibrators, making this one of the largest VLBI surveys ever conducted."
+    },
+    {
+      "title": "Comprehensive Pulsar Astrometry",
+      "description": "Completed astrometric measurements for 60 widely separated pulsars, focusing on improving the Galactic electron density distribution model."
+    },
+    {
+      "title": "MSPSRπ Program Approved",
+      "description": "The next phase of the project targeting millisecond pulsars was approved, with calibrator identification observations undertaken in 2014 and initial astrometric observations in 2015."
+    },
+    {
+      "title": "High-Precision Measurements",
+      "description": "Achieved typical parallax measurement accuracy of around 40 microarcseconds, sufficient to calculate distances and velocities at 4 kpc to approximately 15% accuracy."
+    }
+  ],
+
+  "scientificImpact": [
+    "The PSRπ program has fundamentally transformed our understanding of the Galactic pulsar population. By providing model-independent distances to a statistically significant sample of pulsars, we have placed pulsar population studies on a firm empirical foundation.",
+    "Our measurements have revealed systematic biases in previous distance estimates based on dispersion measures, leading to significant revisions of the Galactic electron density model. These improvements benefit not only pulsar astronomy but also studies of fast radio bursts and other transient phenomena.",
+    "The next phase of the project, MSPSRπ, is focused on improving the timing models of millisecond pulsars used for gravitational wave detection and General Relativity tests, as well as significantly improving the frame tie between the optical, radio, and timing frames."
+  ],
+
+  "publications": [
+    {
+      "citation": "Deller, A. T., Boyles, J., Lorimer, D. R., et al. (2013). VLBI Astrometry of PSR J2222-0137: A Pulsar Distance Measured to 0.4% Accuracy. The Astrophysical Journal, 770(2), 145.",
+      "doi": "https://doi.org/10.1088/0004-637X/770/2/145",
+      "arxiv": "https://arxiv.org/abs/1304.3389"
+    },
+    {
+      "citation": "Chatterjee, S., Brisken, W. F., Vlemmings, W. H. T., et al. (2009). Precision Astrometry with the Very Long Baseline Array: Parallaxes and Proper Motions for 14 Pulsars. The Astrophysical Journal, 698(1), 250-265.",
+      "doi": "https://doi.org/10.1088/0004-637X/698/1/250",
+      "arxiv": "https://arxiv.org/abs/0901.1436"
+    },
+    {
+      "citation": "Brisken, W. F., Benson, J. M., Goss, W. M., & Thorsett, S. E. (2002). Very Long Baseline Array Measurement of Nine Pulsar Parallaxes. The Astrophysical Journal, 571(2), 906-917.",
+      "doi": "https://doi.org/10.1086/340098",
+      "arxiv": "https://arxiv.org/abs/astro-ph/0108172"
+    },
+    {
+      "citation": "Deller, A. T., Vigeland, S. J., Kaplan, D. L., et al. (2016). The PSRPI catalogue: VLBA astrometry of 60 pulsars. The Astrophysical Journal, 828(1), 8.",
+      "doi": "https://doi.org/10.3847/0004-637X/828/1/8",
+      "arxiv": "https://arxiv.org/abs/1604.02367"
+    }
+  ],
+
+  "pulsarsStudied": {
+    "overview": "The PSRπ program astrometrically studied 60 pulsars selected based on their signal strength and sky distribution.",
+    "catalogueInfo": "This is a partial listing of the pulsars studied in the PSRπ project. For comprehensive details, measurements, and analysis, please refer to the full catalogue paper:",
+    "catalogueTitle": "The PSRPI catalogue: VLBA astrometry of 60 pulsars",
+    "catalogueUrl": "https://ui.adsabs.harvard.edu/abs/2019ApJ...875..100D/abstract"
+  },
+
+  "pulsars": [
+    {
+      "name": "J0040+5716",
+      "ra": "00:40:32.3857",
+      "dec": "57:16:24.838",
+      "flux_density_1_4GHz": "0.60",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J0055+5117",
+      "ra": "00:55:45.3968",
+      "dec": "51:17:24.621",
+      "flux_density_1_4GHz": "1.50",
+      "inbeam_calibrators": "1",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J0102+6537",
+      "ra": "01:02:32.9905",
+      "dec": "65:37:13.413",
+      "flux_density_1_4GHz": "1.20",
+      "inbeam_calibrators": "1",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J0108+6608",
+      "ra": "01:08:22.5110",
+      "dec": "66:08:34.457",
+      "flux_density_1_4GHz": "0.90",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J0147+5922",
+      "ra": "01:47:44.6449",
+      "dec": "59:22:03.281",
+      "flux_density_1_4GHz": "2.10",
+      "inbeam_calibrators": "1",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J0151-0635",
+      "ra": "01:51:22.7174",
+      "dec": "-06:35:02.981",
+      "flux_density_1_4GHz": "1.30",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J0152-1637",
+      "ra": "01:52:10.8539",
+      "dec": "-16:37:53.597",
+      "flux_density_1_4GHz": "1.50",
+      "inbeam_calibrators": "1",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J0157+6212",
+      "ra": "01:57:49.9431",
+      "dec": "62:12:26.616",
+      "flux_density_1_4GHz": "1.90",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J0323+3944",
+      "ra": "03:23:26.6594",
+      "dec": "39:44:52.435",
+      "flux_density_1_4GHz": "0.90",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J0332+5434",
+      "ra": "03:32:59.4071",
+      "dec": "54:34:43.341",
+      "flux_density_1_4GHz": "203.00",
+      "inbeam_calibrators": "3",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J0335+4555",
+      "ra": "03:35:16.6420",
+      "dec": "45:55:53.450",
+      "flux_density_1_4GHz": "0.80",
+      "inbeam_calibrators": "3",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J0357+5236",
+      "ra": "03:57:44.8392",
+      "dec": "52:36:57.502",
+      "flux_density_1_4GHz": "1.90",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J0406+6138",
+      "ra": "04:06:30.0793",
+      "dec": "61:38:41.384",
+      "flux_density_1_4GHz": "2.80",
+      "inbeam_calibrators": "1",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J0601-0527",
+      "ra": "06:01:58.9755",
+      "dec": "-05:27:50.847",
+      "flux_density_1_4GHz": "2.50",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J0614+2229",
+      "ra": "06:14:17.0055",
+      "dec": "22:29:56.849",
+      "flux_density_1_4GHz": "2.20",
+      "inbeam_calibrators": "1",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J0629+2415",
+      "ra": "06:29:05.7271",
+      "dec": "24:15:41.549",
+      "flux_density_1_4GHz": "3.20",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J0729-1836",
+      "ra": "07:29:32.3378",
+      "dec": "-18:36:42.255",
+      "flux_density_1_4GHz": "1.40",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "8"
+    },
+    {
+      "name": "J0823+0159",
+      "ra": "08:23:09.7652",
+      "dec": "01:59:12.466",
+      "flux_density_1_4GHz": "1.50",
+      "inbeam_calibrators": "4",
+      "epochs_observed": "8"
+    },
+    {
+      "name": "J0826+2637",
+      "ra": "08:26:51.5024",
+      "dec": "26:37:21.385",
+      "flux_density_1_4GHz": "10.00",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J1022+1001",
+      "ra": "10:22:57.9963",
+      "dec": "10:01:52.760",
+      "flux_density_1_4GHz": "3.00",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "9"
+    }
+  ],
+
+  "dataPipeline": {
+    "description": "All PSRπ data was processed using a standardized pipeline developed for pulsar astrometry. This approach ensures consistent results across all sources and enables systematic error analysis.",
+    "steps": [
+      {
+        "title": "VLBA Observation",
+        "description": "Data collection using the Very Long Baseline Array with 8 epochs per source. Each source has an associated in-beam calibrator to reduce systematic errors."
+      },
+      {
+        "title": "In-beam Calibrator Search",
+        "description": "Efficient multiple field search with the DiFX software correlator of the VLBA to locate in-beam calibrator sources."
+      },
+      {
+        "title": "Phase Referencing",
+        "description": "Transfer of phase solutions from calibrator sources to the target pulsar to correct for atmospheric and instrumental effects."
+      },
+      {
+        "title": "Astrometric Measurement",
+        "description": "Precise measurement of pulsar positions across multiple epochs to determine parallax and proper motion."
+      },
+      {
+        "title": "Parallax Determination",
+        "description": "Analysis of position measurements to extract parallax with typical accuracy of around 40 microarcseconds."
+      },
+      {
+        "title": "Distance and Velocity Calculation",
+        "description": "Conversion of parallax and proper motion measurements to physical distances and velocities."
+      },
+      {
+        "title": "Model Comparison",
+        "description": "Comparison of measured distances with dispersion measure-based estimates to improve Galactic electron density models."
+      }
+    ]
   }
+}

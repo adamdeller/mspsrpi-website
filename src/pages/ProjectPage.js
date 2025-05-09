@@ -4,6 +4,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { ChevronRight, ExternalLink } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import Navbar from './Navbar'; // Import the Navbar component
 
 //---------------------------------------------------------------------------
 //                           COMPONENT DEFINITION
@@ -23,7 +24,7 @@ const ProjectPage = () => {
     const loadData = async () => {
       setLoading(true);
       try {
-        // Fetch both JSON files using Promise.all for parallel requests
+        // Fetch both JSON files in parallel without cache-busting
         const [projectResponse, observationResponse] = await Promise.all([
           fetch(`${process.env.PUBLIC_URL}/data/projectpage/projectData.json`),
           fetch(`${process.env.PUBLIC_URL}/data/mspsrpi2/observationData.json`)
@@ -126,7 +127,7 @@ const ProjectPage = () => {
       <div className="min-h-screen bg-gradient-to-b from-indigo-950 via-slate-900 to-black text-gray-100 flex items-center justify-center">
         <div className="text-center">
           <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-indigo-400 border-r-transparent"></div>
-          <p className="mt-4 text-xl">Loading project data...</p>
+          <p className="mt-4 text-xl">{projectData?.ui?.loading?.title || 'Loading project data...'}</p>
         </div>
       </div>
     );
@@ -137,13 +138,13 @@ const ProjectPage = () => {
       <div className="min-h-screen bg-gradient-to-b from-indigo-950 via-slate-900 to-black text-gray-100 flex items-center justify-center">
         <div className="text-center max-w-md">
           <div className="text-red-400 text-6xl mb-4">!</div>
-          <h2 className="text-2xl mb-4">Something went wrong</h2>
+          <h2 className="text-2xl mb-4">{projectData?.ui?.error?.title || 'Something went wrong'}</h2>
           <p className="text-gray-300 mb-6">{error}</p>
           <button
             onClick={() => window.location.reload()}
             className="px-4 py-2 bg-indigo-800 text-white rounded-md hover:bg-indigo-700 transition-colors"
           >
-            Try Again
+            {projectData?.ui?.error?.buttonText || 'Try Again'}
           </button>
         </div>
       </div>
@@ -154,12 +155,12 @@ const ProjectPage = () => {
     return (
       <div className="min-h-screen bg-gradient-to-b from-indigo-950 via-slate-900 to-black text-gray-100 flex items-center justify-center">
         <div className="text-center">
-          <p className="text-xl">No data available. Please refresh the page.</p>
+          <p className="text-xl">{projectData?.ui?.noData?.message || 'No data available. Please refresh the page.'}</p>
           <button
             onClick={() => window.location.reload()}
             className="mt-4 px-4 py-2 bg-indigo-800 text-white rounded-md hover:bg-indigo-700 transition-colors"
           >
-            Refresh Data
+            {projectData?.ui?.noData?.buttonText || 'Refresh Data'}
           </button>
         </div>
       </div>
@@ -173,54 +174,16 @@ const ProjectPage = () => {
     mspsrpi: projectData.mspsrpi,
     mspsrpi2: projectData.mspsrpi2
   };
+  const ui = projectData.ui;
+  
   //---------------------------------------------------------------------------
   //                     UI COMPONENTS - MAIN RENDERING
   //---------------------------------------------------------------------------
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-950 via-slate-900 to-black text-gray-100">
 
-      {/* Navigation - Now with conditional styling based on current path */}
-      <nav className="bg-slate-900/90 backdrop-blur-md fixed w-full z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
-            <div className="flex-shrink-0 flex items-center">
-              <Link to="/" className="text-xl font-bold">MSPSR<span className="text-indigo-400">π</span></Link>
-            </div>
-            <div className="hidden md:flex items-center space-x-8">
-              <Link
-                to="/"
-                className={`${location.pathname === '/' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
-              >
-                Home
-              </Link>
-              <Link
-                to="/project"
-                className={`${location.pathname === '/project' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
-              >
-                Project
-              </Link>
-              <Link
-                to="/data-release"
-                className={`${location.pathname === '/data-release' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
-              >
-                Data Release
-              </Link>
-              <Link
-                to="/publications"
-                className={`${location.pathname === '/publications' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
-              >
-                Publications
-              </Link>
-              <Link
-                to="/team"
-                className={`${location.pathname === '/team' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
-              >
-                Team
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+      {/* Use the Navbar component instead of inline navbar */}
+      <Navbar navLinks={ui.navLinks} colorTheme="default" />
 
       {/* Combined Hero Section with Timeline */}
       <div className="relative pt-16 pb-4">
@@ -360,17 +323,17 @@ const ProjectPage = () => {
                   {/* Phase Statistics inline with title */}
                   <div className="flex space-x-8 mt-4 md:mt-0">
                     <div className="text-center">
-                      <p className="text-gray-400 text-xs uppercase tracking-wider mb-1">PULSARS</p>
+                      <p className="text-gray-400 text-xs uppercase tracking-wider mb-1">{ui.statistics.pulsars}</p>
                       <p className="text-3xl font-bold text-white">{projectPhases[activePhase].stats.pulsars}</p>
                     </div>
 
                     <div className="text-center">
-                      <p className="text-gray-400 text-xs uppercase tracking-wider mb-1">PRECISION</p>
+                      <p className="text-gray-400 text-xs uppercase tracking-wider mb-1">{ui.statistics.precision}</p>
                       <p className="text-3xl font-bold text-white">{projectPhases[activePhase].stats.precision}</p>
                     </div>
 
                     <div className="text-center">
-                      <p className="text-gray-400 text-xs uppercase tracking-wider mb-1">PUBLICATIONS</p>
+                      <p className="text-gray-400 text-xs uppercase tracking-wider mb-1">{ui.statistics.publications}</p>
                       <p className="text-3xl font-bold text-white">{projectPhases[activePhase].stats.publications}</p>
                     </div>
                   </div>
@@ -415,7 +378,7 @@ const ProjectPage = () => {
                 to={`/projects/${activePhase}-details`}
                 className="inline-flex items-center px-5 py-2 border border-indigo-500/40 rounded-md text-indigo-300 bg-indigo-900/30 hover:bg-indigo-800/50 transition duration-300 shadow-[0_0_10px_rgba(79,70,229,0.3)] hover:shadow-[0_0_15px_rgba(79,70,229,0.5)]"
               >
-                View Detailed Project Information <ChevronRight className="ml-2 h-4 w-4" />
+                {ui.tabs.viewDetails} <ChevronRight className="ml-2 h-4 w-4" />
               </Link>
             </div>
           </div>
@@ -436,30 +399,30 @@ const ProjectPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
             {/* Target Pulsars */}
             <div className="bg-slate-900/60 backdrop-blur-sm border-2 border-blue-500/30 rounded-lg p-4 text-center relative overflow-hidden group transition-all duration-300 hover:border-blue-500/50 hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]">
-              <h3 className="text-lg font-semibold text-blue-300 mb-2 relative z-10">Target</h3>
+              <h3 className="text-lg font-semibold text-blue-300 mb-2 relative z-10">{ui.progressTracker.cards.target.title}</h3>
               <p className="text-4xl font-bold text-gray-100 relative z-10">{progressStats.total}</p>
-              <p className="text-sm text-blue-200 relative z-10">Total number of pulsars</p>
+              <p className="text-sm text-blue-200 relative z-10">{ui.progressTracker.cards.target.description}</p>
             </div>
 
             {/* Scheduled */}
             <div className="bg-slate-900/60 backdrop-blur-sm border-2 border-indigo-500/30 rounded-lg p-4 text-center relative overflow-hidden group transition-all duration-300 hover:border-indigo-500/50 hover:shadow-[0_0_15px_rgba(99,102,241,0.3)]">
-              <h3 className="text-lg font-semibold text-indigo-300 mb-2 relative z-10">Scheduled</h3>
+              <h3 className="text-lg font-semibold text-indigo-300 mb-2 relative z-10">{ui.progressTracker.cards.scheduled.title}</h3>
               <p className="text-4xl font-bold text-gray-100 relative z-10">{progressStats.scheduled}</p>
-              <p className="text-sm text-indigo-200 relative z-10">Waiting for initial observation</p>
+              <p className="text-sm text-indigo-200 relative z-10">{ui.progressTracker.cards.scheduled.description}</p>
             </div>
 
             {/* In Progress */}
             <div className="bg-slate-900/60 backdrop-blur-sm border-2 border-amber-500/30 rounded-lg p-4 text-center relative overflow-hidden group transition-all duration-300 hover:border-amber-500/50 hover:shadow-[0_0_15px_rgba(217,119,6,0.3)]">
-              <h3 className="text-lg font-semibold text-amber-300 mb-2 relative z-10">In Progress</h3>
+              <h3 className="text-lg font-semibold text-amber-300 mb-2 relative z-10">{ui.progressTracker.cards.inProgress.title}</h3>
               <p className="text-4xl font-bold text-gray-100 relative z-10">{progressStats.inProgress}</p>
-              <p className="text-sm text-amber-200 relative z-10">Currently being observed</p>
+              <p className="text-sm text-amber-200 relative z-10">{ui.progressTracker.cards.inProgress.description}</p>
             </div>
 
             {/* Completed */}
             <div className="bg-slate-900/60 backdrop-blur-sm border-2 border-emerald-500/30 rounded-lg p-4 text-center relative overflow-hidden group transition-all duration-300 hover:border-emerald-500/50 hover:shadow-[0_0_15px_rgba(16,185,129,0.3)]">
-              <h3 className="text-lg font-semibold text-emerald-300 mb-2 relative z-10">Completed</h3>
+              <h3 className="text-lg font-semibold text-emerald-300 mb-2 relative z-10">{ui.progressTracker.cards.completed.title}</h3>
               <p className="text-4xl font-bold text-gray-100 relative z-10">{progressStats.complete}</p>
-              <p className="text-sm text-emerald-200 relative z-10">All observations completed</p>
+              <p className="text-sm text-emerald-200 relative z-10">{ui.progressTracker.cards.completed.description}</p>
             </div>
           </div>
 
@@ -471,7 +434,7 @@ const ProjectPage = () => {
                 style={{ width: `${progressStats.percentComplete}%` }}
               ></div>
             </div>
-            <p className="text-center text-indigo-300 mt-2">{progressStats.percentComplete}% Complete</p>
+            <p className="text-center text-indigo-300 mt-2">{progressStats.percentComplete}{ui.progressTracker.progressPercentage}</p>
           </div>
         </div>
       </div>
@@ -480,7 +443,7 @@ const ProjectPage = () => {
       <div className="py-6 border-t border-slate-800/50 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-center text-gray-500 text-sm">
-            © 2025 - MSPSRπ Project. All rights reserved.
+            {projectData.footer.copyright}
           </p>
         </div>
       </div>

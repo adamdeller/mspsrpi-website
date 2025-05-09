@@ -91,5 +91,51 @@
       "publications": "in progress",
       "progress": "Observations in progress"
     }
+  },
+  "ui": {
+    "loading": {
+      "title": "Loading project data...",
+      "spinnerAria": "Loading"
+    },
+    "error": {
+      "title": "Something went wrong",
+      "buttonText": "Try Again"
+    },
+    "noData": {
+      "message": "No data available. Please refresh the page.",
+      "buttonText": "Refresh Data"
+    },
+    "tabs": {
+      "viewDetails": "View Detailed Project Information"
+    },
+    "progressTracker": {
+      "cards": {
+        "target": {
+          "title": "Target",
+          "description": "Total number of pulsars"
+        },
+        "scheduled": {
+          "title": "Scheduled",
+          "description": "Waiting for initial observation"
+        },
+        "inProgress": {
+          "title": "In Progress",
+          "description": "Currently being observed"
+        },
+        "completed": {
+          "title": "Completed",
+          "description": "All observations completed"
+        }
+      },
+      "progressPercentage": "% Complete"
+    },
+    "statistics": {
+      "pulsars": "PULSARS",
+      "precision": "PRECISION",
+      "publications": "PUBLICATIONS"
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 - MSPSRπ Project. All rights reserved."
   }
 }
