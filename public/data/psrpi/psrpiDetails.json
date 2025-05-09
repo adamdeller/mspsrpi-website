@@ -3,9 +3,9 @@
     "heroTitle": "PSRπ",
     "heroSubtitle": "VLBA Astrometry of Pulsars",
     "heroDescription": "The PSRπ project was the pioneering first phase of our pulsar astrometry program, operating from 2010 to 2013. This initiative targeted 60 ordinary pulsars with the Very Long Baseline Array (VLBA), achieving unprecedented sub-milliarcsecond precision for parallax and proper motion measurements.",
-    "dataReleaseUrl": "/test-deploy/#/data-release",
+    "dataReleaseUrl": "/#/data-release",
     "dataReleaseButtonText": "Access Data Release",
-    "publicationsUrl": "/test-deploy/#/publications",
+    "publicationsUrl": "/#/publications",
     "publicationsButtonText": "View Publications",
     "viewAllPublicationsText": "View All Publications",
     
