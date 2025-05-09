@@ -276,7 +276,7 @@ export default function PulsarGalaxyBeautified({ pulsars }) {
         }
 
         // Get distance
-        let distance = 3; // Default distance
+        let distance = 0; // Default distance
 
         if (pulsar.distance) {
           if (typeof pulsar.distance === 'object' && pulsar.distance.value) {
