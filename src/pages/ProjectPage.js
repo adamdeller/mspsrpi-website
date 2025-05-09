@@ -183,7 +183,7 @@ const ProjectPage = () => {
     <div className="min-h-screen bg-gradient-to-b from-indigo-950 via-slate-900 to-black text-gray-100">
 
       {/* Use the Navbar component instead of inline navbar */}
-      <Navbar navLinks={ui.navLinks} />
+      <Navbar navLinks={ui.navLinks} colorTheme="default" />
 
       {/* Combined Hero Section with Timeline */}
       <div className="relative pt-16 pb-4">

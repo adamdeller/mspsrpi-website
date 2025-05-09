@@ -177,7 +177,7 @@ const MSPSRPIDetailsPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-950 via-slate-900 to-black text-gray-100">
       {/* Use the Navbar component instead of inline navbar */}
-      <Navbar navLinks={data.navLinks} />
+      <Navbar navLinks={data.navLinks} colorTheme="mspsrpi" />
 
       {/* Back to project navigation and page navigation */}
       <div className="pt-20 pb-4 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
