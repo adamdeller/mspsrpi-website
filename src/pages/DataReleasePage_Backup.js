@@ -806,3 +806,28 @@ const DataReleasePage = () => {
 };
 
 export default DataReleasePage;
+
+
+///
+{/* 光束 - 从中心发射的两束光 */ }
+<group ref={beamRef}>
+  {/* 上方光束 */}
+  <mesh position={[0, 0.15, 0]}>
+    <coneGeometry args={[0.05, 0.3, 16, 1, true]} />
+    <meshBasicMaterial
+      color="#00ffff"
+      transparent={true}
+      opacity={0.7}
+    />
+  </mesh>
+  {/* 下方光束 */}
+  <mesh position={[0, -0.15, 0]} rotation={[Math.PI, 0, 0]}>
+    <coneGeometry args={[0.05, 0.3, 16, 1, true]} />
+    <meshBasicMaterial
+      color="#00ffff"
+      transparent={true}
+      opacity={0.7}
+    />
+  </mesh>
+</group>
+///

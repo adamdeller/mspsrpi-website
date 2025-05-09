@@ -4,7 +4,7 @@
     "fluxDensity": 0.73,
     "distance": 1.0,
     "properMotion": "TBD",
-    "status": "Planned",
+    "status": "Completed",
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
     "memberships": [
@@ -17,7 +17,19 @@
       "declination": "+09°23'23.8769699\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "4.0 hours"
+    "astrometrySession": "4.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/images/2D_Visualisation/J0023+0923_flux.jpeg",
+        "description": "Pulsar flux density measurements across frequency bands"
+      },
+      {
+        "title": "Timing Residuals",
+        "path": "images/2D_Visualisation/J0023+0923_timing.png",
+        "description": "Post-fit timing residuals showing deviations from the timing model"
+      }
+    ]
   },
   {
     "name": "J0034-0534",
@@ -36,7 +48,24 @@
       "declination": "-05°34'36.7220000\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "4.0 hours"
+    "astrometrySession": "4.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      },
+      {
+        "title": "Timing Residuals",
+        "path": "/2D_Visualisatio/J0023+0923_timing.png",
+        "description": "Post-fit timing residuals showing deviations from the timing model"
+      },
+      {
+        "title": "One More Thing",
+        "path": "/2D_Visualisatio/J0023+0923_timing.png",
+        "description": "To have a look of a pulsar has 3 graphs."
+      }
+    ]
   },
   {
     "name": "J0340+4130",
@@ -56,7 +85,34 @@
       "declination": "+41°30'45.3013214\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "4.0 hours"
+    "astrometrySession": "4.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      },
+      {
+        "title": "Timing Residuals",
+        "path": "/2D_Visualisatio/J0023+0923_timing.png",
+        "description": "Post-fit timing residuals showing deviations from the timing model"
+      },
+      {
+        "title": "One More Thing",
+        "path": "/2D_Visualisatio/J0023+0923_timing.png",
+        "description": "To have a look of a pulsar has 3 graphs."
+      },
+      {
+        "title": "Two More Thing",
+        "path": "/2D_Visualisatio/J0023+0923_timing.png",
+        "description": "To have a look of a pulsar has 4 graphs."
+      },
+      {
+        "title": "Three More Thing",
+        "path": "/2D_Visualisatio/J0023+0923_timing.png",
+        "description": "To have a look of a pulsar has 5 graphs."
+      }
+    ]
   },
   {
     "name": "J0645+5158",
@@ -76,7 +132,14 @@
       "declination": "+51°58'14.9106167\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "4.0 hours"
+    "astrometrySession": "4.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J0709+0458",
@@ -95,7 +158,14 @@
       "declination": "+04°58'51.4941000\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "4.0 hours"
+    "astrometrySession": "4.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J0732+2314",
@@ -114,7 +184,14 @@
       "declination": "+23°14'54.2100000\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "4.0 hours"
+    "astrometrySession": "4.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J0824+0028",
@@ -133,7 +210,14 @@
       "declination": "+00°28'00.5670000\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "4.0 hours"
+    "astrometrySession": "4.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J0931-1902",
@@ -153,7 +237,14 @@
       "declination": "-19°02'55.0405784\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "4.0 hours"
+    "astrometrySession": "4.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J1653-2054",
@@ -172,7 +263,14 @@
       "declination": "-20°54'55.1000000\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "4.0 hours"
+    "astrometrySession": "4.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J1705-1903",
@@ -192,7 +290,14 @@
       "declination": "-19°08'04.0000000\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "4.0 hours"
+    "astrometrySession": "4.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J1719-1438",
@@ -212,7 +317,14 @@
       "declination": "-14°38'00.9420000\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "4.0 hours"
+    "astrometrySession": "4.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J1741+1351",
@@ -233,7 +345,14 @@
       "declination": "+13°51'44.1137304\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "4.0 hours"
+    "astrometrySession": "4.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J1745+1017",
@@ -253,7 +372,14 @@
       "declination": "+10°17'52.5230000\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "4.0 hours"
+    "astrometrySession": "4.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J1802-2124",
@@ -273,7 +399,14 @@
       "declination": "-21°24'03.6490000\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "4.0 hours"
+    "astrometrySession": "4.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J1903+0327",
@@ -293,7 +426,14 @@
       "declination": "+03°27'19.2091100\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "4.0 hours"
+    "astrometrySession": "4.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J1923+2515",
@@ -313,7 +453,14 @@
       "declination": "+25°15'40.5862829\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "4.0 hours"
+    "astrometrySession": "4.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J2019+2425",
@@ -332,7 +479,14 @@
       "declination": "+24°25'15.3038000\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "4.0 hours"
+    "astrometrySession": "4.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J2033+1734",
@@ -352,7 +506,14 @@
       "declination": "+17°34'58.4726357\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "4.0 hours"
+    "astrometrySession": "4.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J2150-0326",
@@ -372,7 +533,14 @@
       "declination": "-3°26'00.0000000\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "4.0 hours"
+    "astrometrySession": "4.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J2214+3000",
@@ -392,7 +560,14 @@
       "declination": "+30°00'38.2061247\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "4.0 hours"
+    "astrometrySession": "4.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J2234+0611",
@@ -412,7 +587,14 @@
       "declination": "+06°11'28.6863300\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "4.0 hours"
+    "astrometrySession": "4.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J2322+2057",
@@ -434,7 +616,14 @@
       "declination": "+20°57'02.6772000\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "4.0 hours"
+    "astrometrySession": "4.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J0636+5128",
@@ -453,7 +642,14 @@
       "declination": "+51°28'59.9636730\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "2.0 hours"
+    "astrometrySession": "2.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J0740+6620",
@@ -472,7 +668,14 @@
       "declination": "+66°20'33.5133233\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "2.0 hours"
+    "astrometrySession": "2.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J1125+7819",
@@ -491,7 +694,14 @@
       "declination": "+78°19'48.6991467\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "2.0 hours"
+    "astrometrySession": "2.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J1614-2230",
@@ -511,7 +721,14 @@
       "declination": "-22°30'31.3042183\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "2.0 hours"
+    "astrometrySession": "2.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J1737-0811",
@@ -530,7 +747,14 @@
       "declination": "-8°11'08.8870000\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "2.0 hours"
+    "astrometrySession": "2.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J1756-2251",
@@ -549,7 +773,14 @@
       "declination": "-22°51'59.3500000\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "2.0 hours"
+    "astrometrySession": "2.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J1832-0836",
@@ -571,7 +802,14 @@
       "declination": "-8°36'55.0320340\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "2.0 hours"
+    "astrometrySession": "2.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J1911+1347",
@@ -592,7 +830,14 @@
       "declination": "+13°47'34.3601949\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "2.0 hours"
+    "astrometrySession": "2.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J1946+3417",
@@ -612,7 +857,14 @@
       "declination": "+34°17'14.6968070\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "2.0 hours"
+    "astrometrySession": "2.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J1955+2908",
@@ -632,7 +884,14 @@
       "declination": "+29°08'43.4405934\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "2.0 hours"
+    "astrometrySession": "2.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J2229+2643",
@@ -653,7 +912,14 @@
       "declination": "+26°43'57.6590766\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "2.0 hours"
+    "astrometrySession": "2.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J0125-2327",
@@ -673,7 +939,14 @@
       "declination": "-23°27'26.0000000\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "1.0 hour"
+    "astrometrySession": "1.0 hour",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J0509+0856",
@@ -693,7 +966,14 @@
       "declination": "+08°56'25.0248000\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "1.0 hour"
+    "astrometrySession": "1.0 hour",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J0613-0200",
@@ -716,7 +996,14 @@
       "declination": "-2°00'47.2375938\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "1.0 hour"
+    "astrometrySession": "1.0 hour",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J0751+1807",
@@ -736,7 +1023,14 @@
       "declination": "+18°07'38.4864000\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "1.0 hour"
+    "astrometrySession": "1.0 hour",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J1744-1134",
@@ -759,7 +1053,14 @@
       "declination": "-11°34'54.7186693\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "1.0 hour"
+    "astrometrySession": "1.0 hour",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J1801-1417",
@@ -779,7 +1080,14 @@
       "declination": "-14°17'34.5260000\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "1.0 hour"
+    "astrometrySession": "1.0 hour",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J1811-2405",
@@ -799,7 +1107,14 @@
       "declination": "-24°05'18.4220000\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "1.0 hour"
+    "astrometrySession": "1.0 hour",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J1857+0943",
@@ -821,7 +1136,14 @@
       "declination": "+09°43'17.1951101\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "1.0 hour"
+    "astrometrySession": "1.0 hour",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J1944+0907",
@@ -841,7 +1163,14 @@
       "declination": "+09°07'23.0352749\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "1.0 hour"
+    "astrometrySession": "1.0 hour",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J2234+0944",
@@ -862,7 +1191,14 @@
       "declination": "+09°44'30.2376140\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "1.0 hour"
+    "astrometrySession": "1.0 hour",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "J2302+4442",
@@ -882,7 +1218,14 @@
       "declination": "+44°42'22.0964087\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "1.0 hour"
+    "astrometrySession": "1.0 hour",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   },
   {
     "name": "Fake pulsar",
@@ -901,6 +1244,13 @@
       "declination": "-02°39'33.4091100\""
     },
     "searchSession": "1.0 hour",
-    "astrometrySession": "2.0 hours"
+    "astrometrySession": "2.0 hours",
+    "visualizations": [
+      {
+        "title": "Flux Density Profile",
+        "path": "/2D_Visualisation/J0023+0923_flux.png",
+        "description": "Pulsar flux density measurements across frequency bands"
+      }
+    ]
   }
 ]

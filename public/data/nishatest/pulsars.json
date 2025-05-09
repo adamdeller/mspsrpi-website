@@ -51,6 +51,28 @@
       "related_region": "Mon R2 H II region at Galactic coordinates (214°, −12.6°)",
       "h_alpha_intensity": "~13 Rayleighs (EM = 29 pc cm^-6)"
     },
+    "visualizations": [
+      {
+        "title": "Pulse Profile",
+        "path": "/images/2D_Visualisation/J0610-2100_profile.jpeg",
+        "description": "Average pulse profile showing the characteristic double peak at 1400 MHz"
+      },
+      {
+        "title": "Binary Orbit",
+        "path": "/images/2D_Visualisation/PSR J0610−2100_orbit.png",
+        "description": "Binary system configuration showing the pulsar and its low-mass companion"
+      },
+      {
+        "title": "Parallax Measurement",
+        "path": "/images/2D_Visualisation/PSR J0610−2100_parallax.png",
+        "description": "Position measurements showing parallax signature over two years"
+      },
+      {
+        "title": "Emission Properties",
+        "path": "/images/2D_Visualisation/PSR J0610−2100_emission.png",
+        "description": "Multi-wavelength emission characteristics from radio to gamma-ray"
+      }
+    ],
     "recommended_visualizations": [
       "Binary system showing the pulsar and its low-mass companion",
       "Radiation beaming from the pulsar toward its companion",
@@ -93,6 +115,28 @@
       "dispersion_measure": "4.3 pc cm⁻³"
     },
     "emission_properties": null,
+    "visualizations": [
+      {
+        "title": "Pulse Profile",
+        "path": "/2D_Visualisatio/PSR J0610−2100_profile.png",
+        "description": "Average pulse profile showing the characteristic double peak at 1400 MHz"
+      },
+      {
+        "title": "Binary Orbit",
+        "path": "/2D_Visualisatio/PSR J0610−2100_orbit.png",
+        "description": "Binary system configuration showing the pulsar and its low-mass companion"
+      },
+      {
+        "title": "Parallax Measurement",
+        "path": "/2D_Visualisatio/PSR J0610−2100_parallax.png",
+        "description": "Position measurements showing parallax signature over two years"
+      },
+      {
+        "title": "Emission Properties",
+        "path": "/2D_Visualisatio/PSR J0610−2100_emission.png",
+        "description": "Multi-wavelength emission characteristics from radio to gamma-ray"
+      }
+    ],
     "recommended_visualizations": [
       "Pulsar position relative to the local stellar neighborhood",
       "Proper motion vector diagram"
@@ -133,6 +177,28 @@
       "a_galactic": "23.8 ± 4.5 pm/s²",
       "dispersion_measure": "36.5 pc cm⁻³"
     },
+    "visualizations": [
+      {
+        "title": "Pulse Profile",
+        "path": "/2D_Visualisatio/PSR J0610−2100_profile.png",
+        "description": "Average pulse profile showing the characteristic double peak at 1400 MHz"
+      },
+      {
+        "title": "Binary Orbit",
+        "path": "/2D_Visualisatio/PSR J0610−2100_orbit.png",
+        "description": "Binary system configuration showing the pulsar and its low-mass companion"
+      },
+      {
+        "title": "Parallax Measurement",
+        "path": "/2D_Visualisatio/PSR J0610−2100_parallax.png",
+        "description": "Position measurements showing parallax signature over two years"
+      },
+      {
+        "title": "Emission Properties",
+        "path": "/2D_Visualisatio/PSR J0610−2100_emission.png",
+        "description": "Multi-wavelength emission characteristics from radio to gamma-ray"
+      }
+    ],
     "recommended_visualizations": [
       "Binary system configuration",
       "Benefits of 1D interpolation for astrometric precision"
@@ -178,6 +244,28 @@
       "orbital_decay": "5.1 ± 5.1 fs/s",
       "previous_estimate": "10.6 ± 6.1 fs/s"
     },
+    "visualizations": [
+      {
+        "title": "Pulse Profile",
+        "path": "/2D_Visualisatio/PSR J0610−2100_profile.png",
+        "description": "Average pulse profile showing the characteristic double peak at 1400 MHz"
+      },
+      {
+        "title": "Binary Orbit",
+        "path": "/2D_Visualisatio/PSR J0610−2100_orbit.png",
+        "description": "Binary system configuration showing the pulsar and its low-mass companion"
+      },
+      {
+        "title": "Parallax Measurement",
+        "path": "/2D_Visualisatio/PSR J0610−2100_parallax.png",
+        "description": "Position measurements showing parallax signature over two years"
+      },
+      {
+        "title": "Emission Properties",
+        "path": "/2D_Visualisatio/PSR J0610−2100_emission.png",
+        "description": "Multi-wavelength emission characteristics from radio to gamma-ray"
+      }
+    ],
     "recommended_visualizations": [
       "Binary system configuration with white dwarf companion",
       "Comparison with Gaia observations of the companion"
@@ -225,6 +313,28 @@
       "high_velocity": "~300 km/s, 3σ above the mean for MSPs"
     },
     "gaia_consistency": "Highly consistent between VLBI and Gaia measurements, strengthening the ultra-wide binary hypothesis",
+    "visualizations": [
+      {
+        "title": "Pulse Profile",
+        "path": "/2D_Visualisatio/PSR J0610−2100_profile.png",
+        "description": "Average pulse profile showing the characteristic double peak at 1400 MHz"
+      },
+      {
+        "title": "Binary Orbit",
+        "path": "/2D_Visualisatio/PSR J0610−2100_orbit.png",
+        "description": "Binary system configuration showing the pulsar and its low-mass companion"
+      },
+      {
+        "title": "Parallax Measurement",
+        "path": "/2D_Visualisatio/PSR J0610−2100_parallax.png",
+        "description": "Position measurements showing parallax signature over two years"
+      },
+      {
+        "title": "Emission Properties",
+        "path": "/2D_Visualisatio/PSR J0610−2100_emission.png",
+        "description": "Multi-wavelength emission characteristics from radio to gamma-ray"
+      }
+    ],
     "recommended_visualizations": [
       "Comparison with typical MSP space velocities",
       "Hypothesized ultra-wide binary configuration"
@@ -275,6 +385,28 @@
       "a_galactic": "-48.5 ± 3.2 pm/s²",
       "dispersion_measure": "11.61 pc cm⁻³"
     },
+    "visualizations": [
+      {
+        "title": "Pulse Profile",
+        "path": "/2D_Visualisatio/PSR J0610−2100_profile.png",
+        "description": "Average pulse profile showing the characteristic double peak at 1400 MHz"
+      },
+      {
+        "title": "Binary Orbit",
+        "path": "/2D_Visualisatio/PSR J0610−2100_orbit.png",
+        "description": "Binary system configuration showing the pulsar and its low-mass companion"
+      },
+      {
+        "title": "Parallax Measurement",
+        "path": "/2D_Visualisatio/PSR J0610−2100_parallax.png",
+        "description": "Position measurements showing parallax signature over two years"
+      },
+      {
+        "title": "Emission Properties",
+        "path": "/2D_Visualisatio/PSR J0610−2100_emission.png",
+        "description": "Multi-wavelength emission characteristics from radio to gamma-ray"
+      }
+    ],
     "recommended_visualizations": [
       "Double neutron star orbital configuration",
       "Probability distribution for inclination angle",
@@ -316,6 +448,28 @@
       "rightAscension": "15h37m09.9612s",
       "declination": "+11°55'55.8096\""
     },
+    "visualizations": [
+      {
+        "title": "Pulse Profile",
+        "path": "/2D_Visualisatio/PSR J0610−2100_profile.png",
+        "description": "Average pulse profile showing the characteristic double peak at 1400 MHz"
+      },
+      {
+        "title": "Binary Orbit",
+        "path": "/2D_Visualisatio/PSR J0610−2100_orbit.png",
+        "description": "Binary system configuration showing the pulsar and its low-mass companion"
+      },
+      {
+        "title": "Parallax Measurement",
+        "path": "/2D_Visualisatio/PSR J0610−2100_parallax.png",
+        "description": "Position measurements showing parallax signature over two years"
+      },
+      {
+        "title": "Emission Properties",
+        "path": "/2D_Visualisatio/PSR J0610−2100_emission.png",
+        "description": "Multi-wavelength emission characteristics from radio to gamma-ray"
+      }
+    ],
     "recommended_visualizations": [
       "Double neutron star system orbital visualization",
       "Contributions to orbital period decay diagram",
@@ -378,6 +532,28 @@
       "a_galactic": "-48.5 ± 4.3 pm/s²",
       "dispersion_measure": "18.43 pc cm⁻³"
     },
+    "visualizations": [
+      {
+        "title": "Pulse Profile",
+        "path": "/2D_Visualisatio/PSR J0610−2100_profile.png",
+        "description": "Average pulse profile showing the characteristic double peak at 1400 MHz"
+      },
+      {
+        "title": "Binary Orbit",
+        "path": "/2D_Visualisatio/PSR J0610−2100_orbit.png",
+        "description": "Binary system configuration showing the pulsar and its low-mass companion"
+      },
+      {
+        "title": "Parallax Measurement",
+        "path": "/2D_Visualisatio/PSR J0610−2100_parallax.png",
+        "description": "Position measurements showing parallax signature over two years"
+      },
+      {
+        "title": "Emission Properties",
+        "path": "/2D_Visualisatio/PSR J0610−2100_emission.png",
+        "description": "Multi-wavelength emission characteristics from radio to gamma-ray"
+      }
+    ],
     "recommended_visualizations": [
       "Binary system with pulsar and white dwarf companion",
       "175-day wide orbit diagram",
@@ -450,6 +626,28 @@
       "calculated": "86+30−24 pc",
       "method": "Derived from angular broadening and temporal scattering relationship"
     },
+    "visualizations": [
+      {
+        "title": "Pulse Profile",
+        "path": "/2D_Visualisatio/PSR J0610−2100_profile.png",
+        "description": "Average pulse profile showing the characteristic double peak at 1400 MHz"
+      },
+      {
+        "title": "Binary Orbit",
+        "path": "/2D_Visualisatio/PSR J0610−2100_orbit.png",
+        "description": "Binary system configuration showing the pulsar and its low-mass companion"
+      },
+      {
+        "title": "Parallax Measurement",
+        "path": "/2D_Visualisatio/PSR J0610−2100_parallax.png",
+        "description": "Position measurements showing parallax signature over two years"
+      },
+      {
+        "title": "Emission Properties",
+        "path": "/2D_Visualisatio/PSR J0610−2100_emission.png",
+        "description": "Multi-wavelength emission characteristics from radio to gamma-ray"
+      }
+    ],
     "recommended_visualizations": [
       "Pulsar system with multiple scattering screens",
       "Temporal broadening of pulse profiles",
@@ -498,6 +696,28 @@
       "resolution_impact": "Reduced spatial resolution of VLBI observations",
       "refractive_effects": "Refractive image wander as the line-of-sight to the pulsar changes"
     },
+    "visualizations": [
+      {
+        "title": "Pulse Profile",
+        "path": "/2D_Visualisatio/PSR J0610−2100_profile.png",
+        "description": "Average pulse profile showing the characteristic double peak at 1400 MHz"
+      },
+      {
+        "title": "Binary Orbit",
+        "path": "/2D_Visualisatio/PSR J0610−2100_orbit.png",
+        "description": "Binary system configuration showing the pulsar and its low-mass companion"
+      },
+      {
+        "title": "Parallax Measurement",
+        "path": "/2D_Visualisatio/PSR J0610−2100_parallax.png",
+        "description": "Position measurements showing parallax signature over two years"
+      },
+      {
+        "title": "Emission Properties",
+        "path": "/2D_Visualisatio/PSR J0610−2100_emission.png",
+        "description": "Multi-wavelength emission characteristics from radio to gamma-ray"
+      }
+    ],
     "recommended_visualizations": [
       "Effects of interstellar scattering on pulsar observations",
       "Diagram showing refractive image wander phenomenon",
@@ -537,6 +757,28 @@
       "gamma_ray_efficiency": "0.27 ± 0.14"
     },
     "scientific_significance": "Plays a key role in exploring the death line of neutron star high-energy radiation",
+    "visualizations": [
+      {
+        "title": "Pulse Profile",
+        "path": "/2D_Visualisatio/PSR J0610−2100_profile.png",
+        "description": "Average pulse profile showing the characteristic double peak at 1400 MHz"
+      },
+      {
+        "title": "Binary Orbit",
+        "path": "/2D_Visualisatio/PSR J0610−2100_orbit.png",
+        "description": "Binary system configuration showing the pulsar and its low-mass companion"
+      },
+      {
+        "title": "Parallax Measurement",
+        "path": "/2D_Visualisatio/PSR J0610−2100_parallax.png",
+        "description": "Position measurements showing parallax signature over two years"
+      },
+      {
+        "title": "Emission Properties",
+        "path": "/2D_Visualisatio/PSR J0610−2100_emission.png",
+        "description": "Multi-wavelength emission characteristics from radio to gamma-ray"
+      }
+    ],
     "recommended_visualizations": [
       "Graph showing the gamma-ray pulsar death line with this pulsar highlighted",
       "Visualization of the pulsar's energy output compared to other gamma-ray pulsars",
@@ -594,6 +836,28 @@
       "gravitational_theories": "Plays a leading role in constraining alternative gravitational theories that predict dipole gravitational radiation",
       "parallax_implications": "True parallax value has implications for white dwarf radius, neutron star mass, and gravitational wave predictions"
     },
+    "visualizations": [
+      {
+        "title": "Pulse Profile",
+        "path": "/2D_Visualisatio/PSR J0610−2100_profile.png",
+        "description": "Average pulse profile showing the characteristic double peak at 1400 MHz"
+      },
+      {
+        "title": "Binary Orbit",
+        "path": "/2D_Visualisatio/PSR J0610−2100_orbit.png",
+        "description": "Binary system configuration showing the pulsar and its low-mass companion"
+      },
+      {
+        "title": "Parallax Measurement",
+        "path": "/2D_Visualisatio/PSR J0610−2100_parallax.png",
+        "description": "Position measurements showing parallax signature over two years"
+      },
+      {
+        "title": "Emission Properties",
+        "path": "/2D_Visualisatio/PSR J0610−2100_emission.png",
+        "description": "Multi-wavelength emission characteristics from radio to gamma-ray"
+      }
+    ],
     "recommended_visualizations": [
       "Binary system with pulsar and white dwarf companion",
       "Diagram illustrating tests of alternative gravitational theories",
@@ -654,6 +918,28 @@
       "calibrator_issues": "Best in-beam phase calibrator was both resolved and faint (3.3 mJy)",
       "consequence": "Noisy solutions, especially on the longest baselines, likely causing parallax non-detection"
     },
+    "visualizations": [
+      {
+        "title": "Pulse Profile",
+        "path": "/2D_Visualisatio/PSR J0610−2100_profile.png",
+        "description": "Average pulse profile showing the characteristic double peak at 1400 MHz"
+      },
+      {
+        "title": "Binary Orbit",
+        "path": "/2D_Visualisatio/PSR J0610−2100_orbit.png",
+        "description": "Binary system configuration showing the pulsar and its low-mass companion"
+      },
+      {
+        "title": "Parallax Measurement",
+        "path": "/2D_Visualisatio/PSR J0610−2100_parallax.png",
+        "description": "Position measurements showing parallax signature over two years"
+      },
+      {
+        "title": "Emission Properties",
+        "path": "/2D_Visualisatio/PSR J0610−2100_emission.png",
+        "description": "Multi-wavelength emission characteristics from radio to gamma-ray"
+      }
+    ],
     "recommended_visualizations": [
       "Position of the pulsar within M28 globular cluster",
       "Vector diagram showing proper motion relative to the cluster",
@@ -701,6 +987,28 @@
       "declination": "+13°03'44.3742\""
     },
     "calibrator_issues": "Main calibrator shows jet structure that may contribute to astrometric uncertainties",
+    "visualizations": [
+      {
+        "title": "Pulse Profile",
+        "path": "/2D_Visualisatio/PSR J0610−2100_profile.png",
+        "description": "Average pulse profile showing the characteristic double peak at 1400 MHz"
+      },
+      {
+        "title": "Binary Orbit",
+        "path": "/2D_Visualisatio/PSR J0610−2100_orbit.png",
+        "description": "Binary system configuration showing the pulsar and its low-mass companion"
+      },
+      {
+        "title": "Parallax Measurement",
+        "path": "/2D_Visualisatio/PSR J0610−2100_parallax.png",
+        "description": "Position measurements showing parallax signature over two years"
+      },
+      {
+        "title": "Emission Properties",
+        "path": "/2D_Visualisatio/PSR J0610−2100_emission.png",
+        "description": "Multi-wavelength emission characteristics from radio to gamma-ray"
+      }
+    ],
     "recommended_visualizations": [
       "Binary system configuration showing high inclination",
       "Shapiro delay measurements visualization"
@@ -745,6 +1053,28 @@
     },
     "calibrator_issues": "Main calibrator shows jet structure at ~45° position angle",
     "gaia_association": "Proposed Gaia counterpart remains inconclusive due to proper motion discrepancies",
+    "visualizations": [
+      {
+        "title": "Pulse Profile",
+        "path": "/2D_Visualisatio/PSR J0610−2100_profile.png",
+        "description": "Average pulse profile showing the characteristic double peak at 1400 MHz"
+      },
+      {
+        "title": "Binary Orbit",
+        "path": "/2D_Visualisatio/PSR J0610−2100_orbit.png",
+        "description": "Binary system configuration showing the pulsar and its low-mass companion"
+      },
+      {
+        "title": "Parallax Measurement",
+        "path": "/2D_Visualisatio/PSR J0610−2100_parallax.png",
+        "description": "Position measurements showing parallax signature over two years"
+      },
+      {
+        "title": "Emission Properties",
+        "path": "/2D_Visualisatio/PSR J0610−2100_emission.png",
+        "description": "Multi-wavelength emission characteristics from radio to gamma-ray"
+      }
+    ],
     "recommended_visualizations": [
       "Binary system configuration",
       "Comparison of VLBI, timing, and Gaia proper motion vectors"
@@ -787,6 +1117,28 @@
       "rightAscension": "19h11m49.2824s",
       "declination": "-11°14'22.4424\""
     },
+    "visualizations": [
+      {
+        "title": "Pulse Profile",
+        "path": "/2D_Visualisatio/PSR J0610−2100_profile.png",
+        "description": "Average pulse profile showing the characteristic double peak at 1400 MHz"
+      },
+      {
+        "title": "Binary Orbit",
+        "path": "/2D_Visualisatio/PSR J0610−2100_orbit.png",
+        "description": "Binary system configuration showing the pulsar and its low-mass companion"
+      },
+      {
+        "title": "Parallax Measurement",
+        "path": "/2D_Visualisatio/PSR J0610−2100_parallax.png",
+        "description": "Position measurements showing parallax signature over two years"
+      },
+      {
+        "title": "Emission Properties",
+        "path": "/2D_Visualisatio/PSR J0610−2100_emission.png",
+        "description": "Multi-wavelength emission characteristics from radio to gamma-ray"
+      }
+    ],
     "recommended_visualizations": [
       "Binary system configuration",
       "Proper motion vector diagram"
@@ -828,6 +1180,28 @@
       "declination": "-06°42'34.8840\""
     },
     "astrometric_note": "42% improvement in parallax precision when using timing priors (the most significant improvement in the sample)",
+    "visualizations": [
+      {
+        "title": "Pulse Profile",
+        "path": "/2D_Visualisatio/PSR J0610−2100_profile.png",
+        "description": "Average pulse profile showing the characteristic double peak at 1400 MHz"
+      },
+      {
+        "title": "Binary Orbit",
+        "path": "/2D_Visualisatio/PSR J0610−2100_orbit.png",
+        "description": "Binary system configuration showing the pulsar and its low-mass companion"
+      },
+      {
+        "title": "Parallax Measurement",
+        "path": "/2D_Visualisatio/PSR J0610−2100_parallax.png",
+        "description": "Position measurements showing parallax signature over two years"
+      },
+      {
+        "title": "Emission Properties",
+        "path": "/2D_Visualisatio/PSR J0610−2100_emission.png",
+        "description": "Multi-wavelength emission characteristics from radio to gamma-ray"
+      }
+    ],
     "recommended_visualizations": [
       "Binary system configuration",
       "Demonstration of parallax precision improvement"
@@ -866,6 +1240,28 @@
     },
     "astrometric_note": "36% improvement in parallax precision when using timing priors",
     "special_technique": "Inverse-referenced 1D interpolation using this pulsar as the in-beam calibrator",
+    "visualizations": [
+      {
+        "title": "Pulse Profile",
+        "path": "/2D_Visualisatio/PSR J0610−2100_profile.png",
+        "description": "Average pulse profile showing the characteristic double peak at 1400 MHz"
+      },
+      {
+        "title": "Binary Orbit",
+        "path": "/2D_Visualisatio/PSR J0610−2100_orbit.png",
+        "description": "Binary system configuration showing the pulsar and its low-mass companion"
+      },
+      {
+        "title": "Parallax Measurement",
+        "path": "/2D_Visualisatio/PSR J0610−2100_parallax.png",
+        "description": "Position measurements showing parallax signature over two years"
+      },
+      {
+        "title": "Emission Properties",
+        "path": "/2D_Visualisatio/PSR J0610−2100_emission.png",
+        "description": "Multi-wavelength emission characteristics from radio to gamma-ray"
+      }
+    ],
     "recommended_visualizations": [
       "Inverse 1D interpolation technique diagram",
       "Pulsar brightness compared to other MSPs"

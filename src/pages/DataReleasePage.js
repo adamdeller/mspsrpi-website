@@ -1,16 +1,19 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import PulsarGalaxy from './Galatic'
-import { Link, useLocation } from 'react-router-dom';
+import Navbar from './Navbar'; // Import the Navbar component
 import {
   Search,
   Download,
   Map,
   ChevronRight,
-  Filter
+  Filter,
+  ExternalLink,
+  MaximizeIcon,
+  ZoomIn
 } from 'lucide-react';
 
 const DataReleasePage = () => {
-  const location = useLocation();
+
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedParallaxRange, setSelectedParallaxRange] = useState('all');
   const [selectedObsPhase, setSelectedObsPhase] = useState('MSPSRPI2');
@@ -21,6 +24,19 @@ const DataReleasePage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isGalacticMaximized, setIsGalacticMaximized] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
+  const [activeVisualization, setActiveVisualization] = useState(null);
+
+  //check if the pulsar has visualisations
+  const hasPulsarVisualizations = (pulsar) => {
+    return true;
+  };
+
+  const showFullScreenVisualization = (visualization, pulsarName) => {
+    setActiveVisualization({
+      ...visualization,
+      pulsarName
+    });
+  };
 
   useEffect(() => {
     setIsLoading(true);
@@ -66,6 +82,7 @@ const DataReleasePage = () => {
       type: pulsar.type || 'Unknown',
       description: pulsar.description || '',
       memberships: pulsar.memberships || [],
+      visualizations: pulsar.visualizations,
       // Store the original pulsar data for full display
       originalData: pulsar
     }));
@@ -92,6 +109,7 @@ const DataReleasePage = () => {
       astrometrySession: pulsar.astrometrySession,
       description: pulsar.notes,
       memberships: pulsar.memberships || [],
+      visualizations: pulsar.visualizations,
       originalData: pulsar
     }));
   };
@@ -148,47 +166,9 @@ const DataReleasePage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-950 via-slate-900 to-black text-gray-100">
-      <nav className="bg-slate-900/90 backdrop-blur-md fixed w-full z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
-            <div className="flex-shrink-0 flex items-center">
-              <Link to="/" className="text-xl font-bold">MSPSR<span className="text-indigo-400">π</span></Link>
-            </div>
-            <div className="hidden md:flex items-center space-x-8">
-              <Link
-                to="/"
-                className={`${location.pathname === '/' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
-              >
-                Home
-              </Link>
-              <Link
-                to="/project"
-                className={`${location.pathname === '/project' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
-              >
-                Project
-              </Link>
-              <Link
-                to="/data-release"
-                className={`${location.pathname === '/data-release' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
-              >
-                Data Release
-              </Link>
-              <Link
-                to="/publications"
-                className={`${location.pathname === '/publications' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
-              >
-                Publications
-              </Link>
-              <Link
-                to="/team"
-                className={`${location.pathname === '/team' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
-              >
-                Team
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+
+      {/* Use the Navbar component instead of inline navbar */}
+      <Navbar colorTheme="default" />
 
       <div className="relative pt-16 pb-4">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-6">
@@ -417,7 +397,15 @@ const DataReleasePage = () => {
 
         {/* Pulsar Popup Modal */}
         {activePulsar && (
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div
+            className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+            onClick={(e) => {
+              // Close the tail card when users click outside of the tail card
+              if (e.target === e.currentTarget) {
+                setActivePulsar(null);
+              }
+            }}
+          >
             <div className="bg-slate-900 border border-indigo-500/30 rounded-lg p-6 shadow-xl max-w-4xl w-full max-h-[80vh] overflow-y-auto">
               {/* Header with name and close button */}
               <div className="flex justify-between items-center mb-4">
@@ -531,14 +519,98 @@ const DataReleasePage = () => {
                     </div>
                   )}
 
-                  {/* Recommended Visualizations */}
-                  {activePulsar.originalData.recommended_visualizations && (
-                    <div>
-                      <h4 className="text-indigo-300 font-medium mb-1">Recommended Visualizations</h4>
-                      {renderList(activePulsar.originalData.recommended_visualizations)}
-                    </div>
-                  )}
+                  {/* 2D visualization section - Replaced the Recommended Visualizations */}
+                  <div className="mt-4 pt-3 border-t border-slate-700">
+                    <h4 className="text-indigo-300 font-medium mb-3">Visualizations</h4>
 
+                    {/* Check if visualization data exists */}
+                    {activePulsar.visualizations && activePulsar.visualizations.length > 0 ? (
+                      // Display grid layout when visualization data is available
+                      <div className={`grid ${activePulsar.visualizations.length === 1 ? 'grid-cols-1' :
+                        activePulsar.visualizations.length === 2 ? 'grid-cols-1 md:grid-cols-2' :
+                          'grid-cols-1 md:grid-cols-2 xl:grid-cols-3'} gap-4`}>
+
+                        {activePulsar.visualizations.map((viz, index) => (
+                          <div key={index} className="bg-slate-800/30 rounded-lg p-3 border border-slate-700">
+                            <div className="flex justify-between items-start">
+                              <h5 className="text-cyan-300 text-sm font-medium mb-2">{viz.title}</h5>
+                              {/* Add Maximize button */}
+                              <button
+                                className="text-cyan-400 hover:text-cyan-300"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  showFullScreenVisualization(viz, activePulsar.name);
+                                }}
+                                title="View full screen"
+                              >
+                                <ZoomIn size={16} />
+                              </button>
+                            </div>
+
+                            {/* Chart image container */}
+                            <div className="relative aspect-[4/3] bg-slate-800/50 rounded-md overflow-hidden flex items-center justify-center">
+                              {/* For MSPSRPI phase, directly attempt to load images */}
+                              <img
+                                src={`${process.env.PUBLIC_URL}${encodeURI(viz.path)}`}
+                                alt={`${activePulsar.name} - ${viz.title}`}
+                                className="w-full h-full object-contain"
+                                onError={(e) => {
+                                  // Display placeholder and overlay when image loading fails
+                                  e.target.src = `${process.env.PUBLIC_URL}/images/placeholder-chart.svg`;
+
+                                  // Dynamically create overlay
+                                  const parent = e.target.parentNode;
+                                  // Check if overlay already exists to avoid duplicate creation
+                                  if (!parent.querySelector('.visualization-overlay')) {
+                                    const overlay = document.createElement('div');
+                                    overlay.className = 'absolute inset-0 flex flex-col items-center justify-center bg-slate-800/80 p-4 text-center visualization-overlay';
+                                    overlay.innerHTML = `
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      <p class="text-sm text-indigo-300 font-medium">Visualization</p>
+                      <p class="text-xs text-gray-400 mt-1">Digitization in progress</p>
+                    `;
+                                    parent.appendChild(overlay);
+                                  }
+                                }}
+                              />
+                            </div>
+
+                            {/* Chart description text */}
+                            {viz.description && (
+                              <p className="mt-2 text-xs text-gray-400">{viz.description}</p>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      // When no visualization data is available, use recommended visualizations as prompts
+                      <div className="bg-slate-800/40 rounded-lg p-6 text-center">
+                        <div className="text-gray-400 mb-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
+                          </svg>
+                          <p className="text-lg font-medium text-indigo-300">Visualizations Being Prepared</p>
+                        </div>
+                        <p className="text-gray-400">
+                          Visualizations for this historical pulsar data are currently being digitized from archival records.
+                          Check back soon for updates.
+                        </p>
+                        {activePulsar.originalData.recommended_visualizations && activePulsar.originalData.recommended_visualizations.length > 0 && (
+                          <div className="mt-4 border-t border-slate-700 pt-4">
+                            <p className="text-sm font-medium text-cyan-300 mb-2">Planned Visualizations:</p>
+                            <ul className="text-left list-disc pl-6 text-gray-400 text-sm">
+                              {activePulsar.originalData.recommended_visualizations.map((viz, index) => (
+                                <li key={index}>{viz}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                      </div>
+
+                    )}
+                  </div>
                   {/* References */}
                   {activePulsar.originalData.references && (
                     <div>
@@ -657,6 +729,93 @@ const DataReleasePage = () => {
                     </div>
                   )}
 
+                  {/* 2D visualization section */}
+                  <div className="bg-slate-800/30 rounded-lg p-4 border border-slate-700">
+                    <h4 className="text-lg font-semibold text-indigo-300 mb-4">Pulsar Visualizations</h4>
+
+                    {/* Check if visualization data exists */}
+                    {activePulsar.visualizations && activePulsar.visualizations.length > 0 ? (
+                      /* Display grid layout when visualization data is available */
+                      <div className={`grid ${activePulsar.visualizations.length === 1 ? 'grid-cols-1' :
+                        activePulsar.visualizations.length === 2 ? 'grid-cols-1 md:grid-cols-2' :
+                          'grid-cols-1 md:grid-cols-2 xl:grid-cols-3'} gap-4`}>
+
+                        {activePulsar.visualizations.map((viz, index) => (
+                          <div key={index} className="bg-slate-900/60 rounded-lg p-3 border border-slate-700">
+                            <div className="flex justify-between items-start">
+                              <h5 className="text-cyan-300 text-sm font-medium mb-2">{viz.title}</h5>
+                              {/* Add Maximize view button */}
+                              <button
+                                className="text-cyan-400 hover:text-cyan-300"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  showFullScreenVisualization(viz, activePulsar.name);
+                                }}
+                                title="View full screen"
+                              >
+                                <ZoomIn size={16} />
+                              </button>
+                            </div>
+
+                            {/* Chart image container */}
+                            <div className="relative aspect-[4/3] bg-slate-800/50 rounded-md overflow-hidden flex items-center justify-center">
+                              {activePulsar.status === 'Planned' ? (
+                                // For planned pulsars, display status placeholder
+                                <div className="text-center p-4">
+                                  <div className="text-amber-400 mb-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 mx-auto mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <p className="text-sm font-medium">Coming Soon</p>
+                                  </div>
+                                  <p className="text-gray-400 text-xs">
+                                    {activePulsar.status === 'Planned' ?
+                                      'Visualizations will be available after observations begin.' :
+                                      'Visualizations are being processed from ongoing observations.'}
+                                  </p>
+                                </div>
+                              ) : (
+                                // For completed pulsars, attempt to load images
+                                <img
+                                  src={`${process.env.PUBLIC_URL}${encodeURI(viz.path)}`}
+                                  alt={`${activePulsar.name} - ${viz.title}`}
+                                  className="w-full h-full object-contain"
+                                  onError={(e) => {
+                                    // Display placeholder and overlay when image loading fails
+                                    e.target.src = `${process.env.PUBLIC_URL}/images/placeholder-chart.svg`;
+                                    e.target.alt = "Visualization not available";
+                                  }}
+                                />
+                              )}
+                            </div>
+
+                            {/* Chart description text */}
+                            {viz.description && (
+                              <p className="mt-2 text-xs text-gray-400">{viz.description}</p>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      /* When no visualization data is available, use recommended visualizations as prompts */
+                      <div className="bg-slate-900/60 rounded-lg p-6 text-center">
+                        <div className="text-gray-400 mb-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
+                          </svg>
+                          <p className="text-lg font-medium text-cyan-300">No Visualizations Available Yet</p>
+                        </div>
+                        <p className="text-gray-400">
+                          {activePulsar.status === 'Planned' ?
+                            'Visualizations will be added after observations begin for this pulsar.' :
+                            activePulsar.status === 'Active' ?
+                              'This pulsar is currently under observation. Visualizations will be added as data is processed.' :
+                              'Visualizations for this pulsar are being prepared and will be available soon.'}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+
                   {/* Download button */}
                   <div className="mt-6 pt-4 border-t border-slate-700">
                     <button
@@ -690,7 +849,7 @@ const DataReleasePage = () => {
                   onClick={() => setIsGalacticMaximized(true)}
                   className="inline-flex items-center px-2 py-1 text-xs border border-cyan-500/30 rounded-md text-cyan-300 bg-slate-800/60 hover:bg-slate-700/80 transition duration-300"
                 >
-                  Maximize
+                  <ZoomIn size={16} />
                 </button>
               </div>
               <div className="h-96 bg-slate-800/50 rounded-md">
@@ -700,7 +859,14 @@ const DataReleasePage = () => {
 
             {/* Maximized Galactic View Modal */}
             {isGalacticMaximized && (
-              <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
+              <div
+                className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4"
+                onClick={(e) => {
+                  if (e.target === e.currentTarget) {
+                    setIsGalacticMaximized(false);
+                  }
+                }}
+              >
                 <div className="bg-slate-900 border border-cyan-500/30 rounded-lg p-6 shadow-xl w-full max-w-6xl max-h-[90vh]">
                   {/* Header with title and close button */}
                   <div className="flex justify-between items-center mb-4">
@@ -847,6 +1013,87 @@ const DataReleasePage = () => {
           </p>
         </div>
       </div>
+
+      {/* Maximize visualization modal */}
+      {activeVisualization && (
+        <div
+          className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4"
+          onClick={() => setActiveVisualization(null)}
+        >
+          <div
+            className="bg-slate-900 border border-cyan-500/30 rounded-lg p-6 shadow-xl w-full max-w-5xl"
+            onClick={(e) => e.stopPropagation()} // 防止点击内容区域关闭模态框
+          >
+            {/* Title */}
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-2xl font-bold text-cyan-300">
+                {activeVisualization.title} - {activeVisualization.pulsarName}
+              </h3>
+              <button
+                className="text-gray-400 hover:text-white text-2xl"
+                onClick={() => setActiveVisualization(null)}
+              >
+                ×
+              </button>
+            </div>
+
+            {/* Image display area */}
+            <div className="bg-slate-800/50 rounded-md overflow-hidden flex items-center justify-center">
+              <div className="relative w-full" style={{ minHeight: '60vh' }}>
+                <img
+                  src={`${process.env.PUBLIC_URL}${activeVisualization.path}`}
+                  alt={`${activeVisualization.pulsarName} - ${activeVisualization.title}`}
+                  className="w-full h-full object-contain"
+                  onError={(e) => {
+                    e.target.src = `${process.env.PUBLIC_URL}/images/placeholder-chart.svg`;
+
+                    // Dynamically create overlay
+                    const parent = e.target.parentNode;
+                    if (!parent.querySelector('.fullscreen-overlay')) {
+                      const overlay = document.createElement('div');
+                      overlay.className = 'absolute inset-0 flex flex-col items-center justify-center bg-slate-800/80 p-4 text-center fullscreen-overlay';
+                      overlay.innerHTML = `
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-indigo-400 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <p class="text-lg text-indigo-300 font-medium">Visualization Not Available</p>
+                  <p class="text-sm text-gray-400 mt-2">The requested visualization is being processed.</p>
+                `;
+                      parent.appendChild(overlay);
+                    }
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* Description text */}
+            {activeVisualization.description && (
+              <div className="mt-4 p-4 bg-slate-800/40 rounded-md">
+                <p className="text-gray-300">{activeVisualization.description}</p>
+              </div>
+            )}
+
+            {/* Download button */}
+            <div className="mt-6 flex justify-end">
+              <button
+                className="px-4 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded-md flex items-center"
+                onClick={() => {
+                  // Create download link
+                  const link = document.createElement('a');
+                  link.href = `${process.env.PUBLIC_URL}${activeVisualization.path}`;
+                  link.download = `${activeVisualization.pulsarName}_${activeVisualization.title}.jpg`;
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
+              >
+                <Download className="mr-2 h-4 w-4" />
+                Download Image
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
