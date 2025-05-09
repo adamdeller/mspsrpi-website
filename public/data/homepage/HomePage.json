@@ -1,11 +1,7 @@
 {
   "sectionHeaders": {
     "researchTitle": "We're in Search Of...",
-    "researchSubtitle": "Astrometric observations with Very Long Baseline Interferometery (VLBI)",
-    "whatArePulsarsTitle": "What Are Millisecond Pulsars?",
-    "whatArePulsarsSubtitle": "Cosmic Lighthouses Spinning Hundreds of Times Per Second",
-    "discoveriesTitle": "Key Discoveries",
-    "discoveriesSubtitle": "Our research has led to several important scientific insights"
+    "researchSubtitle": "Astrometric observations with Very Long Baseline Interferometery (VLBI)"
   },
   "projectStats": [
     { "label": "Pulsars Observed", "value": "44" },
