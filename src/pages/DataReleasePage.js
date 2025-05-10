@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import PulsarGalaxy from './Galatic'
 import Navbar from './Navbar'; // Import the Navbar component
+import DownloadModal from './DownloadModal';
 import {
   Search,
   Download,
@@ -26,9 +27,25 @@ const DataReleasePage = () => {
   const [showFilters, setShowFilters] = useState(false);
   const [activeVisualization, setActiveVisualization] = useState(null);
 
+  const [downloadPulsar, setDownloadPulsar] = useState(null);
+  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
+
   //check if the pulsar has visualisations
   const hasPulsarVisualizations = (pulsar) => {
     return true;
+  };
+
+  //Handling the download button clicking
+  const handleDownloadClick = (pulsar, e) => {
+    if (e) e.stopPropagation(); // 防止触发其他点击事件
+    setDownloadPulsar(pulsar);
+    setIsDownloadModalOpen(true);
+  };
+
+  //Closing download modal
+  const closeDownloadModal = () => {
+    setIsDownloadModalOpen(false);
+    setDownloadPulsar(null);
   };
 
   const showFullScreenVisualization = (visualization, pulsarName) => {
@@ -215,10 +232,6 @@ const DataReleasePage = () => {
               <Map className="mr-2 h-4 w-4" />
               View Visualizations
             </button>
-            <a href="/downloads/mspsrpi-data.zip" className="inline-flex items-center px-4 py-2 border border-indigo-500/30 rounded-md text-indigo-300 bg-slate-900/60 hover:bg-slate-800/80 transition duration-300">
-              <Download className="mr-2 h-4 w-4" />
-              Download Dataset
-            </a>
           </div>
         </div>
 
@@ -623,7 +636,7 @@ const DataReleasePage = () => {
                   <div className="mt-6 pt-4 border-t border-slate-700">
                     <button
                       className="w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-md flex items-center justify-center"
-                      onClick={() => {/* Handle download or link to detailed data */ }}
+                      onClick={(e) => handleDownloadClick(activePulsar, e)}
                     >
                       <Download className="mr-2 h-4 w-4" />
                       Download {activePulsar.name} Data
@@ -820,7 +833,7 @@ const DataReleasePage = () => {
                   <div className="mt-6 pt-4 border-t border-slate-700">
                     <button
                       className="w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-md flex items-center justify-center"
-                      onClick={() => {/* Handle download or link to detailed data */ }}
+                      onClick={(e) => handleDownloadClick(activePulsar, e)}
                     >
                       <Download className="mr-2 h-4 w-4" />
                       Download {activePulsar.name} Data
@@ -829,8 +842,11 @@ const DataReleasePage = () => {
                 </div>
               )}
             </div>
+
+
           </div>
         )}
+
         {/* Data Visualization Section */}
         <div id="visualization" className="pt-12 mb-16">
           <div className="mb-6">
@@ -1094,6 +1110,13 @@ const DataReleasePage = () => {
           </div>
         </div>
       )}
+
+      {/* Add download modal component */}
+      <DownloadModal
+        isOpen={isDownloadModalOpen}
+        pulsar={downloadPulsar}
+        onClose={closeDownloadModal}
+      />
     </div>
   );
 };

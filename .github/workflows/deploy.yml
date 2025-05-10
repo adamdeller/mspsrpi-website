@@ -29,10 +29,10 @@ jobs:
       
       - name: Update package.json with compatible dependencies
         run: |
-          # 使用jq工具修改package.json文件
+          # Use the jq tool to modify the package.json file
           apt-get update && apt-get install -y jq
           
-          # 降级React到稳定版本
+          # Downgrade React to a stable version
           jq '.dependencies."react" = "^18.2.0" | 
               .dependencies."react-dom" = "^18.2.0" | 
               .dependencies."react-router-dom" = "^6.18.0" | 
