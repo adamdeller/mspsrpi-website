@@ -4,7 +4,7 @@ import GitHubLoginButton from './GitHubLoginButton';
 import { 
   Lock, Eye, EyeOff, MessageSquare, FileText, 
   User, Calendar, Search, ArrowLeft, Filter, Clock, 
-  LogOut, Star, BookOpen, Users, Bell, Image,
+  LogOut, Star, BookOpen, Users, Image,
   X
 } from 'lucide-react';
 
@@ -212,9 +212,6 @@ const Dashboard = ({ onLogout }) => {
             </div>
             
             <div className="flex items-center gap-5">
-              <button className="text-indigo-300 hover:text-indigo-100">
-                <Bell className="h-5 w-5" />
-              </button>
               <button className="flex items-center text-indigo-300 hover:text-indigo-100 gap-1">
                 <User className="h-5 w-5" />
                 <span className="text-sm">{username}</span>
