@@ -10,61 +10,8 @@ import {
 /* HI EVERYONE! 
 This is the design of the restricted section that we will try to build in the end after the MPV*/
 
-
-// Mock comments data
-const initialComments = {
-  'J0030+0451': [
-    {
-      id: 1,
-      author: 'Adam Deller',
-      timestamp: '2025-03-15T10:23:45',
-      text: 'The parallax measurement for this pulsar is remarkably precise. We should use this as a benchmark for our Phase 2 analysis methods.',
-      replies: []
-    },
-  ],
-  'J0610-2100': [
-    {
-      id: 1,
-      author: 'Ben Stappers',
-      timestamp: '2025-03-05T09:17:33',
-      text: 'The high proper motion here is interesting. This is one of the faster-moving millisecond pulsars in our sample.',
-      replies: []
-    }
-  ],
-  'J1012+5307': [
-    {
-      id: 1,
-      author: 'Miller Goss',
-      timestamp: '2025-02-28T11:28:50',
-      text: 'The orbital parameters from this system provide one of our best tests of gravitational theory. We should highlight this in the upcoming review.',
-      replies: []
-    }
-  ]
-};
-
 // Login component
 const Login = ({ onLogin }) => {
-
-  // const username = localStorage.getItem('githubUser') || 'Team Member';
-
-  // const [username, setUsername] = useState('');
-  // const [password, setPassword] = useState('');
-  // const [showPassword, setShowPassword] = useState(false);
-  // const [error, setError] = useState('');
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-    
-  //   // Hardcoded credentials for the team
-  //   // In a real application, this would be handled securely on a server
-  //   if (username === 'mspsrpi_team' && password === 'pulsar2025') {
-  //     localStorage.setItem('authenticated', 'true');
-  //     onLogin();
-  //   } else {
-  //     setError('Invalid credentials. Please try again.');
-  //   }
-  // };
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-950 via-slate-900 to-black flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-md">
@@ -87,12 +34,6 @@ const Login = ({ onLogin }) => {
               <p className="mt-2 text-indigo-300">Team access only</p>
               <GitHubLoginButton />
             </div>
-            
-            {/* <div className="flex flex-col items-center justify-center h-screen bg-slate-900 text-white">
-              <h1 className="text-3xl font-bold mb-6">Restricted Access</h1>
-              <p className="mb-8 text-indigo-300">Please sign in with GitHub to continue</p>
-              <GitHubLoginButton />
-            </div> */}
 
             <div className="mt-8 text-center">
               <Link to="/" className="text-indigo-400 hover:text-indigo-300 text-sm flex items-center justify-center">
@@ -112,25 +53,27 @@ const Dashboard = ({ onLogout }) => {
   const username = localStorage.getItem('githubUser') || 'Team Member';
   const [selectedPulsar, setSelectedPulsar] = useState([]);
   const [pulsars, setPulsars] = useState([]);
+  
   useEffect(() => {
     const fetchPulsars = async () => {
       try {
-        const res = await fetch(`${process.env.PUBLIC_URL}/data/restrictedpulsars.json`);
+        const res = await fetch(`${process.env.PUBLIC_URL}/restricted/pulsarlist.json`);
         const data = await res.json();
         setPulsars(data);
         if (data.length > 0) setSelectedPulsar(data[0]);
       } catch (err) {
-        console.error("Failed to fetch pulsars.json:", err);
+        console.error("Failed to fetch pulsarlist.json:", err);
       }
     };
     fetchPulsars();
   }, []);
   
   const [comments, setComments] = useState(() => {
-    // Try to get comments from localStorage, or use initial data
+    // Try to get comments from localStorage, or use empty object
     const savedComments = localStorage.getItem('pulsarComments');
-    return savedComments ? JSON.parse(savedComments) : initialComments;
+    return savedComments ? JSON.parse(savedComments) : {};
   });
+  
   const [newComment, setNewComment] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('All');
