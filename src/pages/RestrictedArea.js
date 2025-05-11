@@ -358,12 +358,8 @@ const Dashboard = ({ onLogout }) => {
             <div className="lg:col-span-2">
               {/* Pulsar Details Card */}
               <div className="bg-slate-900/60 backdrop-blur-sm border border-indigo-500/20 rounded-xl shadow-xl mb-6 overflow-hidden">
-                <div className="p-5 border-b border-indigo-500/20 flex justify-between items-center">
+                <div className="p-5 border-b border-indigo-500/20">
                   <h2 className="text-xl font-semibold text-white">{selectedPulsar.pulsar_details.name} Details</h2>
-                  <button className="flex items-center px-3 py-1.5 bg-indigo-700/50 hover:bg-indigo-700/70 text-indigo-200 text-sm rounded-md border border-indigo-600/40 transition-colors duration-200">
-                    <Download className="h-4 w-4 mr-1" />
-                    Download Dataset
-                  </button>
                 </div>
                 
                 <div className="p-5">
@@ -423,7 +419,7 @@ const Dashboard = ({ onLogout }) => {
                   {/* Visualization section - replaced placeholder with actual image display */}
                   <div className="mt-4 bg-slate-800/30 rounded-lg border border-indigo-500/10 overflow-hidden">
                     <div className="p-3 bg-slate-800/50 border-b border-indigo-500/20 flex justify-between items-center">
-                      <h3 className="text-sm font-medium text-indigo-300">Parallax and Proper Motion Visualization</h3>
+                      <h3 className="text-sm font-medium text-indigo-300">Data Visualisations</h3>
                       
                       {/* Image navigation controls - only show if multiple images exist */}
                       {getImageLinks().length > 1 && (
@@ -454,12 +450,18 @@ const Dashboard = ({ onLogout }) => {
                             src={getImageLinks()[currentImageIndex]} 
                             alt={`${selectedPulsar.pulsar_details.name} visualization`}
                             className="w-full h-auto max-h-64 object-contain mx-auto"
+                            onError={(e) => {
+                              e.target.onerror = null;
+                              e.target.src = "/api/placeholder/400/250";
+                              e.target.alt = "Visualization unavailable";
+                              e.target.className = "w-full h-auto max-h-64 object-contain mx-auto opacity-50";
+                            }}
                           />
                         </div>
                       ) : (
                         <div className="text-indigo-300 text-center py-12">
                           <Image className="h-12 w-12 mx-auto mb-3 opacity-30" />
-                          <p>No visualization available</p>
+                          <p>No visualization data available</p>
                         </div>
                       )}
                     </div>
@@ -485,7 +487,7 @@ const Dashboard = ({ onLogout }) => {
                           <BookOpen className="h-4 w-4" />
                         </div>
                         <div className="ml-3">
-                          <span className="text-indigo-200 font-medium">Scientific Notes</span>
+                          <span className="text-indigo-200 font-medium">{selectedPulsar.pulsar_details.name} Notes</span>
                           <div className="text-xs text-indigo-400">
                             Last updated: {selectedPulsar.pulsar_details.lastUpdated}
                           </div>
