@@ -1,14 +1,21 @@
 //------------------------------------------------------------------
 //                        LIBRARY IMPORTS
 //------------------------------------------------------------------
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Menu, X } from 'lucide-react'; // Import icons for mobile menu
 
 //------------------------------------------------------------------
 //                     COMPONENT DEFINITION
 //------------------------------------------------------------------
 const Navbar = ({ navLinks, colorTheme = 'default' }) => {
   const location = useLocation();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Toggle mobile menu
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
 
   // Default navigation links if not provided
   const defaultNavLinks = {
@@ -43,6 +50,8 @@ const Navbar = ({ navLinks, colorTheme = 'default' }) => {
               MSPSR<span className={activeColor}>π</span>
             </Link>
           </div>
+          
+          {/* Desktop navigation menu - hidden on mobile */}
           <div className="hidden md:flex items-center space-x-8">
             <Link
               to="/"
@@ -75,8 +84,67 @@ const Navbar = ({ navLinks, colorTheme = 'default' }) => {
               {links.team}
             </Link>
           </div>
+          
+          {/* Mobile menu button - visible only on mobile */}
+          <div className="md:hidden flex items-center">
+            <button
+              onClick={toggleMobileMenu}
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none"
+              aria-expanded="false"
+            >
+              <span className="sr-only">Open main menu</span>
+              {mobileMenuOpen ? (
+                <X className="block h-6 w-6" aria-hidden="true" />
+              ) : (
+                <Menu className="block h-6 w-6" aria-hidden="true" />
+              )}
+            </button>
+          </div>
         </div>
       </div>
+
+      {/* Mobile menu, show/hide based on menu state */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-slate-900/95 backdrop-blur-md border-t border-slate-800">
+          <div className="px-2 pt-2 pb-3 space-y-1">
+            <Link
+              to="/"
+              className={`${location.pathname === '/' ? 'bg-slate-800 ' + activeColor : 'text-gray-300 hover:bg-slate-800 hover:' + activeColor} block px-3 py-2 rounded-md text-base font-medium`}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {links.home}
+            </Link>
+            <Link
+              to="/project"
+              className={`${location.pathname.includes('project') ? 'bg-slate-800 ' + activeColor : 'text-gray-300 hover:bg-slate-800 hover:' + activeColor} block px-3 py-2 rounded-md text-base font-medium`}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {links.project}
+            </Link>
+            <Link
+              to="/data-release"
+              className={`${location.pathname === '/data-release' ? 'bg-slate-800 ' + activeColor : 'text-gray-300 hover:bg-slate-800 hover:' + activeColor} block px-3 py-2 rounded-md text-base font-medium`}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {links.dataRelease}
+            </Link>
+            <Link
+              to="/publications"
+              className={`${location.pathname === '/publications' ? 'bg-slate-800 ' + activeColor : 'text-gray-300 hover:bg-slate-800 hover:' + activeColor} block px-3 py-2 rounded-md text-base font-medium`}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {links.publications}
+            </Link>
+            <Link
+              to="/team"
+              className={`${location.pathname === '/team' ? 'bg-slate-800 ' + activeColor : 'text-gray-300 hover:bg-slate-800 hover:' + activeColor} block px-3 py-2 rounded-md text-base font-medium`}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {links.team}
+            </Link>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
