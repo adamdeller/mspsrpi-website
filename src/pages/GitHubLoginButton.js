@@ -33,7 +33,7 @@ const GitHubLoginButton = () => {
   // const redirectUri = 'http://localhost:3000/mspsrpi-website#/github-callback';
 
   // For Prod Env
-  const redirectUri = 'https://codexnyctis.github.io/test-deploy/#/github-callback';
+  const redirectUri = 'https://codexnyctis.github.io/mspsrpi-website/#/github-callback';
 
   const handleLogin = () => {
     const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&scope=read:user`;
