@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import GitHubLoginButton from './GitHubLoginButton';
 import { 
-  Lock, Eye, EyeOff, MessageSquare, FileText, Download, 
+  Lock, Eye, EyeOff, MessageSquare, FileText, 
   User, Calendar, Search, ArrowLeft, Filter, Clock, 
   LogOut, Star, BookOpen, Users, Bell, Image
 } from 'lucide-react';
@@ -54,6 +54,7 @@ const Dashboard = ({ onLogout }) => {
   const [statusFilter, setStatusFilter] = useState('All');
   const [categoryFilter, setCategoryFilter] = useState('All');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [imageLoadError, setImageLoadError] = useState(false);
   
   useEffect(() => {
     // Mock function to simulate loading the pulsars from the JSON provided
@@ -207,6 +208,13 @@ const Dashboard = ({ onLogout }) => {
     } else {
       setCurrentImageIndex((prev) => (prev - 1 + imageLinks.length) % imageLinks.length);
     }
+    // Reset image load error state when navigating
+    setImageLoadError(false);
+  };
+
+  // Handle image load error
+  const handleImageError = () => {
+    setImageLoadError(true);
   };
 
   return (
@@ -322,6 +330,7 @@ const Dashboard = ({ onLogout }) => {
                         onClick={() => {
                           setSelectedPulsar(pulsar);
                           setCurrentImageIndex(0); // Reset image index when changing pulsars
+                          setImageLoadError(false); // Reset image error state when changing pulsars
                         }}
                       >
                         <div className="flex justify-between items-center">
@@ -360,10 +369,7 @@ const Dashboard = ({ onLogout }) => {
               <div className="bg-slate-900/60 backdrop-blur-sm border border-indigo-500/20 rounded-xl shadow-xl mb-6 overflow-hidden">
                 <div className="p-5 border-b border-indigo-500/20 flex justify-between items-center">
                   <h2 className="text-xl font-semibold text-white">{selectedPulsar.pulsar_details.name} Details</h2>
-                  <button className="flex items-center px-3 py-1.5 bg-indigo-700/50 hover:bg-indigo-700/70 text-indigo-200 text-sm rounded-md border border-indigo-600/40 transition-colors duration-200">
-                    <Download className="h-4 w-4 mr-1" />
-                    Download Dataset
-                  </button>
+                  {/* Download button removed as requested */}
                 </div>
                 
                 <div className="p-5">
@@ -420,10 +426,10 @@ const Dashboard = ({ onLogout }) => {
                     </div>
                   </div>
                   
-                  {/* Visualization section - replaced placeholder with actual image display */}
+                  {/* Visualization section - updated title and improved error handling */}
                   <div className="mt-4 bg-slate-800/30 rounded-lg border border-indigo-500/10 overflow-hidden">
                     <div className="p-3 bg-slate-800/50 border-b border-indigo-500/20 flex justify-between items-center">
-                      <h3 className="text-sm font-medium text-indigo-300">Parallax and Proper Motion Visualization</h3>
+                      <h3 className="text-sm font-medium text-indigo-300">Data Visualization</h3>
                       
                       {/* Image navigation controls - only show if multiple images exist */}
                       {getImageLinks().length > 1 && (
@@ -450,11 +456,20 @@ const Dashboard = ({ onLogout }) => {
                     <div className="p-4 flex items-center justify-center">
                       {getImageLinks().length > 0 ? (
                         <div className="relative w-full">
-                          <img 
-                            src={getImageLinks()[currentImageIndex]} 
-                            alt={`${selectedPulsar.pulsar_details.name} visualization`}
-                            className="w-full h-auto max-h-64 object-contain mx-auto"
-                          />
+                          {!imageLoadError ? (
+                            <img 
+                              src={getImageLinks()[currentImageIndex]} 
+                              alt={`${selectedPulsar.pulsar_details.name} visualization`}
+                              className="w-full h-auto max-h-64 object-contain mx-auto"
+                              onError={handleImageError}
+                            />
+                          ) : (
+                            <div className="text-indigo-300 text-center py-8 bg-slate-800/30 rounded-lg border border-indigo-500/10">
+                              <Image className="h-12 w-12 mx-auto mb-3 opacity-30" />
+                              <p>Visualization data not available</p>
+                              <p className="text-xs mt-2 text-indigo-400">Image could not be loaded</p>
+                            </div>
+                          )}
                         </div>
                       ) : (
                         <div className="text-indigo-300 text-center py-12">
@@ -467,7 +482,7 @@ const Dashboard = ({ onLogout }) => {
                 </div>
               </div>
               
-              {/* Notes Section - replaced comments with notes from JSON */}
+              {/* Notes Section - simplified as requested */}
               <div className="bg-slate-900/60 backdrop-blur-sm border border-indigo-500/20 rounded-xl shadow-xl">
                 <div className="p-5 border-b border-indigo-500/20">
                   <h2 className="text-lg font-semibold text-white flex items-center">
@@ -476,20 +491,12 @@ const Dashboard = ({ onLogout }) => {
                   </h2>
                 </div>
                 
-                {/* Display notes */}
+                {/* Display notes - simplified version */}
                 <div className="p-5">
                   {selectedPulsar.visualisation_and_notes.notes ? (
                     <div className="bg-slate-800/30 rounded-lg p-4 border border-indigo-500/10 whitespace-pre-line">
-                      <div className="flex items-center mb-3">
-                        <div className="w-8 h-8 bg-indigo-800/70 rounded-full flex items-center justify-center text-indigo-200 font-medium text-sm">
-                          <BookOpen className="h-4 w-4" />
-                        </div>
-                        <div className="ml-3">
-                          <span className="text-indigo-200 font-medium">Scientific Notes</span>
-                          <div className="text-xs text-indigo-400">
-                            Last updated: {selectedPulsar.pulsar_details.lastUpdated}
-                          </div>
-                        </div>
+                      <div className="text-xs text-indigo-400 mb-2">
+                        Last updated: {selectedPulsar.pulsar_details.lastUpdated}
                       </div>
                       <div className="text-indigo-100">
                         {selectedPulsar.visualisation_and_notes.notes}
