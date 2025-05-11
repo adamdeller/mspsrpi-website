@@ -68,7 +68,7 @@ const Authloading = () => {
     const loadingMessages = [
       'Initiating GitHub authentication...',
       'Establishing secure connection...',
-      'Verifying research credentials...',
+      'Verifying credentials...',
       'Preparing secure workspace access...',
       'Almost there! Finalizing secure session...'
     ];
