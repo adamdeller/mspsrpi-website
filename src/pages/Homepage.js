@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { MapPin, ChevronRight, Users, Search} from 'lucide-react';
 import { Rocket, Telescope, Ruler, BookOpen, Sparkles } from "lucide-react";
 import PulsarVisualizations from './PulsarVisualizations'; // Import the PulsarVisualizations component
+import Navbar from './Navbar'; // Import the Navbar component
 
 
 const Homepage = () => {
@@ -98,47 +99,8 @@ const Homepage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-950 via-slate-900 to-black text-gray-100">
       {/* Navigation */}
-      <nav className="bg-slate-900/90 backdrop-blur-md fixed w-full z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
-            <div className="flex-shrink-0 flex items-center">
-              <Link to="/test-deploy" className="text-xl font-bold">MSPSR<span className="text-indigo-400">π</span></Link>
-            </div>
-            <div className="hidden md:flex items-center space-x-8">
-              <Link
-                to="/test-deploy"
-                className={`${location.pathname === '/test-deploy' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
-              >
-                Home
-              </Link>
-              <Link
-                to="/project"
-                className={`${location.pathname === '/project' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
-              >
-                Project
-              </Link>
-              <Link
-                to="/data-release"
-                className={`${location.pathname === '/data-release' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
-              >
-                Data Release
-              </Link>
-              <Link
-                to="/publications"
-                className={`${location.pathname === '/publications' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
-              >
-                Publications
-              </Link>
-              <Link
-                to="/team"
-                className={`${location.pathname === '/team' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
-              >
-                Team
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+      {/* Use the Navbar component instead of inline navbar */}
+      <Navbar colorTheme="default" />
 
       {/* Hero Section - With starry background */}
       <div className="relative min-h-screen pt-16">
