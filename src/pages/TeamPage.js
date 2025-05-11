@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Users, Mail, Globe, Building } from 'lucide-react';
+import Navbar from './Navbar';
 
 const TeamPage = () => {
   const [activeTab, setActiveTab] = useState('research');
   const [teamMembers, setTeamMembers] = useState([]);
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
     fetch(`${process.env.PUBLIC_URL}/data/teamPage/teamMembers.json`)
@@ -13,9 +15,19 @@ const TeamPage = () => {
       .catch((error) => console.error('Error loading team data:', error));
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-950 via-slate-900 to-black text-gray-100 team-page-fade">
-      <nav className="bg-slate-900/90 backdrop-blur-md fixed w-full z-50">
+      <Navbar className="md:hidden" />
+      <nav className="hidden md:block bg-slate-900/90 backdrop-blur-md fixed w-full z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex-shrink-0 flex items-center">
@@ -62,11 +74,11 @@ const TeamPage = () => {
                     }}
                   />
                 </div>
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2">
-                  <div className="w-20 h-20 rounded-full border-4 border-slate-900 overflow-hidden bg-indigo-800/30 flex items-center justify-center">
+                <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2">
+                <div className="w-36 h-36 rounded-full border-4 border-slate-900 overflow-hidden bg-indigo-800/30 flex items-center justify-center">
                     <img 
                       src={member.photo} 
-                      alt="" 
+                      alt={member.name || "Team member"} 
                       className="w-full h-full object-cover" 
                       onError={(e) => {
                         e.currentTarget.style.display = 'none';
@@ -101,6 +113,15 @@ const TeamPage = () => {
           ))}
         </div>
       </div>
+      {showScrollTop && (
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="fixed bottom-4 right-4 z-50 bg-indigo-500 hover:bg-indigo-400 text-white p-3 rounded-full shadow-lg transition-opacity duration-300 opacity-80 hover:opacity-100"
+          aria-label="Back to top"
+        >
+          ↑
+        </button>
+      )}
     </div>
   );
 };
