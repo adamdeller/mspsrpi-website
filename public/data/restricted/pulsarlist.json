@@ -13,7 +13,8 @@
       "ObsDate": "2024-03-10 14:15:00"
     },
     "visualisation_and_notes": {
-      "imageLink1": "/data/restricted/visualisations/J0030+0451_vis.png",
+      "imageLink1": "/data/restricted/visualisations/test1.png",
+      "imageLink2": "/data/restricted/visualisations/test2.png",
       "notes": "Millisecond pulsar with period of 4.87 ms. Notable for being one of the NICER targets for constraining neutron star radius. Spectral analysis suggests thermal emission from hot spots."
     }
   },

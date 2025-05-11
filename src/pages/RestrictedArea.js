@@ -4,7 +4,8 @@ import GitHubLoginButton from './GitHubLoginButton';
 import { 
   Lock, Eye, EyeOff, MessageSquare, FileText, 
   User, Calendar, Search, ArrowLeft, Filter, Clock, 
-  LogOut, Star, BookOpen, Users, Bell, Image
+  LogOut, Star, BookOpen, Users, Bell, Image,
+  X
 } from 'lucide-react';
 
 // Login component remains unchanged
@@ -57,6 +58,25 @@ const Dashboard = ({ onLogout }) => {
   const [imageLoadError, setImageLoadError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [loadError, setLoadError] = useState(null);
+  
+  // Modal state
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalImage, setModalImage] = useState('');
+  
+  // Function to open image modal
+  const openImageModal = (imageSrc) => {
+    setModalImage(imageSrc);
+    setModalOpen(true);
+    // Prevent scrolling when modal is open
+    document.body.style.overflow = 'hidden';
+  };
+  
+  // Function to close image modal
+  const closeImageModal = () => {
+    setModalOpen(false);
+    // Re-enable scrolling
+    document.body.style.overflow = 'auto';
+  };
   
   useEffect(() => {
     const loadPulsarData = () => {
@@ -423,8 +443,9 @@ const Dashboard = ({ onLogout }) => {
                             <img 
                               src={getImageLinks()[currentImageIndex]} 
                               alt={`${selectedPulsar.pulsar_details.name} visualization`}
-                              className="w-full h-auto max-h-64 object-contain mx-auto"
+                              className="w-full h-auto max-h-64 object-contain mx-auto cursor-pointer hover:opacity-90 transition-opacity"
                               onError={handleImageError}
+                              onClick={() => openImageModal(getImageLinks()[currentImageIndex])}
                             />
                           ) : (
                             <div className="text-indigo-300 text-center py-8 bg-slate-800/30 rounded-lg border border-indigo-500/10">
@@ -477,6 +498,30 @@ const Dashboard = ({ onLogout }) => {
           )}
         </div>
       </div>
+      
+      {/* Image Modal */}
+      {modalOpen && (
+        <div 
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center cursor-pointer transition-opacity duration-300"
+          onClick={closeImageModal}
+        >
+          <div className="max-w-4xl max-h-[90vh] p-2 relative">
+            <img 
+              src={modalImage} 
+              alt="Enlarged visualization" 
+              className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl"
+              onClick={(e) => e.stopPropagation()} // Prevent click from closing modal when clicking on the image itself
+            />
+            <button 
+              className="absolute top-4 right-4 p-2 rounded-full bg-indigo-900/80 text-white hover:bg-indigo-800 transition-colors"
+              onClick={closeImageModal}
+              aria-label="Close modal"
+            >
+              <X className="h-6 w-6" />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
