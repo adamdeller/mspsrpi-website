@@ -455,6 +455,15 @@ const Dashboard = ({ onLogout }) => {
                               e.target.src = "/api/placeholder/400/250";
                               e.target.alt = "Visualization unavailable";
                               e.target.className = "w-full h-auto max-h-64 object-contain mx-auto opacity-50";
+                              
+                              // Add error message below the image
+                              const errorMsg = document.createElement('div');
+                              errorMsg.className = "text-amber-300 text-sm text-center mt-3";
+                              errorMsg.innerHTML = `
+                                <p>Image failed to load. Please check if the file name and location is correct in the 'visuals' directory.</p>
+                                <p class="text-xs text-amber-400/70 mt-1">Path: ${getImageLinks()[currentImageIndex]}</p>
+                              `;
+                              e.target.parentNode.appendChild(errorMsg);
                             }}
                           />
                         </div>
