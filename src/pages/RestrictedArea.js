@@ -46,14 +46,14 @@ const Login = ({ onLogin }) => {
   );
 };
 
-// Main dashboard component - updated to fetch data from JSON
+// Main dashboard component - updated with all requested changes
 const Dashboard = ({ onLogout }) => {
   const username = localStorage.getItem('githubUser') || 'Team Member';
   const [selectedPulsar, setSelectedPulsar] = useState(null);
   const [pulsars, setPulsars] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('All');
-  const [categoryFilter, setCategoryFilter] = useState('All');
+  const [mJyFilter, setMJyFilter] = useState('All');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [imageLoadError, setImageLoadError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -114,27 +114,23 @@ const Dashboard = ({ onLogout }) => {
       pulsar.id.toLowerCase().includes(searchTerm.toLowerCase());
     
     const matchesStatus = statusFilter === 'All' || pulsar.pulsar_details.status === statusFilter;
-    const matchesCategory = categoryFilter === 'All' || pulsar.pulsar_details.category === categoryFilter;
+    const matchesMJy = mJyFilter === 'All' || pulsar.pulsar_details.category === mJyFilter;
     
-    return matchesSearch && matchesStatus && matchesCategory;
+    return matchesSearch && matchesStatus && matchesMJy;
   });
 
-  // Get available image links for the current pulsar
+  // Get available image links for the current pulsar - UPDATED to be dynamic
   const getImageLinks = () => {
     if (!selectedPulsar) return [];
     
     const visData = selectedPulsar.visualisation_and_notes;
     const links = [];
     
-    // Add PUBLIC_URL prefix to ensure proper path resolution
-    if (visData.imageLink1) {
-      links.push(`${process.env.PUBLIC_URL}${visData.imageLink1}`);
-    }
-    if (visData.imageLink2) {
-      links.push(`${process.env.PUBLIC_URL}${visData.imageLink2}`);
-    }
-    if (visData.imageLink3) {
-      links.push(`${process.env.PUBLIC_URL}${visData.imageLink3}`);
+    // Dynamic approach to find all imageLink properties
+    for (const key in visData) {
+      if (key.startsWith('imageLink') && visData[key]) {
+        links.push(`${process.env.PUBLIC_URL}${visData[key]}`);
+      }
     }
     
     return links;
@@ -276,21 +272,23 @@ const Dashboard = ({ onLogout }) => {
                       onChange={(e) => setStatusFilter(e.target.value)}
                     >
                       <option value="All">All Statuses</option>
-                      <option value="Analyzed">Analyzed</option>
+                      <option value="Planned">Planned</option>
                       <option value="In Progress">In Progress</option>
-                      <option value="Verified">Verified</option>
+                      <option value="Observed">Observed</option>
+                      <option value="Analysed">Analysed</option>
                     </select>
                   </div>
                   <div className="w-1/2">
-                    <label className="block text-xs text-indigo-300 mb-1">Phase</label>
+                    <label className="block text-xs text-indigo-300 mb-1">Flux Density</label>
                     <select
                       className="w-full px-2 py-1.5 bg-slate-800/60 border border-indigo-600/30 rounded-md text-indigo-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm"
-                      value={categoryFilter}
-                      onChange={(e) => setCategoryFilter(e.target.value)}
+                      value={mJyFilter}
+                      onChange={(e) => setMJyFilter(e.target.value)}
                     >
-                      <option value="All">All Phases</option>
-                      <option value="Phase 1">Phase 1</option>
-                      <option value="Phase 2">Phase 2</option>
+                      <option value="All">All mJy</option>
+                      <option value="0.2-0.76 mJy">0.2-0.76 mJy</option>
+                      <option value="0.76-1.2 mJy">0.76-1.2 mJy</option>
+                      <option value=">1.2 mJy">1.2 mJy</option>
                     </select>
                   </div>
                 </div>
@@ -320,9 +318,10 @@ const Dashboard = ({ onLogout }) => {
                           <h3 className="font-medium text-indigo-100">{pulsar.pulsar_details.name}</h3>
                           <span className={`
                             text-xs px-2 py-1 rounded-full 
-                            ${pulsar.pulsar_details.status === 'Verified' ? 'bg-emerald-900/40 text-emerald-300 border border-emerald-500/30' : 
-                              pulsar.pulsar_details.status === 'Analyzed' ? 'bg-blue-900/40 text-blue-300 border border-blue-500/30' :
-                              'bg-amber-900/40 text-amber-300 border border-amber-500/30'}
+                            ${pulsar.pulsar_details.status === 'Analysed' ? 'bg-emerald-900/40 text-emerald-300 border border-emerald-500/30' : 
+                              pulsar.pulsar_details.status === 'Observed' ? 'bg-blue-900/40 text-blue-300 border border-blue-500/30' :
+                              pulsar.pulsar_details.status === 'In Progress' ? 'bg-amber-900/40 text-amber-300 border border-amber-500/30' :
+                              'bg-slate-900/40 text-slate-300 border border-slate-500/30'}
                           `}>
                             {pulsar.pulsar_details.status}
                           </span>
@@ -351,65 +350,54 @@ const Dashboard = ({ onLogout }) => {
               {/* Pulsar Details Card */}
               <div className="bg-slate-900/60 backdrop-blur-sm border border-indigo-500/20 rounded-xl shadow-xl mb-6 overflow-hidden">
                 <div className="p-5 border-b border-indigo-500/20 flex justify-between items-center">
-                  <h2 className="text-xl font-semibold text-white">{selectedPulsar.pulsar_details.name} Details</h2>
-                  {/* Download button removed as requested */}
+                  <div>
+                    <h2 className="text-xl font-semibold text-white">{selectedPulsar.pulsar_details.name} Details</h2>
+                    <p className="text-xs text-indigo-400 mt-1">Last updated: {selectedPulsar.pulsar_details.lastUpdated}</p>
+                  </div>
                 </div>
                 
                 <div className="p-5">
+                  {/* Merged parameters section with two columns */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="bg-slate-800/50 rounded-lg p-4 border border-indigo-500/10 shadow-inner">
-                      <h3 className="text-sm font-medium text-indigo-300 mb-2">Astrometric Parameters</h3>
-                      <div className="space-y-2 text-indigo-100">
-                        <div className="flex justify-between">
-                          <span className="text-indigo-400 text-sm">Distance:</span>
-                          <span className="text-white font-medium">{selectedPulsar.pulsar_details.distance}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-indigo-400 text-sm">Parallax:</span>
-                          <span className="text-white font-medium">{selectedPulsar.pulsar_details.parallax}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-indigo-400 text-sm">Proper Motion:</span>
-                          <span className="text-white font-medium">{selectedPulsar.pulsar_details.properMotion}</span>
-                        </div>
+                    <div className="space-y-2 text-indigo-100">
+                      <div className="flex justify-between">
+                        <span className="text-indigo-400 text-sm">Distance:</span>
+                        <span className="text-white font-medium">{selectedPulsar.pulsar_details.distance}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-indigo-400 text-sm">Parallax:</span>
+                        <span className="text-white font-medium">{selectedPulsar.pulsar_details.parallax}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-indigo-400 text-sm">Proper Motion:</span>
+                        <span className="text-white font-medium">{selectedPulsar.pulsar_details.properMotion}</span>
                       </div>
                     </div>
                     
-                    <div className="bg-slate-800/50 rounded-lg p-4 border border-indigo-500/10 shadow-inner">
-                      <h3 className="text-sm font-medium text-indigo-300 mb-2">Dataset Information</h3>
-                      <div className="space-y-2 text-indigo-100">
-                        <div className="flex justify-between">
-                          <span className="text-indigo-400 text-sm">Last Updated:</span>
-                          <span className="text-white font-medium">{selectedPulsar.pulsar_details.lastUpdated}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-indigo-400 text-sm">Category:</span>
-                          <span className="text-white font-medium">{selectedPulsar.pulsar_details.category}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-indigo-400 text-sm">Status:</span>
-                          <span className={`font-medium
-                            ${selectedPulsar.pulsar_details.status === 'Verified' ? 'text-emerald-300' :
-                              selectedPulsar.pulsar_details.status === 'Analyzed' ? 'text-blue-300' :
-                              'text-amber-300'}
-                          `}>
-                            {selectedPulsar.pulsar_details.status}
-                          </span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-indigo-400 text-sm">Dataset Size:</span>
-                          <span className="text-white font-medium">{selectedPulsar.pulsar_details.datasetSize}</span>
-                        </div>
-                        {/* Added Observation Date */}
-                        <div className="flex justify-between">
-                          <span className="text-indigo-400 text-sm">Observation Date:</span>
-                          <span className="text-white font-medium">{formatDate(selectedPulsar.pulsar_details.ObsDate)}</span>
-                        </div>
+                    <div className="space-y-2 text-indigo-100">
+                      <div className="flex justify-between">
+                        <span className="text-indigo-400 text-sm">Category:</span>
+                        <span className="text-white font-medium">{selectedPulsar.pulsar_details.category}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-indigo-400 text-sm">Status:</span>
+                        <span className={`font-medium
+                          ${selectedPulsar.pulsar_details.status === 'Analysed' ? 'text-emerald-300' :
+                            selectedPulsar.pulsar_details.status === 'Observed' ? 'text-blue-300' :
+                            selectedPulsar.pulsar_details.status === 'In Progress' ? 'text-amber-300' :
+                            'text-slate-300'}
+                        `}>
+                          {selectedPulsar.pulsar_details.status}
+                        </span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-indigo-400 text-sm">Observation Date:</span>
+                        <span className="text-white font-medium">{formatDate(selectedPulsar.pulsar_details.ObsDate)}</span>
                       </div>
                     </div>
                   </div>
                   
-                  {/* Visualization section - updated title and improved error handling */}
+                  {/* Visualization section - dynamic image handling */}
                   <div className="mt-4 bg-slate-800/30 rounded-lg border border-indigo-500/10 overflow-hidden">
                     <div className="p-3 bg-slate-800/50 border-b border-indigo-500/20 flex justify-between items-center">
                       <h3 className="text-sm font-medium text-indigo-300">Data Visualization</h3>
@@ -466,7 +454,7 @@ const Dashboard = ({ onLogout }) => {
                 </div>
               </div>
               
-              {/* Notes Section - simplified as requested */}
+              {/* Notes Section */}
               <div className="bg-slate-900/60 backdrop-blur-sm border border-indigo-500/20 rounded-xl shadow-xl">
                 <div className="p-5 border-b border-indigo-500/20">
                   <h2 className="text-lg font-semibold text-white flex items-center">
@@ -475,13 +463,10 @@ const Dashboard = ({ onLogout }) => {
                   </h2>
                 </div>
                 
-                {/* Display notes - simplified version */}
+                {/* Display notes */}
                 <div className="p-5">
                   {selectedPulsar.visualisation_and_notes.notes ? (
                     <div className="bg-slate-800/30 rounded-lg p-4 border border-indigo-500/10 whitespace-pre-line">
-                      <div className="text-xs text-indigo-400 mb-2">
-                        Last updated: {selectedPulsar.pulsar_details.lastUpdated}
-                      </div>
                       <div className="text-indigo-100">
                         {selectedPulsar.visualisation_and_notes.notes}
                       </div>
