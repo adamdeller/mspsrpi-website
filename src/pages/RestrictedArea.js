@@ -357,31 +357,31 @@ const Dashboard = ({ onLogout }) => {
                 </div>
                 
                 <div className="p-5">
-                  {/* Merged parameters section with two columns */}
+                  {/* Merged parameters section with two columns - improved spacing */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2 text-indigo-100">
-                      <div className="flex justify-between">
+                      <div className="grid grid-cols-2 items-center">
                         <span className="text-indigo-400 text-sm">Distance:</span>
-                        <span className="text-white font-medium">{selectedPulsar.pulsar_details.distance}</span>
+                        <span className="text-white font-medium pl-2">{selectedPulsar.pulsar_details.distance}</span>
                       </div>
-                      <div className="flex justify-between">
+                      <div className="grid grid-cols-2 items-center">
                         <span className="text-indigo-400 text-sm">Parallax:</span>
-                        <span className="text-white font-medium">{selectedPulsar.pulsar_details.parallax}</span>
+                        <span className="text-white font-medium pl-2">{selectedPulsar.pulsar_details.parallax}</span>
                       </div>
-                      <div className="flex justify-between">
+                      <div className="grid grid-cols-2 items-center">
                         <span className="text-indigo-400 text-sm">Proper Motion:</span>
-                        <span className="text-white font-medium">{selectedPulsar.pulsar_details.properMotion}</span>
+                        <span className="text-white font-medium pl-2">{selectedPulsar.pulsar_details.properMotion}</span>
                       </div>
                     </div>
                     
                     <div className="space-y-2 text-indigo-100">
-                      <div className="flex justify-between">
+                      <div className="grid grid-cols-2 items-center">
                         <span className="text-indigo-400 text-sm">Category:</span>
-                        <span className="text-white font-medium">{selectedPulsar.pulsar_details.category}</span>
+                        <span className="text-white font-medium pl-2">{selectedPulsar.pulsar_details.category}</span>
                       </div>
-                      <div className="flex justify-between">
+                      <div className="grid grid-cols-2 items-center">
                         <span className="text-indigo-400 text-sm">Status:</span>
-                        <span className={`font-medium
+                        <span className={`font-medium pl-2
                           ${selectedPulsar.pulsar_details.status === 'Analysed' ? 'text-emerald-300' :
                             selectedPulsar.pulsar_details.status === 'Observed' ? 'text-blue-300' :
                             selectedPulsar.pulsar_details.status === 'In Progress' ? 'text-amber-300' :
@@ -390,9 +390,9 @@ const Dashboard = ({ onLogout }) => {
                           {selectedPulsar.pulsar_details.status}
                         </span>
                       </div>
-                      <div className="flex justify-between">
+                      <div className="grid grid-cols-2 items-center">
                         <span className="text-indigo-400 text-sm">Observation Date:</span>
-                        <span className="text-white font-medium">{formatDate(selectedPulsar.pulsar_details.ObsDate)}</span>
+                        <span className="text-white font-medium pl-2">{formatDate(selectedPulsar.pulsar_details.ObsDate)}</span>
                       </div>
                     </div>
                   </div>

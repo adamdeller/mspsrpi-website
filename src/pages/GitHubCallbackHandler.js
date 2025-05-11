@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Authloading from './Authloading'; // Import the loading component
 
 const GitHubCallbackHandler = () => {
   const navigate = useNavigate();
@@ -50,11 +51,8 @@ const GitHubCallbackHandler = () => {
     authenticateWithGitHub();
   }, [navigate]);
 
-  return (
-    <div className="text-center py-20 text-white">
-      Authenticating with GitHub...
-    </div>
-  );
+  // Return the Authloading component instead of the simple text
+  return <Authloading />;
 };
 
 export default GitHubCallbackHandler;
