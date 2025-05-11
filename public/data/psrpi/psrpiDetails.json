@@ -3,9 +3,9 @@
   "heroTitle": "PSRπ",
   "heroSubtitle": "VLBA Astrometry of Pulsars",
   "heroDescription": "PSRπ is a project to map the Galactic distribution of radio pulsars, using Very Long Baseline Interferometry (VLBI). The VLBA can measure the parallax and proper motion of pulsars as faint as approximately 1 mJy to a typical accuracy of around 40 microarcseconds and 40 microarcseconds/year respectively. This is sufficient to calculate the distance and velocity of a source at 4 kpc - halfway to the Galactic center - to an accuracy of around 15%.",
-  "dataReleaseUrl": "/#/data-release",
+  "dataReleaseUrl": "/mspsrpi-website/#/data-release",
   "dataReleaseButtonText": "Access Data Release",
-  "publicationsUrl": "/#/publications",
+  "publicationsUrl": "/mspsrpi-website/#/publications",
   "publicationsButtonText": "View Publications",
   "viewAllPublicationsText": "View All Publications",
   

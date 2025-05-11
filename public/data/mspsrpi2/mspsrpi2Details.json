@@ -3,9 +3,9 @@
   "heroTitle": "MSPSRπ2",
   "heroSubtitle": "Turbocharging the most precisely timed pulsars with VLBI astrometry",
   "heroDescription": "MSPSRπ2 is an extension of the original MSPSRπ program, aiming to nearly triple the number of millisecond pulsars (MSPs) with VLBI astrometric measurements to enhance pulsar timing array sensitivity.",
-  "dataReleaseUrl": "/#/data-release",
+  "dataReleaseUrl": "/mspsrpi-website/#/data-release",
   "dataReleaseButtonText": "Access Data Release",
-  "publicationsUrl": "/#/publications",
+  "publicationsUrl": "/mspsrpi-website/#/publications",
   "publicationsButtonText": "View Publications",
   "viewAllPublicationsText": "View All Publications",
   
