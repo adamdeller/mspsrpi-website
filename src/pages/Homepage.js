@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { MapPin, Star, Book, ChevronRight, Users, ExternalLink, Search, Download } from 'lucide-react';
-import { Rocket, Telescope, MapPinned, BookOpenText, Stars, Ruler, BookOpen, Sparkles } from "lucide-react";
+import { MapPin, ChevronRight, Users, Search} from 'lucide-react';
+import { Rocket, Telescope, Ruler, BookOpen, Sparkles } from "lucide-react";
 import PulsarVisualizations from './PulsarVisualizations'; // Import the PulsarVisualizations component
+import Navbar from './Navbar'; // Import the Navbar component
 
 
 const Homepage = () => {
@@ -27,7 +28,7 @@ const Homepage = () => {
   const [pulsarJourneyVisible, setPulsarJourneyVisible] = useState(true);
   const [pulsarInfoVisible, setPulsarInfoVisible] = useState(true);
   const journeyIcons = [<Telescope />, <Rocket />, <Ruler />, <BookOpen />, <Sparkles />];
-  // Calculate max slides for team members (showing 2 at a time)
+    // Calculate max slides for team members (showing 2 at a time)
   const maxTeamSlides = Math.ceil(teamMembers.length / 2) - 1;
 
   useEffect(() => {
@@ -60,7 +61,7 @@ const Homepage = () => {
         const total = uniqueSources.size;
         const completed = completedSources.size;
         const percent = total ? Math.round((completed / total) * 100) : 0;
-        const yearsOfResearch = new Date().getFullYear() - earliestDate.getFullYear();
+        // const yearsOfResearch = new Date().getFullYear() - earliestDate.getFullYear();
 
         setProjectStats([
           { value: total.toString(), label: "Pulsars Observed" },
@@ -98,47 +99,8 @@ const Homepage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-950 via-slate-900 to-black text-gray-100">
       {/* Navigation */}
-      <nav className="bg-slate-900/90 backdrop-blur-md fixed w-full z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
-            <div className="flex-shrink-0 flex items-center">
-              <Link to="/" className="text-xl font-bold">MSPSR<span className="text-indigo-400">π</span></Link>
-            </div>
-            <div className="hidden md:flex items-center space-x-8">
-              <Link
-                to="/"
-                className={`${location.pathname === '/' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
-              >
-                Home
-              </Link>
-              <Link
-                to="/project"
-                className={`${location.pathname === '/project' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
-              >
-                Project
-              </Link>
-              <Link
-                to="/data-release"
-                className={`${location.pathname === '/data-release' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
-              >
-                Data Release
-              </Link>
-              <Link
-                to="/publications"
-                className={`${location.pathname === '/publications' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
-              >
-                Publications
-              </Link>
-              <Link
-                to="/team"
-                className={`${location.pathname === '/team' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
-              >
-                Team
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+      {/* Use the Navbar component instead of inline navbar */}
+      <Navbar colorTheme="default" />
 
       {/* Hero Section - With starry background */}
       <div className="relative min-h-screen pt-16">
@@ -534,10 +496,10 @@ const Homepage = () => {
 
               {/* Meet the team button */}
               <div className="flex justify-center mt-8">
-                <Link to="/team#top" className="inline-flex items-center px-5 py-2.5 border border-indigo-600/30 rounded-md shadow-xl text-base font-medium text-indigo-300 bg-slate-800/70 backdrop-blur-sm transition-all duration-300 hover:border-indigo-400/80 hover:text-indigo-200 hover:shadow-indigo-500/40 hover:shadow-[0_0_15px_rgba(79,70,229,0.4)]">
-                  <Users className="mr-2 h-5 w-5" />
-                  Meet the Team
-                </Link>
+              <Link to="/team#top" className="inline-flex items-center px-5 py-2.5 border border-indigo-600/30 rounded-md shadow-xl text-base font-medium text-indigo-300 bg-slate-800/70 backdrop-blur-sm transition-all duration-300 hover:border-indigo-400/80 hover:text-indigo-200 hover:shadow-indigo-500/40 hover:shadow-[0_0_15px_rgba(79,70,229,0.4)]">
+  <Users className="mr-2 h-5 w-5" />
+  Meet the Team
+</Link>
               </div>
             </div>
           </div>
