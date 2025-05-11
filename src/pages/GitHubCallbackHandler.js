@@ -28,7 +28,7 @@ const GitHubCallbackHandler = () => {
 
         if (response.ok && result?.user?.login) {
           // ✅ Replace with actual logic to check allowed usernames
-          const allowedUsers = ['kavindu12', 'anotheruser']; // example usernames
+          const allowedUsers = ['kavindu12', 'codexnyctis']; // example usernames
 
           if (allowedUsers.includes(result.user.login)) {
             localStorage.setItem('authenticated', 'true');
