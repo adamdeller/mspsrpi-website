@@ -1,6 +1,7 @@
 [
-    {
-      "id": "J0030+0451",
+  {
+    "id": "J0030+0451",
+    "pulsar_details": {
       "name": "PSR J0030+0451",
       "distance": "329 pc",
       "parallax": "3.04 ± 0.05 mas",
@@ -8,10 +9,17 @@
       "lastUpdated": "2025-02-15",
       "category": "Phase 2",
       "status": "Analyzed",
-      "datasetSize": "2.4 GB"
+      "datasetSize": "2.4 GB",
+      "ObsDate": "2024-03-10 14:15:00"
     },
-    {
-      "id": "J0610-2100",
+    "visualisation_and_notes": {
+      "imageLink1": "/data/visualisations/J0030+0451_vis.png",
+      "notes": "Millisecond pulsar with period of 4.87 ms. Notable for being one of the NICER targets for constraining neutron star radius. Spectral analysis suggests thermal emission from hot spots."
+    }
+  },
+  {
+    "id": "J0610-2100",
+    "pulsar_details": {
       "name": "PSR J0610-2100",
       "distance": "1.5 kpc",
       "parallax": "0.72 ± 0.11 mas",
@@ -19,10 +27,17 @@
       "lastUpdated": "2025-03-01",
       "category": "Phase 2",
       "status": "In Progress",
-      "datasetSize": "1.8 GB"
+      "datasetSize": "1.8 GB",
+      "ObsDate": "2024-03-25 18:30:00"
     },
-    {
-      "id": "J0621+1002",
+    "visualisation_and_notes": {
+      "imageLink1": "/data/visualisations/J0610-2100_vis.png",
+      "notes": "Black widow system with orbital period of 8.9 hours. The companion is likely a low-mass degenerate star. High proper motion observed."
+    }
+  },
+  {
+    "id": "J0621+1002",
+    "pulsar_details": {
       "name": "PSR J0621+1002",
       "distance": "1.6 kpc",
       "parallax": "0.74 ± 0.14 mas",
@@ -30,10 +45,17 @@
       "lastUpdated": "2025-01-20",
       "category": "Phase 2",
       "status": "Analyzed",
-      "datasetSize": "3.1 GB"
+      "datasetSize": "3.1 GB",
+      "ObsDate": "2024-04-03 22:30:00"
     },
-    {
-      "id": "J1012+5307",
+    "visualisation_and_notes": {
+      "imageLink1": "/data/visualisations/J0621+1002_vis.png",
+      "notes": "Binary millisecond pulsar with orbital period of 8.3 days. White dwarf companion. Relativistic periastron advance detected."
+    }
+  },
+  {
+    "id": "J1012+5307",
+    "pulsar_details": {
       "name": "PSR J1012+5307",
       "distance": "0.877 kpc",
       "parallax": "1.14 ± 0.04 mas",
@@ -41,10 +63,17 @@
       "lastUpdated": "2025-02-28",
       "category": "Phase 1",
       "status": "Verified",
-      "datasetSize": "4.2 GB"
+      "datasetSize": "4.2 GB",
+      "ObsDate": "2024-02-15 09:45:00"
     },
-    {
-      "id": "J1024-0719",
+    "visualisation_and_notes": {
+      "imageLink1": "/data/visualisations/J1012+5307_vis.png",
+      "notes": "Millisecond pulsar with period of 5.26 ms in a binary system with a low-mass helium white dwarf. System shows significant proper motion. Precise mass measurements available."
+    }
+  },
+  {
+    "id": "J1024-0719",
+    "pulsar_details": {
       "name": "PSR J1024-0719",
       "distance": "1.08 kpc",
       "parallax": "0.93 ± 0.05 mas",
@@ -52,7 +81,12 @@
       "lastUpdated": "2025-03-10",
       "category": "Phase 1",
       "status": "Verified",
-      "datasetSize": "2.9 GB"
+      "datasetSize": "2.9 GB",
+      "ObsDate": "2024-02-20 11:15:00"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": "/data/visualisations/J1024-0719_vis.png",
+      "notes": "Isolated millisecond pulsar with exceptionally high proper motion. Recent evidence suggests it may be in a very wide binary system with a low-mass companion."
     }
-  ]
-  
+  }
+]
