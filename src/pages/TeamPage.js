@@ -1,16 +1,42 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Users, Mail, Globe, Building } from 'lucide-react';
+import { Users, Mail, Globe, Building, ChevronUp } from 'lucide-react';
 
 const TeamPage = () => {
   const [activeTab, setActiveTab] = useState('research');
   const [teamMembers, setTeamMembers] = useState([]);
+  const [showScrollTop, setShowScrollTop] = useState(false); // Added for scroll-to-top
 
   useEffect(() => {
     fetch(`${process.env.PUBLIC_URL}/data/teamPage/teamMembers.json`)
       .then((response) => response.json())
       .then((data) => setTeamMembers(data.teamMembers))
       .catch((error) => console.error('Error loading team data:', error));
+  }, []);
+
+  // Scroll to top functionality
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
+
+  // Show/hide scroll button based on scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   return (
@@ -101,6 +127,17 @@ const TeamPage = () => {
           ))}
         </div>
       </div>
+
+      {/* Scroll to top button */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 p-3 rounded-full bg-indigo-900/80 text-white shadow-lg hover:bg-indigo-800 transition-all duration-300 backdrop-blur-sm border border-indigo-500/50"
+          aria-label="Scroll to top"
+        >
+          <ChevronUp className="h-6 w-6" />
+        </button>
+      )}
     </div>
   );
 };
