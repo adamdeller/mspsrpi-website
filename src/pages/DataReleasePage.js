@@ -95,7 +95,7 @@ const DataReleasePage = () => {
 
         // 格式化并存储所有阶段的数据
         setAllPhasesPulsars({
-          // PSRPI: formatPSRPIData(psrpiData),
+          PSRPI: formatPSRPIData(psrpiData),
           MSPSRPI: formatMSPSRPIData(mspsrpiData),
           MSPSRPI2: formatMSPSRPI2Data(mspsrpi2Data)
         });
@@ -105,9 +105,9 @@ const DataReleasePage = () => {
           ? formatMSPSRPIData(mspsrpiData)
           : selectedObsPhase === 'MSPSRPI2'
             ? formatMSPSRPI2Data(mspsrpi2Data)
-            : // formatPSRPIData(psrpiData);
+            : formatPSRPIData(psrpiData);
 
-            setPulsars(currentPhaseData);
+        setPulsars(currentPhaseData);
         setIsLoading(false);
       } catch (error) {
         console.error('Error loading pulsar data:', error);
@@ -116,29 +116,32 @@ const DataReleasePage = () => {
     };
 
     loadAllPhasesData();
-
-    // Determine which file to load based on the selected phase
-    const file =
-      selectedObsPhase === 'MSPSRPI'
-        ? `${process.env.PUBLIC_URL}/data/nishatest/pulsars.json`
-        : `${process.env.PUBLIC_URL}/data/nishatest/mspsrpi2Pulsars.json`;
-
-    fetch(file)
-      .then((response) => response.json())
-      .then((data) => {
-        // Transform the data based on the selected phase
-        const formattedData = selectedObsPhase === 'MSPSRPI'
-          ? formatMSPSRPIData(data)
-          : formatMSPSRPI2Data(data);
-
-        setPulsars(formattedData);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.error('Error loading pulsar data:', error);
-        setIsLoading(false);
-      });
   }, [selectedObsPhase]);
+
+  // Format PSRPI data (psrpiPulsars.json)
+  const formatPSRPIData = (data) => {
+    // Check if data is an array or has a pulsars property
+    const pulsarsArray = Array.isArray(data) ? data : (data.pulsars || []);
+
+    return pulsarsArray.map((pulsar, index) => ({
+      id: index.toString(),
+      name: pulsar.name || `PSR ${pulsar.name}`,
+      display_name: pulsar.display_name || pulsar.name,
+      phase: 'PSRPI',
+      status: 'Complete',
+      parallax: pulsar.astrometry?.parallax || 'N/A',
+      distance: pulsar.distance?.value || 'N/A',
+      properMotionRA: pulsar.astrometry?.proper_motion_ra || 'N/A',
+      properMotionDec: pulsar.astrometry?.proper_motion_dec || 'N/A',
+      position: pulsar.position || { rightAscension: 'N/A', declination: 'N/A' },
+      type: pulsar.type || 'Pulsar',
+      description: pulsar.description || '',
+      memberships: pulsar.memberships || [],
+      visualizations: pulsar.visualizations || [],
+      // Store the original pulsar data for full display
+      originalData: pulsar
+    }));
+  };
 
   // Format MSPSRPI data (pulsars.json)
   const formatMSPSRPIData = (data) => {
@@ -180,6 +183,7 @@ const DataReleasePage = () => {
       sessionDuration: pulsar.sessionDuration,
       fluxCategory: pulsar.fluxCategory,
       position: pulsar.position,
+      referenceDate: pulsar.referenceDate || 'N/A',
       notes: pulsar.notes,
       type: pulsar.fluxCategory, // Using fluxCategory as a type equivalent
       searchSession: pulsar.searchSession,
@@ -282,6 +286,12 @@ const DataReleasePage = () => {
               className={`inline-flex items-center px-4 py-2 border rounded-md text-sm transition duration-300 ${selectedObsPhase === 'MSPSRPI' ? 'border-purple-500 text-purple-300 bg-slate-800/80' : 'border-purple-500/30 text-purple-300 bg-slate-900/60 hover:bg-slate-800/80'}`}
             >
               MSPSRPI
+            </button>
+            <button
+              onClick={() => setSelectedObsPhase('PSRPI')}
+              className={`inline-flex items-center px-4 py-2 border rounded-md text-sm transition duration-300 ${selectedObsPhase === 'PSRPI' ? 'border-teal-500 text-teal-300 bg-slate-800/80' : 'border-teal-500/30 text-teal-300 bg-slate-900/60 hover:bg-slate-800/80'}`}
+            >
+              PSRPI
             </button>
             <button
               onClick={() => {
@@ -420,25 +430,68 @@ const DataReleasePage = () => {
                     </div>
                   )}
                 </div>
-              ) : (
+              ) : pulsar.phase === 'MSPSRPI' ? (
                 // Display for MSPSRPI phase
                 <div className="text-sm text-gray-300 space-y-2">
                   {pulsar.originalData?.astrometry && (
                     <>
                       <div className="flex justify-between items-center border-b border-slate-700 pb-1">
-                        <span className="text-indigo-400 font-medium">Type</span>
+                        <span className="text-purple-400 font-medium">Type</span>
                         <span className="text-white">{pulsar.type || "Unknown"}</span>
                       </div>
                       <div className="flex justify-between items-center border-b border-slate-700 pb-1">
-                        <span className="text-indigo-400 font-medium">Parallax</span>
+                        <span className="text-purple-400 font-medium">Parallax</span>
                         <span className="text-white">{pulsar.parallax || "N/A"}</span>
                       </div>
                       <div className="flex justify-between items-center border-b border-slate-700 pb-1">
-                        <span className="text-indigo-400 font-medium">PM_RA</span>
+                        <span className="text-purple-400 font-medium">PM_RA</span>
                         <span className="text-white">{pulsar.properMotionRA}</span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-indigo-400 font-medium">PM_Dec</span>
+                        <span className="text-purple-400 font-medium">PM_Dec</span>
+                        <span className="text-white">{pulsar.properMotionDec}</span>
+                      </div>
+                    </>
+                  )}
+
+                  {/* Membership tags if available */}
+                  {pulsar.memberships && pulsar.memberships.length > 0 && (
+                    <div className="pt-2 mt-2 border-t border-slate-700">
+                      <div className="flex flex-wrap gap-1">
+                        {pulsar.memberships.map((org, idx) => (
+                          <span key={idx} className={`text-xs px-2 py-0.5 rounded-md ${org === 'NANOGrav' ? 'bg-indigo-900/60 text-indigo-300' :
+                            org === 'CPTA' ? 'bg-emerald-900/60 text-emerald-300' :
+                              org === 'MPTA' ? 'bg-violet-900/60 text-violet-300' :
+                                org === 'EPTA' ? 'bg-rose-900/60 text-rose-300' :
+                                  org === 'PPTA' ? 'bg-amber-900/60 text-amber-300' :
+                                    'bg-gray-800 text-gray-300'
+                            }`}>
+                            {org}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                // Display for PSRPI phase
+                <div className="text-sm text-gray-300 space-y-2">
+                  {pulsar.originalData?.astrometry && (
+                    <>
+                      <div className="flex justify-between items-center border-b border-slate-700 pb-1">
+                        <span className="text-teal-400 font-medium">Type</span>
+                        <span className="text-white">{pulsar.type || "Pulsar"}</span>
+                      </div>
+                      <div className="flex justify-between items-center border-b border-slate-700 pb-1">
+                        <span className="text-teal-400 font-medium">Parallax</span>
+                        <span className="text-white">{pulsar.parallax || "N/A"}</span>
+                      </div>
+                      <div className="flex justify-between items-center border-b border-slate-700 pb-1">
+                        <span className="text-teal-400 font-medium">PM_RA</span>
+                        <span className="text-white">{pulsar.properMotionRA}</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-teal-400 font-medium">PM_Dec</span>
                         <span className="text-white">{pulsar.properMotionDec}</span>
                       </div>
                     </>
@@ -703,6 +756,178 @@ const DataReleasePage = () => {
                     </button>
                   </div>
                 </div>
+              ) : activePulsar.phase === 'PSRPI' ? (
+                // Display for PSRPI phase
+                <div className="space-y-4">
+                  {/* Type and Discovery */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {renderPulsarProperty("Type", activePulsar.originalData?.type || "Pulsar")}
+                    {activePulsar.originalData?.discovery_year && (
+                      <div>
+                        <h4 className="text-teal-300 font-medium mb-1">Discovery</h4>
+                        <p className="text-white">
+                          Discovered in {activePulsar.originalData.discovery_year}
+                          {activePulsar.originalData.discovered_by && ` by ${activePulsar.originalData.discovered_by}`}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Description */}
+                  {activePulsar.originalData?.description && (
+                    <div>
+                      <h4 className="text-teal-300 font-medium mb-1">Description</h4>
+                      <p className="text-gray-300">{activePulsar.originalData.description}</p>
+                    </div>
+                  )}
+
+                  {/* Key Facts */}
+                  {activePulsar.originalData?.key_facts && (
+                    <div>
+                      <h4 className="text-teal-300 font-medium mb-1">Key Facts</h4>
+                      {renderList(activePulsar.originalData.key_facts)}
+                    </div>
+                  )}
+
+                  {/* Period & Distance */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {renderPulsarProperty("Period", activePulsar.originalData?.period)}
+                    {activePulsar.originalData?.distance && renderPulsarProperty(
+                      "Distance",
+                      `${activePulsar.originalData.distance.value} ${activePulsar.originalData.distance.uncertainty ? ` ${activePulsar.originalData.distance.uncertainty}` : ''}`
+                    )}
+                  </div>
+
+                  {/* Position */}
+                  {activePulsar.originalData?.position && (
+                    <div>
+                      <h4 className="text-teal-300 font-medium mb-1">Position</h4>
+                      <div className="bg-slate-800/60 p-3 rounded">
+                        <div className="mb-2">
+                          <span className="text-yellow-300">Right Ascension:</span>
+                          <span className="text-white ml-2">{activePulsar.originalData.position.rightAscension}</span>
+                        </div>
+                        <div>
+                          <span className="text-yellow-300">Declination:</span>
+                          <span className="text-white ml-2">{activePulsar.originalData.position.declination}</span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Astrometry Properties */}
+                  {activePulsar.originalData?.astrometry && (
+                    <div>
+                      <h4 className="text-teal-300 font-medium mb-1">Astrometry</h4>
+                      <div className="bg-slate-800/60 p-3 rounded">
+                        {Object.entries(activePulsar.originalData.astrometry).map(([key, value]) => (
+                          <div key={key} className="mb-2">
+                            <span className="text-teal-300">{key.replace(/_/g, ' ')}:</span> <span className="text-white">{value}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* 2D visualization section */}
+                  <div className="mt-4 pt-3 border-t border-slate-700">
+                    <h4 className="text-teal-300 font-medium mb-3">Visualizations</h4>
+
+                    {/* Check if visualization data exists */}
+                    {activePulsar.visualizations && activePulsar.visualizations.length > 0 ? (
+                      // Display grid layout when visualization data is available
+                      <div className={`grid ${activePulsar.visualizations.length === 1 ? 'grid-cols-1' :
+                        activePulsar.visualizations.length === 2 ? 'grid-cols-1 md:grid-cols-2' :
+                          'grid-cols-1 md:grid-cols-2 xl:grid-cols-3'} gap-4`}>
+
+                        {activePulsar.visualizations.map((viz, index) => (
+                          <div key={index} className="bg-slate-800/30 rounded-lg p-3 border border-slate-700">
+                            <div className="flex justify-between items-start">
+                              <h5 className="text-teal-300 text-sm font-medium mb-2">{viz.title}</h5>
+                              {/* Add Maximize button */}
+                              <button
+                                className="text-teal-400 hover:text-teal-300"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  showFullScreenVisualization(viz, activePulsar.name);
+                                }}
+                                title="View full screen"
+                              >
+                                <ZoomIn size={16} />
+                              </button>
+                            </div>
+
+                            {/* Chart image container */}
+                            <div className="relative aspect-[4/3] bg-slate-800/50 rounded-md overflow-hidden flex items-center justify-center">
+                              <img
+                                src={`${process.env.PUBLIC_URL}${encodeURI(viz.path)}`}
+                                alt={`${activePulsar.name} - ${viz.title}`}
+                                className="w-full h-full object-contain"
+                                onError={(e) => {
+                                  // Display placeholder when image loading fails
+                                  e.target.src = `${process.env.PUBLIC_URL}/images/placeholder-chart.svg`;
+
+                                  // Add visualization overlay
+                                  const parent = e.target.parentNode;
+                                  if (!parent.querySelector('.visualization-overlay')) {
+                                    const overlay = document.createElement('div');
+                                    overlay.className = 'absolute inset-0 flex flex-col items-center justify-center bg-slate-800/80 p-4 text-center visualization-overlay';
+                                    overlay.innerHTML = `
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-teal-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    <p class="text-sm text-teal-300 font-medium">Visualization</p>
+                                    <p class="text-xs text-gray-400 mt-1">Data digitization in progress</p>
+                                  `;
+                                    parent.appendChild(overlay);
+                                  }
+                                }}
+                              />
+                            </div>
+
+                            {/* Chart description text */}
+                            {viz.description && (
+                              <p className="mt-2 text-xs text-gray-400">{viz.description}</p>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      // When no visualization data is available
+                      <div className="bg-slate-800/40 rounded-lg p-6 text-center">
+                        <div className="text-gray-400 mb-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
+                          </svg>
+                          <p className="text-lg font-medium text-teal-300">PSRPI Visualizations</p>
+                        </div>
+                        <p className="text-gray-400">
+                          Visualizations for historical PSRPI pulsars are currently being digitized from archive records.
+                          Check back soon for available visualizations.
+                        </p>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* References */}
+                  {activePulsar.originalData?.references && (
+                    <div>
+                      <h4 className="text-teal-300 font-medium mb-1">References</h4>
+                      {renderList(activePulsar.originalData.references)}
+                    </div>
+                  )}
+
+                  {/* Add a download button for this specific pulsar's data */}
+                  <div className="mt-6 pt-4 border-t border-slate-700">
+                    <button
+                      className="w-full py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-md flex items-center justify-center"
+                      onClick={() => {/* Handle download or link to detailed data */ }}
+                    >
+                      <Download className="mr-2 h-4 w-4" />
+                      Download {activePulsar.name} Data
+                    </button>
+                  </div>
+                </div>
               ) : (
                 // Enhanced display for MSPSRPI2 data
                 <div className="space-y-6">
@@ -747,6 +972,10 @@ const DataReleasePage = () => {
                           <div>
                             <h5 className="text-cyan-300 text-sm font-medium">Proper Motion</h5>
                             <p className="text-white">{activePulsar.properMotion}</p>
+                          </div>
+                          <div>
+                            <h5 className="text-cyan-300 text-sm font-medium">Reference Date (MJD)</h5>
+                            <p className="text-white">{activePulsar.referenceDate}</p>
                           </div>
                         </div>
                       ) : (
@@ -1107,7 +1336,7 @@ const DataReleasePage = () => {
         >
           <div
             className="bg-slate-900 border border-cyan-500/30 rounded-lg p-6 shadow-xl w-full max-w-5xl"
-            onClick={(e) => e.stopPropagation()} // 防止点击内容区域关闭模态框
+            onClick={(e) => e.stopPropagation()}
           >
             {/* Title */}
             <div className="flex justify-between items-center mb-6">
