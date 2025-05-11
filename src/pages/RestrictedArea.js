@@ -57,7 +57,7 @@ const Dashboard = ({ onLogout }) => {
   useEffect(() => {
     const fetchPulsars = async () => {
       try {
-        const res = await fetch(`${process.env.PUBLIC_URL}/restricted/pulsarlist.json`);
+        const res = await fetch(`${process.env.PUBLIC_URL}/data/restricted/pulsarlist.json`);
         const data = await res.json();
         setPulsars(data);
         if (data.length > 0) setSelectedPulsar(data[0]);
