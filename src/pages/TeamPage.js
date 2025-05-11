@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Users, Mail, Globe, Building, ChevronUp } from 'lucide-react';
+import Navbar from './Navbar';
 
 const TeamPage = () => {
   const [activeTab, setActiveTab] = useState('research');
@@ -41,7 +42,8 @@ const TeamPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-950 via-slate-900 to-black text-gray-100 team-page-fade">
-      <nav className="bg-slate-900/90 backdrop-blur-md fixed w-full z-50">
+      <Navbar className="md:hidden" />
+      <nav className="hidden md:block bg-slate-900/90 backdrop-blur-md fixed w-full z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex-shrink-0 flex items-center">
@@ -88,11 +90,11 @@ const TeamPage = () => {
                     }}
                   />
                 </div>
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2">
-                  <div className="w-20 h-20 rounded-full border-4 border-slate-900 overflow-hidden bg-indigo-800/30 flex items-center justify-center">
+                <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2">
+                <div className="w-36 h-36 rounded-full border-4 border-slate-900 overflow-hidden bg-indigo-800/30 flex items-center justify-center">
                     <img 
                       src={member.photo} 
-                      alt="" 
+                      alt={member.name || "Team member"} 
                       className="w-full h-full object-cover" 
                       onError={(e) => {
                         e.currentTarget.style.display = 'none';
