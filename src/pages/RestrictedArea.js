@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import GitHubLoginButton from './GitHubLoginButton';
 import { 
   Lock, Eye, EyeOff, MessageSquare, FileText, Download, 
   User, Calendar, Search, ArrowLeft, Filter, Clock, 
@@ -9,116 +10,8 @@ import {
 /* HI EVERYONE! 
 This is the design of the restricted section that we will try to build in the end after the MPV*/
 
-// Simple mock data for pulsars - in a real app, this would come from an API
-const MOCK_PULSARS = [
-  {
-    id: 'J0030+0451',
-    name: 'PSR J0030+0451',
-    distance: '329 pc',
-    parallax: '3.04 ± 0.05 mas',
-    properMotion: '-6.15 ± 0.05, 0.37 ± 0.14 mas/yr',
-    lastUpdated: '2025-02-15',
-    category: 'Phase 2',
-    status: 'Analyzed',
-    datasetSize: '2.4 GB'
-  },
-  {
-    id: 'J0610-2100',
-    name: 'PSR J0610-2100',
-    distance: '1.5 kpc',
-    parallax: '0.72 ± 0.11 mas',
-    properMotion: '9.06 ± 0.07, 16.6 ± 0.1 mas/yr',
-    lastUpdated: '2025-03-01',
-    category: 'Phase 2',
-    status: 'In Progress',
-    datasetSize: '1.8 GB'
-  },
-  {
-    id: 'J0621+1002',
-    name: 'PSR J0621+1002',
-    distance: '1.6 kpc',
-    parallax: '0.74 ± 0.14 mas',
-    properMotion: '3.27 ± 0.09, -1.1 ± 0.3 mas/yr',
-    lastUpdated: '2025-01-20',
-    category: 'Phase 2',
-    status: 'Analyzed',
-    datasetSize: '3.1 GB'
-  },
-  {
-    id: 'J1012+5307',
-    name: 'PSR J1012+5307',
-    distance: '0.877 kpc',
-    parallax: '1.14 ± 0.04 mas',
-    properMotion: '2.61 ± 0.01, -25.49 ± 0.01 mas/yr',
-    lastUpdated: '2025-02-28',
-    category: 'Phase 1',
-    status: 'Verified',
-    datasetSize: '4.2 GB'
-  },
-  {
-    id: 'J1024-0719',
-    name: 'PSR J1024-0719',
-    distance: '1.08 kpc',
-    parallax: '0.93 ± 0.05 mas',
-    properMotion: '-35.27 ± 0.02, -48.22 ± 0.03 mas/yr',
-    lastUpdated: '2025-03-10',
-    category: 'Phase 1',
-    status: 'Verified',
-    datasetSize: '2.9 GB'
-  }
-];
-
-// Mock comments data
-const initialComments = {
-  'J0030+0451': [
-    {
-      id: 1,
-      author: 'Adam Deller',
-      timestamp: '2025-03-15T10:23:45',
-      text: 'The parallax measurement for this pulsar is remarkably precise. We should use this as a benchmark for our Phase 2 analysis methods.',
-      replies: []
-    },
-  ],
-  'J0610-2100': [
-    {
-      id: 1,
-      author: 'Ben Stappers',
-      timestamp: '2025-03-05T09:17:33',
-      text: 'The high proper motion here is interesting. This is one of the faster-moving millisecond pulsars in our sample.',
-      replies: []
-    }
-  ],
-  'J1012+5307': [
-    {
-      id: 1,
-      author: 'Miller Goss',
-      timestamp: '2025-02-28T11:28:50',
-      text: 'The orbital parameters from this system provide one of our best tests of gravitational theory. We should highlight this in the upcoming review.',
-      replies: []
-    }
-  ]
-};
-
 // Login component
 const Login = ({ onLogin }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState('');
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    // Hardcoded credentials for the team
-    // In a real application, this would be handled securely on a server
-    if (username === 'mspsrpi_team' && password === 'pulsar2025') {
-      localStorage.setItem('authenticated', 'true');
-      onLogin();
-    } else {
-      setError('Invalid credentials. Please try again.');
-    }
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-950 via-slate-900 to-black flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-md">
@@ -139,79 +32,8 @@ const Login = ({ onLogin }) => {
               </div>
               <h2 className="mt-6 text-3xl font-bold text-white">Restricted Area</h2>
               <p className="mt-2 text-indigo-300">Team access only</p>
+              <GitHubLoginButton />
             </div>
-            
-            <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-              {error && (
-                <div className="bg-red-900/30 border border-red-500/30 rounded-md p-3 text-red-200 text-sm">
-                  {error}
-                </div>
-              )}
-              
-              <div className="rounded-md shadow-sm space-y-4">
-                <div>
-                  <label htmlFor="username" className="block text-sm font-medium text-indigo-200 mb-1">
-                    Username
-                  </label>
-                  <input
-                    id="username"
-                    name="username"
-                    type="text"
-                    required
-                    className="appearance-none relative block w-full px-3 py-3 border border-indigo-700/50 bg-slate-800/50 text-indigo-100 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                    placeholder="Enter team username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="password" className="block text-sm font-medium text-indigo-200 mb-1">
-                    Password
-                  </label>
-                  <div className="relative">
-                    <input
-                      id="password"
-                      name="password"
-                      type={showPassword ? "text" : "password"}
-                      required
-                      className="appearance-none relative block w-full px-3 py-3 border border-indigo-700/50 bg-slate-800/50 text-indigo-100 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm pr-10"
-                      placeholder="Enter team password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
-                    <button
-                      type="button"
-                      className="absolute inset-y-0 right-0 pr-3 flex items-center text-indigo-400 hover:text-indigo-300"
-                      onClick={() => setShowPassword(!showPassword)}
-                    >
-                      {showPassword ? (
-                        <EyeOff className="h-5 w-5" />
-                      ) : (
-                        <Eye className="h-5 w-5" />
-                      )}
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <button
-                  type="submit"
-                  className="group relative w-full flex justify-center py-3 px-4 border border-indigo-600/40 text-sm font-medium rounded-md text-white bg-indigo-700/50 hover:bg-indigo-700/70 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-200 shadow-lg hover:shadow-indigo-500/30"
-                >
-                  <span className="absolute left-0 inset-y-0 flex items-center pl-3">
-                    <Lock className="h-5 w-5 text-indigo-300 group-hover:text-indigo-200" />
-                  </span>
-                  Access Research Hub
-                </button>
-              </div>
-              
-              <div className="text-center text-xs text-indigo-400">
-                <p>For authorized MSPSRπ team members only.</p>
-                <p className="mt-1">Contact the project lead if you need assistance.</p>
-              </div>
-            </form>
 
             <div className="mt-8 text-center">
               <Link to="/" className="text-indigo-400 hover:text-indigo-300 text-sm flex items-center justify-center">
@@ -228,12 +50,30 @@ const Login = ({ onLogin }) => {
 
 // Main dashboard component
 const Dashboard = ({ onLogout }) => {
-  const [selectedPulsar, setSelectedPulsar] = useState(MOCK_PULSARS[0]);
+  const username = localStorage.getItem('githubUser') || 'Team Member';
+  const [selectedPulsar, setSelectedPulsar] = useState([]);
+  const [pulsars, setPulsars] = useState([]);
+  
+  useEffect(() => {
+    const fetchPulsars = async () => {
+      try {
+        const res = await fetch(`${process.env.PUBLIC_URL}/restricted/pulsarlist.json`);
+        const data = await res.json();
+        setPulsars(data);
+        if (data.length > 0) setSelectedPulsar(data[0]);
+      } catch (err) {
+        console.error("Failed to fetch pulsarlist.json:", err);
+      }
+    };
+    fetchPulsars();
+  }, []);
+  
   const [comments, setComments] = useState(() => {
-    // Try to get comments from localStorage, or use initial data
+    // Try to get comments from localStorage, or use empty object
     const savedComments = localStorage.getItem('pulsarComments');
-    return savedComments ? JSON.parse(savedComments) : initialComments;
+    return savedComments ? JSON.parse(savedComments) : {};
   });
+  
   const [newComment, setNewComment] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('All');
@@ -247,7 +87,7 @@ const Dashboard = ({ onLogout }) => {
   }, [comments]);
 
   // Handle filtering of pulsars
-  const filteredPulsars = MOCK_PULSARS.filter(pulsar => {
+  const filteredPulsars = pulsars.filter(pulsar => {
     const matchesSearch = pulsar.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                         pulsar.id.toLowerCase().includes(searchTerm.toLowerCase());
     
@@ -264,7 +104,7 @@ const Dashboard = ({ onLogout }) => {
     const pulsarId = selectedPulsar.id;
     const newCommentObj = {
       id: Date.now(),
-      author: 'Team Member', // In a real app, this would be the logged-in user
+      author: String(username), // In a real app, this would be the logged-in user
       timestamp: new Date().toISOString(),
       text: newComment,
       replies: []
@@ -285,7 +125,7 @@ const Dashboard = ({ onLogout }) => {
     const pulsarId = selectedPulsar.id;
     const reply = {
       id: Date.now(),
-      author: 'Team Member', // In a real app, this would be the logged-in user
+      author: String(username), // In a real app, this would be the logged-in user
       timestamp: new Date().toISOString(),
       text: replyText
     };
@@ -344,7 +184,7 @@ const Dashboard = ({ onLogout }) => {
               </button>
               <button className="flex items-center text-indigo-300 hover:text-indigo-100 gap-1">
                 <User className="h-5 w-5" />
-                <span className="text-sm">Team Member</span>
+                <span className="text-sm">{username}</span>
               </button>
               <button
                 onClick={onLogout}
@@ -474,10 +314,10 @@ const Dashboard = ({ onLogout }) => {
             <div className="bg-slate-900/60 backdrop-blur-sm border border-indigo-500/20 rounded-xl shadow-xl mb-6 overflow-hidden">
               <div className="p-5 border-b border-indigo-500/20 flex justify-between items-center">
                 <h2 className="text-xl font-semibold text-white">{selectedPulsar.name} Details</h2>
-                <button className="flex items-center px-3 py-1.5 bg-indigo-700/50 hover:bg-indigo-700/70 text-indigo-200 text-sm rounded-md border border-indigo-600/40 transition-colors duration-200">
+                {/* <button className="flex items-center px-3 py-1.5 bg-indigo-700/50 hover:bg-indigo-700/70 text-indigo-200 text-sm rounded-md border border-indigo-600/40 transition-colors duration-200">
                   <Download className="h-4 w-4 mr-1" />
                   Download Dataset
-                </button>
+                </button> */}
               </div>
               
               <div className="p-5">

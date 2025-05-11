@@ -3,7 +3,7 @@
 //------------------------------------------------------------------
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react'; // Import icons for mobile menu
+import { Menu, X, UserCircle } from 'lucide-react'; // Added UserCircle for login icon
 
 //------------------------------------------------------------------
 //                     COMPONENT DEFINITION
@@ -83,10 +83,34 @@ const Navbar = ({ navLinks, colorTheme = 'default' }) => {
             >
               {links.team}
             </Link>
+            
+            {/* Login icon for research team - desktop */}
+            <Link
+              to="/restricted-area"
+              className="text-gray-300 hover:text-white flex items-center group relative"
+              title="Research Team Login"
+            >
+              <UserCircle className="w-5 h-5" />
+              <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-slate-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 whitespace-nowrap transition-opacity">
+                Research Team Login
+              </span>
+            </Link>
           </div>
           
           {/* Mobile menu button - visible only on mobile */}
           <div className="md:hidden flex items-center">
+            {/* Login icon for research team - mobile (always visible) */}
+            <Link
+              to="/restricted-area"
+              className="text-gray-300 hover:text-white mr-4 relative group"
+              title="Research Team Login"
+            >
+              <UserCircle className="w-5 h-5" />
+              <span className="absolute -bottom-8 right-0 bg-slate-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 whitespace-nowrap transition-opacity">
+                Research Team Login
+              </span>
+            </Link>
+            
             <button
               onClick={toggleMobileMenu}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none"
@@ -141,6 +165,15 @@ const Navbar = ({ navLinks, colorTheme = 'default' }) => {
               onClick={() => setMobileMenuOpen(false)}
             >
               {links.team}
+            </Link>
+            {/* Adding login option to mobile menu as well */}
+            <Link
+              to="/restricted-area"
+              className="text-gray-300 hover:bg-slate-800 hover:text-white flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <UserCircle className="w-5 h-5" />
+              Research Team Login
             </Link>
           </div>
         </div>

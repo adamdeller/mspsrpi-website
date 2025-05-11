@@ -8,6 +8,7 @@ import RestrictedArea from './pages/RestrictedArea';
 import MSPSRPIDetailsPage from './pages/MSPSRPIDetailsPage';
 import MSPSRPI2DetailsPage from './pages/MSPSRPI2DetailsPage';
 import PSRPIDetailsPage from './pages/PSRPIDetailsPage';
+import GitHubCallbackHandler from './pages/GitHubCallbackHandler';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <Route path="/project" element={<ProjectPage />} />
       <Route path="/data-release" element={<DataReleasePage />} />
       <Route path="/publications" element={<PublicationsPage />} />
+      <Route path="/github-callback" element={<GitHubCallbackHandler />} />
       <Route path="/restricted-area" element={<RestrictedArea />} />
       <Route path="/team" element={<TeamPage />} />
       <Route path="/projects/mspsrpi-details" element={<MSPSRPIDetailsPage />} />
