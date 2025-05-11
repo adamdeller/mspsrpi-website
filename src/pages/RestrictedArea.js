@@ -443,27 +443,20 @@ const Dashboard = ({ onLogout }) => {
                       )}
                     </div>
                     
-                    <div className="p-4">
+                    <div className="p-4 flex items-center justify-center">
                       {getImageLinks().length > 0 ? (
-                        <div className="text-center">
-                          {/* Use a safer error handling approach with state */}
-                          <div className="relative w-full flex flex-col items-center">
-                            <img 
-                              src={getImageLinks()[currentImageIndex]} 
-                              alt={`${selectedPulsar.pulsar_details.name} visualization`}
-                              className="w-full h-auto max-h-64 object-contain mx-auto"
-                              onError={(e) => {
-                                e.target.onError = null; // Prevent infinite loops
-                                e.target.src = "/api/placeholder/400/250";
-                                e.target.alt = "Visualization unavailable";
-                                e.target.className = "w-full h-auto max-h-48 object-contain mx-auto opacity-40";
-                              }}
-                            />
-                            <div className="mt-3 text-amber-300 text-sm">
-                              <p>Image may fail to load. Please check if the file name and location is correct in the 'visuals' directory.</p>
-                              <p className="text-xs text-amber-400/70 mt-1">Path: {getImageLinks()[currentImageIndex]}</p>
-                            </div>
-                          </div>
+                        <div className="relative w-full">
+                          <img 
+                            src={getImageLinks()[currentImageIndex]} 
+                            alt={`${selectedPulsar.pulsar_details.name} visualization`}
+                            className="w-full h-auto max-h-64 object-contain mx-auto"
+                            onError={(e) => {
+                              e.target.onerror = null;
+                              e.target.src = "/api/placeholder/400/250";
+                              e.target.alt = "Visualization unavailable";
+                              e.target.className = "w-full h-auto max-h-64 object-contain mx-auto opacity-50";
+                            }}
+                          />
                         </div>
                       ) : (
                         <div className="text-indigo-300 text-center py-12">
@@ -471,8 +464,6 @@ const Dashboard = ({ onLogout }) => {
                           <p>No visualization data available</p>
                         </div>
                       )}
-                    </div>
-                  </div>
                     </div>
                   </div>
                 </div>
