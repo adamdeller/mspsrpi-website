@@ -45,7 +45,7 @@ const Login = ({ onLogin }) => {
   );
 };
 
-// Main dashboard component - updated to match new JSON structure
+// Main dashboard component - updated to fetch data from JSON
 const Dashboard = ({ onLogout }) => {
   const username = localStorage.getItem('githubUser') || 'Team Member';
   const [selectedPulsar, setSelectedPulsar] = useState(null);
@@ -55,106 +55,33 @@ const Dashboard = ({ onLogout }) => {
   const [categoryFilter, setCategoryFilter] = useState('All');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [imageLoadError, setImageLoadError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadError, setLoadError] = useState(null);
   
   useEffect(() => {
-    // Mock function to simulate loading the pulsars from the JSON provided
     const loadPulsarData = () => {
-      // This would normally be a fetch call to your API
-      const data = [
-        {
-          "id": "J0030+0451",
-          "pulsar_details": {
-            "name": "PSR J0030+0451",
-            "distance": "329 pc",
-            "parallax": "3.04 ± 0.05 mas",
-            "properMotion": "-6.15 ± 0.05, 0.37 ± 0.14 mas/yr",
-            "lastUpdated": "2025-02-15",
-            "category": "Phase 2",
-            "status": "Analyzed",
-            "datasetSize": "2.4 GB",
-            "ObsDate": "2024-03-10 14:15:00"
-          },
-          "visualisation_and_notes": {
-            "imageLink1": "/data/visualisations/J0030+0451_vis.png",
-            "notes": "Millisecond pulsar with period of 4.87 ms. Notable for being one of the NICER targets for constraining neutron star radius. Spectral analysis suggests thermal emission from hot spots."
-          }
-        },
-        {
-          "id": "J0610-2100",
-          "pulsar_details": {
-            "name": "PSR J0610-2100",
-            "distance": "1.5 kpc",
-            "parallax": "0.72 ± 0.11 mas",
-            "properMotion": "9.06 ± 0.07, 16.6 ± 0.1 mas/yr",
-            "lastUpdated": "2025-03-01",
-            "category": "Phase 2",
-            "status": "In Progress",
-            "datasetSize": "1.8 GB",
-            "ObsDate": "2024-03-25 18:30:00"
-          },
-          "visualisation_and_notes": {
-            "imageLink1": "/data/visualisations/J0610-2100_vis.png",
-            "notes": "Black widow system with orbital period of 8.9 hours. The companion is likely a low-mass degenerate star. High proper motion observed."
-          }
-        },
-        {
-          "id": "J0621+1002",
-          "pulsar_details": {
-            "name": "PSR J0621+1002",
-            "distance": "1.6 kpc",
-            "parallax": "0.74 ± 0.14 mas",
-            "properMotion": "3.27 ± 0.09, -1.1 ± 0.3 mas/yr",
-            "lastUpdated": "2025-01-20",
-            "category": "Phase 2",
-            "status": "Analyzed",
-            "datasetSize": "3.1 GB",
-            "ObsDate": "2024-04-03 22:30:00"
-          },
-          "visualisation_and_notes": {
-            "imageLink1": "/data/visualisations/J0621+1002_vis.png",
-            "notes": "Binary millisecond pulsar with orbital period of 8.3 days. White dwarf companion. Relativistic periastron advance detected."
-          }
-        },
-        {
-          "id": "J1012+5307",
-          "pulsar_details": {
-            "name": "PSR J1012+5307",
-            "distance": "0.877 kpc",
-            "parallax": "1.14 ± 0.04 mas",
-            "properMotion": "2.61 ± 0.01, -25.49 ± 0.01 mas/yr",
-            "lastUpdated": "2025-02-28",
-            "category": "Phase 1",
-            "status": "Verified",
-            "datasetSize": "4.2 GB",
-            "ObsDate": "2024-02-15 09:45:00"
-          },
-          "visualisation_and_notes": {
-            "imageLink1": "/data/visualisations/J1012+5307_vis.png",
-            "notes": "Millisecond pulsar with period of 5.26 ms in a binary system with a low-mass helium white dwarf. System shows significant proper motion. Precise mass measurements available."
-          }
-        },
-        {
-          "id": "J1024-0719",
-          "pulsar_details": {
-            "name": "PSR J1024-0719",
-            "distance": "1.08 kpc",
-            "parallax": "0.93 ± 0.05 mas",
-            "properMotion": "-35.27 ± 0.02, -48.22 ± 0.03 mas/yr",
-            "lastUpdated": "2025-03-10",
-            "category": "Phase 1",
-            "status": "Verified",
-            "datasetSize": "2.9 GB",
-            "ObsDate": "2024-02-20 11:15:00"
-          },
-          "visualisation_and_notes": {
-            "imageLink1": "/data/visualisations/J1024-0719_vis.png",
-            "notes": "Isolated millisecond pulsar with exceptionally high proper motion. Recent evidence suggests it may be in a very wide binary system with a low-mass companion."
-          }
-        }
-      ];
+      setIsLoading(true);
+      setLoadError(null);
       
-      setPulsars(data);
-      if (data.length > 0) setSelectedPulsar(data[0]);
+      // Fetch the pulsar data from the JSON file
+      fetch(`${process.env.PUBLIC_URL}/data/restricted/pulsarlist.json`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log('Successfully loaded pulsar data:', data);
+          setPulsars(data);
+          if (data.length > 0) setSelectedPulsar(data[0]);
+          setIsLoading(false);
+        })
+        .catch(error => {
+          console.error('Error loading pulsar data:', error);
+          setLoadError(`Failed to load pulsar data: ${error.message}`);
+          setIsLoading(false);
+        });
     };
     
     loadPulsarData();
@@ -179,9 +106,16 @@ const Dashboard = ({ onLogout }) => {
     const visData = selectedPulsar.visualisation_and_notes;
     const links = [];
     
-    if (visData.imageLink1) links.push(visData.imageLink1);
-    if (visData.imageLink2) links.push(visData.imageLink2);
-    if (visData.imageLink3) links.push(visData.imageLink3);
+    // Add PUBLIC_URL prefix to ensure proper path resolution
+    if (visData.imageLink1) {
+      links.push(`${process.env.PUBLIC_URL}${visData.imageLink1}`);
+    }
+    if (visData.imageLink2) {
+      links.push(`${process.env.PUBLIC_URL}${visData.imageLink2}`);
+    }
+    if (visData.imageLink3) {
+      links.push(`${process.env.PUBLIC_URL}${visData.imageLink3}`);
+    }
     
     return links;
   };
@@ -215,7 +149,36 @@ const Dashboard = ({ onLogout }) => {
   // Handle image load error
   const handleImageError = () => {
     setImageLoadError(true);
+    console.error("Failed to load image:", getImageLinks()[currentImageIndex]);
   };
+
+  // If still loading, show a loading state
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-indigo-950 via-slate-900 to-black flex items-center justify-center">
+        <div className="text-indigo-300 text-xl">Loading pulsar data...</div>
+      </div>
+    );
+  }
+
+  // If there was an error loading data, show error message
+  if (loadError) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-indigo-950 via-slate-900 to-black flex items-center justify-center">
+        <div className="bg-slate-900/60 backdrop-blur-sm border border-red-500/30 rounded-xl p-8 max-w-md">
+          <h2 className="text-xl font-semibold text-white mb-4">Error Loading Data</h2>
+          <p className="text-red-300 mb-4">{loadError}</p>
+          <button
+            onClick={onLogout}
+            className="flex items-center gap-1 text-sm bg-slate-800 px-4 py-2 rounded-md text-indigo-300 hover:bg-slate-700"
+          >
+            <LogOut className="h-5 w-5" />
+            <span>Logout</span>
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-950 via-slate-900 to-black">
