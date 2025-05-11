@@ -59,7 +59,7 @@ const DownloadModal = ({ isOpen, pulsar, onClose }) => {
 
   // Get the file extension from the path
   const getFileExtension = (path) => {
-    if (!path) return 'jpg'; // 默认扩展名
+    if (!path) return 'jpg';  // Default format
     const match = path.match(/\.([^.]+)$/);
     return match ? match[1].toLowerCase() : 'jpg';
   };
