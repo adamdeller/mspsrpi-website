@@ -93,7 +93,7 @@ const BatchDownloadModal = ({
               ></div>
             </div>
             <p className="text-xs text-gray-400 mt-4 text-center">
-              Please don't close this window while your download is being prepared.
+              Even if the window is closed, the download will continue to prepare for you
             </p>
           </div>
         )}
