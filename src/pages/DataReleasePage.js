@@ -1361,6 +1361,10 @@ const DataReleasePage = () => {
                   onError={(e) => {
                     e.target.src = `${process.env.PUBLIC_URL}/images/placeholder-chart.svg`;
 
+                    e.target.style.aspectRatio = "4/3";
+                    e.target.style.objectFit = "contain";
+                    e.target.style.maxHeight = "60vh";
+
                     // Dynamically create overlay
                     const parent = e.target.parentNode;
                     if (!parent.querySelector('.fullscreen-overlay')) {
@@ -1382,7 +1386,7 @@ const DataReleasePage = () => {
 
             {/* Description text */}
             {activeVisualization.description && (
-              <div className="mt-4 p-4 bg-slate-800/40 rounded-md">
+              <div className="mt-4 p-4 bg-slate-800/40 rounded-md overflow-auto">
                 <p className="text-gray-300">{activeVisualization.description}</p>
               </div>
             )}
