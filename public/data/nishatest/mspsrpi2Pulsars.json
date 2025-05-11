@@ -21,7 +21,7 @@
     "visualizations": [
       {
         "title": "Flux Density Profile",
-        "path": "/images/2D_Visualisation/J0023+0923_flux.jpeg",
+        "path": "/images/2D_Visualisation/MSPSRPI2/J0023+0923_flux.jpeg",
         "description": "Pulsar flux density measurements across frequency bands"
       },
       {
@@ -49,23 +49,7 @@
     },
     "searchSession": "1.0 hour",
     "astrometrySession": "4.0 hours",
-    "visualizations": [
-      {
-        "title": "Flux Density Profile",
-        "path": "/2D_Visualisation/J0023+0923_flux.png",
-        "description": "Pulsar flux density measurements across frequency bands"
-      },
-      {
-        "title": "Timing Residuals",
-        "path": "/2D_Visualisatio/J0023+0923_timing.png",
-        "description": "Post-fit timing residuals showing deviations from the timing model"
-      },
-      {
-        "title": "One More Thing",
-        "path": "/2D_Visualisatio/J0023+0923_timing.png",
-        "description": "To have a look of a pulsar has 3 graphs."
-      }
-    ]
+    "visualizations": []
   },
   {
     "name": "J0340+4130",

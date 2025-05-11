@@ -105,7 +105,7 @@ function convertToXYZ(raStr, decStr, distanceKpc = 3) {
 }
 
 function Earth() {
-  const texture = useLoader(TextureLoader, process.env.PUBLIC_URL + '/images/earth.jpg')
+  const texture = useLoader(TextureLoader, process.env.PUBLIC_URL + '/images/3D_Visualisation/earth.jpg')
   return (
     <mesh>
       <sphereGeometry args={[0.4, 64, 64]} />
@@ -115,7 +115,7 @@ function Earth() {
 }
 
 function StarBackground() {
-  const starTexture = useLoader(TextureLoader, process.env.PUBLIC_URL + '/images/starfield.jpg')
+  const starTexture = useLoader(TextureLoader, process.env.PUBLIC_URL + '/images/3D_Visualisation/starfield.jpg')
   return (
     <mesh>
       <sphereGeometry args={[100, 64, 64]} />

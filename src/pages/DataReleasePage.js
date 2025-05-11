@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import PulsarGalaxy from './Galatic'
 import Navbar from './Navbar'; // Import the Navbar component
+import DownloadModal from './DownloadModal';
+import BatchDownloadHandler from './BatchDownloadHandler';
 import {
   Search,
   Download,
@@ -26,9 +28,36 @@ const DataReleasePage = () => {
   const [showFilters, setShowFilters] = useState(false);
   const [activeVisualization, setActiveVisualization] = useState(null);
 
+  const [downloadPulsar, setDownloadPulsar] = useState(null);
+  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
+
+  const [allPhasesPulsars, setAllPhasesPulsars] = useState({
+    PSRPI: [],
+    MSPSRPI: [],
+    MSPSRPI2: []
+  });
+
+  const { handleBatchDownloadClick, BatchDownloadModalComponent } = BatchDownloadHandler({
+    allPhasesPulsars,
+    currentPulsars: pulsars
+  });
+
   //check if the pulsar has visualisations
   const hasPulsarVisualizations = (pulsar) => {
     return true;
+  };
+
+  //Handling the download button clicking
+  const handleDownloadClick = (pulsar, e) => {
+    if (e) e.stopPropagation(); // 防止触发其他点击事件
+    setDownloadPulsar(pulsar);
+    setIsDownloadModalOpen(true);
+  };
+
+  //Closing download modal
+  const closeDownloadModal = () => {
+    setIsDownloadModalOpen(false);
+    setDownloadPulsar(null);
   };
 
   const showFullScreenVisualization = (visualization, pulsarName) => {
@@ -40,6 +69,54 @@ const DataReleasePage = () => {
 
   useEffect(() => {
     setIsLoading(true);
+
+    // 加载所有三个阶段的数据
+    const loadAllPhasesData = async () => {
+      try {
+        if (allPhasesPulsars && Object.keys(allPhasesPulsars).length > 0) {
+          setPulsars(allPhasesPulsars[selectedObsPhase] || []);
+        }
+        // 加载 MSPSRPI 数据
+        const mspsrpiResponse = await fetch(`${process.env.PUBLIC_URL}/data/nishatest/pulsars.json`);
+        const mspsrpiData = await mspsrpiResponse.json();
+
+        // 加载 MSPSRPI2 数据
+        const mspsrpi2Response = await fetch(`${process.env.PUBLIC_URL}/data/nishatest/mspsrpi2Pulsars.json`);
+        const mspsrpi2Data = await mspsrpi2Response.json();
+
+        // 假设 PSRPI 数据在另一个文件中，如果不存在，可以准备一个空数组
+        let psrpiData = [];
+        try {
+          const psrpiResponse = await fetch(`${process.env.PUBLIC_URL}/data/nishatest/psrpiPulsars.json`);
+          psrpiData = await psrpiResponse.json();
+        } catch (error) {
+          console.warn('PSRPI data file not found, using empty array', error);
+        }
+
+        // 格式化并存储所有阶段的数据
+        setAllPhasesPulsars({
+          // PSRPI: formatPSRPIData(psrpiData),
+          MSPSRPI: formatMSPSRPIData(mspsrpiData),
+          MSPSRPI2: formatMSPSRPI2Data(mspsrpi2Data)
+        });
+
+        // 加载当前选择的阶段数据
+        const currentPhaseData = selectedObsPhase === 'MSPSRPI'
+          ? formatMSPSRPIData(mspsrpiData)
+          : selectedObsPhase === 'MSPSRPI2'
+            ? formatMSPSRPI2Data(mspsrpi2Data)
+            : // formatPSRPIData(psrpiData);
+
+            setPulsars(currentPhaseData);
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Error loading pulsar data:', error);
+        setIsLoading(false);
+      }
+    };
+
+    loadAllPhasesData();
+
     // Determine which file to load based on the selected phase
     const file =
       selectedObsPhase === 'MSPSRPI'
@@ -215,10 +292,6 @@ const DataReleasePage = () => {
               <Map className="mr-2 h-4 w-4" />
               View Visualizations
             </button>
-            <a href="/downloads/mspsrpi-data.zip" className="inline-flex items-center px-4 py-2 border border-indigo-500/30 rounded-md text-indigo-300 bg-slate-900/60 hover:bg-slate-800/80 transition duration-300">
-              <Download className="mr-2 h-4 w-4" />
-              Download Dataset
-            </a>
           </div>
         </div>
 
@@ -623,7 +696,7 @@ const DataReleasePage = () => {
                   <div className="mt-6 pt-4 border-t border-slate-700">
                     <button
                       className="w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-md flex items-center justify-center"
-                      onClick={() => {/* Handle download or link to detailed data */ }}
+                      onClick={(e) => handleDownloadClick(activePulsar, e)}
                     >
                       <Download className="mr-2 h-4 w-4" />
                       Download {activePulsar.name} Data
@@ -820,7 +893,7 @@ const DataReleasePage = () => {
                   <div className="mt-6 pt-4 border-t border-slate-700">
                     <button
                       className="w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-md flex items-center justify-center"
-                      onClick={() => {/* Handle download or link to detailed data */ }}
+                      onClick={(e) => handleDownloadClick(activePulsar, e)}
                     >
                       <Download className="mr-2 h-4 w-4" />
                       Download {activePulsar.name} Data
@@ -829,8 +902,11 @@ const DataReleasePage = () => {
                 </div>
               )}
             </div>
+
+
           </div>
         )}
+
         {/* Data Visualization Section */}
         <div id="visualization" className="pt-12 mb-16">
           <div className="mb-6">
@@ -967,10 +1043,13 @@ const DataReleasePage = () => {
               </p>
               <div className="flex items-center justify-between">
                 <span className="text-gray-400 text-sm">Released: May 2014</span>
-                <a href="/downloads/psrpi-v1.0.zip" className="inline-flex items-center px-3 py-1.5 border border-green-500/30 rounded-md text-green-300 text-sm bg-slate-900/60 hover:bg-slate-800/80 transition duration-300">
+                <button
+                  onClick={() => handleBatchDownloadClick('PSRPI')}
+                  className="inline-flex items-center px-3 py-1.5 border border-green-500/30 rounded-md text-green-300 text-sm bg-slate-900/60 hover:bg-slate-800/80 transition duration-300"
+                >
                   <Download className="mr-1 h-4 w-4" />
                   Download
-                </a>
+                </button>
               </div>
             </div>
 
@@ -981,10 +1060,13 @@ const DataReleasePage = () => {
               </p>
               <div className="flex items-center justify-between">
                 <span className="text-gray-400 text-sm">Released: December 2019</span>
-                <a href="/downloads/mspsrpi-v2.0.zip" className="inline-flex items-center px-3 py-1.5 border border-purple-500/30 rounded-md text-purple-300 text-sm bg-slate-900/60 hover:bg-slate-800/80 transition duration-300">
+                <button
+                  onClick={() => handleBatchDownloadClick('MSPSRPI')}
+                  className="inline-flex items-center px-3 py-1.5 border border-purple-500/30 rounded-md text-purple-300 text-sm bg-slate-900/60 hover:bg-slate-800/80 transition duration-300"
+                >
                   <Download className="mr-1 h-4 w-4" />
                   Download
-                </a>
+                </button>
               </div>
             </div>
 
@@ -995,10 +1077,13 @@ const DataReleasePage = () => {
               </p>
               <div className="flex items-center justify-between">
                 <span className="text-gray-400 text-sm">Updated: March 2025</span>
-                <a href="/downloads/mspsrpi2-initial.zip" className="inline-flex items-center px-3 py-1.5 border border-blue-500/30 rounded-md text-blue-300 text-sm bg-slate-900/60 hover:bg-slate-800/80 transition duration-300">
+                <button
+                  onClick={() => handleBatchDownloadClick('MSPSRPI2')}
+                  className="inline-flex items-center px-3 py-1.5 border border-blue-500/30 rounded-md text-blue-300 text-sm bg-slate-900/60 hover:bg-slate-800/80 transition duration-300"
+                >
                   <Download className="mr-1 h-4 w-4" />
                   Download
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1094,6 +1179,15 @@ const DataReleasePage = () => {
           </div>
         </div>
       )}
+
+      {/* Add download modal component */}
+      <DownloadModal
+        isOpen={isDownloadModalOpen}
+        pulsar={downloadPulsar}
+        onClose={closeDownloadModal}
+      />
+
+      {BatchDownloadModalComponent}
     </div>
   );
 };
