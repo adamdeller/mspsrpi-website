@@ -54,7 +54,7 @@
     "visualizations": [
       {
         "title": "Pulse Profile",
-        "path": "/images/2D_Visualisation/J0610-2100_profile.jpeg",
+        "path": "/images/2D_Visualisation/MSPSRPI/J0610-2100_profile.jpeg",
         "description": "Average pulse profile showing the characteristic double peak at 1400 MHz"
       },
       {

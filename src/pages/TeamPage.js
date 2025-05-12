@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Users, Mail, Globe, Building } from 'lucide-react';
+import { Users, Mail, Globe, Building, ChevronUp } from 'lucide-react';
 import Navbar from './Navbar';
 
 const TeamPage = () => {
   const [activeTab, setActiveTab] = useState('research');
   const [teamMembers, setTeamMembers] = useState([]);
-  const [showScrollTop, setShowScrollTop] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false); // Added for scroll-to-top
 
   useEffect(() => {
     fetch(`${process.env.PUBLIC_URL}/data/teamPage/teamMembers.json`)
@@ -15,13 +15,29 @@ const TeamPage = () => {
       .catch((error) => console.error('Error loading team data:', error));
   }, []);
 
+  // Scroll to top functionality
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
+
+  // Show/hide scroll button based on scroll position
   useEffect(() => {
     const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 400);
+      if (window.scrollY > 300) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   return (
@@ -97,15 +113,15 @@ const TeamPage = () => {
           ))}
         </div>
       </div>
+
+      {/* Scroll to top button */}
       {showScrollTop && (
         <button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          onClick={scrollToTop}
           className="fixed bottom-6 right-6 p-3 rounded-full bg-indigo-900/80 text-white shadow-lg hover:bg-indigo-800 transition-all duration-300 backdrop-blur-sm border border-indigo-500/50"
           aria-label="Scroll to top"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-          </svg>
+          <ChevronUp className="h-6 w-6" />
         </button>
       )}
     </div>

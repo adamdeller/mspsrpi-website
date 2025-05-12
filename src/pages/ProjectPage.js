@@ -18,6 +18,7 @@ const ProjectPage = () => {
   const [observationData, setObservationData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [showScrollTop, setShowScrollTop] = useState(false); // Added for scroll-to-top
 
   const [showScrollTop, setShowScrollTop] = useState(false);
 
@@ -68,6 +69,31 @@ const ProjectPage = () => {
 
     loadData();
   }, []); // Only runs once on component mount
+
+  // Scroll to top functionality
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
+
+  // Show/hide scroll button based on scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   //---------------------------------------------------------------------------
   //                MSPSRPI2 Progress Tracker Calculation
@@ -458,10 +484,11 @@ const ProjectPage = () => {
           </p>
         </div>
       </div>
-
+      
+      {/* Scroll to top button */}
       {showScrollTop && (
         <button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          onClick={scrollToTop}
           className="fixed bottom-6 right-6 p-3 rounded-full bg-indigo-900/80 text-white shadow-lg hover:bg-indigo-800 transition-all duration-300 backdrop-blur-sm border border-indigo-500/50"
           aria-label="Scroll to top"
         >

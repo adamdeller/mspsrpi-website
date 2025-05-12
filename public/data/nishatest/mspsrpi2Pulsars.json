@@ -21,7 +21,7 @@
     "visualizations": [
       {
         "title": "Flux Density Profile",
-        "path": "/images/2D_Visualisation/J0023+0923_flux.jpeg",
+        "path": "/images/2D_Visualisation/MSPSRPI2/J0023+0923_flux.jpeg",
         "description": "Pulsar flux density measurements across frequency bands"
       },
       {
@@ -29,7 +29,8 @@
         "path": "images/2D_Visualisation/J0023+0923_timing.png",
         "description": "Post-fit timing residuals showing deviations from the timing model"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J0034-0534",
@@ -49,23 +50,8 @@
     },
     "searchSession": "1.0 hour",
     "astrometrySession": "4.0 hours",
-    "visualizations": [
-      {
-        "title": "Flux Density Profile",
-        "path": "/2D_Visualisation/J0023+0923_flux.png",
-        "description": "Pulsar flux density measurements across frequency bands"
-      },
-      {
-        "title": "Timing Residuals",
-        "path": "/2D_Visualisatio/J0023+0923_timing.png",
-        "description": "Post-fit timing residuals showing deviations from the timing model"
-      },
-      {
-        "title": "One More Thing",
-        "path": "/2D_Visualisatio/J0023+0923_timing.png",
-        "description": "To have a look of a pulsar has 3 graphs."
-      }
-    ]
+    "visualizations": [],
+    "referenceDate": "TBD"
   },
   {
     "name": "J0340+4130",
@@ -112,7 +98,8 @@
         "path": "/2D_Visualisatio/J0023+0923_timing.png",
         "description": "To have a look of a pulsar has 5 graphs."
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J0645+5158",
@@ -139,7 +126,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J0709+0458",
@@ -165,7 +153,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J0732+2314",
@@ -191,7 +180,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J0824+0028",
@@ -217,7 +207,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J0931-1902",
@@ -244,7 +235,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J1653-2054",
@@ -270,7 +262,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J1705-1903",
@@ -297,7 +290,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J1719-1438",
@@ -324,7 +318,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J1741+1351",
@@ -352,7 +347,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J1745+1017",
@@ -379,7 +375,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J1802-2124",
@@ -406,7 +403,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J1903+0327",
@@ -433,7 +431,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J1923+2515",
@@ -460,7 +459,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J2019+2425",
@@ -486,7 +486,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J2033+1734",
@@ -513,7 +514,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J2150-0326",
@@ -540,7 +542,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J2214+3000",
@@ -567,7 +570,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J2234+0611",
@@ -594,7 +598,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J2322+2057",
@@ -623,7 +628,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J0636+5128",
@@ -649,7 +655,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J0740+6620",
@@ -675,7 +682,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J1125+7819",
@@ -701,7 +709,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J1614-2230",
@@ -728,7 +737,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J1737-0811",
@@ -754,7 +764,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J1756-2251",
@@ -780,7 +791,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J1832-0836",
@@ -809,7 +821,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J1911+1347",
@@ -837,7 +850,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J1946+3417",
@@ -864,7 +878,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J1955+2908",
@@ -891,7 +906,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J2229+2643",
@@ -919,7 +935,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J0125-2327",
@@ -946,7 +963,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J0509+0856",
@@ -973,7 +991,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J0613-0200",
@@ -1003,7 +1022,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J0751+1807",
@@ -1030,7 +1050,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J1744-1134",
@@ -1060,7 +1081,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J1801-1417",
@@ -1087,7 +1109,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J1811-2405",
@@ -1114,7 +1137,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J1857+0943",
@@ -1143,7 +1167,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J1944+0907",
@@ -1170,7 +1195,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J2234+0944",
@@ -1198,7 +1224,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "J2302+4442",
@@ -1225,7 +1252,8 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   },
   {
     "name": "Fake pulsar",
@@ -1251,6 +1279,7 @@
         "path": "/2D_Visualisation/J0023+0923_flux.png",
         "description": "Pulsar flux density measurements across frequency bands"
       }
-    ]
+    ],
+    "referenceDate": "TBD"
   }
 ]

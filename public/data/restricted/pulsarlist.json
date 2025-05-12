@@ -1,0 +1,751 @@
+[
+  {
+    "id": "J0023+0923",
+    "pulsar_details": {
+      "name": "PSR J0023+0923",
+      "distance": "1.0 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": "0.2-0.76 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": "/data/restricted/visualisations/test1.png",
+      "imageLink2": "/data/restricted/visualisations/test2.png",
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J0034-0534",
+    "pulsar_details": {
+      "name": "PSR J0034-0534",
+      "distance": "0.9 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": "0.2-0.76 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J0340+4130",
+    "pulsar_details": {
+      "name": "PSR J0340+4130",
+      "distance": "1.7 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": "0.2-0.76 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J0645+5158",
+    "pulsar_details": {
+      "name": "PSR J0645+5158",
+      "distance": "0.7 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": "0.2-0.76 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J0709+0458",
+    "pulsar_details": {
+      "name": "PSR J0709+0458",
+      "distance": "1.5 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": "0.2-0.76 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J0732+2314",
+    "pulsar_details": {
+      "name": "PSR J0732+2314",
+      "distance": "1.4 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": "0.2-0.76 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J0824+0028",
+    "pulsar_details": {
+      "name": "PSR J0824+0028",
+      "distance": "1.6 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": "0.2-0.76 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J0931-1902",
+    "pulsar_details": {
+      "name": "PSR J0931-1902",
+      "distance": "2.8 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": "0.2-0.76 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J1653-2054",
+    "pulsar_details": {
+      "name": "PSR J1653-2054",
+      "distance": "2.2 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": "0.2-0.76 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J1705-1903",
+    "pulsar_details": {
+      "name": "PSR J1705-1903",
+      "distance": "2.0 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": "0.2-0.76 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J1719-1438",
+    "pulsar_details": {
+      "name": "PSR J1719-1438",
+      "distance": "0.8 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": "0.2-0.76 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J1741+1351",
+    "pulsar_details": {
+      "name": "PSR J1741+1351",
+      "distance": "1.1 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": "0.2-0.76 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J1745+1017",
+    "pulsar_details": {
+      "name": "PSR J1745+1017",
+      "distance": "1.2 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": "0.2-0.76 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J1802-2124",
+    "pulsar_details": {
+      "name": "PSR J1802-2124",
+      "distance": "3.0 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": "0.2-0.76 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J1903+0327",
+    "pulsar_details": {
+      "name": "PSR J1903+0327",
+      "distance": "6.2 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": "0.2-0.76 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J1923+2515",
+    "pulsar_details": {
+      "name": "PSR J1923+2515",
+      "distance": "1.4 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": "0.2-0.76 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J2019+2425",
+    "pulsar_details": {
+      "name": "PSR J2019+2425",
+      "distance": "1.3 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": "0.2-0.76 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J2033+1734",
+    "pulsar_details": {
+      "name": "PSR J2033+1734",
+      "distance": "1.9 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": "0.2-0.76 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J2150-0326",
+    "pulsar_details": {
+      "name": "PSR J2150-0326",
+      "distance": "1.5 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": "0.2-0.76 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J2214+3000",
+    "pulsar_details": {
+      "name": "PSR J2214+3000",
+      "distance": "1.6 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": "0.2-0.76 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J2234+0611",
+    "pulsar_details": {
+      "name": "PSR J2234+0611",
+      "distance": "0.77 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": "0.2-0.76 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J2322+2057",
+    "pulsar_details": {
+      "name": "PSR J2322+2057",
+      "distance": "0.9 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": "0.2-0.76 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J0636+5128",
+    "pulsar_details": {
+      "name": "PSR J0636+5128",
+      "distance": "0.3 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": "0.76-1.2 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J0740+6620",
+    "pulsar_details": {
+      "name": "PSR J0740+6620",
+      "distance": "0.8 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": "0.76-1.2 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J1125+7819",
+    "pulsar_details": {
+      "name": "PSR J1125+7819",
+      "distance": "0.8 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": "0.76-1.2 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J1614-2230",
+    "pulsar_details": {
+      "name": "PSR J1614-2230",
+      "distance": "1.3 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": "0.76-1.2 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J1737-0811",
+    "pulsar_details": {
+      "name": "PSR J1737-0811",
+      "distance": "1.0 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": "0.76-1.2 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J1756-2251",
+    "pulsar_details": {
+      "name": "PSR J1756-2251",
+      "distance": "2.6 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": "0.76-1.2 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J1832-0836",
+    "pulsar_details": {
+      "name": "PSR J1832-0836",
+      "distance": "1.0 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": "0.76-1.2 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J1911+1347",
+    "pulsar_details": {
+      "name": "PSR J1911+1347",
+      "distance": "1.7 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": "0.76-1.2 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J1946+3417",
+    "pulsar_details": {
+      "name": "PSR J1946+3417",
+      "distance": "6.0 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": "0.76-1.2 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J1955+2908",
+    "pulsar_details": {
+      "name": "PSR J1955+2908",
+      "distance": "5.5 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": "0.76-1.2 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J2229+2643",
+    "pulsar_details": {
+      "name": "PSR J2229+2643",
+      "distance": "1.6 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": "0.76-1.2 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J0125-2327",
+    "pulsar_details": {
+      "name": "PSR J0125-2327",
+      "distance": "0.7 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": ">1.2 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J0509+0856",
+    "pulsar_details": {
+      "name": "PSR J0509+0856",
+      "distance": "1.1 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": ">1.2 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J0613-0200",
+    "pulsar_details": {
+      "name": "PSR J0613-0200",
+      "distance": "1.4 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": ">1.2 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J0751+1807",
+    "pulsar_details": {
+      "name": "PSR J0751+1807",
+      "distance": "0.8 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": ">1.2 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J1744-1134",
+    "pulsar_details": {
+      "name": "PSR J1744-1134",
+      "distance": "0.3 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": ">1.2 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J1801-1417",
+    "pulsar_details": {
+      "name": "PSR J1801-1417",
+      "distance": "1.3 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": ">1.2 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J1811-2405",
+    "pulsar_details": {
+      "name": "PSR J1811-2405",
+      "distance": "1.8 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": ">1.2 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J1857+0943",
+    "pulsar_details": {
+      "name": "PSR J1857+0943",
+      "distance": "1.0 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": ">1.2 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J1944+0907",
+    "pulsar_details": {
+      "name": "PSR J1944+0907",
+      "distance": "1.5 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": ">1.2 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J2234+0944",
+    "pulsar_details": {
+      "name": "PSR J2234+0944",
+      "distance": "1.3 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": ">1.2 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  },
+  {
+    "id": "J2302+4442",
+    "pulsar_details": {
+      "name": "PSR J2302+4442",
+      "distance": "1.0 kpc",
+      "parallax": "TBD",
+      "properMotion": "TBD",
+      "lastUpdated": "2025-05-01",
+      "category": ">1.2 mJy",
+      "status": "Planned",
+      "ObsDate": "2024-05-11"
+    },
+    "visualisation_and_notes": {
+      "imageLink1": null,
+      "notes": "This notes field allows researchers to document important observations about individual pulsars. Add specific timing anomalies, emission characteristics, or orbital behavior here. "
+    }
+  }
+]

@@ -1,124 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import GitHubLoginButton from './GitHubLoginButton';
 import { 
-  Lock, Eye, EyeOff, MessageSquare, FileText, Download, 
+  Lock, Eye, EyeOff, MessageSquare, FileText, 
   User, Calendar, Search, ArrowLeft, Filter, Clock, 
-  LogOut, Star, BookOpen, Users, Bell
+  LogOut, Star, BookOpen, Users, Image,
+  X
 } from 'lucide-react';
 
-/* HI EVERYONE! 
-This is the design of the restricted section that we will try to build in the end after the MPV*/
-
-// Simple mock data for pulsars - in a real app, this would come from an API
-const MOCK_PULSARS = [
-  {
-    id: 'J0030+0451',
-    name: 'PSR J0030+0451',
-    distance: '329 pc',
-    parallax: '3.04 ± 0.05 mas',
-    properMotion: '-6.15 ± 0.05, 0.37 ± 0.14 mas/yr',
-    lastUpdated: '2025-02-15',
-    category: 'Phase 2',
-    status: 'Analyzed',
-    datasetSize: '2.4 GB'
-  },
-  {
-    id: 'J0610-2100',
-    name: 'PSR J0610-2100',
-    distance: '1.5 kpc',
-    parallax: '0.72 ± 0.11 mas',
-    properMotion: '9.06 ± 0.07, 16.6 ± 0.1 mas/yr',
-    lastUpdated: '2025-03-01',
-    category: 'Phase 2',
-    status: 'In Progress',
-    datasetSize: '1.8 GB'
-  },
-  {
-    id: 'J0621+1002',
-    name: 'PSR J0621+1002',
-    distance: '1.6 kpc',
-    parallax: '0.74 ± 0.14 mas',
-    properMotion: '3.27 ± 0.09, -1.1 ± 0.3 mas/yr',
-    lastUpdated: '2025-01-20',
-    category: 'Phase 2',
-    status: 'Analyzed',
-    datasetSize: '3.1 GB'
-  },
-  {
-    id: 'J1012+5307',
-    name: 'PSR J1012+5307',
-    distance: '0.877 kpc',
-    parallax: '1.14 ± 0.04 mas',
-    properMotion: '2.61 ± 0.01, -25.49 ± 0.01 mas/yr',
-    lastUpdated: '2025-02-28',
-    category: 'Phase 1',
-    status: 'Verified',
-    datasetSize: '4.2 GB'
-  },
-  {
-    id: 'J1024-0719',
-    name: 'PSR J1024-0719',
-    distance: '1.08 kpc',
-    parallax: '0.93 ± 0.05 mas',
-    properMotion: '-35.27 ± 0.02, -48.22 ± 0.03 mas/yr',
-    lastUpdated: '2025-03-10',
-    category: 'Phase 1',
-    status: 'Verified',
-    datasetSize: '2.9 GB'
-  }
-];
-
-// Mock comments data
-const initialComments = {
-  'J0030+0451': [
-    {
-      id: 1,
-      author: 'Adam Deller',
-      timestamp: '2025-03-15T10:23:45',
-      text: 'The parallax measurement for this pulsar is remarkably precise. We should use this as a benchmark for our Phase 2 analysis methods.',
-      replies: []
-    },
-  ],
-  'J0610-2100': [
-    {
-      id: 1,
-      author: 'Ben Stappers',
-      timestamp: '2025-03-05T09:17:33',
-      text: 'The high proper motion here is interesting. This is one of the faster-moving millisecond pulsars in our sample.',
-      replies: []
-    }
-  ],
-  'J1012+5307': [
-    {
-      id: 1,
-      author: 'Miller Goss',
-      timestamp: '2025-02-28T11:28:50',
-      text: 'The orbital parameters from this system provide one of our best tests of gravitational theory. We should highlight this in the upcoming review.',
-      replies: []
-    }
-  ]
-};
-
-// Login component
+// Login component remains unchanged
 const Login = ({ onLogin }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState('');
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    // Hardcoded credentials for the team
-    // In a real application, this would be handled securely on a server
-    if (username === 'mspsrpi_team' && password === 'pulsar2025') {
-      localStorage.setItem('authenticated', 'true');
-      onLogin();
-    } else {
-      setError('Invalid credentials. Please try again.');
-    }
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-950 via-slate-900 to-black flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-md">
@@ -139,79 +30,8 @@ const Login = ({ onLogin }) => {
               </div>
               <h2 className="mt-6 text-3xl font-bold text-white">Restricted Area</h2>
               <p className="mt-2 text-indigo-300">Team access only</p>
+              <GitHubLoginButton />
             </div>
-            
-            <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-              {error && (
-                <div className="bg-red-900/30 border border-red-500/30 rounded-md p-3 text-red-200 text-sm">
-                  {error}
-                </div>
-              )}
-              
-              <div className="rounded-md shadow-sm space-y-4">
-                <div>
-                  <label htmlFor="username" className="block text-sm font-medium text-indigo-200 mb-1">
-                    Username
-                  </label>
-                  <input
-                    id="username"
-                    name="username"
-                    type="text"
-                    required
-                    className="appearance-none relative block w-full px-3 py-3 border border-indigo-700/50 bg-slate-800/50 text-indigo-100 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                    placeholder="Enter team username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="password" className="block text-sm font-medium text-indigo-200 mb-1">
-                    Password
-                  </label>
-                  <div className="relative">
-                    <input
-                      id="password"
-                      name="password"
-                      type={showPassword ? "text" : "password"}
-                      required
-                      className="appearance-none relative block w-full px-3 py-3 border border-indigo-700/50 bg-slate-800/50 text-indigo-100 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm pr-10"
-                      placeholder="Enter team password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
-                    <button
-                      type="button"
-                      className="absolute inset-y-0 right-0 pr-3 flex items-center text-indigo-400 hover:text-indigo-300"
-                      onClick={() => setShowPassword(!showPassword)}
-                    >
-                      {showPassword ? (
-                        <EyeOff className="h-5 w-5" />
-                      ) : (
-                        <Eye className="h-5 w-5" />
-                      )}
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <button
-                  type="submit"
-                  className="group relative w-full flex justify-center py-3 px-4 border border-indigo-600/40 text-sm font-medium rounded-md text-white bg-indigo-700/50 hover:bg-indigo-700/70 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-200 shadow-lg hover:shadow-indigo-500/30"
-                >
-                  <span className="absolute left-0 inset-y-0 flex items-center pl-3">
-                    <Lock className="h-5 w-5 text-indigo-300 group-hover:text-indigo-200" />
-                  </span>
-                  Access Research Hub
-                </button>
-              </div>
-              
-              <div className="text-center text-xs text-indigo-400">
-                <p>For authorized MSPSRπ team members only.</p>
-                <p className="mt-1">Contact the project lead if you need assistance.</p>
-              </div>
-            </form>
 
             <div className="mt-8 text-center">
               <Link to="/" className="text-indigo-400 hover:text-indigo-300 text-sm flex items-center justify-center">
@@ -226,92 +46,97 @@ const Login = ({ onLogin }) => {
   );
 };
 
-// Main dashboard component
+// Main dashboard component - updated with all requested changes
 const Dashboard = ({ onLogout }) => {
-  const [selectedPulsar, setSelectedPulsar] = useState(MOCK_PULSARS[0]);
-  const [comments, setComments] = useState(() => {
-    // Try to get comments from localStorage, or use initial data
-    const savedComments = localStorage.getItem('pulsarComments');
-    return savedComments ? JSON.parse(savedComments) : initialComments;
-  });
-  const [newComment, setNewComment] = useState('');
+  const username = localStorage.getItem('githubUser') || 'Team Member';
+  const [selectedPulsar, setSelectedPulsar] = useState(null);
+  const [pulsars, setPulsars] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('All');
-  const [categoryFilter, setCategoryFilter] = useState('All');
-  const [replyingTo, setReplyingTo] = useState(null);
-  const [replyText, setReplyText] = useState('');
-
-  // Save comments to localStorage whenever they change
+  const [mJyFilter, setMJyFilter] = useState('All');
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [imageLoadError, setImageLoadError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadError, setLoadError] = useState(null);
+  
+  // Modal state
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalImage, setModalImage] = useState('');
+  
+  // Function to open image modal
+  const openImageModal = (imageSrc) => {
+    setModalImage(imageSrc);
+    setModalOpen(true);
+    // Prevent scrolling when modal is open
+    document.body.style.overflow = 'hidden';
+  };
+  
+  // Function to close image modal
+  const closeImageModal = () => {
+    setModalOpen(false);
+    // Re-enable scrolling
+    document.body.style.overflow = 'auto';
+  };
+  
   useEffect(() => {
-    localStorage.setItem('pulsarComments', JSON.stringify(comments));
-  }, [comments]);
-
+    const loadPulsarData = () => {
+      setIsLoading(true);
+      setLoadError(null);
+      
+      // Fetch the pulsar data from the JSON file
+      fetch(`${process.env.PUBLIC_URL}/data/restricted/pulsarlist.json`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log('Successfully loaded pulsar data:', data);
+          setPulsars(data);
+          if (data.length > 0) setSelectedPulsar(data[0]);
+          setIsLoading(false);
+        })
+        .catch(error => {
+          console.error('Error loading pulsar data:', error);
+          setLoadError(`Failed to load pulsar data: ${error.message}`);
+          setIsLoading(false);
+        });
+    };
+    
+    loadPulsarData();
+  }, []);
+  
   // Handle filtering of pulsars
-  const filteredPulsars = MOCK_PULSARS.filter(pulsar => {
-    const matchesSearch = pulsar.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                        pulsar.id.toLowerCase().includes(searchTerm.toLowerCase());
+  const filteredPulsars = pulsars.filter(pulsar => {
+    const matchesSearch = 
+      pulsar.pulsar_details.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      pulsar.id.toLowerCase().includes(searchTerm.toLowerCase());
     
-    const matchesStatus = statusFilter === 'All' || pulsar.status === statusFilter;
-    const matchesCategory = categoryFilter === 'All' || pulsar.category === categoryFilter;
+    const matchesStatus = statusFilter === 'All' || pulsar.pulsar_details.status === statusFilter;
+    const matchesMJy = mJyFilter === 'All' || pulsar.pulsar_details.category === mJyFilter;
     
-    return matchesSearch && matchesStatus && matchesCategory;
+    return matchesSearch && matchesStatus && matchesMJy;
   });
 
-  // Add a new comment
-  const handleAddComment = () => {
-    if (!newComment.trim()) return;
+  // Get available image links for the current pulsar - UPDATED to be dynamic
+  const getImageLinks = () => {
+    if (!selectedPulsar) return [];
     
-    const pulsarId = selectedPulsar.id;
-    const newCommentObj = {
-      id: Date.now(),
-      author: 'Team Member', // In a real app, this would be the logged-in user
-      timestamp: new Date().toISOString(),
-      text: newComment,
-      replies: []
-    };
+    const visData = selectedPulsar.visualisation_and_notes;
+    const links = [];
     
-    setComments(prevComments => ({
-      ...prevComments,
-      [pulsarId]: [...(prevComments[pulsarId] || []), newCommentObj]
-    }));
+    // Dynamic approach to find all imageLink properties
+    for (const key in visData) {
+      if (key.startsWith('imageLink') && visData[key]) {
+        links.push(`${process.env.PUBLIC_URL}${visData[key]}`);
+      }
+    }
     
-    setNewComment('');
+    return links;
   };
-
-  // Add a reply to a comment
-  const handleAddReply = (commentId) => {
-    if (!replyText.trim()) return;
-    
-    const pulsarId = selectedPulsar.id;
-    const reply = {
-      id: Date.now(),
-      author: 'Team Member', // In a real app, this would be the logged-in user
-      timestamp: new Date().toISOString(),
-      text: replyText
-    };
-    
-    setComments(prevComments => {
-      const updatedComments = prevComments[pulsarId].map(comment => {
-        if (comment.id === commentId) {
-          return {
-            ...comment,
-            replies: [...comment.replies, reply]
-          };
-        }
-        return comment;
-      });
-      
-      return {
-        ...prevComments,
-        [pulsarId]: updatedComments
-      };
-    });
-    
-    setReplyingTo(null);
-    setReplyText('');
-  };
-
-  // Format dates in a readable way
+  
+  // Format date in a readable way
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleString('en-US', {
@@ -322,6 +147,54 @@ const Dashboard = ({ onLogout }) => {
       minute: '2-digit'
     });
   };
+  
+  // Move to next/previous image
+  const navigateImages = (direction) => {
+    const imageLinks = getImageLinks();
+    if (imageLinks.length <= 1) return;
+    
+    if (direction === 'next') {
+      setCurrentImageIndex((prev) => (prev + 1) % imageLinks.length);
+    } else {
+      setCurrentImageIndex((prev) => (prev - 1 + imageLinks.length) % imageLinks.length);
+    }
+    // Reset image load error state when navigating
+    setImageLoadError(false);
+  };
+
+  // Handle image load error
+  const handleImageError = () => {
+    setImageLoadError(true);
+    console.error("Failed to load image:", getImageLinks()[currentImageIndex]);
+  };
+
+  // If still loading, show a loading state
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-indigo-950 via-slate-900 to-black flex items-center justify-center">
+        <div className="text-indigo-300 text-xl">Loading pulsar data...</div>
+      </div>
+    );
+  }
+
+  // If there was an error loading data, show error message
+  if (loadError) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-indigo-950 via-slate-900 to-black flex items-center justify-center">
+        <div className="bg-slate-900/60 backdrop-blur-sm border border-red-500/30 rounded-xl p-8 max-w-md">
+          <h2 className="text-xl font-semibold text-white mb-4">Error Loading Data</h2>
+          <p className="text-red-300 mb-4">{loadError}</p>
+          <button
+            onClick={onLogout}
+            className="flex items-center gap-1 text-sm bg-slate-800 px-4 py-2 rounded-md text-indigo-300 hover:bg-slate-700"
+          >
+            <LogOut className="h-5 w-5" />
+            <span>Logout</span>
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-950 via-slate-900 to-black">
@@ -339,12 +212,9 @@ const Dashboard = ({ onLogout }) => {
             </div>
             
             <div className="flex items-center gap-5">
-              <button className="text-indigo-300 hover:text-indigo-100">
-                <Bell className="h-5 w-5" />
-              </button>
               <button className="flex items-center text-indigo-300 hover:text-indigo-100 gap-1">
                 <User className="h-5 w-5" />
-                <span className="text-sm">Team Member</span>
+                <span className="text-sm">{username}</span>
               </button>
               <button
                 onClick={onLogout}
@@ -399,21 +269,23 @@ const Dashboard = ({ onLogout }) => {
                       onChange={(e) => setStatusFilter(e.target.value)}
                     >
                       <option value="All">All Statuses</option>
-                      <option value="Analyzed">Analyzed</option>
+                      <option value="Planned">Planned</option>
                       <option value="In Progress">In Progress</option>
-                      <option value="Verified">Verified</option>
+                      <option value="Observed">Observed</option>
+                      <option value="Analysed">Analysed</option>
                     </select>
                   </div>
                   <div className="w-1/2">
-                    <label className="block text-xs text-indigo-300 mb-1">Phase</label>
+                    <label className="block text-xs text-indigo-300 mb-1">Flux Density</label>
                     <select
                       className="w-full px-2 py-1.5 bg-slate-800/60 border border-indigo-600/30 rounded-md text-indigo-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm"
-                      value={categoryFilter}
-                      onChange={(e) => setCategoryFilter(e.target.value)}
+                      value={mJyFilter}
+                      onChange={(e) => setMJyFilter(e.target.value)}
                     >
-                      <option value="All">All Phases</option>
-                      <option value="Phase 1">Phase 1</option>
-                      <option value="Phase 2">Phase 2</option>
+                      <option value="All">All mJy</option>
+                      <option value="0.2-0.76 mJy">0.2-0.76 mJy</option>
+                      <option value="0.76-1.2 mJy">0.76-1.2 mJy</option>
+                      <option value=">1.2 mJy">1.2 mJy</option>
                     </select>
                   </div>
                 </div>
@@ -431,34 +303,35 @@ const Dashboard = ({ onLogout }) => {
                         key={pulsar.id}
                         className={`
                           cursor-pointer p-4 transition-all hover:bg-indigo-900/20
-                          ${selectedPulsar.id === pulsar.id ? 'bg-indigo-900/30 border-l-4 border-indigo-500' : ''}
+                          ${selectedPulsar && selectedPulsar.id === pulsar.id ? 'bg-indigo-900/30 border-l-4 border-indigo-500' : ''}
                         `}
-                        onClick={() => setSelectedPulsar(pulsar)}
+                        onClick={() => {
+                          setSelectedPulsar(pulsar);
+                          setCurrentImageIndex(0); // Reset image index when changing pulsars
+                          setImageLoadError(false); // Reset image error state when changing pulsars
+                        }}
                       >
                         <div className="flex justify-between items-center">
-                          <h3 className="font-medium text-indigo-100">{pulsar.name}</h3>
+                          <h3 className="font-medium text-indigo-100">{pulsar.pulsar_details.name}</h3>
                           <span className={`
                             text-xs px-2 py-1 rounded-full 
-                            ${pulsar.status === 'Verified' ? 'bg-emerald-900/40 text-emerald-300 border border-emerald-500/30' : 
-                              pulsar.status === 'Analyzed' ? 'bg-blue-900/40 text-blue-300 border border-blue-500/30' :
-                              'bg-amber-900/40 text-amber-300 border border-amber-500/30'}
+                            ${pulsar.pulsar_details.status === 'Analysed' ? 'bg-emerald-900/40 text-emerald-300 border border-emerald-500/30' : 
+                              pulsar.pulsar_details.status === 'Observed' ? 'bg-blue-900/40 text-blue-300 border border-blue-500/30' :
+                              pulsar.pulsar_details.status === 'In Progress' ? 'bg-amber-900/40 text-amber-300 border border-amber-500/30' :
+                              'bg-slate-900/40 text-slate-300 border border-slate-500/30'}
                           `}>
-                            {pulsar.status}
+                            {pulsar.pulsar_details.status}
                           </span>
                         </div>
                         <div className="mt-1 flex items-center space-x-2 text-xs text-indigo-400">
                           <span className="flex items-center">
                             <Clock className="h-3.5 w-3.5 mr-1" />
-                            {pulsar.lastUpdated}
+                            {pulsar.pulsar_details.lastUpdated}
                           </span>
                           <span className="flex items-center">
                             <BookOpen className="h-3.5 w-3.5 mr-1" />
-                            {pulsar.category}
+                            {pulsar.pulsar_details.category}
                           </span>
-                        </div>
-                        <div className="mt-1 text-xs flex items-center text-indigo-300">
-                          <MessageSquare className="h-3.5 w-3.5 mr-1" />
-                          {comments[pulsar.id] ? comments[pulsar.id].length : 0} comments
                         </div>
                       </li>
                     ))}
@@ -468,216 +341,169 @@ const Dashboard = ({ onLogout }) => {
             </div>
           </div>
           
-          {/* Main Content - Pulsar Details and Comments */}
-          <div className="lg:col-span-2">
-            {/* Pulsar Details Card */}
-            <div className="bg-slate-900/60 backdrop-blur-sm border border-indigo-500/20 rounded-xl shadow-xl mb-6 overflow-hidden">
-              <div className="p-5 border-b border-indigo-500/20 flex justify-between items-center">
-                <h2 className="text-xl font-semibold text-white">{selectedPulsar.name} Details</h2>
-                <button className="flex items-center px-3 py-1.5 bg-indigo-700/50 hover:bg-indigo-700/70 text-indigo-200 text-sm rounded-md border border-indigo-600/40 transition-colors duration-200">
-                  <Download className="h-4 w-4 mr-1" />
-                  Download Dataset
-                </button>
-              </div>
-              
-              <div className="p-5">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="bg-slate-800/50 rounded-lg p-4 border border-indigo-500/10 shadow-inner">
-                    <h3 className="text-sm font-medium text-indigo-300 mb-2">Astrometric Parameters</h3>
+          {/* Main Content - Pulsar Details and Visualizations */}
+          {selectedPulsar && (
+            <div className="lg:col-span-2">
+              {/* Pulsar Details Card */}
+              <div className="bg-slate-900/60 backdrop-blur-sm border border-indigo-500/20 rounded-xl shadow-xl mb-6 overflow-hidden">
+                <div className="p-5 border-b border-indigo-500/20 flex justify-between items-center">
+                  <div>
+                    <h2 className="text-xl font-semibold text-white">{selectedPulsar.pulsar_details.name} Details</h2>
+                    <p className="text-xs text-indigo-400 mt-1">Last updated: {selectedPulsar.pulsar_details.lastUpdated}</p>
+                  </div>
+                </div>
+                
+                <div className="p-5">
+                  {/* Merged parameters section with two columns - improved spacing */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2 text-indigo-100">
-                      <div className="flex justify-between">
+                      <div className="grid grid-cols-2 items-center">
                         <span className="text-indigo-400 text-sm">Distance:</span>
-                        <span className="text-white font-medium">{selectedPulsar.distance}</span>
+                        <span className="text-white font-medium pl-2">{selectedPulsar.pulsar_details.distance}</span>
                       </div>
-                      <div className="flex justify-between">
+                      <div className="grid grid-cols-2 items-center">
                         <span className="text-indigo-400 text-sm">Parallax:</span>
-                        <span className="text-white font-medium">{selectedPulsar.parallax}</span>
+                        <span className="text-white font-medium pl-2">{selectedPulsar.pulsar_details.parallax}</span>
                       </div>
-                      <div className="flex justify-between">
+                      <div className="grid grid-cols-2 items-center">
                         <span className="text-indigo-400 text-sm">Proper Motion:</span>
-                        <span className="text-white font-medium">{selectedPulsar.properMotion}</span>
+                        <span className="text-white font-medium pl-2">{selectedPulsar.pulsar_details.properMotion}</span>
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-2 text-indigo-100">
+                      <div className="grid grid-cols-2 items-center">
+                        <span className="text-indigo-400 text-sm">Category:</span>
+                        <span className="text-white font-medium pl-2">{selectedPulsar.pulsar_details.category}</span>
+                      </div>
+                      <div className="grid grid-cols-2 items-center">
+                        <span className="text-indigo-400 text-sm">Status:</span>
+                        <span className={`font-medium pl-2
+                          ${selectedPulsar.pulsar_details.status === 'Analysed' ? 'text-emerald-300' :
+                            selectedPulsar.pulsar_details.status === 'Observed' ? 'text-blue-300' :
+                            selectedPulsar.pulsar_details.status === 'In Progress' ? 'text-amber-300' :
+                            'text-slate-300'}
+                        `}>
+                          {selectedPulsar.pulsar_details.status}
+                        </span>
+                      </div>
+                      <div className="grid grid-cols-2 items-center">
+                        <span className="text-indigo-400 text-sm">Observation Date:</span>
+                        <span className="text-white font-medium pl-2">{formatDate(selectedPulsar.pulsar_details.ObsDate)}</span>
                       </div>
                     </div>
                   </div>
                   
-                  <div className="bg-slate-800/50 rounded-lg p-4 border border-indigo-500/10 shadow-inner">
-                    <h3 className="text-sm font-medium text-indigo-300 mb-2">Dataset Information</h3>
-                    <div className="space-y-2 text-indigo-100">
-                      <div className="flex justify-between">
-                        <span className="text-indigo-400 text-sm">Last Updated:</span>
-                        <span className="text-white font-medium">{selectedPulsar.lastUpdated}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-indigo-400 text-sm">Category:</span>
-                        <span className="text-white font-medium">{selectedPulsar.category}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-indigo-400 text-sm">Status:</span>
-                        <span className={`font-medium
-                          ${selectedPulsar.status === 'Verified' ? 'text-emerald-300' :
-                            selectedPulsar.status === 'Analyzed' ? 'text-blue-300' :
-                            'text-amber-300'}
-                        `}>
-                          {selectedPulsar.status}
-                        </span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-indigo-400 text-sm">Dataset Size:</span>
-                        <span className="text-white font-medium">{selectedPulsar.datasetSize}</span>
-                      </div>
+                  {/* Visualization section - dynamic image handling */}
+                  <div className="mt-4 bg-slate-800/30 rounded-lg border border-indigo-500/10 overflow-hidden">
+                    <div className="p-3 bg-slate-800/50 border-b border-indigo-500/20 flex justify-between items-center">
+                      <h3 className="text-sm font-medium text-indigo-300">Data Visualization</h3>
+                      
+                      {/* Image navigation controls - only show if multiple images exist */}
+                      {getImageLinks().length > 1 && (
+                        <div className="flex space-x-2">
+                          <button 
+                            onClick={() => navigateImages('prev')}
+                            className="p-1 text-indigo-300 hover:text-indigo-100 bg-slate-700/50 rounded"
+                          >
+                            <ArrowLeft className="h-4 w-4" />
+                          </button>
+                          <span className="text-xs text-indigo-300">
+                            {currentImageIndex + 1}/{getImageLinks().length}
+                          </span>
+                          <button 
+                            onClick={() => navigateImages('next')}
+                            className="p-1 text-indigo-300 hover:text-indigo-100 bg-slate-700/50 rounded rotate-180"
+                          >
+                            <ArrowLeft className="h-4 w-4" />
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                    
+                    <div className="p-4 flex items-center justify-center">
+                      {getImageLinks().length > 0 ? (
+                        <div className="relative w-full">
+                          {!imageLoadError ? (
+                            <img 
+                              src={getImageLinks()[currentImageIndex]} 
+                              alt={`${selectedPulsar.pulsar_details.name} visualization`}
+                              className="w-full h-auto max-h-64 object-contain mx-auto cursor-pointer hover:opacity-90 transition-opacity"
+                              onError={handleImageError}
+                              onClick={() => openImageModal(getImageLinks()[currentImageIndex])}
+                            />
+                          ) : (
+                            <div className="text-indigo-300 text-center py-8 bg-slate-800/30 rounded-lg border border-indigo-500/10">
+                              <Image className="h-12 w-12 mx-auto mb-3 opacity-30" />
+                              <p>Visualization data not available</p>
+                              <p className="text-xs mt-2 text-indigo-400">Image could not be loaded</p>
+                            </div>
+                          )}
+                        </div>
+                      ) : (
+                        <div className="text-indigo-300 text-center py-12">
+                          <Image className="h-12 w-12 mx-auto mb-3 opacity-30" />
+                          <p>No visualization available</p>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
+              </div>
+              
+              {/* Notes Section */}
+              <div className="bg-slate-900/60 backdrop-blur-sm border border-indigo-500/20 rounded-xl shadow-xl">
+                <div className="p-5 border-b border-indigo-500/20">
+                  <h2 className="text-lg font-semibold text-white flex items-center">
+                    <FileText className="h-5 w-5 text-indigo-400 mr-2" />
+                    Research Notes
+                  </h2>
+                </div>
                 
-                {/* Visualization placeholder */}
-                <div className="mt-4 bg-slate-800/30 rounded-lg p-4 border border-indigo-500/10 text-center h-48 flex items-center justify-center">
-                  <div className="text-indigo-300">
-                    <div className="text-4xl mb-2">📊</div>
-                    <p>Interactive visualization would be displayed here</p>
-                    <p className="text-sm text-indigo-400 mt-1">
-                      (Parallax and proper motion visualization)
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Comments Section */}
-            <div className="bg-slate-900/60 backdrop-blur-sm border border-indigo-500/20 rounded-xl shadow-xl">
-              <div className="p-5 border-b border-indigo-500/20">
-                <h2 className="text-lg font-semibold text-white flex items-center">
-                  <MessageSquare className="h-5 w-5 text-indigo-400 mr-2" />
-                  Discussion
-                  {comments[selectedPulsar.id] && comments[selectedPulsar.id].length > 0 && (
-                    <span className="ml-2 px-2 py-0.5 text-xs bg-indigo-900/70 text-indigo-300 rounded-full">
-                      {comments[selectedPulsar.id].length}
-                    </span>
-                  )}
-                </h2>
-              </div>
-              
-              {/* Comment list */}
-              <div className="p-5 max-h-[calc(100vh-700px)] min-h-[200px] overflow-y-auto">
-                {(!comments[selectedPulsar.id] || comments[selectedPulsar.id].length === 0) ? (
-                  <div className="text-center py-6 text-indigo-400">
-                    <MessageSquare className="h-12 w-12 mx-auto mb-3 opacity-30" />
-                    <p>No comments yet for this pulsar.</p>
-                    <p className="text-sm mt-1">Start the discussion by adding a comment below.</p>
-                  </div>
-                ) : (
-                  <div className="space-y-6">
-                    {comments[selectedPulsar.id].map((comment) => (
-                      <div key={comment.id} className="bg-slate-800/30 rounded-lg p-4 border border-indigo-500/10">
-                        <div className="flex justify-between items-start">
-                          <div className="flex items-center">
-                            <div className="w-8 h-8 bg-indigo-800/70 rounded-full flex items-center justify-center text-indigo-200 font-medium text-sm">
-                              {comment.author.split(' ').map(n => n[0]).join('')}
-                            </div>
-                            <div className="ml-3">
-                              <span className="text-indigo-200 font-medium">{comment.author}</span>
-                              <div className="text-xs text-indigo-400">
-                                {formatDate(comment.timestamp)}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="mt-3 text-indigo-100 whitespace-pre-line">
-                          {comment.text}
-                        </div>
-                        
-                        {/* Reply button */}
-                        <div className="mt-2">
-                          <button
-                            onClick={() => {
-                              setReplyingTo(replyingTo === comment.id ? null : comment.id);
-                              setReplyText('');
-                            }}
-                            className="text-xs text-indigo-400 hover:text-indigo-300 flex items-center"
-                          >
-                            <MessageSquare className="h-3 w-3 mr-1" />
-                            {replyingTo === comment.id ? 'Cancel' : 'Reply'}
-                          </button>
-                        </div>
-                        
-                        {/* Reply form */}
-                        {replyingTo === comment.id && (
-                          <div className="mt-3 pl-4 border-l-2 border-indigo-700/30">
-                            <textarea
-                              className="w-full px-3 py-2 bg-slate-800/80 border border-indigo-600/30 rounded-md text-indigo-100 placeholder-indigo-400/70 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm"
-                              placeholder="Write a reply..."
-                              rows={2}
-                              value={replyText}
-                              onChange={(e) => setReplyText(e.target.value)}
-                            />
-                            <div className="mt-2 flex justify-end">
-                              <button
-                                onClick={() => handleAddReply(comment.id)}
-                                className="px-3 py-1 bg-indigo-700/50 hover:bg-indigo-700/70 text-indigo-200 text-xs rounded-md border border-indigo-600/40 transition-colors duration-200"
-                              >
-                                Post Reply
-                              </button>
-                            </div>
-                          </div>
-                        )}
-                        
-                        {/* Replies */}
-                        {comment.replies.length > 0 && (
-                          <div className="mt-4 space-y-4 pl-4 border-l-2 border-indigo-700/30">
-                            {comment.replies.map((reply) => (
-                              <div key={reply.id} className="bg-slate-800/20 rounded-lg p-3">
-                                <div className="flex items-center">
-                                  <div className="w-6 h-6 bg-indigo-800/70 rounded-full flex items-center justify-center text-indigo-200 font-medium text-xs">
-                                    {reply.author.split(' ').map(n => n[0]).join('')}
-                                  </div>
-                                  <div className="ml-2">
-                                    <span className="text-indigo-200 font-medium text-sm">{reply.author}</span>
-                                    <div className="text-xs text-indigo-400">
-                                      {formatDate(reply.timestamp)}
-                                    </div>
-                                  </div>
-                                </div>
-                                <div className="mt-2 text-indigo-100 text-sm">
-                                  {reply.text}
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        )}
+                {/* Display notes */}
+                <div className="p-5">
+                  {selectedPulsar.visualisation_and_notes.notes ? (
+                    <div className="bg-slate-800/30 rounded-lg p-4 border border-indigo-500/10 whitespace-pre-line">
+                      <div className="text-indigo-100">
+                        {selectedPulsar.visualisation_and_notes.notes}
                       </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-              
-              {/* Add comment form */}
-              <div className="p-5 border-t border-indigo-500/20">
-                <textarea
-                  className="w-full px-4 py-3 bg-slate-800/60 border border-indigo-600/30 rounded-md text-indigo-100 placeholder-indigo-400/70 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                  placeholder="Add a comment or share insights about this pulsar..."
-                  rows={3}
-                  value={newComment}
-                  onChange={(e) => setNewComment(e.target.value)}
-                />
-                <div className="mt-3 flex justify-end">
-                  <button
-                    onClick={handleAddComment}
-                    disabled={!newComment.trim()}
-                    className={`
-                      px-4 py-2 rounded-md text-sm flex items-center
-                      ${newComment.trim() ? 
-                        'bg-indigo-700 hover:bg-indigo-600 text-white border border-indigo-500 cursor-pointer' : 
-                        'bg-slate-700/50 text-slate-400 border border-slate-600/30 cursor-not-allowed'}
-                    `}
-                  >
-                    <MessageSquare className="h-4 w-4 mr-2" />
-                    Post Comment
-                  </button>
+                    </div>
+                  ) : (
+                    <div className="text-center py-6 text-indigo-400">
+                      <FileText className="h-12 w-12 mx-auto mb-3 opacity-30" />
+                      <p>No research notes available for this pulsar.</p>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
+      
+      {/* Image Modal */}
+      {modalOpen && (
+        <div 
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center cursor-pointer transition-opacity duration-300"
+          onClick={closeImageModal}
+        >
+          <div className="max-w-4xl max-h-[90vh] p-2 relative">
+            <img 
+              src={modalImage} 
+              alt="Enlarged visualization" 
+              className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl"
+              onClick={(e) => e.stopPropagation()} // Prevent click from closing modal when clicking on the image itself
+            />
+            <button 
+              className="absolute top-4 right-4 p-2 rounded-full bg-indigo-900/80 text-white hover:bg-indigo-800 transition-colors"
+              onClick={closeImageModal}
+              aria-label="Close modal"
+            >
+              <X className="h-6 w-6" />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
@@ -689,6 +515,8 @@ const RestrictedArea = () => {
   });
 
   const handleLogin = () => {
+    localStorage.removeItem('pulsarComments'); // Clear old comments since we're using notes now
+    localStorage.setItem('authenticated', 'true');
     setIsAuthenticated(true);
   };
 

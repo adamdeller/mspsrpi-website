@@ -317,21 +317,27 @@ const PSRPIDetailsPage = () => {
                 </div>
               </div>
 
-              {/* Project Timeline */}
+              {/* Project Timeline - FIXED VERSION */}
               <div className="bg-slate-900/40 backdrop-blur-sm border border-green-900/30 rounded-xl p-6 shadow-xl">
                 <h2 className="text-2xl font-bold text-white mb-6">
                   {data.sectionTitles?.timeline || "Project Timeline"}
                 </h2>
                 <div className="relative">
                   {/* Timeline line */}
-                  <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-green-700/50 ml-6 md:ml-8"></div>
+                  <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-green-700/50 ml-8"></div>
 
                   {/* Timeline events */}
-                  <div className="space-y-8">
+                  <div className="space-y-12">
                     {data.timeline.map((event, index) => (
-                      <div key={index} className="relative pl-16 md:pl-20">
-                        <div className="absolute left-0 top-1 w-12 h-12 md:w-16 md:h-16 bg-green-900/60 backdrop-blur-sm rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(34,197,94,0.4)] border border-green-500/50">
-                          <span className="text-green-200 text-sm md:text-base">{event.date}</span>
+                      <div key={index} className="relative pl-20">
+                        {/* Adjusted circle size to better fit date content */}
+                        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-16 h-16 bg-green-900/60 backdrop-blur-sm 
+                             rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(34,197,94,0.4)] 
+                             border border-green-500/50">
+                          {/* Format date to fit better in circle */}
+                          <div className="text-center">
+                            <span className="text-green-200 text-sm block leading-tight">{event.date}</span>
+                          </div>
                         </div>
                         <div>
                           <h3 className="text-xl font-bold text-green-300">{event.title}</h3>
