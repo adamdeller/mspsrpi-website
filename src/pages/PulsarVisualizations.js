@@ -1,42 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 /* HI EVERYONE!
 This is the visualisation content that is shown on the homepage "What are milisecond pulsars?" area*/
 const PulsarVisualizations = () => {
-  // Section content - moved to the top before any references
-  const sections = {
-    lighthouse: {
-      title: "Cosmic Lighthouses",
-      description: "Pulsars are rapidly rotating neutron stars – the incredibly dense remnants of massive stars that have exploded as supernovae. They emit beams of radiation from their magnetic poles that sweep across space like lighthouse beams as they rotate."
-    },
-    millisecond: {
-      title: "Millisecond Marvels",
-      description: "Millisecond pulsars rotate incredibly fast – hundreds of times per second, with periods between 1-10 milliseconds. For comparison, that's faster than a kitchen blender! These are among the most stable rotators in the universe, making them exceptional cosmic clocks."
-    },
-    binary: {
-      title: "Born from Binary Systems",
-      description: "Unlike regular pulsars, millisecond pulsars are thought to have been \"recycled\" – spun up to high speeds by accreting matter from a companion star. This process transfers angular momentum to the neutron star, dramatically increasing its rotation rate."
-    },
-    importance: {
-      title: "Why They Matter",
-      description: "The MSPSRπ project measures precise distances to millisecond pulsars across our Galaxy. These measurements help us map the Galaxy's structure, test theories of gravity, improve our understanding of interstellar space, and detect gravitational waves."
-    }
-  };
-  
-  const [activeSection, setActiveSection] = useState('lighthouse');
-  
+
+  const [sections, setSections] = useState({});
+  const [activeSection, setActiveSection] = useState('');
+  const [pulsarInfoSections, setPulsarInfoSections] = useState({});
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const homepageRes = await fetch(`${process.env.PUBLIC_URL}/data/homepage/HomePage.json`);
+        const homepageData = await homepageRes.json();
+
+        const pulsarContent = homepageData?.pulsarInfo?.sections || {};
+
+        setSections(pulsarContent);
+        setPulsarInfoSections(homepageData.pulsarInfoSections || {});
+
+
+
+        const sectionKeys = Object.keys(pulsarContent);
+        if (sectionKeys.length > 0) {
+          setActiveSection(sectionKeys[0]); // Default to first section
+        }
+      } catch (err) {
+        console.error('Failed to fetch pulsar visualization data:', err);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+
   // Get the section keys for navigation
   const sectionKeys = Object.keys(sections);
-  
+
   // Find current index
   const currentIndex = sectionKeys.indexOf(activeSection);
-  
+
   // Navigate to previous section
   const goToPrevious = () => {
     if (currentIndex > 0) {
       setActiveSection(sectionKeys[currentIndex - 1]);
     }
   };
-  
+
   // Navigate to next section
   const goToNext = () => {
     if (currentIndex < sectionKeys.length - 1) {
@@ -44,31 +53,38 @@ const PulsarVisualizations = () => {
     }
   };
 
+  if (!activeSection || !sections[activeSection]) {
+    return (
+      <div className="text-center py-10 text-indigo-300">
+        Loading pulsar visualizations...
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col w-full bg-slate-900 border border-indigo-500/30 rounded-lg overflow-hidden">
       {/* Header with title and description */}
       <div className="bg-gradient-to-r from-slate-900 to-indigo-950 p-4 border-b border-indigo-500/30">
-        <h2 className="text-2xl font-bold text-indigo-100 mb-2">What Are Millisecond Pulsars?</h2>
-        <p className="text-indigo-300">Cosmic Lighthouses Spinning Hundreds of Times Per Second</p>
+        <h2 className="text-2xl font-bold text-indigo-100 mb-2">{pulsarInfoSections.header?.title}</h2>
+        <p className="text-indigo-300">{pulsarInfoSections.header?.subtitle}</p>
       </div>
-      
+
       {/* Navigation tabs */}
       <div className="flex bg-slate-900/80 border-b border-indigo-500/20 overflow-x-auto">
         {Object.entries(sections).map(([key, { title }]) => (
           <button
             key={key}
-            className={`px-4 py-3 text-sm font-medium whitespace-nowrap transition-colors ${
-              activeSection === key 
-                ? 'bg-indigo-900/50 text-indigo-100 border-b-2 border-indigo-500' 
+            className={`px-4 py-3 text-sm font-medium whitespace-nowrap transition-colors ${activeSection === key
+                ? 'bg-indigo-900/50 text-indigo-100 border-b-2 border-indigo-500'
                 : 'text-indigo-300 hover:bg-indigo-900/30 hover:text-indigo-200'
-            }`}
+              }`}
             onClick={() => setActiveSection(key)}
           >
             {title}
           </button>
         ))}
       </div>
-      
+
       {/* Main content with visualization and description */}
       <div className="flex flex-col md:flex-row">
         {/* Visualization container */}
@@ -76,7 +92,7 @@ const PulsarVisualizations = () => {
           {/* Stars background */}
           <div className="absolute inset-0 stars-small"></div>
           <div className="absolute inset-0 stars-medium"></div>
-          
+
           {/* Lighthouse visualization */}
           {activeSection === 'lighthouse' && (
             <div className="relative w-full h-full flex items-center justify-center">
@@ -86,24 +102,24 @@ const PulsarVisualizations = () => {
                 <div className="magnetic-field-line rotate-0"></div>
                 <div className="magnetic-field-line rotate-60"></div>
                 <div className="magnetic-field-line rotate-120"></div>
-                
+
                 {/* Emission beams */}
                 <div className="emission-beams">
                   <div className="beam beam-top"></div>
                   <div className="beam beam-bottom"></div>
                 </div>
               </div>
-              
+
               {/* Labels */}
               <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-slate-900/80 border border-indigo-500/30 px-3 py-1 rounded-lg text-center">
-                <p className="text-indigo-200 text-sm">Rotating neutron star with radiation beams</p>
+                <p className="text-indigo-200 text-sm">{pulsarInfoSections.labels?.lighthouse}</p>
               </div>
-              
+
               {/* Radio wave animation */}
               <div className="radio-waves"></div>
             </div>
           )}
-          
+
           {/* Millisecond visualization */}
           {activeSection === 'millisecond' && (
             <div className="relative w-full h-full flex items-center justify-between px-12">
@@ -116,11 +132,11 @@ const PulsarVisualizations = () => {
                   </div>
                 </div>
                 <div className="mt-4 text-center">
-                  <p className="text-cyan-300 font-semibold">Millisecond Pulsar</p>
-                  <p className="text-cyan-200 text-xs">~700 rotations per second</p>
+                  <p className="text-cyan-300 font-semibold">{pulsarInfoSections.labels?.millisecond}</p>
+                  <p className="text-cyan-200 text-xs">{pulsarInfoSections.labels?.millisecondSpeed}</p>
                 </div>
               </div>
-              
+
               {/* Regular pulsar */}
               <div className="pulsar-comparison w-32">
                 <div className="pulsar-core-small regular-core">
@@ -130,11 +146,11 @@ const PulsarVisualizations = () => {
                   </div>
                 </div>
                 <div className="mt-4 text-center">
-                  <p className="text-amber-300 font-semibold">Regular Pulsar</p>
-                  <p className="text-amber-200 text-xs">~1 rotation per second</p>
+                  <p className="text-amber-300 font-semibold">{pulsarInfoSections.labels?.regular}</p>
+                  <p className="text-amber-200 text-xs">{pulsarInfoSections.labels?.regularSpeed}</p>
                 </div>
               </div>
-              
+
               {/* Speedometer visualization */}
               <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex items-center space-x-4">
                 <div className="speedometer ms-speed">
@@ -146,7 +162,7 @@ const PulsarVisualizations = () => {
               </div>
             </div>
           )}
-          
+
           {/* Binary system visualization */}
           {activeSection === 'binary' && (
             <div className="relative w-full h-full flex items-center justify-center">
@@ -156,13 +172,13 @@ const PulsarVisualizations = () => {
                 <div className="companion-star">
                   <div className="label-small">Companion Star</div>
                 </div>
-                
+
                 {/* Neutron star */}
                 <div className="neutron-star">
                   <div className="accretion-disk"></div>
                   <div className="label-small">Neutron Star</div>
                 </div>
-                
+
                 {/* Matter stream */}
                 <div className="matter-stream">
                   {[...Array(8)].map((_, i) => (
@@ -170,140 +186,96 @@ const PulsarVisualizations = () => {
                   ))}
                 </div>
               </div>
-              
+
               {/* Explanation */}
               <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-slate-900/80 border border-indigo-500/30 px-3 py-1 rounded-lg text-center max-w-xs">
-                <p className="text-indigo-200 text-sm">Matter from the companion star transfers angular momentum, spinning up the neutron star</p>
+                <p className="text-indigo-200 text-sm">{pulsarInfoSections.labels?.binary}</p>
               </div>
             </div>
           )}
-          
+
           {/* Why they matter Visualization - GRAVITATIONAL WAVE VERSION */}
           {activeSection === 'importance' && (
             <div className="relative w-full h-full flex items-center justify-center overflow-hidden bg-slate-950">
               {/* Background stars */}
               <div className="absolute inset-0 stars-small"></div>
-              
+
               {/* Gravitational waves coming from top as half circles */}
               {[...Array(5)].map((_, i) => (
-                <div 
+                <div
                   key={i}
                   className="gravitational-wave-top"
                   style={{ animationDelay: `${i * 2}s` }}
                 ></div>
               ))}
-              
+
               {/* The pulsar (positioned in center) */}
               <div className="pulsar-center">
                 <div id="pulsar-beams" className="emission-beams pulsar-gwave-beams">
                   <div className="beam beam-top"></div>
                   <div className="beam beam-bottom"></div>
                 </div>
-                
+
                 {/* Pulsar affected by waves indicator */}
                 <div className="pulsar-wave-impact"></div>
               </div>
-              
+
               {/* Explanation */}
               <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-slate-900/80 border border-indigo-500/30 px-3 py-1 rounded-lg text-center">
-                <p className="text-indigo-200 text-sm">Gravitational waves from distant events cause tiny delays in pulsar signals</p>
+                <p className="text-indigo-200 text-sm">{pulsarInfoSections.labels?.importance}</p>
               </div>
             </div>
           )}
         </div>
-        
+
         {/* Description panel */}
         <div className="w-full md:w-2/5 bg-slate-900/90 p-6 border-l border-indigo-500/20">
           <h3 className="text-xl font-semibold text-indigo-100 mb-3">
             {sections[activeSection].title}
           </h3>
-          
+
           <p className="text-indigo-200 leading-relaxed">
             {sections[activeSection].description}
           </p>
-          
+
           {/* Additional explanations based on active section */}
-          {activeSection === 'lighthouse' && (
-            <div className="mt-6 space-y-4">
-              <div className="bg-slate-800/50 rounded-lg p-3">
-                <h4 className="text-indigo-300 font-medium mb-1">Neutron Stars</h4>
-                <p className="text-indigo-100 text-sm">Neutron stars are incredibly dense stellar remnants. A teaspoon of neutron star material would weigh about a billion tons on Earth!</p>
+          <div className="space-y-4 mt-4">
+            {pulsarInfoSections.descriptions?.[activeSection]?.map((desc, index) => (
+              <div key={index} className="bg-slate-800/50 rounded-lg p-4">
+                <h4 className="text-indigo-300 font-medium mb-1">{desc.title}</h4>
+                <p className="text-indigo-100 text-sm">{desc.text}</p>
               </div>
-              <div className="bg-slate-800/50 rounded-lg p-3">
-                <h4 className="text-indigo-300 font-medium mb-1">Radio Emissions</h4>
-                <p className="text-indigo-100 text-sm">The beams of radiation are primarily radio waves. When these beams sweep across Earth, our radio telescopes detect periodic pulses of radio emission.</p>
-              </div>
-            </div>
-          )}
-          
-          {activeSection === 'millisecond' && (
-            <div className="mt-6 space-y-4">
-              <div className="bg-slate-800/50 rounded-lg p-3">
-                <h4 className="text-indigo-300 font-medium mb-1">Exceptional Timekeepers</h4>
-                <p className="text-indigo-100 text-sm">Millisecond pulsars are incredibly precise cosmic clocks. Their rotation periods are predictable to within a few nanoseconds over years of observation.</p>
-              </div>
-              <div className="bg-slate-800/50 rounded-lg p-3">
-                <h4 className="text-indigo-300 font-medium mb-1">Speed Comparison</h4>
-                <p className="text-indigo-100 text-sm">Regular pulsars typically rotate once every 0.1-10 seconds. In contrast, millisecond pulsars complete hundreds of rotations in a single second!</p>
-              </div>
-            </div>
-          )}
-          
-          {activeSection === 'binary' && (
-            <div className="mt-6 space-y-4">
-              <div className="bg-slate-800/50 rounded-lg p-3">
-                <h4 className="text-indigo-300 font-medium mb-1">Accretion Process</h4>
-                <p className="text-indigo-100 text-sm">As matter falls onto the neutron star, it forms a rapidly rotating accretion disk. The infalling matter transfers its angular momentum to the neutron star, spinning it up.</p>
-              </div>
-              <div className="bg-slate-800/50 rounded-lg p-3">
-                <h4 className="text-indigo-300 font-medium mb-1">Companion Stars</h4>
-                <p className="text-indigo-100 text-sm">The companion stars in these binary systems are often white dwarfs or low-mass main sequence stars that have evolved to the point where their outer layers expand and can be pulled toward the neutron star.</p>
-              </div>
-            </div>
-          )}
-          
-          {activeSection === 'importance' && (
-            <div className="mt-6 space-y-4">
-              <div className="bg-slate-800/50 rounded-lg p-3">
-                <h4 className="text-indigo-300 font-medium mb-1">Pulsar Timing Arrays</h4>
-                <p className="text-indigo-100 text-sm">By precisely monitoring the arrival times of radio pulses from multiple millisecond pulsars, scientists can detect tiny ripples in spacetime caused by gravitational waves.</p>
-              </div>
-              <div className="bg-slate-800/50 rounded-lg p-3">
-                <h4 className="text-indigo-300 font-medium mb-1">MSPSRπ Project</h4>
-                <p className="text-indigo-100 text-sm">The MSPSRπ project uses Very Long Baseline Interferometry (VLBI) to measure precise parallaxes and proper motions of millisecond pulsars, determining their exact distances and velocities.</p>
-              </div>
-            </div>
-          )}
-          
+            ))}
+          </div>
+
+
           {/* Navigation buttons */}
           <div className="mt-6 flex justify-between">
-            <button 
+            <button
               onClick={goToPrevious}
               disabled={currentIndex === 0}
-              className={`px-3 py-1 rounded text-sm ${
-                currentIndex === 0
+              className={`px-3 py-1 rounded text-sm ${currentIndex === 0
                   ? 'bg-slate-800/50 text-slate-500 cursor-not-allowed'
                   : 'bg-indigo-900/50 text-indigo-300 hover:bg-indigo-800/60 hover:text-indigo-200'
-              }`}
+                }`}
             >
               ← Previous
             </button>
-            
-            <button 
+
+            <button
               onClick={goToNext}
               disabled={currentIndex === sectionKeys.length - 1}
-              className={`px-3 py-1 rounded text-sm ${
-                currentIndex === sectionKeys.length - 1
+              className={`px-3 py-1 rounded text-sm ${currentIndex === sectionKeys.length - 1
                   ? 'bg-slate-800/50 text-slate-500 cursor-not-allowed'
                   : 'bg-indigo-900/50 text-indigo-300 hover:bg-indigo-800/60 hover:text-indigo-200'
-              }`}
+                }`}
             >
               Next →
             </button>
           </div>
         </div>
       </div>
-      
+
       {/* CSS Animations */}
       <style jsx>{`
         /* Star backgrounds */
