@@ -3,7 +3,7 @@
 //------------------------------------------------------------------
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react'; // Import icons for mobile menu
+import { Menu, X, UserCircle } from 'lucide-react'; // Import icons for mobile menu and user login
 
 //------------------------------------------------------------------
 //                     COMPONENT DEFINITION
@@ -83,10 +83,24 @@ const Navbar = ({ navLinks, colorTheme = 'default' }) => {
             >
               {links.team}
             </Link>
+            <Link
+              to="/restricted-area"
+              className="text-gray-300 hover:text-white px-3 py-2"
+              aria-label="Login"
+            >
+              <UserCircle className="h-6 w-6" />
+            </Link>
           </div>
           
           {/* Mobile menu button - visible only on mobile */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center space-x-4">
+            <Link
+              to="/restricted-area"
+              className="text-gray-300 hover:text-white p-2 rounded-md"
+              aria-label="Login"
+            >
+              <UserCircle className="h-6 w-6" />
+            </Link>
             <button
               onClick={toggleMobileMenu}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none"
@@ -141,6 +155,14 @@ const Navbar = ({ navLinks, colorTheme = 'default' }) => {
               onClick={() => setMobileMenuOpen(false)}
             >
               {links.team}
+            </Link>
+            <Link
+              to="/restricted-area"
+              className="text-gray-300 hover:bg-slate-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium flex items-center"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <UserCircle className="h-6 w-6 mr-2" />
+              Login
             </Link>
           </div>
         </div>

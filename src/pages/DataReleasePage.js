@@ -9,7 +9,8 @@ import {
   Filter,
   ExternalLink,
   MaximizeIcon,
-  ZoomIn
+  ZoomIn,
+  ChevronUp
 } from 'lucide-react';
 
 const DataReleasePage = () => {
@@ -25,6 +26,17 @@ const DataReleasePage = () => {
   const [isGalacticMaximized, setIsGalacticMaximized] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
   const [activeVisualization, setActiveVisualization] = useState(null);
+
+  // Scroll-to-top button state
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   //check if the pulsar has visualisations
   const hasPulsarVisualizations = (pulsar) => {
@@ -1022,7 +1034,7 @@ const DataReleasePage = () => {
         >
           <div
             className="bg-slate-900 border border-cyan-500/30 rounded-lg p-6 shadow-xl w-full max-w-5xl"
-            onClick={(e) => e.stopPropagation()} // 防止点击内容区域关闭模态框
+            onClick={(e) => e.stopPropagation()} // Prevent modal close on content click
           >
             {/* Title */}
             <div className="flex justify-between items-center mb-6">
@@ -1093,6 +1105,17 @@ const DataReleasePage = () => {
             </div>
           </div>
         </div>
+      )}
+
+      {/* Scroll-to-top button */}
+      {showScrollTop && (
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="fixed bottom-6 right-6 p-3 rounded-full bg-indigo-900/80 text-white shadow-lg hover:bg-indigo-800 transition-all duration-300 backdrop-blur-sm border border-indigo-500/50"
+          aria-label="Scroll to top"
+        >
+          <ChevronUp className="h-6 w-6" />
+        </button>
       )}
     </div>
   );

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import Navbar from './Navbar';
 import { MapPin, Star, Book, ChevronRight, Users, ExternalLink, Search, Download } from 'lucide-react';
 import { Rocket, Telescope, MapPinned, BookOpenText, Stars, Ruler, BookOpen, Sparkles } from "lucide-react";
+import { ChevronUp } from 'lucide-react';
 import PulsarVisualizations from './PulsarVisualizations'; // Import the PulsarVisualizations component
 
 
@@ -29,6 +31,17 @@ const Homepage = () => {
   const journeyIcons = [<Telescope />, <Rocket />, <Ruler />, <BookOpen />, <Sparkles />];
   // Calculate max slides for team members (showing 2 at a time)
   const maxTeamSlides = Math.ceil(teamMembers.length / 2) - 1;
+
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -98,47 +111,7 @@ const Homepage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-950 via-slate-900 to-black text-gray-100">
       {/* Navigation */}
-      <nav className="bg-slate-900/90 backdrop-blur-md fixed w-full z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
-            <div className="flex-shrink-0 flex items-center">
-              <Link to="/" className="text-xl font-bold">MSPSR<span className="text-indigo-400">π</span></Link>
-            </div>
-            <div className="hidden md:flex items-center space-x-8">
-              <Link
-                to="/"
-                className={`${location.pathname === '/' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
-              >
-                Home
-              </Link>
-              <Link
-                to="/project"
-                className={`${location.pathname === '/project' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
-              >
-                Project
-              </Link>
-              <Link
-                to="/data-release"
-                className={`${location.pathname === '/data-release' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
-              >
-                Data Release
-              </Link>
-              <Link
-                to="/publications"
-                className={`${location.pathname === '/publications' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
-              >
-                Publications
-              </Link>
-              <Link
-                to="/team"
-                className={`${location.pathname === '/team' ? 'text-indigo-400' : 'text-gray-300 hover:text-indigo-400'} px-3 py-2 font-medium`}
-              >
-                Team
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navbar colorTheme="mspsrpi" />
 
       {/* Hero Section - With starry background */}
       <div className="relative min-h-screen pt-16">
@@ -571,6 +544,15 @@ const Homepage = () => {
           </p>
         </div>
       </div>
+      {showScrollTop && (
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="fixed bottom-6 right-6 p-3 rounded-full bg-indigo-900/80 text-white shadow-lg hover:bg-indigo-800 transition-all duration-300 backdrop-blur-sm border border-indigo-500/50"
+          aria-label="Scroll to top"
+        >
+          <ChevronUp className="h-6 w-6" />
+        </button>
+      )}
     </div>
   );
 };
