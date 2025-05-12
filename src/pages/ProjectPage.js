@@ -20,6 +20,17 @@ const ProjectPage = () => {
   const [error, setError] = useState(null);
   const [showScrollTop, setShowScrollTop] = useState(false); // Added for scroll-to-top
 
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   // DATA FETCHING
   useEffect(() => {
     const loadData = async () => {
@@ -473,7 +484,7 @@ const ProjectPage = () => {
           </p>
         </div>
       </div>
-
+      
       {/* Scroll to top button */}
       {showScrollTop && (
         <button
