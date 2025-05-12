@@ -13,7 +13,37 @@ import {
   MaximizeIcon,
   ZoomIn
 } from 'lucide-react';
-
+const referenceUrlMap = {
+  "Burgay et al. 2006 (discovery)": "https://academic.oup.com/mnras/article/368/1/283/969706",
+  "Pallanca et al. 2012 (companion mass)": "https://iopscience.iop.org/article/10.1088/0004-637X/755/2/180",
+  "van der Wateren et al. 2022 (emission properties)": "https://www.aanda.org/articles/aa/full_html/2022/05/aa42741-21/aa42741-21.html",
+  "Ding et al. 2020b": "https://iopscience.iop.org/article/10.3847/1538-4357/ab8f27",
+  "Bassa et al. 2016": "https://academic.oup.com/mnras/article/460/2/2207/2609110?login=false",
+  "Kaplan et al. 2016": "https://iopscience.iop.org/article/10.3847/0004-637X/826/1/86",
+  "Sayer, Nice & Taylor 1997 (discovery)": "https://iopscience.iop.org/article/10.1086/303446",
+  "Janssen et al. 2008 (orbital parameters)": "https://www.aanda.org/articles/aa/abs/2008/41/aa10076-08/aa10076-08.html",
+  "Wolszczan 1991": "https://doi.org/10.1038/350688a0",
+  "Ding et al. 2021a": "https://iopscience.iop.org/article/10.3847/2041-8213/ac3091",
+  "Fonseca et al. 2014": "https://iopscience.iop.org/article/10.1088/0004-637X/787/1/82",
+  "Foster et al. 1995": "https://ui.adsabs.harvard.edu/abs/1995ApJ...454..826F/abstract",
+  "Lundgren et al. 1996": "https://iopscience.iop.org/article/10.1086/309920",
+  "Vigeland et al. 2018": "https://iopscience.iop.org/article/10.3847/1538-4357/aaaa73",
+  "Lorimer et al. 1995": "https://ui.adsabs.harvard.edu/abs/1995ApJ...439..933L/abstract",
+  "Lentati et al 2017": "https://academic.oup.com/mnras/article/468/2/1474/3063900?login=false",
+  "Mall et al. 2022": "https://academic.oup.com/mnras/article/511/1/1104/6510834",
+  "Ocker, Cordes & Chatterjee 2020": "https://iopscience.iop.org/article/10.3847/1538-4357/ab98f9",
+  "Edwards & Bailes 2001": "https://iopscience.iop.org/article/10.1086/320986",
+  "Kramer et al. 2021": "",
+  "Guillemot et al. 2016": "https://www.aanda.org/10.1051/0004-6361/201527847",
+  "Jacoby et al. 2009": "https://iopscience.iop.org/article/10.1088/0004-637X/699/2/2009",
+  "Freire et al. 2012": "https://academic.oup.com/mnras/article/423/4/3328/1747495?login=false",
+  "Zhu et al. 2015": "https://iopscience.iop.org/article/10.1088/0004-637X/809/1/41",
+  "Antoniadis et al. 2012": "https://academic.oup.com/mnras/article/423/4/3316/1747458",
+  "Lyne et al. 1987": "https://www.nature.com/articles/328399a0",
+  "Vasiliev & Baumgardt 2021": "https://academic.oup.com/mnras/article/505/4/5978/6283730",
+  "Faisal Alam et al. 2021": "https://iopscience.iop.org/article/10.3847/1538-4365/abc6a0",
+  "Mingarelli et al. 2018": "https://arxiv.org/"
+};
 const DataReleasePage = () => {
 
   const [searchQuery, setSearchQuery] = useState('');
@@ -70,21 +100,21 @@ const DataReleasePage = () => {
   useEffect(() => {
     setIsLoading(true);
 
-    // 加载所有三个阶段的数据
+    // Load data for all three phases
     const loadAllPhasesData = async () => {
       try {
         if (allPhasesPulsars && Object.keys(allPhasesPulsars).length > 0) {
           setPulsars(allPhasesPulsars[selectedObsPhase] || []);
         }
-        // 加载 MSPSRPI 数据
+        // Load MSPSRPI data
         const mspsrpiResponse = await fetch(`${process.env.PUBLIC_URL}/data/nishatest/pulsars.json`);
         const mspsrpiData = await mspsrpiResponse.json();
 
-        // 加载 MSPSRPI2 数据
+        // Load MSPSRPI2 data
         const mspsrpi2Response = await fetch(`${process.env.PUBLIC_URL}/data/nishatest/mspsrpi2Pulsars.json`);
         const mspsrpi2Data = await mspsrpi2Response.json();
 
-        // 假设 PSRPI 数据在另一个文件中，如果不存在，可以准备一个空数组
+        // Assume PSRPI data is in another file; if it doesn't exist, prepare an empty array
         let psrpiData = [];
         try {
           const psrpiResponse = await fetch(`${process.env.PUBLIC_URL}/data/nishatest/psrpiPulsars.json`);
@@ -93,14 +123,14 @@ const DataReleasePage = () => {
           console.warn('PSRPI data file not found, using empty array', error);
         }
 
-        // 格式化并存储所有阶段的数据
+        // Format and store data for all phases
         setAllPhasesPulsars({
           PSRPI: formatPSRPIData(psrpiData),
           MSPSRPI: formatMSPSRPIData(mspsrpiData),
           MSPSRPI2: formatMSPSRPI2Data(mspsrpi2Data)
         });
 
-        // 加载当前选择的阶段数据
+       // Load data for the currently selected phase
         const currentPhaseData = selectedObsPhase === 'MSPSRPI'
           ? formatMSPSRPIData(mspsrpiData)
           : selectedObsPhase === 'MSPSRPI2'
@@ -233,17 +263,48 @@ const DataReleasePage = () => {
     );
   };
 
-  // Helper function to render array as list
-  const renderList = (items) => {
-    if (!items || !items.length) return null;
-    return (
-      <ul className="list-disc pl-5 text-white">
-        {items.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul>
-    );
+const renderList = (items, isReferences = false) => {
+  if (!items || !items.length) return null;
+  
+  // Helper function to find URL for a reference that might have parentheses
+  const findReferenceUrl = (refText) => {
+    // Exact match first
+    if (referenceUrlMap[refText]) return referenceUrlMap[refText];
+    
+    // Try to match the base reference (without parentheses)
+    const baseRef = refText.split('(')[0].trim();
+    return referenceUrlMap[baseRef] || null;
   };
+  
+  return (
+    <ul className="list-disc pl-5 text-white">
+      {items.map((item, index) => (
+        <li key={index}>
+          {isReferences ? (
+            // For references, try to find URL
+            (() => {
+              const url = findReferenceUrl(item);
+              return url ? (
+                <a 
+                  href={url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-pink-300 hover:text-pink-200 hover:underline"
+                >
+                  {item}
+                </a>
+              ) : (
+                <span className="text-white">{item}</span>
+              );
+            })()
+          ) : (
+            <span className="text-white">{item}</span>
+          )}
+        </li>
+      ))}
+    </ul>
+  );
+};
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-950 via-slate-900 to-black text-gray-100">
@@ -741,7 +802,7 @@ const DataReleasePage = () => {
                   {activePulsar.originalData.references && (
                     <div>
                       <h4 className="text-indigo-300 font-medium mb-1">References</h4>
-                      {renderList(activePulsar.originalData.references)}
+                      {renderList(activePulsar.originalData.references, true)}
                     </div>
                   )}
 
@@ -1248,7 +1309,7 @@ const DataReleasePage = () => {
             </div>
           </div>
         </div>
-
+		
         {/* Data Releases Section */}
         <div className="mb-12">
           <div className="mb-6">
