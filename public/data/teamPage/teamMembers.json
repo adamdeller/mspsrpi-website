@@ -4,7 +4,7 @@
       "name": "Adam Deller",
       "role": "Principal Investigator",
       "institution": "Swinburne University of Technology",
-      "photo": "mspsrpi-website/data/teamPage/photo/adam-deller.jpg",
+      "photo": "/data/teamPage/photo/adam-deller.jpg",
       "quote": "Precise pulsar astrometry allows us to map our Galaxy's structure and test fundamental theories of gravity.",
       "email": "adeller@astro.swin.edu.au"
     },

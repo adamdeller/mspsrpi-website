@@ -77,7 +77,7 @@ const TeamPage = () => {
                 <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2">
                 <div className="w-36 h-36 rounded-full border-4 border-slate-900 overflow-hidden bg-indigo-800/30 flex items-center justify-center">
                     <img 
-                      src={member.photo} 
+                      src={`${process.env.PUBLIC_URL}${member.photo}`} 
                       alt={member.name || "Team member"} 
                       className="w-full h-full object-cover" 
                       onError={(e) => {
