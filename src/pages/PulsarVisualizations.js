@@ -178,72 +178,74 @@ const PulsarVisualizations = () => {
             </div>
           )}
           
-          {/* Galaxy visualization */}
+          {/* Why they matter Visualization - NEW GRAVITATIONAL WAVE VERSION */}
           {activeSection === 'importance' && (
-            <div className="relative w-full h-full flex items-center justify-center">
-              {/* Galaxy with pulsars */}
-              <div className="galaxy">
-                <div className="galaxy-disk"></div>
-                <div className="galaxy-core"></div>
-                
-                {/* Spiral arms */}
-                <div className="spiral-arm arm1"></div>
-                <div className="spiral-arm arm2"></div>
-                
-                {/* Sun position */}
-                <div className="sun-position">
-                  <div className="label-tiny">Sun</div>
+            <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+              {/* Background glow for depth */}
+              <div className="absolute bg-indigo-900/20 w-96 h-96 rounded-full blur-3xl"></div>
+              
+              {/* Pulsar container */}
+              <div className="pulsar-gwave-container">
+                {/* The pulsar */}
+                <div className="pulsar-star-main">
+                  <div className="emission-beams pulsar-gwave-beams">
+                    <div className="beam beam-top"></div>
+                    <div className="beam beam-bottom"></div>
+                  </div>
                 </div>
                 
-                {/* Pulsars */}
-                {[...Array(12)].map((_, i) => {
-                  const angle = (i / 12) * 2 * Math.PI;
-                  const radius = 25 + Math.random() * 25;
-                  const x = 50 + Math.cos(angle) * radius;
-                  const y = 50 + Math.sin(angle) * radius;
+                {/* Gravitational waves */}
+                {[...Array(5)].map((_, i) => (
+                  <div 
+                    key={i}
+                    className="gravitational-wave"
+                    style={{ animationDelay: `${i * 0.8}s` }}
+                  ></div>
+                ))}
+                
+                {/* Ripples in spacetime */}
+                <div className="spacetime-grid">
+                  {[...Array(10)].map((_, i) => (
+                    <div 
+                      key={`grid-${i}`}
+                      className="grid-line horizontal"
+                      style={{ top: `${i * 10}%` }}
+                    ></div>
+                  ))}
+                  {[...Array(10)].map((_, i) => (
+                    <div 
+                      key={`grid-v-${i}`}
+                      className="grid-line vertical"
+                      style={{ left: `${i * 10}%` }}
+                    ></div>
+                  ))}
+                  <div className="spacetime-distortion"></div>
+                </div>
+                
+                {/* Small pulsars that form the array */}
+                {[...Array(6)].map((_, i) => {
+                  const angle = (i / 6) * 2 * Math.PI;
+                  const distance = 180;
+                  const x = Math.cos(angle) * distance;
+                  const y = Math.sin(angle) * distance;
                   
                   return (
                     <div 
-                      key={i} 
-                      className="pulsar-dot" 
+                      key={`pulsar-${i}`}
+                      className="pulsar-array-element"
                       style={{
-                        left: `${x}%`,
-                        top: `${y}%`,
-                        animationDelay: `${i * 0.2}s`
+                        left: `calc(50% + ${x}px)`,
+                        top: `calc(50% + ${y}px)`,
+                        animationDelay: `${i * 0.3}s`
                       }}
                     ></div>
                   );
                 })}
-                
-                {/* Pulsar timing lines */}
-                <svg className="timing-array" viewBox="0 0 100 100" preserveAspectRatio="none">
-                  {[...Array(6)].map((_, i) => {
-                    const angle1 = (i / 6) * 2 * Math.PI;
-                    const angle2 = ((i + 1) / 6) * 2 * Math.PI;
-                    const radius = 25 + Math.random() * 25;
-                    
-                    const x1 = 50 + Math.cos(angle1) * radius;
-                    const y1 = 50 + Math.sin(angle1) * radius;
-                    const x2 = 50 + Math.cos(angle2) * radius;
-                    const y2 = 50 + Math.sin(angle2) * radius;
-                    
-                    return (
-                      <line 
-                        key={i}
-                        x1={x1}
-                        y1={y1}
-                        x2={x2}
-                        y2={y2}
-                        className="timing-line"
-                      />
-                    );
-                  })}
-                </svg>
               </div>
               
               {/* Explanation */}
               <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-slate-900/80 border border-indigo-500/30 px-3 py-1 rounded-lg text-center">
-                <p className="text-indigo-200 text-sm">Network of precisely measured pulsars help map the galaxy and detect gravitational waves</p>
+                <p className="text-indigo-200 text-sm">Millisecond pulsars help detect gravitational waves rippling through spacetime</p>
               </div>
             </div>
           )}
@@ -449,6 +451,10 @@ const PulsarVisualizations = () => {
           animation: rotate 4s infinite linear;
         }
         
+        .pulsar-gwave-beams {
+          animation: rotate 0.5s infinite linear;
+        }
+        
         @keyframes rotate {
           from { transform: rotate(0deg); }
           to { transform: rotate(360deg); }
@@ -624,158 +630,134 @@ const PulsarVisualizations = () => {
           font-size: 12px;
         }
         
-        .label-tiny {
-          position: absolute;
-          bottom: -20px;
-          left: 50%;
-          transform: translateX(-50%);
-          white-space: nowrap;
-          background-color: rgba(30, 41, 59, 0.7);
-          color: #fef9c3;
-          padding: 1px 4px;
-          border-radius: 3px;
-          font-size: 10px;
-        }
-        
-        /* Galaxy visualization */
-        .galaxy {
+        /* NEW - Gravitational Wave Visualization */
+        .pulsar-gwave-container {
           position: relative;
-          width: 80%;
-          height: 80%;
-          animation: galaxy-rotate 60s infinite linear;
-        }
-        
-        @keyframes galaxy-rotate {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        
-        .galaxy-disk {
-          position: absolute;
-          top: 0;
-          left: 0;
           width: 100%;
           height: 100%;
-          border-radius: 50%;
-          background: radial-gradient(ellipse at center, 
-            rgba(203, 213, 225, 0.3) 0%, 
-            rgba(148, 163, 184, 0.2) 30%, 
-            rgba(71, 85, 105, 0.1) 60%, 
-            rgba(15, 23, 42, 0) 100%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
         
-        .galaxy-core {
+        .pulsar-star-main {
+          position: relative;
+          width: 50px;
+          height: 50px;
+          background: radial-gradient(circle, #22d3ee 0%, #0891b2 60%, #0e7490 100%);
+          border-radius: 50%;
+          box-shadow: 0 0 20px rgba(14, 165, 233, 0.8);
+          z-index: 20;
+          animation: pulse-bright 1.5s infinite ease-in-out;
+        }
+        
+        @keyframes pulse-bright {
+          0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(14, 165, 233, 0.8); }
+          50% { transform: scale(0.95); box-shadow: 0 0 15px rgba(14, 165, 233, 0.6); }
+        }
+        
+        .gravitational-wave {
           position: absolute;
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          width: 20%;
-          height: 20%;
+          width: 100px;
+          height: 100px;
           border-radius: 50%;
-          background: radial-gradient(ellipse at center, 
-            rgba(254, 249, 195, 0.6) 0%, 
-            rgba(250, 204, 21, 0.4) 40%, 
-            rgba(202, 138, 4, 0.2) 70%, 
-            rgba(161, 98, 7, 0) 100%);
-          box-shadow: 0 0 20px rgba(250, 204, 21, 0.3);
+          border: 2px solid rgba(129, 140, 248, 0.5);
+          opacity: 0;
+          z-index: 10;
+          animation: expand-gwave 6s infinite;
         }
         
-        .spiral-arm {
+        @keyframes expand-gwave {
+          0% { 
+            width: 50px; 
+            height: 50px; 
+            opacity: 0.8;
+            border-radius: 50%; 
+          }
+          15% {
+            border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;
+            transform: translate(-50%, -50%) rotate(10deg);
+          }
+          30% {
+            border-radius: 60% 40% 30% 70% / 50% 60% 30% 60%;
+            transform: translate(-50%, -50%) rotate(20deg);
+          }
+          45% {
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 70%;
+            transform: translate(-50%, -50%) rotate(30deg);
+          }
+          60% {
+            border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+            transform: translate(-50%, -50%) rotate(40deg);
+          }
+          100% { 
+            width: 300px; 
+            height: 300px; 
+            opacity: 0;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) rotate(50deg);
+          }
+        }
+        
+        .spacetime-grid {
           position: absolute;
           top: 50%;
           left: 50%;
-          width: 50%;
-          height: 0;
-          transform-origin: left center;
+          transform: translate(-50%, -50%);
+          width: 300px;
+          height: 300px;
+          opacity: 0.3;
           z-index: 5;
         }
         
-        .arm1 {
-          transform: translateY(-50%) rotate(0deg);
-        }
-        
-        .arm1::before {
-          content: '';
+        .grid-line {
           position: absolute;
-          top: 0;
-          left: 10%;
-          width: 90%;
-          height: 20px;
-          background: linear-gradient(90deg, 
-            rgba(99, 102, 241, 0.7) 0%, 
-            rgba(99, 102, 241, 0.3) 30%, 
-            rgba(99, 102, 241, 0) 100%);
-          border-radius: 10px;
-          transform: translateY(-50%) rotate(10deg);
-          box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+          background-color: rgba(99, 102, 241, 0.4);
         }
         
-        .arm2 {
-          transform: translateY(-50%) rotate(180deg);
+        .horizontal {
+          width: 100%;
+          height: 1px;
         }
         
-        .arm2::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 10%;
-          width: 90%;
-          height: 20px;
-          background: linear-gradient(90deg, 
-            rgba(99, 102, 241, 0.7) 0%, 
-            rgba(99, 102, 241, 0.3) 30%, 
-            rgba(99, 102, 241, 0) 100%);
-          border-radius: 10px;
-          transform: translateY(-50%) rotate(10deg);
-          box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+        .vertical {
+          height: 100%;
+          width: 1px;
         }
         
-        .sun-position {
-          position: absolute;
-          top: 60%;
-          left: 60%;
-          width: 10px;
-          height: 10px;
-          background-color: #fcd34d;
-          border-radius: 50%;
-          box-shadow: 0 0 10px #f59e0b;
-          z-index: 15;
-        }
-        
-        .pulsar-dot {
-          position: absolute;
-          width: 6px;
-          height: 6px;
-          background-color: #22d3ee;
-          border-radius: 50%;
-          box-shadow: 0 0 8px #0891b2;
-          z-index: 10;
-          animation: pulsar-blink 2s infinite ease-in-out;
-        }
-        
-        @keyframes pulsar-blink {
-          0%, 100% { opacity: 1; transform: scale(1); }
-          50% { opacity: 0.5; transform: scale(0.7); }
-        }
-        
-        .timing-array {
+        .spacetime-distortion {
           position: absolute;
           top: 0;
           left: 0;
           width: 100%;
           height: 100%;
-          z-index: 5;
+          background: radial-gradient(circle at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 30%, rgba(99, 102, 241, 0.2) 70%, rgba(0,0,0,0) 100%);
+          animation: distort-spacetime 6s infinite ease-in-out;
         }
         
-        .timing-line {
-          stroke: rgba(56, 189, 248, 0.3);
-          stroke-width: 0.5;
-          stroke-dasharray: 2;
-          animation: dash-animation 20s linear infinite;
+        @keyframes distort-spacetime {
+          0% { transform: scale(0.5); opacity: 0; }
+          50% { transform: scale(1.5); opacity: 0.4; }
+          100% { transform: scale(0.5); opacity: 0; }
         }
         
-        @keyframes dash-animation {
-          to { stroke-dashoffset: 100; }
+        .pulsar-array-element {
+          position: absolute;
+          width: 12px;
+          height: 12px;
+          background: radial-gradient(circle, #a5b4fc 0%, #6366f1 70%, #4f46e5 100%);
+          border-radius: 50%;
+          box-shadow: 0 0 10px rgba(99, 102, 241, 0.7);
+          z-index: 15;
+          animation: pulse-array 3s infinite alternate;
+        }
+        
+        @keyframes pulse-array {
+          0% { transform: scale(1); opacity: 0.7; }
+          100% { transform: scale(1.3); opacity: 1; }
         }
         
         /* Media queries for responsive design */
@@ -818,6 +800,26 @@ const PulsarVisualizations = () => {
           .accretion-disk {
             width: 60px;
             height: 60px;
+          }
+          
+          .pulsar-star-main {
+            width: 40px;
+            height: 40px;
+          }
+          
+          .gravitational-wave {
+            max-width: 200px;
+            max-height: 200px;
+          }
+          
+          .spacetime-grid {
+            width: 200px;
+            height: 200px;
+          }
+          
+          .pulsar-array-element {
+            width: 8px;
+            height: 8px;
           }
         }
       `}</style>
