@@ -18,9 +18,8 @@ const ProjectPage = () => {
   const [observationData, setObservationData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [showScrollTop, setShowScrollTop] = useState(false); // Added for scroll-to-top
-
   const [showScrollTop, setShowScrollTop] = useState(false);
+
 
   useEffect(() => {
     const handleScroll = () => {
