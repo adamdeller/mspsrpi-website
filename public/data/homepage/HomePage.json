@@ -4,10 +4,22 @@
     "researchSubtitle": "Astrometric observations with Very Long Baseline Interferometery (VLBI)"
   },
   "projectStats": [
-    { "label": "Pulsars Observed", "value": "44" },
-    { "label": "Parallax Precision", "value": "10 μas" },
-    { "label": "Precise Distances", "value": "57+" },
-    { "label": "Years of Research", "value": "15" }
+    {
+      "label": "Pulsars Observed",
+      "value": "44"
+    },
+    {
+      "label": "Parallax Precision",
+      "value": "10 μas"
+    },
+    {
+      "label": "Precise Distances",
+      "value": "57+"
+    },
+    {
+      "label": "Years of Research",
+      "value": "15"
+    }
   ],
   "phase1Progress": {
     "totalPulsars": 33,
@@ -79,8 +91,84 @@
         "title": "Scientific Discovery",
         "description": "Results feed into broader astrophysical insights, including dark matter constraints and gravitational wave science."
       }
-
     ]
   },
-  "pulsarInfoVisible": true
+  "pulsarInfoVisible": true,
+  "pulsarInfo": {
+    "sections": {
+      "lighthouse": {
+        "title": "Cosmic Lighthouses",
+        "description": "Pulsars are rapidly rotating neutron stars – the incredibly dense remnants of massive stars that have exploded as supernovae. They emit beams of radiation from their magnetic poles that sweep across space like lighthouse beams as they rotate."
+      },
+      "millisecond": {
+        "title": "Millisecond Marvels",
+        "description": "Millisecond pulsars rotate incredibly fast – hundreds of times per second, with periods between 1-10 milliseconds. For comparison, that's faster than a kitchen blender! These are among the most stable rotators in the universe, making them exceptional cosmic clocks."
+      },
+      "binary": {
+        "title": "Born from Binary Systems",
+        "description": "Unlike regular pulsars, millisecond pulsars are thought to have been \"recycled\" – spun up to high speeds by accreting matter from a companion star. This process transfers angular momentum to the neutron star, dramatically increasing its rotation rate."
+      },
+      "importance": {
+        "title": "Why They Matter",
+        "description": "The MSPSRπ project measures precise distances to millisecond pulsars across our Galaxy. These measurements help us map the Galaxy's structure, test theories of gravity, improve our understanding of interstellar space, and detect gravitational waves."
+      }
+    }
+  },
+  "pulsarInfoSections": {
+    "header": {
+      "title": "What Are Millisecond Pulsars?",
+      "subtitle": "Cosmic Lighthouses Spinning Hundreds of Times Per Second"
+    },
+    "labels": {
+      "lighthouse": "Rotating neutron star with radiation beams",
+      "millisecond": "Millisecond Pulsar",
+      "millisecondSpeed": "~700 rotations per second",
+      "regular": "Regular Pulsar",
+      "regularSpeed": "~1 rotation per second",
+      "binary": "Matter from the companion star transfers angular momentum, spinning up the neutron star",
+      "importance": "Gravitational waves from distant events cause tiny delays in pulsar signals"
+    },
+    "descriptions": {
+      "lighthouse": [
+        {
+          "title": "Neutron Stars",
+          "text": "Neutron stars are incredibly dense stellar remnants. A teaspoon of neutron star material would weigh about a billion tons on Earth!"
+        },
+        {
+          "title": "Radio Emissions",
+          "text": "The beams of radiation are primarily radio waves. When these beams sweep across Earth, our radio telescopes detect periodic pulses of radio emission."
+        }
+      ],
+      "millisecond": [
+        {
+          "title": "Exceptional Timekeepers",
+          "text": "Millisecond pulsars are incredibly precise cosmic clocks. Their rotation periods are predictable to within a few nanoseconds over years of observation."
+        },
+        {
+          "title": "Speed Comparison",
+          "text": "Regular pulsars typically rotate once every 0.1-10 seconds. In contrast, millisecond pulsars complete hundreds of rotations in a single second!"
+        }
+      ],
+      "binary": [
+        {
+          "title": "Accretion Process",
+          "text": "As matter falls onto the neutron star, it forms a rapidly rotating accretion disk. The infalling matter transfers its angular momentum to the neutron star, spinning it up."
+        },
+        {
+          "title": "Companion Stars",
+          "text": "The companion stars in these binary systems are often white dwarfs or low-mass main sequence stars that have evolved to the point where their outer layers expand and can be pulled toward the neutron star."
+        }
+      ],
+      "importance": [
+        {
+          "title": "Pulsar Timing Arrays",
+          "text": "By precisely monitoring the arrival times of radio pulses from multiple millisecond pulsars, scientists can detect tiny ripples in spacetime caused by gravitational waves."
+        },
+        {
+          "title": "MSPSRπ Project",
+          "text": "The MSPSRπ project uses Very Long Baseline Interferometry (VLBI) to measure precise parallaxes and proper motions of millisecond pulsars, determining their exact distances and velocities."
+        }
+      ]
+    }
+  }
 }

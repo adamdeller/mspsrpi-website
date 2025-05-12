@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { MapPin, ChevronRight, Users, Search} from 'lucide-react';
+import { MapPin, ChevronRight, ChevronUp, Users, Search } from 'lucide-react';
 import { Rocket, Telescope, Ruler, BookOpen, Sparkles } from "lucide-react";
 import PulsarVisualizations from './PulsarVisualizations'; // Import the PulsarVisualizations component
 import Navbar from './Navbar'; // Import the Navbar component
@@ -28,8 +28,26 @@ const Homepage = () => {
   const [pulsarJourneyVisible, setPulsarJourneyVisible] = useState(true);
   const [pulsarInfoVisible, setPulsarInfoVisible] = useState(true);
   const journeyIcons = [<Telescope />, <Rocket />, <Ruler />, <BookOpen />, <Sparkles />];
-    // Calculate max slides for team members (showing 2 at a time)
+  // Calculate max slides for team members (showing 2 at a time)
   const maxTeamSlides = Math.ceil(teamMembers.length / 2) - 1;
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  // SCROLL TO TOP FUNCTIONALITY
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
+
+  useEffect(() => {
+      const handleScroll = () => {
+        setShowScrollTop(window.scrollY > 400);
+      };
+  
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -93,6 +111,23 @@ const Homepage = () => {
 
     fetchData();
   }, []);
+
+  // Show/hide scroll button based on scroll position
+    useEffect(() => {
+      const handleScroll = () => {
+        if (window.scrollY > 300) {
+          setShowScrollTop(true);
+        } else {
+          setShowScrollTop(false);
+        }
+      };
+  
+      window.addEventListener('scroll', handleScroll);
+  
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
 
 
 
@@ -222,23 +257,20 @@ const Homepage = () => {
                   </p>
                 </div>
 
-                {/* Questions container - with stars and consistent styling */}
                 <div className="w-full pt-10 pb-16 mb-0 rounded-xl relative overflow-hidden bg-slate-950/70 backdrop-blur-md shadow-xl">
-                  {/* Added starry background */}
-                  <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0ibm9uZSIvPjxjaXJjbGUgY3g9IjI1IiBjeT0iMjUiIHI9IjEiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuNiIvPjxjaXJjbGUgY3g9IjE3NSIgY3k9IjE1MCIgcj0iMS4yIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjciLz48Y2lyY2xlIGN4PSI3NSIgY3k9IjEwMCIgcj0iMSIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC42Ii8+PGNpcmNsZSBjeD0iMTAwIiBjeT0iMTUiIHI9IjEuNSIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC43Ii8+PGNpcmNsZSBjeD0iMTUwIiBjeT0iNTAiIHI9IjEuMiIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC42Ii8+PGNpcmNsZSBjeD0iNTAiIGN5PSIxNzUiIHI9IjEuNCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC43Ii8+PGNpcmNsZSBjeD0iMTI1IiBjeT0iMTc1IiByPSIxIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjYiLz48L3N2Zz4=')] opacity-30"></div>
+                  {/* Starry background layers */}
+                  <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,...')] opacity-30 pointer-events-none"></div>
+                  <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,...')] opacity-20 pointer-events-none"></div>
 
-                  {/* Small stars layer */}
-                  <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0ibm9uZSIvPjxjaXJjbGUgY3g9IjEwIiBjeT0iMTAiIHI9IjAuNCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC41Ii8+PGNpcmNsZSBjeD0iMzAiIGN5PSIxMCIgcj0iMC4zIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjQiLz48Y2lyY2xlIGN4PSI1MCIgY3k9IjIwIiByPSIwLjQiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuNSIvPjxjaXJjbGUgY3g9IjcwIiBjeT0iMTAiIHI9IjAuMyIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC40Ii8+PGNpcmNsZSBjeD0iOTAiIGN5PSIzMCIgcj0iMC40IiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjUiLz48Y2lyY2xlIGN4PSIxMCIgY3k9IjUwIiByPSIwLjQiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuNCIvPjxjaXJjbGUgY3g9IjMwIiBjeT0iNzAiIHI9IjAuMyIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC41Ii8+PGNpcmNsZSBjeD0iNTAiIGN5PSI5MCIgcj0iMC40IiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjQiLz48Y2lyY2xlIGN4PSI3MCIgY3k9IjUwIiByPSIwLjMiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuNSIvPjxjaXJjbGUgY3g9IjkwIiBjeT0iNzAiIHI9IjAuNCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC40Ii8+PGNpcmNsZSBjeD0iMjAiIGN5PSIzMCIgcj0iMC4zIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjUiLz48Y2lyY2xlIGN4PSI0MCIgY3k9IjQwIiByPSIwLjQiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuNCIvPjxjaXJjbGUgY3g9IjYwIiBjeT0iMzAiIHI9IjAuMyIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC41Ii8+PGNpcmNsZSBjeD0iODAiIGN5PSI0MCIgcj0iMC40IiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjQiLz48Y2lyY2xlIGN4PSIyMCIgY3k9IjgwIiByPSIwLjQiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuNCIvPjxjaXJjbGUgY3g9IjQwIiBjeT0iNjAiIHI9IjAuMyIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC41Ii8+PGNpcmNsZSBjeD0iNjAiIGN5PSI4MCIgcj0iMC40IiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjQiLz48Y2lyY2xlIGN4PSI4MCIgY3k9IjYwIiByPSIwLjMiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuNSIvPjwvc3ZnPg==')] opacity-20"></div>
+                  {/* Nebula overlays */}
+                  <div className="absolute inset-0 bg-gradient-radial from-blue-950/20 via-slate-950/5 to-transparent opacity-70 pointer-events-none"></div>
+                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-indigo-900/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-indigo-900/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
 
-                  {/* Cosmic nebula glow effect */}
-                  <div className="absolute inset-0 bg-gradient-radial from-blue-950/20 via-slate-950/5 to-transparent opacity-70"></div>
-                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-indigo-900/10 via-transparent to-transparent opacity-50"></div>
-                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-indigo-900/10 via-transparent to-transparent opacity-50"></div>
-
-                  {/* Navigation arrows */}
+                  {/* Left Navigation Arrow */}
                   <button
                     onClick={() => setQuestionSlide(prev => Math.max(0, prev - 1))}
-                    className="absolute left-4 top-1/2 transform -translate-y-1/2 z-30 w-12 h-12 flex items-center justify-center bg-slate-800/40 backdrop-blur-sm rounded-full border border-indigo-600/30 text-indigo-300 transition-all duration-300 shadow-lg hover:border-indigo-400/80 hover:text-indigo-200 hover:shadow-indigo-500/40 hover:shadow-[0_0_15px_rgba(79,70,229,0.4)]"
+                    className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 z-30 w-12 h-12 flex items-center justify-center bg-slate-800/40 backdrop-blur-sm rounded-full border border-indigo-600/30 text-indigo-300 transition-all duration-300 shadow-lg hover:border-indigo-400/80 hover:text-indigo-200 hover:shadow-indigo-500/40 hover:shadow-[0_0_15px_rgba(79,70,229,0.4)]"
                     disabled={questionSlide === 0}
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -246,33 +278,34 @@ const Homepage = () => {
                     </svg>
                   </button>
 
-                  {/* Updated card container to better center relative to arrows */}
-                  <div className="relative w-full h-full flex items-center justify-center z-20">
-                    <div className="flex justify-center items-stretch px-20 mx-auto w-full max-w-5xl">
-                      {/* Show only 3 questions at a time based on current slide - with consistent sizing */}
+                  {/* Card Grid */}
+                  <div className="relative w-full h-full flex items-center justify-center z-20 px-12 sm:px-16 lg:px-20">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
                       {researchQuestions.slice(questionSlide, questionSlide + 3).map((question, index) => {
-                        // Single consistent gradient for all cards
                         const cardGradient = "bg-gradient-to-br from-slate-900/95 via-indigo-950/50 to-slate-900/95";
 
                         return (
                           <div
                             key={index + questionSlide}
-                            className={`${cardGradient} backdrop-blur-sm border border-indigo-800/30 rounded-lg p-6 mx-3 w-full transition duration-300 hover:transform hover:scale-105 shadow-xl flex flex-col`}
+                            className={`${cardGradient} backdrop-blur-sm border border-indigo-800/30 rounded-lg p-6 shadow-xl flex flex-col transition duration-300 hover:scale-105`}
                             style={{ minHeight: "220px" }}
                           >
                             <div className="mb-4">
                               <h3 className="text-lg font-bold text-indigo-100">{question.title}</h3>
                             </div>
-                            <p className="text-base text-indigo-200 leading-relaxed opacity-90 flex-grow">{question.description}</p>
+                            <p className="text-base text-indigo-200 leading-relaxed opacity-90 flex-grow">
+                              {question.description}
+                            </p>
                           </div>
                         );
                       })}
                     </div>
                   </div>
 
+                  {/* Right Navigation Arrow */}
                   <button
                     onClick={() => setQuestionSlide(prev => Math.min(researchQuestions.length - 3, prev + 1))}
-                    className="absolute right-4 top-1/2 transform -translate-y-1/2 z-30 w-12 h-12 flex items-center justify-center bg-slate-800/40 backdrop-blur-sm rounded-full border border-indigo-600/30 text-indigo-300 transition-all duration-300 shadow-lg hover:border-indigo-400/80 hover:text-indigo-200 hover:shadow-indigo-500/40 hover:shadow-[0_0_15px_rgba(79,70,229,0.4)]"
+                    className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 z-30 w-12 h-12 flex items-center justify-center bg-slate-800/40 backdrop-blur-sm rounded-full border border-indigo-600/30 text-indigo-300 transition-all duration-300 shadow-lg hover:border-indigo-400/80 hover:text-indigo-200 hover:shadow-indigo-500/40 hover:shadow-[0_0_15px_rgba(79,70,229,0.4)]"
                     disabled={questionSlide >= researchQuestions.length - 3}
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -280,7 +313,7 @@ const Homepage = () => {
                     </svg>
                   </button>
 
-                  {/* Explore button - ethereal design */}
+                  {/* Explore Button */}
                   <div className="relative mt-10 text-center z-20">
                     <Link to="/project" className="inline-flex items-center px-6 py-3 border border-indigo-600/30 rounded-md shadow-xl text-base font-medium text-indigo-300 bg-slate-800/70 backdrop-blur-sm transition-all duration-300 hover:border-indigo-400/80 hover:text-indigo-200 hover:shadow-indigo-500/40 hover:shadow-[0_0_15px_rgba(79,70,229,0.4)]">
                       Explore The Project
@@ -496,10 +529,10 @@ const Homepage = () => {
 
               {/* Meet the team button */}
               <div className="flex justify-center mt-8">
-              <Link to="/team#top" className="inline-flex items-center px-5 py-2.5 border border-indigo-600/30 rounded-md shadow-xl text-base font-medium text-indigo-300 bg-slate-800/70 backdrop-blur-sm transition-all duration-300 hover:border-indigo-400/80 hover:text-indigo-200 hover:shadow-indigo-500/40 hover:shadow-[0_0_15px_rgba(79,70,229,0.4)]">
-  <Users className="mr-2 h-5 w-5" />
-  Meet the Team
-</Link>
+                <Link to="/team#top" className="inline-flex items-center px-5 py-2.5 border border-indigo-600/30 rounded-md shadow-xl text-base font-medium text-indigo-300 bg-slate-800/70 backdrop-blur-sm transition-all duration-300 hover:border-indigo-400/80 hover:text-indigo-200 hover:shadow-indigo-500/40 hover:shadow-[0_0_15px_rgba(79,70,229,0.4)]">
+                  <Users className="mr-2 h-5 w-5" />
+                  Meet the Team
+                </Link>
               </div>
             </div>
           </div>
@@ -533,6 +566,17 @@ const Homepage = () => {
           </p>
         </div>
       </div>
+
+      {/* Scroll to top button */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 p-3 rounded-full bg-indigo-900/80 text-white shadow-lg hover:bg-indigo-800 transition-all duration-300 backdrop-blur-sm border border-indigo-500/50"
+          aria-label="Scroll to top"
+        >
+          <ChevronUp className="h-6 w-6" />
+        </button>
+      )}
     </div>
   );
 };
