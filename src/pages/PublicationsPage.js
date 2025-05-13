@@ -34,7 +34,7 @@ const PublicationsPage = () => {
   const [years, setYears] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   // DATA FETCHING
   useEffect(() => {
@@ -49,6 +49,22 @@ const PublicationsPage = () => {
     });
   };
 
+  // Show/hide scroll button based on scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const fetchPublicationsData = async () => {
     setLoading(true);
@@ -719,7 +735,17 @@ const PublicationsPage = () => {
           </p>
         </div>
       </div>
-
+      
+      {/* Scroll to top button */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 p-3 rounded-full bg-indigo-900/80 text-white shadow-lg hover:bg-indigo-800 transition-all duration-300 backdrop-blur-sm border border-indigo-500/50"
+          aria-label="Scroll to top"
+        >
+          <ChevronUp className="h-6 w-6" />
+        </button>
+      )}
     </div>
   );
 };
