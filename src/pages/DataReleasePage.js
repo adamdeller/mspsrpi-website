@@ -11,7 +11,8 @@ import {
   Filter,
   ExternalLink,
   MaximizeIcon,
-  ZoomIn
+  ZoomIn,
+  ChevronUp
 } from 'lucide-react';
 const referenceUrlMap = {
   "Burgay et al. 2006 (discovery)": "https://academic.oup.com/mnras/article/368/1/283/969706",
@@ -61,11 +62,21 @@ const DataReleasePage = () => {
   const [downloadPulsar, setDownloadPulsar] = useState(null);
   const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
 
+  const [showScrollTop, setShowScrollTop] = useState(false); // Added for scroll-to-top
+
   const [allPhasesPulsars, setAllPhasesPulsars] = useState({
     PSRPI: [],
     MSPSRPI: [],
     MSPSRPI2: []
   });
+
+  // SCROLL TO TOP FUNCTIONALITY
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
 
   const { handleBatchDownloadClick, BatchDownloadModalComponent } = BatchDownloadHandler({
     allPhasesPulsars,
@@ -96,6 +107,15 @@ const DataReleasePage = () => {
       pulsarName
     });
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     setIsLoading(true);
@@ -130,7 +150,7 @@ const DataReleasePage = () => {
           MSPSRPI2: formatMSPSRPI2Data(mspsrpi2Data)
         });
 
-       // Load data for the currently selected phase
+        // Load data for the currently selected phase
         const currentPhaseData = selectedObsPhase === 'MSPSRPI'
           ? formatMSPSRPIData(mspsrpiData)
           : selectedObsPhase === 'MSPSRPI2'
@@ -147,6 +167,23 @@ const DataReleasePage = () => {
 
     loadAllPhasesData();
   }, [selectedObsPhase]);
+
+  // Show/hide scroll button based on scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   // Format PSRPI data (psrpiPulsars.json)
   const formatPSRPIData = (data) => {
@@ -263,48 +300,48 @@ const DataReleasePage = () => {
     );
   };
 
-const renderList = (items, isReferences = false) => {
-  if (!items || !items.length) return null;
-  
-  // Helper function to find URL for a reference that might have parentheses
-  const findReferenceUrl = (refText) => {
-    // Exact match first
-    if (referenceUrlMap[refText]) return referenceUrlMap[refText];
-    
-    // Try to match the base reference (without parentheses)
-    const baseRef = refText.split('(')[0].trim();
-    return referenceUrlMap[baseRef] || null;
+  const renderList = (items, isReferences = false) => {
+    if (!items || !items.length) return null;
+
+    // Helper function to find URL for a reference that might have parentheses
+    const findReferenceUrl = (refText) => {
+      // Exact match first
+      if (referenceUrlMap[refText]) return referenceUrlMap[refText];
+
+      // Try to match the base reference (without parentheses)
+      const baseRef = refText.split('(')[0].trim();
+      return referenceUrlMap[baseRef] || null;
+    };
+
+    return (
+      <ul className="list-disc pl-5 text-white">
+        {items.map((item, index) => (
+          <li key={index}>
+            {isReferences ? (
+              // For references, try to find URL
+              (() => {
+                const url = findReferenceUrl(item);
+                return url ? (
+                  <a
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-pink-300 hover:text-pink-200 hover:underline"
+                  >
+                    {item}
+                  </a>
+                ) : (
+                  <span className="text-white">{item}</span>
+                );
+              })()
+            ) : (
+              <span className="text-white">{item}</span>
+            )}
+          </li>
+        ))}
+      </ul>
+    );
   };
-  
-  return (
-    <ul className="list-disc pl-5 text-white">
-      {items.map((item, index) => (
-        <li key={index}>
-          {isReferences ? (
-            // For references, try to find URL
-            (() => {
-              const url = findReferenceUrl(item);
-              return url ? (
-                <a 
-                  href={url} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-pink-300 hover:text-pink-200 hover:underline"
-                >
-                  {item}
-                </a>
-              ) : (
-                <span className="text-white">{item}</span>
-              );
-            })()
-          ) : (
-            <span className="text-white">{item}</span>
-          )}
-        </li>
-      ))}
-    </ul>
-  );
-};
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-950 via-slate-900 to-black text-gray-100">
@@ -1309,7 +1346,7 @@ const renderList = (items, isReferences = false) => {
             </div>
           </div>
         </div>
-		
+
         {/* Data Releases Section */}
         <div className="mb-12">
           <div className="mb-6">
@@ -1476,6 +1513,17 @@ const renderList = (items, isReferences = false) => {
       />
 
       {BatchDownloadModalComponent}
+
+      {/* Scroll to top button */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 p-3 rounded-full bg-indigo-900/80 text-white shadow-lg hover:bg-indigo-800 transition-all duration-300 backdrop-blur-sm border border-indigo-500/50"
+          aria-label="Scroll to top"
+        >
+          <ChevronUp className="h-6 w-6" />
+        </button>
+      )}
     </div>
   );
 };

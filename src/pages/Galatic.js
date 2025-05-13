@@ -124,9 +124,10 @@ function StarBackground() {
   )
 }
 
-function PulsarDot({ id, position, name, ra, dec, type, onHover, hovered }) {
+function PulsarDot({ id, position, name, ra, dec, type, onHover, hovered, onTap, tapped }) {
   const coreRef = useRef()
   const glowRef = useRef()
+  const [localHovered, setLocalHovered] = useState(false)
 
   // Determine color based on pulsar type
   const getPulsarColor = (type) => {
@@ -146,7 +147,7 @@ function PulsarDot({ id, position, name, ra, dec, type, onHover, hovered }) {
   useFrame(({ clock }) => {
     const t = clock.getElapsedTime()
 
-    if (hovered === id) {
+    if (hovered === id || tapped === id) {
       coreRef.current.scale.set(1.2, 1.2, 1.2)
     } else {
       const coreScale = 0.8 + 0.2 * Math.sin(t * 4 + id)
@@ -163,11 +164,32 @@ function PulsarDot({ id, position, name, ra, dec, type, onHover, hovered }) {
     Math.random() * Math.PI * 0.2
   ], [])
 
+  // Handle click for mobile
+  const handleClick = (e) => {
+    e.stopPropagation()
+    // If already selected, deselect; otherwise select
+    if (tapped === id) {
+      onTap(null)
+    } else {
+      onTap(id)
+    }
+  }
+
+  // Determine if we should show the tooltip
+  const showTooltip = hovered === id || tapped === id
+
   return (
     <group
       position={position}
-      onPointerOver={() => onHover(id)}
-      onPointerOut={() => onHover(null)}
+      onPointerOver={() => {
+        setLocalHovered(true)
+        onHover(id)
+      }}
+      onPointerOut={() => {
+        setLocalHovered(false)
+        onHover(null)
+      }}
+      onClick={handleClick}
     >
       {/* Core */}
       <mesh ref={coreRef}>
@@ -190,7 +212,7 @@ function PulsarDot({ id, position, name, ra, dec, type, onHover, hovered }) {
       </mesh>
 
       {/* Info tooltip */}
-      {hovered === id && (
+      {showTooltip && (
         <Html
           position={[0, 0.35, 0]}
           style={{ pointerEvents: 'none' }}
@@ -202,6 +224,9 @@ function PulsarDot({ id, position, name, ra, dec, type, onHover, hovered }) {
             {type && <span>Type: {type}<br /></span>}
             RA: {ra}<br />
             Dec: {dec}
+            {tapped === id && (
+              <div className="text-gray-300 mt-1 text-[10px]">Tap again to close</div>
+            )}
           </div>
         </Html>
       )}
@@ -212,7 +237,26 @@ function PulsarDot({ id, position, name, ra, dec, type, onHover, hovered }) {
 export default function PulsarGalaxyBeautified({ pulsars }) {
   const [isCanvasHovered, setIsCanvasHovered] = useState(false)
   const [activeId, setActiveId] = useState(null)
+  const [tappedId, setTappedId] = useState(null)
   const [status, setStatus] = useState("Loading...")
+  const [isMobile, setIsMobile] = useState(false)
+
+  // Detect if device is mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile('ontouchstart' in window || navigator.maxTouchPoints > 0)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  // Handle canvas click to deselect pulsars on mobile
+  const handleCanvasClick = () => {
+    if (isMobile && tappedId !== null) {
+      setTappedId(null)
+    }
+  }
 
   // Handle different data formats
   const processPulsars = (pulsarData) => {
@@ -312,7 +356,7 @@ export default function PulsarGalaxyBeautified({ pulsars }) {
 
   console.log("Generated points:", points);
 
-  // FIX: Use useEffect to update status when points change
+  // Update status when points change
   useEffect(() => {
     if (points.length > 0) {
       setStatus(`Displaying ${points.length} pulsars`);
@@ -325,7 +369,10 @@ export default function PulsarGalaxyBeautified({ pulsars }) {
       onMouseLeave={() => setIsCanvasHovered(false)}
       style={{ width: '100%', height: '100%', position: 'relative' }}
     >
-      <Canvas camera={{ position: [0, 0, 8], fov: 45 }}>
+      <Canvas
+        camera={{ position: [0, 0, 8], fov: 45 }}
+        onClick={handleCanvasClick}
+      >
         <ambientLight intensity={0.6} />
         <pointLight position={[10, 10, 10]} intensity={1} />
         <directionalLight position={[5, 5, 5]} intensity={1.2} castShadow />
@@ -339,6 +386,8 @@ export default function PulsarGalaxyBeautified({ pulsars }) {
               {...p}
               onHover={setActiveId}
               hovered={activeId}
+              onTap={setTappedId}
+              tapped={tappedId}
             />
           ))
         ) : (
@@ -349,6 +398,25 @@ export default function PulsarGalaxyBeautified({ pulsars }) {
           </Html>
         )}
       </Canvas>
+
+      {/* Mobile usage hint */}
+      {isMobile && points.length > 0 && (
+        <div style={{
+          position: 'absolute',
+          top: '10px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          background: 'rgba(0,0,0,0.7)',
+          padding: '6px 12px',
+          borderRadius: '20px',
+          color: 'white',
+          fontSize: '12px',
+          textAlign: 'center',
+          pointerEvents: 'none'
+        }}>
+          Tap on a pulsar to view details
+        </div>
+      )}
 
       {/* Legend */}
       <div style={{
