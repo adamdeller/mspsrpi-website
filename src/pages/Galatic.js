@@ -124,10 +124,9 @@ function StarBackground() {
   )
 }
 
-function PulsarDot({ id, position, name, ra, dec, type, onHover, hovered, onTap, tapped }) {
+function PulsarDot({ id, position, name, ra, dec, type, onHover, hovered, onTap, tapped, isMobile }) {
   const coreRef = useRef()
   const glowRef = useRef()
-  const [localHovered, setLocalHovered] = useState(false)
 
   // Determine color based on pulsar type
   const getPulsarColor = (type) => {
@@ -147,48 +146,42 @@ function PulsarDot({ id, position, name, ra, dec, type, onHover, hovered, onTap,
   useFrame(({ clock }) => {
     const t = clock.getElapsedTime()
 
+    // Scale effect for hover/tap
     if (hovered === id || tapped === id) {
       coreRef.current.scale.set(1.2, 1.2, 1.2)
+      if (glowRef.current) {
+        glowRef.current.material.opacity = 0.5
+      }
     } else {
       const coreScale = 0.8 + 0.2 * Math.sin(t * 4 + id)
       coreRef.current.scale.set(coreScale, coreScale, coreScale)
+      if (glowRef.current) {
+        glowRef.current.material.opacity = 0.3
+      }
     }
 
     const glowScale = 1 + 0.15 * Math.sin(t * 2 + id)
-    glowRef.current.scale.set(glowScale, glowScale, glowScale)
+    if (glowRef.current) {
+      glowRef.current.scale.set(glowScale, glowScale, glowScale)
+    }
   })
-
-  const randomRotation = useMemo(() => [
-    Math.random() * Math.PI * 0.2,
-    Math.random() * Math.PI * 0.2,
-    Math.random() * Math.PI * 0.2
-  ], [])
 
   // Handle click for mobile
   const handleClick = (e) => {
-    e.stopPropagation()
-    // If already selected, deselect; otherwise select
-    if (tapped === id) {
-      onTap(null)
-    } else {
+    if (isMobile) {
+      e.stopPropagation()
       onTap(id)
     }
   }
 
-  // Determine if we should show the tooltip
-  const showTooltip = hovered === id || tapped === id
+  // Show tooltip for hover (desktop) or tap (mobile)
+  const showTooltip = (!isMobile && hovered === id) || (isMobile && tapped === id)
 
   return (
     <group
       position={position}
-      onPointerOver={() => {
-        setLocalHovered(true)
-        onHover(id)
-      }}
-      onPointerOut={() => {
-        setLocalHovered(false)
-        onHover(null)
-      }}
+      onPointerOver={() => !isMobile && onHover(id)}
+      onPointerOut={() => !isMobile && onHover(null)}
       onClick={handleClick}
     >
       {/* Core */}
@@ -215,17 +208,32 @@ function PulsarDot({ id, position, name, ra, dec, type, onHover, hovered, onTap,
       {showTooltip && (
         <Html
           position={[0, 0.35, 0]}
-          style={{ pointerEvents: 'none' }}
-          zIndexRange={[100, 0]}
+          style={{
+            pointerEvents: isMobile ? 'auto' : 'none',
+            touchAction: 'none',
+            zIndex: 60
+          }}
+          zIndexRange={[60, 10]}
           occlude={false}
         >
-          <div className="bg-black/75 text-white text-xs px-3 py-2 rounded-lg max-w-[220px] whitespace-nowrap shadow-lg backdrop-blur">
-            <strong>{name}</strong><br />
+          <div
+            className="bg-black/85 text-white text-xs px-3 py-2 rounded-lg max-w-[220px] shadow-lg backdrop-blur"
+            style={{ cursor: isMobile ? 'pointer' : 'default' }}
+            onClick={(e) => {
+              if (isMobile) {
+                e.stopPropagation()
+                onTap(null)
+              }
+            }}
+          >
+            <strong className="text-sm">{name}</strong><br />
             {type && <span>Type: {type}<br /></span>}
             RA: {ra}<br />
             Dec: {dec}
-            {tapped === id && (
-              <div className="text-gray-300 mt-1 text-[10px]">Tap again to close</div>
+            {isMobile && (
+              <div className="text-gray-300 mt-2 pt-2 border-t border-gray-600">
+                <div className="text-center text-[11px] font-medium">Tap here to close</div>
+              </div>
             )}
           </div>
         </Html>
@@ -234,28 +242,94 @@ function PulsarDot({ id, position, name, ra, dec, type, onHover, hovered, onTap,
   )
 }
 
+// Mobile-friendly pulsar info panel
+function MobilePulsarInfo({ pulsar, onClose }) {
+  if (!pulsar) return null
+
+  return (
+    <div className="fixed bottom-0 left-0 right-0 bg-black/95 text-white p-4 z-[60] rounded-t-2xl shadow-lg backdrop-blur-md">
+      <div className="flex justify-between items-start mb-3">
+        <h3 className="text-lg font-bold">{pulsar.name}</h3>
+        <button
+          onClick={onClose}
+          className="text-gray-400 hover:text-white text-2xl px-2"
+        >
+          ×
+        </button>
+      </div>
+      <div className="space-y-2 text-sm">
+        {pulsar.type && <p><span className="text-gray-400">Type:</span> {pulsar.type}</p>}
+        <p><span className="text-gray-400">RA:</span> {pulsar.ra}</p>
+        <p><span className="text-gray-400">Dec:</span> {pulsar.dec}</p>
+      </div>
+      <p className="text-xs text-gray-500 mt-3 text-center">Tap empty space or swipe down to close</p>
+    </div>
+  )
+}
+
 export default function PulsarGalaxyBeautified({ pulsars }) {
   const [isCanvasHovered, setIsCanvasHovered] = useState(false)
   const [activeId, setActiveId] = useState(null)
   const [tappedId, setTappedId] = useState(null)
+  const [selectedPulsar, setSelectedPulsar] = useState(null)
   const [status, setStatus] = useState("Loading...")
   const [isMobile, setIsMobile] = useState(false)
+  const [showMobileIntro, setShowMobileIntro] = useState(true)
+  const lastTapTimeRef = useRef(0)
+  const isPulsarClickRef = useRef(false)
 
   // Detect if device is mobile
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile('ontouchstart' in window || navigator.maxTouchPoints > 0)
+      const mobile = ('ontouchstart' in window || navigator.maxTouchPoints > 0) && window.innerWidth < 768
+      setIsMobile(mobile)
     }
     checkMobile()
     window.addEventListener('resize', checkMobile)
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
-  // Handle canvas click to deselect pulsars on mobile
-  const handleCanvasClick = () => {
-    if (isMobile && tappedId !== null) {
-      setTappedId(null)
+  // Hide mobile intro after 3 seconds
+  useEffect(() => {
+    if (isMobile && showMobileIntro) {
+      const timer = setTimeout(() => setShowMobileIntro(false), 3000)
+      return () => clearTimeout(timer)
     }
+  }, [isMobile, showMobileIntro])
+
+  // Handle tap on pulsar for mobile
+  const handleTap = (id) => {
+    const currentTime = Date.now()
+    // Add a small delay to prevent closing immediately after opening
+    if (currentTime - lastTapTimeRef.current < 200) return
+
+    isPulsarClickRef.current = true
+    const pulsar = points.find(p => p.id === id)
+    if (pulsar) {
+      setSelectedPulsar(pulsar)
+      setTappedId(id)
+      lastTapTimeRef.current = currentTime
+    }
+  }
+
+  // Handle close mobile info panel
+  const handleCloseMobileInfo = () => {
+    setSelectedPulsar(null)
+    setTappedId(null)
+  }
+
+  // Handle canvas click to close mobile info panel
+  const handleCanvasClick = (event) => {
+    // Only close if clicked on empty space (not on a pulsar)
+    if (isMobile && selectedPulsar && !isPulsarClickRef.current) {
+      const currentTime = Date.now()
+      // Prevent closing too quickly after opening
+      if (currentTime - lastTapTimeRef.current > 200) {
+        handleCloseMobileInfo()
+      }
+    }
+    // Reset the flag
+    isPulsarClickRef.current = false
   }
 
   // Handle different data formats
@@ -371,12 +445,18 @@ export default function PulsarGalaxyBeautified({ pulsars }) {
     >
       <Canvas
         camera={{ position: [0, 0, 8], fov: 45 }}
-        onClick={handleCanvasClick}
+        onPointerDown={handleCanvasClick}
       >
         <ambientLight intensity={0.6} />
         <pointLight position={[10, 10, 10]} intensity={1} />
         <directionalLight position={[5, 5, 5]} intensity={1.2} castShadow />
-        <OrbitControls autoRotate={!isCanvasHovered} autoRotateSpeed={0.2} />
+        <OrbitControls
+          autoRotate={!isCanvasHovered && !isMobile}
+          autoRotateSpeed={0.2}
+          enablePan={false}
+          maxDistance={15}
+          minDistance={3}
+        />
         <StarBackground />
         <Earth />
         {points.length > 0 ? (
@@ -386,8 +466,9 @@ export default function PulsarGalaxyBeautified({ pulsars }) {
               {...p}
               onHover={setActiveId}
               hovered={activeId}
-              onTap={setTappedId}
+              onTap={handleTap}
               tapped={tappedId}
+              isMobile={isMobile}
             />
           ))
         ) : (
@@ -399,58 +480,81 @@ export default function PulsarGalaxyBeautified({ pulsars }) {
         )}
       </Canvas>
 
-      {/* Mobile usage hint */}
-      {isMobile && points.length > 0 && (
-        <div style={{
-          position: 'absolute',
-          top: '10px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          background: 'rgba(0,0,0,0.7)',
-          padding: '6px 12px',
-          borderRadius: '20px',
-          color: 'white',
-          fontSize: '12px',
-          textAlign: 'center',
-          pointerEvents: 'none'
-        }}>
-          Tap on a pulsar to view details
+      {/* Mobile intro animation */}
+      {isMobile && showMobileIntro && points.length > 0 && (
+        <div
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            background: 'rgba(0,0,0,0.85)',
+            padding: '15px 25px',
+            borderRadius: '12px',
+            color: 'white',
+            fontSize: '14px',
+            textAlign: 'center',
+            pointerEvents: 'none',
+            animation: 'fadeIn 0.5s ease-out'
+          }}
+        >
+          <div style={{ marginBottom: '8px' }}>
+            <span style={{ fontSize: '20px' }}>👆</span>
+          </div>
+          Tap on any pulsar to view details
         </div>
       )}
 
-      {/* Legend */}
+      {/* Mobile info panel */}
+      {isMobile && selectedPulsar && (
+        <MobilePulsarInfo
+          pulsar={selectedPulsar}
+          onClose={handleCloseMobileInfo}
+        />
+      )}
+
+      {/* Legend - make it more compact on mobile */}
       <div style={{
         position: 'absolute',
-        bottom: '10px',
+        bottom: isMobile ? '10px' : '10px',
         right: '10px',
         background: 'rgba(0,0,0,0.7)',
-        padding: '8px',
+        padding: isMobile ? '6px' : '8px',
         borderRadius: '4px',
         color: 'white',
-        fontSize: '12px'
+        fontSize: isMobile ? '10px' : '12px',
+        maxWidth: isMobile ? '140px' : 'none',
+        zIndex: 40
       }}>
-        <div style={{ marginBottom: '4px' }}>Pulsar Types:</div>
+        <div style={{ marginBottom: '4px', fontWeight: 'bold' }}>Pulsar Types:</div>
         <div style={{ display: 'flex', alignItems: 'center', marginBottom: '2px' }}>
-          <span style={{ display: 'inline-block', width: '12px', height: '12px', backgroundColor: '#ff5555', marginRight: '5px', borderRadius: '50%' }}></span>
-          <span>Black Widow Pulsar</span>
+          <span style={{ display: 'inline-block', width: isMobile ? '8px' : '12px', height: isMobile ? '8px' : '12px', backgroundColor: '#ff5555', marginRight: '5px', borderRadius: '50%' }}></span>
+          <span style={{ fontSize: isMobile ? '9px' : '12px' }}>Black Widow</span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', marginBottom: '2px' }}>
-          <span style={{ display: 'inline-block', width: '12px', height: '12px', backgroundColor: '#55ff55', marginRight: '5px', borderRadius: '50%' }}></span>
-          <span>Binary System</span>
+          <span style={{ display: 'inline-block', width: isMobile ? '8px' : '12px', height: isMobile ? '8px' : '12px', backgroundColor: '#55ff55', marginRight: '5px', borderRadius: '50%' }}></span>
+          <span style={{ fontSize: isMobile ? '9px' : '12px' }}>Binary</span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', marginBottom: '2px' }}>
-          <span style={{ display: 'inline-block', width: '12px', height: '12px', backgroundColor: '#ffaa00', marginRight: '5px', borderRadius: '50%' }}></span>
-          <span>Solitary Pulsar</span>
+          <span style={{ display: 'inline-block', width: isMobile ? '8px' : '12px', height: isMobile ? '8px' : '12px', backgroundColor: '#ffaa00', marginRight: '5px', borderRadius: '50%' }}></span>
+          <span style={{ fontSize: isMobile ? '9px' : '12px' }}>Solitary</span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', marginBottom: '2px' }}>
-          <span style={{ display: 'inline-block', width: '12px', height: '12px', backgroundColor: '#ff00ff', marginRight: '5px', borderRadius: '50%' }}></span>
-          <span>Double Neutron Star System</span>
+          <span style={{ display: 'inline-block', width: isMobile ? '8px' : '12px', height: isMobile ? '8px' : '12px', backgroundColor: '#ff00ff', marginRight: '5px', borderRadius: '50%' }}></span>
+          <span style={{ fontSize: isMobile ? '9px' : '12px' }}>Double NS</span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center' }}>
-          <span style={{ display: 'inline-block', width: '12px', height: '12px', backgroundColor: '#60a5fa', marginRight: '5px', borderRadius: '50%' }}></span>
-          <span>Other Types</span>
+          <span style={{ display: 'inline-block', width: isMobile ? '8px' : '12px', height: isMobile ? '8px' : '12px', backgroundColor: '#60a5fa', marginRight: '5px', borderRadius: '50%' }}></span>
+          <span style={{ fontSize: isMobile ? '9px' : '12px' }}>Other</span>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+          to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        }
+      `}</style>
     </div>
   )
 }
