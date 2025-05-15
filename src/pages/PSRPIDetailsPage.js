@@ -12,7 +12,7 @@ import {
   ArrowRight,
   Filter
 } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom'; // Removed unused useLocation
 import Navbar from './Navbar'; // Import the Navbar component
 
 //------------------------------------------------------------------
@@ -21,7 +21,6 @@ import Navbar from './Navbar'; // Import the Navbar component
 const PSRPIDetailsPage = () => {
 
   // STATE VARIABLES AND HOOKS
-  const location = useLocation();
   const [activeTab, setActiveTab] = useState('overview');
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [data, setData] = useState(null);
@@ -38,7 +37,6 @@ const PSRPIDetailsPage = () => {
   // DATA FETCHING
   useEffect(() => {
     const loadData = async () => {
-      setLoading(true);
       try {
         // Fetch the JSON data from the public URL
         const response = await fetch(`${process.env.PUBLIC_URL}/data/psrpi/psrpiDetails.json`);
@@ -65,34 +63,30 @@ const PSRPIDetailsPage = () => {
   //                     FILTERING AND PAGINATION
   //------------------------------------------------------------------
   // Filter pulsars based on flux density
-  const filteredPulsars = data?.pulsars
-    ? data.pulsars.filter(pulsar => {
-      const flux = parseFloat(pulsar.flux_density_1_4GHz);
+  const filteredPulsars = data?.pulsars?.filter(pulsar => {
+    if (!pulsar) return false;
+    
+    const flux = parseFloat(pulsar.flux_density_1_4GHz);
 
-      switch (fluxFilter) {
-        case 'low':
-          return flux >= 0.5 && flux < 2.0;
-        case 'medium':
-          return flux >= 2.0 && flux < 5.0;
-        case 'high':
-          return flux >= 5.0;
-        default:
-          return true; // 'all' filter
-      }
-    })
-    : [];
+    switch (fluxFilter) {
+      case 'low':
+        return flux >= 0.5 && flux < 2.0;
+      case 'medium':
+        return flux >= 2.0 && flux < 5.0;
+      case 'high':
+        return flux >= 5.0;
+      default:
+        return true; // 'all' filter
+    }
+  }) || [];
 
-  // Calculate pulsars to display based on pagination
-  const currentPulsars = filteredPulsars
-    ? filteredPulsars.slice(
-      (currentPage - 1) * pulsarsPerPage,
-      currentPage * pulsarsPerPage
-    )
-    : [];
+  // Calculate pulsars to display based on pagination - simplified
+  const currentPulsars = filteredPulsars.slice(
+    (currentPage - 1) * pulsarsPerPage,
+    currentPage * pulsarsPerPage
+  );
 
-  const totalPages = filteredPulsars
-    ? Math.ceil(filteredPulsars.length / pulsarsPerPage)
-    : 0;
+  const totalPages = Math.ceil(filteredPulsars.length / pulsarsPerPage);
 
   // SCROLL TO TOP FUNCTIONALITY
   const scrollToTop = () => {
