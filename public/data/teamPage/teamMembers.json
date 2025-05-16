@@ -9,10 +9,18 @@
       "email": "adeller@astro.swin.edu.au"
     },
     {
+      "name": "Bailee Wolfe",
+      "role": "Teaching Sessional",
+      "institution": "Swinburne University of Technology",
+      "photo": "/data/teamPage/photo/bailee-wolfe.jpg",
+      "quote": "Assisting students in understanding the universe, one astro tour at a time.",
+      "email": "bwolfe@swin.edu.au"
+    },
+    {
       "name": "Walter Brisken",
       "role": "Co-Investigator",
       "institution": "NRAO",
-      "photo": "/api/placeholder/250/250",
+      "photo": "/data/teamPage/photo/HR.jpg",
       "quote": "VLBI techniques enable us to measure pulsar distances with unprecedented accuracy."
     },
     {
