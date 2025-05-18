@@ -16,7 +16,7 @@ import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 
 //------------------------------------------------------------------
-//               CENTRALIZED THEME CONFIGURATIONS
+//               CENTRALISED THEME CONFIGURATIONS
 //------------------------------------------------------------------
 export const PROJECT_THEMES = {
   psrpi: {
@@ -193,7 +193,7 @@ export const PROJECT_THEMES = {
 };
 
 //------------------------------------------------------------------
-//             CENTRALIZED PROJECT CONFIGURATIONS
+//             CENTRALISED PROJECT CONFIGURATIONS
 //------------------------------------------------------------------
 export const PROJECT_CONFIGS = {
   psrpi: {
@@ -236,8 +236,6 @@ export const PROJECT_CONFIGS = {
       medium: [0.76, 1.2], 
       high: [1.2, null]
     },
-    showResultsOverlay: true,
-    showPublicationsPlaceholder: true
   }
 };
 
@@ -684,8 +682,8 @@ const ProjectPhaseComponent = ({
                 {data.sectionTitles?.keyResults || "Key Results & Discoveries"}
               </h2>
 
-              {/* Conditional overlay for MSPSRπ2 */}
-              {projectType === 'mspsrpi2' && showResultsOverlay && (
+              {/* Conditional overlay for MSPSRπ2 - MODIFIED to use data value first */}
+              {projectType === 'mspsrpi2' && (data?.showResultsOverlay ?? showResultsOverlay) && (
                 <div className="relative overflow-hidden rounded-xl mb-8">
                   {/* Starry background for the temporary overlay */}
                   <div className="absolute inset-0 bg-blue-950/90 overflow-hidden">
@@ -725,8 +723,8 @@ const ProjectPhaseComponent = ({
                 </div>
               )}
 
-              {/* Actual results content - conditionally shown based on overlay flag */}
-              <div className={projectType === 'mspsrpi2' && showResultsOverlay ? "hidden" : ""}>
+              {/* Actual results content - conditionally shown based on overlay flag - MODIFIED to use data value first */}
+              <div className={projectType === 'mspsrpi2' && (data?.showResultsOverlay ?? showResultsOverlay) ? "hidden" : ""}>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
                   {data.keyResults.map((result, index) => (
                     <div key={index} className={`bg-slate-800/50 backdrop-blur-sm rounded-lg p-5 ${colors.cardBorder} transition-all duration-300`}>
@@ -748,14 +746,14 @@ const ProjectPhaseComponent = ({
                 </div>
               </div>
 
-              {/* Publications section with conditional placeholder for MSPSRπ2 */}
+              {/* Publications section with conditional placeholder for MSPSRπ2 - MODIFIED to use data value first */}
               <div className="mt-8">
                 <h3 className="text-xl font-bold text-white mb-4">
                   {data.sectionTitles?.publications || `${projectName} Publications`}
                 </h3>
 
                 {/* Conditional publications placeholder for MSPSRπ2 */}
-                {projectType === 'mspsrpi2' && showPublicationsPlaceholder ? (
+                {projectType === 'mspsrpi2' && (data?.showPublicationsPlaceholder ?? showPublicationsPlaceholder) ? (
                   <div className={`bg-slate-800/40 backdrop-blur-sm rounded-lg p-6 ${colors.publicationBorder}`}>
                     <div className="flex flex-col items-center justify-center text-center py-6">
                       <div className={`w-16 h-16 ${colors.timelineCircle} rounded-full flex items-center justify-center mb-4 backdrop-blur-md`}>
