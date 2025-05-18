@@ -369,6 +369,326 @@
       "flux_density_1_4GHz": "3.00",
       "inbeam_calibrators": "2",
       "epochs_observed": "9"
+    },
+    {
+      "name": "J1136+1551",
+      "ra": "11:36:03.1198",
+      "dec": "15:51:14.183",
+      "flux_density_1_4GHz": "5.70",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J1257-1027",
+      "ra": "12:57:04.7625",
+      "dec": "-10:27:05.551",
+      "flux_density_1_4GHz": "1.20",
+      "inbeam_calibrators": "1",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J1321+8323",
+      "ra": "13:21:45.6315",
+      "dec": "83:23:39.432",
+      "flux_density_1_4GHz": "2.10",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J1532+2745",
+      "ra": "15:32:10.3646",
+      "dec": "27:45:49.623",
+      "flux_density_1_4GHz": "1.50",
+      "inbeam_calibrators": "1",
+      "epochs_observed": "8"
+    },
+    {
+      "name": "J1543-0620",
+      "ra": "15:43:30.1373",
+      "dec": "-06:20:45.332",
+      "flux_density_1_4GHz": "1.90",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J1607-0032",
+      "ra": "16:07:12.0598",
+      "dec": "-00:32:41.527",
+      "flux_density_1_4GHz": "1.70",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J1623-0908",
+      "ra": "16:23:17.6599",
+      "dec": "-09:08:48.733",
+      "flux_density_1_4GHz": "1.80",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J1645-0317",
+      "ra": "16:45:02.0406",
+      "dec": "-03:17:57.819",
+      "flux_density_1_4GHz": "2.40",
+      "inbeam_calibrators": "1",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J1650-1654",
+      "ra": "16:50:27.1694",
+      "dec": "-16:54:42.282",
+      "flux_density_1_4GHz": "1.10",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "8"
+    },
+    {
+      "name": "J1703-1846",
+      "ra": "17:03:51.0915",
+      "dec": "-18:46:14.845",
+      "flux_density_1_4GHz": "1.80",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J1735-0724",
+      "ra": "17:35:04.9730",
+      "dec": "-07:24:52.130",
+      "flux_density_1_4GHz": "2.20",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J1741-0840",
+      "ra": "17:41:22.5629",
+      "dec": "-08:40:31.711",
+      "flux_density_1_4GHz": "1.60",
+      "inbeam_calibrators": "1",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J1754+5201",
+      "ra": "17:54:22.9068",
+      "dec": "52:01:12.244",
+      "flux_density_1_4GHz": "1.40",
+      "inbeam_calibrators": "1",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J1820-0427",
+      "ra": "18:20:52.5934",
+      "dec": "-04:27:37.712",
+      "flux_density_1_4GHz": "2.70",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J1833-0338",
+      "ra": "18:33:41.8945",
+      "dec": "-03:39:04.258",
+      "flux_density_1_4GHz": "2.10",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J1840+5640",
+      "ra": "18:40:44.5372",
+      "dec": "56:40:54.852",
+      "flux_density_1_4GHz": "1.90",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J1901-0906",
+      "ra": "19:01:53.0087",
+      "dec": "-09:06:11.146",
+      "flux_density_1_4GHz": "1.50",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J1912+2104",
+      "ra": "19:12:43.3391",
+      "dec": "21:04:33.926",
+      "flux_density_1_4GHz": "1.30",
+      "inbeam_calibrators": "1",
+      "epochs_observed": "8"
+    },
+    {
+      "name": "J1913+1400",
+      "ra": "19:13:24.3527",
+      "dec": "14:00:52.559",
+      "flux_density_1_4GHz": "1.70",
+      "inbeam_calibrators": "1",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J1917+1353",
+      "ra": "19:17:39.7864",
+      "dec": "13:53:57.077",
+      "flux_density_1_4GHz": "1.60",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J1919+0021",
+      "ra": "19:19:50.6715",
+      "dec": "00:21:39.722",
+      "flux_density_1_4GHz": "1.80",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J1937+2544",
+      "ra": "19:37:01.2544",
+      "dec": "25:44:13.436",
+      "flux_density_1_4GHz": "1.90",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J2006-0807",
+      "ra": "20:06:16.3650",
+      "dec": "-08:07:02.167",
+      "flux_density_1_4GHz": "1.60",
+      "inbeam_calibrators": "1",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J2010-1323",
+      "ra": "20:10:45.9211",
+      "dec": "-13:23:56.083",
+      "flux_density_1_4GHz": "1.20",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "8"
+    },
+    {
+      "name": "J2046+1540",
+      "ra": "20:46:39.3373",
+      "dec": "15:40:33.558",
+      "flux_density_1_4GHz": "1.50",
+      "inbeam_calibrators": "1",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J2046-0421",
+      "ra": "20:46:00.1730",
+      "dec": "-04:21:26.256",
+      "flux_density_1_4GHz": "1.70",
+      "inbeam_calibrators": "1",
+      "epochs_observed": "8"
+    },
+    {
+      "name": "J2113+2754",
+      "ra": "21:13:04.3506",
+      "dec": "27:54:01.160",
+      "flux_density_1_4GHz": "2.30",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J2113+4644",
+      "ra": "21:13:24.3295",
+      "dec": "46:44:08.844",
+      "flux_density_1_4GHz": "1.80",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J2145-0750",
+      "ra": "21:45:50.4588",
+      "dec": "-07:50:18.514",
+      "flux_density_1_4GHz": "4.20",
+      "inbeam_calibrators": "3",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J2149+6329",
+      "ra": "21:49:58.7033",
+      "dec": "63:29:44.277",
+      "flux_density_1_4GHz": "1.90",
+      "inbeam_calibrators": "1",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J2150+5247",
+      "ra": "21:50:37.7499",
+      "dec": "52:47:49.556",
+      "flux_density_1_4GHz": "1.30",
+      "inbeam_calibrators": "1",
+      "epochs_observed": "8"
+    },
+    {
+      "name": "J2212+2933",
+      "ra": "22:12:23.3444",
+      "dec": "29:33:05.411",
+      "flux_density_1_4GHz": "1.60",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J2225+6535",
+      "ra": "22:25:52.8627",
+      "dec": "65:35:36.371",
+      "flux_density_1_4GHz": "4.60",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J2248-0101",
+      "ra": "22:48:26.8859",
+      "dec": "-01:01:48.085",
+      "flux_density_1_4GHz": "1.70",
+      "inbeam_calibrators": "1",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J2305+3100",
+      "ra": "23:05:58.3212",
+      "dec": "31:00:01.281",
+      "flux_density_1_4GHz": "1.90",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J2317+1439",
+      "ra": "23:17:09.2364",
+      "dec": "14:39:31.265",
+      "flux_density_1_4GHz": "2.20",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J2317+2149",
+      "ra": "23:17:57.8419",
+      "dec": "21:49:48.019",
+      "flux_density_1_4GHz": "1.50",
+      "inbeam_calibrators": "1",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J2325+6316",
+      "ra": "23:25:13.3196",
+      "dec": "63:16:52.362",
+      "flux_density_1_4GHz": "1.10",
+      "inbeam_calibrators": "1",
+      "epochs_observed": "8"
+    },
+    {
+      "name": "J2346-0609",
+      "ra": "23:46:50.4978",
+      "dec": "-06:09:59.899",
+      "flux_density_1_4GHz": "1.80",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "9"
+    },
+    {
+      "name": "J2354+6155",
+      "ra": "23:54:04.7830",
+      "dec": "61:55:46.845",
+      "flux_density_1_4GHz": "2.10",
+      "inbeam_calibrators": "2",
+      "epochs_observed": "9"
     }
   ],
 
