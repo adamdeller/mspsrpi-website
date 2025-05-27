@@ -460,7 +460,7 @@ const Homepage = () => {
                       <div className="bg-gradient-to-b from-indigo-900/30 to-slate-900/30 backdrop-blur-sm border border-indigo-500/20 rounded-xl overflow-hidden shadow-xl h-full">
                         <div className="p-6 flex flex-col items-center h-full">
                           <div className="w-28 h-28 rounded-full border-2 border-indigo-400/50 overflow-hidden mb-4 shadow-xl shadow-indigo-900/20">
-                            <img src={teamMembers[teamMemberSlide * 2].photo} alt={teamMembers[teamMemberSlide * 2].name} className="w-full h-full object-cover" />
+                            <img src={`${process.env.PUBLIC_URL}${teamMembers[teamMemberSlide * 2].photo}`} alt={teamMembers[teamMemberSlide * 2].name} className="w-full h-full object-cover" />
                           </div>
                           <h3 className="text-xl font-bold text-white">{teamMembers[teamMemberSlide * 2].name}</h3>
                           <p className="text-indigo-300 mb-1">{teamMembers[teamMemberSlide * 2].role}</p>
@@ -483,7 +483,7 @@ const Homepage = () => {
                       <div className="bg-gradient-to-b from-indigo-900/30 to-slate-900/30 backdrop-blur-sm border border-indigo-500/20 rounded-xl overflow-hidden shadow-xl h-full">
                         <div className="p-6 flex flex-col items-center h-full">
                           <div className="w-28 h-28 rounded-full border-2 border-indigo-400/50 overflow-hidden mb-4 shadow-xl shadow-indigo-900/20">
-                            <img src={teamMembers[teamMemberSlide * 2 + 1].photo} alt={teamMembers[teamMemberSlide * 2 + 1].name} className="w-full h-full object-cover" />
+                            <img src={`${process.env.PUBLIC_URL}${teamMembers[teamMemberSlide * 2 + 1].photo}`} alt={teamMembers[teamMemberSlide * 2 + 1].name} className="w-full h-full object-cover" />
                           </div>
                           <h3 className="text-xl font-bold text-white">{teamMembers[teamMemberSlide * 2 + 1].name}</h3>
                           <p className="text-indigo-300 mb-1">{teamMembers[teamMemberSlide * 2 + 1].role}</p>
