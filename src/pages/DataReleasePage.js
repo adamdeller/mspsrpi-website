@@ -47,28 +47,34 @@ const referenceUrlMap = {
 };
 const DataReleasePage = () => {
 
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedParallaxRange, setSelectedParallaxRange] = useState('all');
-  const [selectedObsPhase, setSelectedObsPhase] = useState('MSPSRPI2');
-  const [selectedObsStatus, setSelectedObsStatus] = useState('all');
-  const [selectedMembership, setSelectedMembership] = useState('all');
+  // Data Management
   const [pulsars, setPulsars] = useState([]);
-  const [activePulsar, setActivePulsar] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isGalacticMaximized, setIsGalacticMaximized] = useState(false);
-  const [showFilters, setShowFilters] = useState(false);
-  const [activeVisualization, setActiveVisualization] = useState(null);
-
-  const [downloadPulsar, setDownloadPulsar] = useState(null);
-  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
-
-  const [showScrollTop, setShowScrollTop] = useState(false); // Added for scroll-to-top
-
   const [allPhasesPulsars, setAllPhasesPulsars] = useState({
     PSRPI: [],
     MSPSRPI: [],
     MSPSRPI2: []
   });
+
+  // UI State
+  const [selectedObsPhase, setSelectedObsPhase] = useState('MSPSRPI2');
+  const [activePulsar, setActivePulsar] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Search and Filtering
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedParallaxRange, setSelectedParallaxRange] = useState('all');
+  const [selectedObsStatus, setSelectedObsStatus] = useState('all');
+  const [selectedMembership, setSelectedMembership] = useState('all');
+
+  // Modal Management
+  const [downloadPulsar, setDownloadPulsar] = useState(null);
+  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
+  const [activeVisualization, setActiveVisualization] = useState(null);
+
+  // UI Enhancement
+  const [showScrollTop, setShowScrollTop] = useState(false);
+  const [isGalacticMaximized, setIsGalacticMaximized] = useState(false);
+  const [showFilters, setShowFilters] = useState(false);
 
   // SCROLL TO TOP FUNCTIONALITY
   const scrollToTop = () => {
@@ -106,6 +112,15 @@ const DataReleasePage = () => {
       ...visualization,
       pulsarName
     });
+  };
+
+  const calculateObservationProgress = (pulsarData) => {
+    if (!pulsarData || pulsarData.length === 0) return { completed: 0, total: 0 };
+
+    const completed = pulsarData.filter(pulsar => pulsar.status === 'Completed').length;
+    const total = pulsarData.length;
+
+    return { completed, total };
   };
 
   useEffect(() => {
@@ -342,6 +357,8 @@ const DataReleasePage = () => {
       </ul>
     );
   };
+
+  const mspsrpi2Progress = calculateObservationProgress(allPhasesPulsars.MSPSRPI2);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-950 via-slate-900 to-black text-gray-100">
@@ -1394,7 +1411,7 @@ const DataReleasePage = () => {
             <div className="bg-slate-900/60 backdrop-blur-sm border border-blue-500/30 rounded-lg p-5 shadow-lg">
               <h3 className="text-lg font-semibold text-blue-300 mb-2">MSPSRPI2 Initial Data</h3>
               <p className="text-gray-300 mb-4">
-                Preliminary data from Phase 2 observations (27 of 44 targets completed).
+                Preliminary data from Phase 2 observations ({mspsrpi2Progress.completed} of {mspsrpi2Progress.total} targets completed).
               </p>
               <div className="flex items-center justify-between">
                 <span className="text-gray-400 text-sm">Updated: March 2025</span>

@@ -4,7 +4,7 @@
     "fluxDensity": 0.73,
     "distance": 1.0,
     "properMotion": "TBD",
-    "status": "Completed",
+    "status": "Planned",
     "fluxCategory": "0.2-0.76 mJy",
     "sessionDuration": "4 hr",
     "memberships": [
@@ -1246,33 +1246,6 @@
     },
     "searchSession": "1.0 hour",
     "astrometrySession": "1.0 hour",
-    "visualizations": [
-      {
-        "title": "Flux Density Profile",
-        "path": "/2D_Visualisation/J0023+0923_flux.png",
-        "description": "Pulsar flux density measurements across frequency bands"
-      }
-    ],
-    "referenceDate": "TBD"
-  },
-  {
-    "name": "Fake pulsar",
-    "fluxDensity": 1.2,
-    "distance": 1.7,
-    "properMotion": "TBD",
-    "status": "Planned",
-    "fluxCategory": "0.76-1.2 mJy",
-    "sessionDuration": "2 hr",
-    "memberships": [
-      "MPTA"
-    ],
-    "notes": "",
-    "position": {
-      "rightAscension": "19h36m11.8478766s",
-      "declination": "-02°39'33.4091100\""
-    },
-    "searchSession": "1.0 hour",
-    "astrometrySession": "2.0 hours",
     "visualizations": [
       {
         "title": "Flux Density Profile",
