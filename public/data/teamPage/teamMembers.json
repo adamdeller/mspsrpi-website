@@ -10,11 +10,18 @@
     },
     {
       "name": "Bailee Wolfe",
-      "role": "Teaching Sessional",
+      "role": "Project Scientist",
       "institution": "Swinburne University of Technology",
       "photo": "/data/teamPage/photo/bailee-wolfe.jpg",
       "quote": "Assisting students in understanding the universe, one astro tour at a time.",
       "email": "bwolfe@swin.edu.au"
+    },
+    {
+      "name": "Hao Ding",
+      "role": "Co-Investigator; Reference Frame Tie project lead",
+      "institution": "NAOJ",
+      "photo": "/data/teamPage/photo/HR.jpg",
+      "quote": "Multi-source calibration enables higher precision astrometry."
     },
     {
       "name": "Walter Brisken",
