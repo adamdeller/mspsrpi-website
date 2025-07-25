@@ -5,7 +5,7 @@
       "role": "Principal Investigator",
       "institution": "Swinburne University of Technology",
       "photo": "/data/teamPage/photo/adam-deller.jpg",
-      "quote": "Precise pulsar astrometry allows us to map our Galaxy's structure and test fundamental theories of gravity.",
+      "quote": "Precise pulsar astrometry allows us to test fundamental theories of gravity while simultaneously mapping the structure of the Milky Way's structure.",
       "email": "adeller@astro.swin.edu.au"
     },
     {
@@ -13,7 +13,7 @@
       "role": "Project Scientist",
       "institution": "Swinburne University of Technology",
       "photo": "/data/teamPage/photo/bailee-wolfe.jpg",
-      "quote": "Assisting students in understanding the universe, one astro tour at a time.",
+      "quote": "",
       "email": "bwolfe@swin.edu.au"
     },
     {
@@ -21,28 +21,28 @@
       "role": "Co-Investigator; Reference Frame Tie project lead",
       "institution": "NAOJ",
       "photo": "/data/teamPage/photo/HR.jpg",
-      "quote": "Multi-source calibration enables higher precision astrometry."
+      "quote": ""
     },
     {
       "name": "Walter Brisken",
       "role": "Co-Investigator",
       "institution": "NRAO",
       "photo": "/data/teamPage/photo/HR.jpg",
-      "quote": "VLBI techniques enable us to measure pulsar distances with unprecedented accuracy."
+      "quote": ""
     },
     {
       "name": "Miller Goss",
       "role": "Co-Investigator",
       "institution": "NRAO",
       "photo": "/api/placeholder/250/250",
-      "quote": "The mapping of millisecond pulsars provides crucial insights into galactic structure and evolution."
+      "quote": ""
     },
     {
       "name": "Shami Chatterjee",
       "role": "Co-Investigator",
       "institution": "Cornell",
       "photo": "/api/placeholder/250/250",
-      "quote": "Pulsar astrometry is a key tool for understanding gravitational wave detection through pulsar timing arrays.",
+      "quote": "",
       "email": "sc433@cornell.edu"
     },
     {
@@ -50,7 +50,7 @@
       "role": "Co-Investigator",
       "institution": "Cornell",
       "photo": "/api/placeholder/250/250",
-      "quote": "Millisecond pulsars are nature's most precise clocks, allowing us to probe the fabric of spacetime itself.",
+      "quote": "",
       "email": "cordes@astro.cornell.edu"
     },
     {
@@ -58,7 +58,7 @@
       "role": "Co-Investigator",
       "institution": "JPL",
       "photo": "/api/placeholder/250/250",
-      "quote": "MSPSRPI helps us understand the galactic electron density distribution and improve interstellar medium models.",
+      "quote": "",
       "email": "lazio@jpl.nasa.gov"
     },
     {
@@ -66,7 +66,7 @@
       "role": "Co-Investigator",
       "institution": "Lebedev Physical Institute",
       "photo": "/api/placeholder/250/250",
-      "quote": "International collaboration in VLBI techniques enables us to achieve the highest possible astrometric precision.",
+      "quote": "",
       "email": "ykovalev@mpifr-bonn.mpg.de"
     },
     {
@@ -74,14 +74,14 @@
       "role": "Co-Investigator",
       "institution": "ADNET Systems Inc./NASA GSFC",
       "photo": "/api/placeholder/250/250",
-      "quote": "Precise reference frames are critical for measuring distances across the cosmos."
+      "quote": ""
     },
     {
       "name": "Gemma Janssen",
       "role": "Co-Investigator",
       "institution": "ASTRON",
       "photo": "/api/placeholder/250/250",
-      "quote": "The MSPSRPI project provides essential astrometric measurements for pulsar timing array efforts.",
+      "quote": "",
       "email": "gemma.janssen@manchester.ac.uk"
     },
     {
@@ -89,7 +89,7 @@
       "role": "Co-Investigator",
       "institution": "Jodrell Bank Centre for Astrophysics",
       "photo": "/api/placeholder/250/250",
-      "quote": "Understanding pulsar distances is fundamental to interpreting their timing behavior and properties.",
+      "quote": "",
       "email": "ben.stappers@manchester.ac.uk"
     }
   ]
