@@ -11,8 +11,8 @@
     "memberships": ["NANOGrav", "CPTA"],
     "status": "Planned",
     "inbeam_calibrators": 0,
-    "epochs_observed": 0,
-    "notes": ""
+    "epochs_observed": 1,
+    "notes": "Will continue in BD290"
   },
   {
     "name": "J0034-0534",
@@ -26,8 +26,8 @@
     "memberships": ["CPTA"],
     "status": "Planned",
     "inbeam_calibrators": 0,
-    "epochs_observed": 0,
-    "notes": ""
+    "epochs_observed": 1,
+    "notes": "Removed"
   },
   {
     "name": "J0340+4130",
@@ -41,8 +41,8 @@
     "memberships": ["NANOGrav", "CPTA"],
     "status": "Planned",
     "inbeam_calibrators": 0,
-    "epochs_observed": 0,
-    "notes": ""
+    "epochs_observed": 2,
+    "notes": "Will continue in BD290"
   },
   {
     "name": "J0645+5158",
@@ -56,8 +56,8 @@
     "memberships": ["NANOGrav", "CPTA"],
     "status": "Planned",
     "inbeam_calibrators": 0,
-    "epochs_observed": 0,
-    "notes": "Has significant timing parallax"
+    "epochs_observed": 1,
+    "notes": "Proposed for further observation"
   },
   {
     "name": "J0709+0458",
@@ -71,8 +71,8 @@
     "memberships": ["NANOGrav"],
     "status": "Planned",
     "inbeam_calibrators": 0,
-    "epochs_observed": 0,
-    "notes": ""
+    "epochs_observed": 1,
+    "notes": "Will continue in BD290"
   },
   {
     "name": "J0732+2314",
@@ -86,8 +86,8 @@
     "memberships": ["CPTA"],
     "status": "Planned",
     "inbeam_calibrators": 0,
-    "epochs_observed": 0,
-    "notes": ""
+    "epochs_observed": 1,
+    "notes": "Proposed for further observation"
   },
   {
     "name": "J0824+0028",
@@ -100,9 +100,9 @@
     "sessionDuration": "4 hr",
     "memberships": ["CPTA"],
     "status": "Planned",
-    "inbeam_calibrators": 0,
+    "inbeam_calibrators": 2,
     "epochs_observed": 0,
-    "notes": ""
+    "notes": "Will continue in BD290"
   },
   {
     "name": "J0931-1902",
@@ -117,7 +117,7 @@
     "status": "Planned",
     "inbeam_calibrators": 0,
     "epochs_observed": 0,
-    "notes": "Southerly position"
+    "notes": "Removed"
   },
   {
     "name": "J1653-2054",
@@ -131,8 +131,8 @@
     "memberships": ["MPTA"],
     "status": "Planned",
     "inbeam_calibrators": 0,
-    "epochs_observed": 0,
-    "notes": "Southerly position"
+    "epochs_observed": 1,
+    "notes": "Removed"
   },
   {
     "name": "J1705-1903",
@@ -146,8 +146,8 @@
     "memberships": ["NANOGrav", "MPTA"],
     "status": "Planned",
     "inbeam_calibrators": 0,
-    "epochs_observed": 0,
-    "notes": "Southerly position"
+    "epochs_observed": 2,
+    "notes": ""
   },
   {
     "name": "J1719-1438",
@@ -161,8 +161,8 @@
     "memberships": ["NANOGrav", "MPTA"],
     "status": "Planned",
     "inbeam_calibrators": 0,
-    "epochs_observed": 0,
-    "notes": "Southerly position"
+    "epochs_observed": 2,
+    "notes": ""
   },
   {
     "name": "J1741+1351",
@@ -176,7 +176,7 @@
     "memberships": ["NANOGrav", "PPTA", "CPTA"],
     "status": "Planned",
     "inbeam_calibrators": 0,
-    "epochs_observed": 0,
+    "epochs_observed": 2,
     "notes": ""
   },
   {
@@ -191,7 +191,7 @@
     "memberships": ["NANOGrav", "CPTA"],
     "status": "Planned",
     "inbeam_calibrators": 0,
-    "epochs_observed": 0,
+    "epochs_observed": 1,
     "notes": ""
   },
   {
@@ -207,7 +207,7 @@
     "status": "Planned",
     "inbeam_calibrators": 0,
     "epochs_observed": 0,
-    "notes": "Southerly position"
+    "notes": "Removed"
   },
   {
     "name": "J1903+0327",
@@ -222,7 +222,7 @@
     "status": "Planned",
     "inbeam_calibrators": 0,
     "epochs_observed": 0,
-    "notes": ""
+    "notes": "Removed"
   },
   {
     "name": "J1923+2515",
@@ -236,8 +236,8 @@
     "memberships": ["NANOGrav", "CPTA"],
     "status": "Planned",
     "inbeam_calibrators": 0,
-    "epochs_observed": 0,
-    "notes": ""
+    "epochs_observed": 1,
+    "notes": "Removed"
   },
   {
     "name": "J2019+2425",
@@ -251,8 +251,8 @@
     "memberships": ["CPTA"],
     "status": "Planned",
     "inbeam_calibrators": 0,
-    "epochs_observed": 0,
-    "notes": ""
+    "epochs_observed": 1,
+    "notes": "Proposed for further observations"
   },
   {
     "name": "J2033+1734",
@@ -266,8 +266,8 @@
     "memberships": ["NANOGrav", "CPTA"],
     "status": "Planned",
     "inbeam_calibrators": 0,
-    "epochs_observed": 0,
-    "notes": ""
+    "epochs_observed": 2,
+    "notes": "Will continue in BD290"
   },
   {
     "name": "J2150-0326",
@@ -281,8 +281,8 @@
     "memberships": ["CPTA", "MPTA"],
     "status": "Planned",
     "inbeam_calibrators": 0,
-    "epochs_observed": 0,
-    "notes": ""
+    "epochs_observed": 1,
+    "notes": "Proposed for further observations"
   },
   {
     "name": "J2214+3000",
@@ -296,8 +296,8 @@
     "memberships": ["NANOGrav", "CPTA"],
     "status": "Planned",
     "inbeam_calibrators": 0,
-    "epochs_observed": 0,
-    "notes": ""
+    "epochs_observed": 1,
+    "notes": "Proposed for further observations"
   },
   {
     "name": "J2234+0611",
@@ -312,7 +312,7 @@
     "status": "Planned",
     "inbeam_calibrators": 0,
     "epochs_observed": 0,
-    "notes": "Has significant timing parallax"
+    "notes": "Removed"
   },
   {
     "name": "J2322+2057",
@@ -326,8 +326,8 @@
     "memberships": ["NANOGrav", "EPTA", "CPTA", "MPTA"],
     "status": "Planned",
     "inbeam_calibrators": 0,
-    "epochs_observed": 0,
-    "notes": ""
+    "epochs_observed": 1,
+    "notes": "Proposed for further observations"
   },
   {
     "name": "J0636+5128",
@@ -342,7 +342,7 @@
     "status": "Planned",
     "inbeam_calibrators": 0,
     "epochs_observed": 0,
-    "notes": "Has significant timing parallax"
+    "notes": "Removed"
   },
   {
     "name": "J0740+6620",
@@ -356,8 +356,8 @@
     "memberships": ["NANOGrav"],
     "status": "Planned",
     "inbeam_calibrators": 0,
-    "epochs_observed": 0,
-    "notes": ""
+    "epochs_observed": 2,
+    "notes": "Will continue in BD290"
   },
   {
     "name": "J1125+7819",
@@ -371,8 +371,8 @@
     "memberships": ["NANOGrav"],
     "status": "Planned",
     "inbeam_calibrators": 0,
-    "epochs_observed": 0,
-    "notes": ""
+    "epochs_observed": 1,
+    "notes": "Proposed for further observation"
   },
   {
     "name": "J1614-2230",
@@ -386,8 +386,8 @@
     "memberships": ["NANOGrav", "MPTA"],
     "status": "Planned",
     "inbeam_calibrators": 0,
-    "epochs_observed": 0,
-    "notes": "Has significant timing parallax"
+    "epochs_observed": 2,
+    "notes": "Proposed for further observation"
   },
   {
     "name": "J1737-0811",
@@ -401,7 +401,7 @@
     "memberships": ["MPTA"],
     "status": "Planned",
     "inbeam_calibrators": 0,
-    "epochs_observed": 0,
+    "epochs_observed": 2,
     "notes": ""
   },
   {
@@ -417,7 +417,7 @@
     "status": "Planned",
     "inbeam_calibrators": 0,
     "epochs_observed": 0,
-    "notes": ""
+    "notes": "Removed"
   },
   {
     "name": "J1832-0836",
@@ -432,7 +432,7 @@
     "status": "Planned",
     "inbeam_calibrators": 0,
     "epochs_observed": 0,
-    "notes": "Has significant timing parallax"
+    "notes": "Removed"
   },
   {
     "name": "J1911+1347",
@@ -446,8 +446,8 @@
     "memberships": ["NANOGrav", "EPTA", "CPTA"],
     "status": "Planned",
     "inbeam_calibrators": 0,
-    "epochs_observed": 0,
-    "notes": "Has significant timing parallax"
+    "epochs_observed": 1,
+    "notes": "Proposed for further observations"
   },
   {
     "name": "J1946+3417",
@@ -461,8 +461,8 @@
     "memberships": ["NANOGrav", "CPTA"],
     "status": "Planned",
     "inbeam_calibrators": 0,
-    "epochs_observed": 0,
-    "notes": ""
+    "epochs_observed": 2,
+    "notes": "Will continue in BD290"
   },
   {
     "name": "J1955+2908",
@@ -476,8 +476,8 @@
     "memberships": ["NANOGrav", "CPTA"],
     "status": "Planned",
     "inbeam_calibrators": 0,
-    "epochs_observed": 0,
-    "notes": ""
+    "epochs_observed": 2,
+    "notes": "Will continue in BD290"
   },
   {
     "name": "J2229+2643",
@@ -492,7 +492,7 @@
     "status": "Planned",
     "inbeam_calibrators": 0,
     "epochs_observed": 0,
-    "notes": ""
+    "notes": "Removed"
   },
   {
     "name": "J0125-2327",
@@ -506,8 +506,8 @@
     "memberships": ["PPTA", "MPTA"],
     "status": "Planned",
     "inbeam_calibrators": 0,
-    "epochs_observed": 0,
-    "notes": ""
+    "epochs_observed": 2,
+    "notes": "Will continue in BD290"
   },
   {
     "name": "J0509+0856",
@@ -521,8 +521,8 @@
     "memberships": ["NANOGrav", "CPTA"],
     "status": "Planned",
     "inbeam_calibrators": 0,
-    "epochs_observed": 0,
-    "notes": ""
+    "epochs_observed": 2,
+    "notes": "Will continue in BD290"
   },
   {
     "name": "J0613-0200",
@@ -536,8 +536,8 @@
     "memberships": ["NANOGrav", "EPTA", "PPTA", "CPTA", "MPTA"],
     "status": "Planned",
     "inbeam_calibrators": 0,
-    "epochs_observed": 0,
-    "notes": "Has significant timing parallax"
+    "epochs_observed": 2,
+    "notes": "Has significant timing parallax, will continue in BD290"
   },
   {
     "name": "J0751+1807",
@@ -551,8 +551,8 @@
     "memberships": ["EPTA", "CPTA"],
     "status": "Planned",
     "inbeam_calibrators": 0,
-    "epochs_observed": 0,
-    "notes": "Has significant timing parallax"
+    "epochs_observed": 1,
+    "notes": "Proposed for further observation"
   },
   {
     "name": "J1744-1134",
@@ -566,8 +566,8 @@
     "memberships": ["NANOGrav", "EPTA", "PPTA", "CPTA", "MPTA"],
     "status": "Planned",
     "inbeam_calibrators": 0,
-    "epochs_observed": 0,
-    "notes": "Has significant timing parallax"
+    "epochs_observed": 1,
+    "notes": "Proposed for further observations"
   },
   {
     "name": "J1801-1417",
@@ -581,8 +581,8 @@
     "memberships": ["EPTA", "MPTA"],
     "status": "Planned",
     "inbeam_calibrators": 0,
-    "epochs_observed": 0,
-    "notes": ""
+    "epochs_observed": 2,
+    "notes": "Proposed for future observations"
   },
   {
     "name": "J1811-2405",
@@ -596,7 +596,7 @@
     "memberships": ["NANOGrav", "MPTA"],
     "status": "Planned",
     "inbeam_calibrators": 0,
-    "epochs_observed": 0,
+    "epochs_observed": 1,
     "notes": ""
   },
   {
@@ -626,8 +626,8 @@
     "memberships": ["NANOGrav", "CPTA"],
     "status": "Planned",
     "inbeam_calibrators": 0,
-    "epochs_observed": 0,
-    "notes": ""
+    "epochs_observed": 1,
+    "notes": "Proposed for further observations"
   },
   {
     "name": "J2234+0944",
@@ -657,6 +657,6 @@
     "status": "Planned",
     "inbeam_calibrators": 0,
     "epochs_observed": 0,
-    "notes": ""
+    "notes": "Proposed for further observations"
   }
 ]
