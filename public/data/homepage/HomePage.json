@@ -5,7 +5,7 @@
   },
   "projectStats": [
     {
-      "label": "Pulsars Observed",
+      "label": "Initial Pulsar Sample",
       "value": "44"
     },
     {
@@ -13,21 +13,21 @@
       "value": "10 μas"
     },
     {
-      "label": "Precise Distances",
-      "value": "57+"
+      "label": "Final Pulsar Sample",
+      "value": "27"
     },
     {
-      "label": "Years of Research",
-      "value": "15"
+      "label": "Observing Time",
+      "value": "500+ hours"
     }
   ],
   "phase1Progress": {
-    "totalPulsars": 33,
-    "observedPulsars": 1
+    "totalPulsars": 44,
+    "observedPulsars": 44
   },
   "phase2Progress": {
-    "totalPulsars": 44,
-    "observedPulsars": 21
+    "totalPulsars": 27,
+    "observedPulsars": 11
   },
   "researchQuestionsVisible": true,
   "researchQuestions": [
@@ -48,7 +48,7 @@
       "description": "Can newly measured MSP binaries be used to trace the Galactic gravitational potential and better constrain the distribution of dark matter in the Milky Way?"
     }
   ],
-  "keyDiscoveriesVisible": true,
+  "keyDiscoveriesVisible": False,
   "keyFindings": [
     {
       "title": "Unprecedented Parallax Precision",
@@ -81,15 +81,11 @@
       },
       {
         "title": "Astrometric Observation",
-        "description": "Using VLBA, we track the pulsar’s position across epochs to extract parallax and proper motion."
+        "description": "Using the Very Long Baseline Array (VLBA), we track the pulsar’s position across epochs to extract parallax and proper motion."
       },
       {
         "title": "Distance and Impact",
-        "description": "With accurate distances, we advance studies in gravitational waves, pulsar velocities, and Galactic structure."
-      },
-      {
-        "title": "Scientific Discovery",
-        "description": "Results feed into broader astrophysical insights, including dark matter constraints and gravitational wave science."
+        "description": "Accurate pulsar distances will advance research in gravitational waves, pulsar velocities, and Galactic structure."
       }
     ]
   },
