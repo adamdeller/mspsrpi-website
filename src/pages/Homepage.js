@@ -165,7 +165,7 @@ const Homepage = () => {
 
             {/* Progress Card for the project (the one you see first on the page) */}
             <div className="bg-indigo-950/60 backdrop-blur-sm border border-indigo-500/30 rounded-xl p-5 shadow-lg mb-8">
-              <h3 className="text-lg font-semibold text-indigo-100 mb-3">MSPSRπ Phase 2 Progress: {phase2Progress.totalPulsars} pulsars targeted</h3>
+              <h3 className="text-lg font-semibold text-indigo-100 mb-3">MSPSRπ2 Progress: {phase2Progress.totalPulsars} hours observed</h3>
 
               <div className="mb-2">
                 <div className="h-2.5 bg-indigo-950/70 rounded-full overflow-hidden">
