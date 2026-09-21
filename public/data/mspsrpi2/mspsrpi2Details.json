@@ -131,19 +131,19 @@
       "description": "One-hour calibrator search sessions for each target pulsar."
     },
     {
-      "date": "2024A/B",
-      "title": "First Astrometry",
-      "description": "First astrometry sessions of the pilot program conducted."
-    },
-    {
       "date": "2025A/B",
-      "title": "Second Astrometry",
-      "description": "Second astrometry sessions conducted approximately 1 year after the first sessions."
+      "title": "First Astrometry Session",
+      "description": "Precision astrometric observations of 44 target pulsars taken as part of BD267 proposal."
     },
     {
       "date": "2025B+",
-      "title": "Precision Program",
-      "description": "Anticipated start of the precision program for full astrometric measurements of selected sources."
+      "title": "Final Astrometric Observations",
+      "description": "Final astrometric observations for 11 target pulsars with time granted in the BD290 proposal."
+    },
+    {
+      "date": "2026A+",
+      "title": "Final Astrometric Observations",
+      "description": "Final astrometric observations for a further 16 target pulsars with time granted as part of the BD299 proposal."
     }
   ],
 
