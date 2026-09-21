@@ -81,19 +81,23 @@ const Homepage = () => {
           }
         });
 
-        const percent = totalHours ? Math.round((observedHours / totalHours) * 100) : 0;
+        const PRELIMINARY_HOURS = 44;
+        const projectTotalHours = totalHours + PRELIMINARY_HOURS;
+        const projectObservedHours = observedHours + PRELIMINARY_HOURS;
+
+        const percent = projectTotalHours ? Math.round((projectObservedHours / projectTotalHours) * 100) : 0;
         const remainingHours = totalHours - observedHours;
         // const yearsOfResearch = new Date().getFullYear() - earliestDate.getFullYear();
 
         setProjectStats([
           { value: uniqueSources.size.toString(), label: "Pulsars Targeted" },
           { ...homepageData.projectStats.find(stat => stat.label === "Parallax Precision") },
-          { value: `${observedHours}`, label: "Hours Observed" },
+          { value: `${projectObservedHours}`, label: "Hours Observed" },
           { ...homepageData.projectStats.find(stat => stat.label === "Years of Research") }
         ]);
 
         setPhase2Progress({
-          totalHours: totalHours,
+          totalHours: projectTotalHours,
           observedHours: observedHours,
           remainingHours: remainingHours,
           percentComplete: percent
