@@ -1,0 +1,1927 @@
+[
+  {
+    "project": "bd267",
+    "obs_code": "aa1",
+    "srcname": "J0023+0923",
+    "obsDate": "2025-01-09",
+    "dur": 4.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "aa2",
+    "srcname": "J0023+0923",
+    "obsDate": "2026-06-22",
+    "dur": 4.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "aa3",
+    "srcname": "J0023+0923",
+    "obsDate": "2026-06-27",
+    "dur": 4.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "ab1",
+    "srcname": "J0034-0534",
+    "obsDate": "2025-07-08",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "ab2",
+    "srcname": "J0034-0534",
+    "obsDate": "2025-07-11",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "ac1",
+    "srcname": "J0125-2327",
+    "obsDate": "2025-02-05",
+    "dur": 1.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "ac2",
+    "srcname": "J0125-2327",
+    "obsDate": "2026-02-16",
+    "dur": 1.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "ad1",
+    "srcname": "J0340+4130",
+    "obsDate": "2024-08-23",
+    "dur": 4.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "ad2",
+    "srcname": "J0340+4130",
+    "obsDate": "2025-09-12",
+    "dur": 4.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "ae1",
+    "srcname": "J0509+0856",
+    "obsDate": "2024-09-26",
+    "dur": 4.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "ae2",
+    "srcname": "J0509+0856",
+    "obsDate": "2025-09-06",
+    "dur": 4.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "af1",
+    "srcname": "J0613-0200",
+    "obsDate": "2024-10-21",
+    "dur": 1.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "af2",
+    "srcname": "J0613-0200",
+    "obsDate": "2025-09-15",
+    "dur": 1.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "ag1",
+    "srcname": "J0636+5128",
+    "obsDate": "2026-04-11",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "ah1",
+    "srcname": "J0645+5158",
+    "obsDate": "2025-09-30",
+    "dur": 4.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "ah2",
+    "srcname": "J0645+5158",
+    "obsDate": "2026-05-02",
+    "dur": 4.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "ah3",
+    "srcname": "J0645+5158",
+    "obsDate": "2026-09-15",
+    "dur": 4.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "ai1",
+    "srcname": "J0709+0458",
+    "obsDate": "2025-05-10",
+    "dur": 4.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "ai2",
+    "srcname": "J0709+0458",
+    "obsDate": "2026-03-31",
+    "dur": 4.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "aj1",
+    "srcname": "J0732+2314",
+    "obsDate": "2025-10-04",
+    "dur": 4.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "aj2",
+    "srcname": "J0732+2314",
+    "obsDate": "2026-05-14",
+    "dur": 4.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "aj3",
+    "srcname": "J0732+2314",
+    "obsDate": null,
+    "dur": 4.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "ak1",
+    "srcname": "J0740+6620",
+    "obsDate": "2024-11-02",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "ak2",
+    "srcname": "J0740+6620",
+    "obsDate": "2025-12-19",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "al1",
+    "srcname": "J0751+1807",
+    "obsDate": "2025-10-14",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "al2",
+    "srcname": "J0751+1807",
+    "obsDate": "2026-04-12",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "al3",
+    "srcname": "J0751+1807",
+    "obsDate": null,
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "am1",
+    "srcname": "J0824+0028",
+    "obsDate": "2024-11-15",
+    "dur": 4.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "am2",
+    "srcname": "J0824+0028",
+    "obsDate": "2025-01-03",
+    "dur": 4.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "am3",
+    "srcname": "J0824+0028",
+    "obsDate": "2025-12-17",
+    "dur": 4.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "ao1",
+    "srcname": "J1125+7819",
+    "obsDate": "2025-12-05",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "ao2",
+    "srcname": "J1125+7819",
+    "obsDate": "2026-06-03",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "ao3",
+    "srcname": "J1125+7819",
+    "obsDate": "2026-06-04",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "ap1",
+    "srcname": "J1614-2230",
+    "obsDate": "2024-09-10",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "ap2",
+    "srcname": "J1614-2230",
+    "obsDate": "2025-09-06",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "aq1",
+    "srcname": "J1653-2054",
+    "obsDate": "2024-09-16",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "aq2",
+    "srcname": "J1653-2054",
+    "obsDate": "2024-09-17",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "ar2",
+    "srcname": "J1705-1903",
+    "obsDate": "2024-09-21",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "ar1",
+    "srcname": "J1705-1903",
+    "obsDate": "2024-09-20",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "ar3",
+    "srcname": "J1705-1903",
+    "obsDate": "2025-10-03",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "ar4",
+    "srcname": "J1705-1903",
+    "obsDate": "2025-10-04",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "as1",
+    "srcname": "J1719-1438",
+    "obsDate": "2024-09-26",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "as2",
+    "srcname": "J1719-1438",
+    "obsDate": "2024-09-27",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "as3",
+    "srcname": "J1719-1438",
+    "obsDate": "2025-09-28",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "as4",
+    "srcname": "J1719-1438",
+    "obsDate": "2025-09-29",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "at1",
+    "srcname": "J1737-0811",
+    "obsDate": "2025-03-18",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "at2",
+    "srcname": "J1737-0811",
+    "obsDate": "2025-09-23",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "at3",
+    "srcname": "J1737-0811",
+    "obsDate": "2025-10-21",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "au1",
+    "srcname": "J1741+1351",
+    "obsDate": "2025-04-12",
+    "dur": 4.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "au2",
+    "srcname": "J1741+1351",
+    "obsDate": "2025-09-30",
+    "dur": 4.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "av1",
+    "srcname": "J1744-1134",
+    "obsDate": "2025-07-05",
+    "dur": 1.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "av2",
+    "srcname": "J1744-1134",
+    "obsDate": "2026-03-13",
+    "dur": 1.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "aw1",
+    "srcname": "J1745+1017",
+    "obsDate": "2025-04-29",
+    "dur": 4.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "aw2",
+    "srcname": "J1745+1017",
+    "obsDate": "2026-03-14",
+    "dur": 4.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "aw3",
+    "srcname": "J1745+1017",
+    "obsDate": "2026-05-06",
+    "dur": 4.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "ay1",
+    "srcname": "J1801-1417",
+    "obsDate": "2025-07-04",
+    "dur": 1.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "ay2",
+    "srcname": "J1801-1417",
+    "obsDate": "2025-10-10",
+    "dur": 1.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "ba1",
+    "srcname": "J1811-2405",
+    "obsDate": "2025-07-08",
+    "dur": 1.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "be1",
+    "srcname": "J1911+1347",
+    "obsDate": "2026-07-09",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "be2",
+    "srcname": "J1911+1347",
+    "obsDate": "2025-07-12",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "be3",
+    "srcname": "J1911+1347",
+    "obsDate": "2026-05-02",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "bf1",
+    "srcname": "J1923+2515",
+    "obsDate": "2025-05-13",
+    "dur": 4.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "bg1",
+    "srcname": "J1944-0907",
+    "obsDate": "2025-07-07",
+    "dur": 1.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "bg2",
+    "srcname": "J1944-0907",
+    "obsDate": "2025-07-11",
+    "dur": 1.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "bg3",
+    "srcname": "J1944-0907",
+    "obsDate": "2026-06-08",
+    "dur": 1.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "bg4",
+    "srcname": "J1944-0907",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "bh1",
+    "srcname": "J1946+3417",
+    "obsDate": "2024-10-31",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "bh2",
+    "srcname": "J1946+3417",
+    "obsDate": "2025-12-21",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "bi1",
+    "srcname": "J1955+2908",
+    "obsDate": "2024-11-02",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "bi2",
+    "srcname": "J1955+2908",
+    "obsDate": "2025-12-23",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "bj1",
+    "srcname": "J2019+2425",
+    "obsDate": "2025-07-08",
+    "dur": 4.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "bj2",
+    "srcname": "J2019+2425",
+    "obsDate": "2026-05-09",
+    "dur": 4.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "bj3",
+    "srcname": "J2019+2425",
+    "obsDate": "2026-05-18",
+    "dur": 4.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "bk1",
+    "srcname": "J2033+1734",
+    "obsDate": "2024-11-10",
+    "dur": 4.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "bk2",
+    "srcname": "J2033+1734",
+    "obsDate": "2025-12-22",
+    "dur": 4.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "bl1",
+    "srcname": "J2150-0326",
+    "obsDate": "2025-07-09",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "bl2",
+    "srcname": "J2150-0326",
+    "obsDate": "2025-07-11",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "bl3",
+    "srcname": "J2150-0326",
+    "obsDate": "2025-07-14",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "bl4",
+    "srcname": "J2150-0326",
+    "obsDate": "2026-05-11",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "bl5",
+    "srcname": "J2150-0326",
+    "obsDate": "2026-05-22",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "bm1",
+    "srcname": "J2214+3000",
+    "obsDate": "2026-05-20",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "bm2",
+    "srcname": "J2214+3000",
+    "obsDate": "2026-06-06",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "bm3",
+    "srcname": "J2214+3000",
+    "obsDate": null,
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "bn1",
+    "srcname": "J2229+2643",
+    "obsDate": "2026-06-08",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "bn2",
+    "srcname": "J2229+2643",
+    "obsDate": "2026-06-12",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "bo1",
+    "srcname": "J2234+0611",
+    "obsDate": "2026-06-09",
+    "dur": 2.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "bp1",
+    "srcname": "J2234+0944",
+    "obsDate": "2026-06-04",
+    "dur": 1.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "bp2",
+    "srcname": "J2234+0944",
+    "obsDate": "2026-06-10",
+    "dur": 1.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "bp3",
+    "srcname": "J2234+0944",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "bq1",
+    "srcname": "J2302+4442",
+    "obsDate": "2026-05-22",
+    "dur": 1.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "bq2",
+    "srcname": "J2302+4442",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "bq3",
+    "srcname": "J2302+4442",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "br1",
+    "srcname": "J2322+2057",
+    "obsDate": "2025-07-07",
+    "dur": 4.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "br2",
+    "srcname": "J2322+2057",
+    "obsDate": "2026-06-01",
+    "dur": 4.0
+  },
+  {
+    "project": "bd267",
+    "obs_code": "br3",
+    "srcname": "J2322+2057",
+    "obsDate": "2026-06-14",
+    "dur": 4.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "aa0",
+    "srcname": "J0023+0923",
+    "obsDate": "2026-06-12",
+    "dur": 1.5
+  },
+  {
+    "project": "bd290",
+    "obs_code": "aa1",
+    "srcname": "J0023+0923",
+    "obsDate": "2026-06-17",
+    "dur": 1.5
+  },
+  {
+    "project": "bd290",
+    "obs_code": "aa2",
+    "srcname": "J0023+0923",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd290",
+    "obs_code": "aa3",
+    "srcname": "J0023+0923",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd290",
+    "obs_code": "aa4",
+    "srcname": "J0023+0923",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd290",
+    "obs_code": "aa5",
+    "srcname": "J0023+0923",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd290",
+    "obs_code": "ac0",
+    "srcname": "J0125-2327",
+    "obsDate": "2026-06-23",
+    "dur": 1.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "ac1",
+    "srcname": "J0125-2327",
+    "obsDate": "2026-07-03",
+    "dur": 1.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "ac2",
+    "srcname": "J0125-2327",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "ac3",
+    "srcname": "J0125-2327",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "ac4",
+    "srcname": "J0125-2327",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "ac5",
+    "srcname": "J0125-2327",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "ad0",
+    "srcname": "J0340+4130",
+    "obsDate": "2026-03-06",
+    "dur": 1.5
+  },
+  {
+    "project": "bd290",
+    "obs_code": "ad1",
+    "srcname": "J0340+4130",
+    "obsDate": "2026-03-16",
+    "dur": 1.5
+  },
+  {
+    "project": "bd290",
+    "obs_code": "ad2",
+    "srcname": "J0340+4130",
+    "obsDate": "2026-08-08",
+    "dur": 1.5
+  },
+  {
+    "project": "bd290",
+    "obs_code": "ad3",
+    "srcname": "J0340+4130",
+    "obsDate": "2026-08-17",
+    "dur": 1.5
+  },
+  {
+    "project": "bd290",
+    "obs_code": "ad4",
+    "srcname": "J0340+4130",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd290",
+    "obs_code": "ad5",
+    "srcname": "J0340+4130",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd290",
+    "obs_code": "ae0",
+    "srcname": "J0509+0856",
+    "obsDate": "2026-03-11",
+    "dur": 1.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "ae1",
+    "srcname": "J0509+0856",
+    "obsDate": "2026-03-20",
+    "dur": 1.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "ae2",
+    "srcname": "J0509+0856",
+    "obsDate": "2026-08-16",
+    "dur": 1.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "ae3",
+    "srcname": "J0509+0856",
+    "obsDate": "2026-08-21",
+    "dur": 1.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "ae4",
+    "srcname": "J0509+0856",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "ae5",
+    "srcname": "J0509+0856",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "af0",
+    "srcname": "J0613-0200",
+    "obsDate": "2026-03-07",
+    "dur": 1.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "af1",
+    "srcname": "J0613-0200",
+    "obsDate": "2026-03-11",
+    "dur": 1.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "af2",
+    "srcname": "J0613-0200",
+    "obsDate": "2026-09-04",
+    "dur": 1.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "af3",
+    "srcname": "J0613-0200",
+    "obsDate": "2026-09-12",
+    "dur": 1.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "af4",
+    "srcname": "J0613-0200",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "af5",
+    "srcname": "J0613-0200",
+    "obsDate": "2026-09-12",
+    "dur": 1.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "ai0",
+    "srcname": "J0709+0458",
+    "obsDate": "2026-05-07",
+    "dur": 1.5
+  },
+  {
+    "project": "bd290",
+    "obs_code": "ai1",
+    "srcname": "J0709+0458",
+    "obsDate": "2026-05-09",
+    "dur": 1.5
+  },
+  {
+    "project": "bd290",
+    "obs_code": "ai2",
+    "srcname": "J0709+0458",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd290",
+    "obs_code": "ai3",
+    "srcname": "J0709+0458",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd290",
+    "obs_code": "ai4",
+    "srcname": "J0709+0458",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd290",
+    "obs_code": "ai5",
+    "srcname": "J0709+0458",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd290",
+    "obs_code": "ak0",
+    "srcname": "J0740+6620",
+    "obsDate": "2026-04-29",
+    "dur": 1.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "ak1",
+    "srcname": "J0740+6620",
+    "obsDate": "2026-05-09",
+    "dur": 1.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "ak2",
+    "srcname": "J0740+6620",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "ak3",
+    "srcname": "J0740+6620",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "ak4",
+    "srcname": "J0740+6620",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "ak5",
+    "srcname": "J0740+6620",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "am0",
+    "srcname": "J0824+0028",
+    "obsDate": "2026-05-02",
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "am1",
+    "srcname": "J0824+0028",
+    "obsDate": "2026-05-21",
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "am2",
+    "srcname": "J0824+0028",
+    "obsDate": "2026-06-02",
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "am3",
+    "srcname": "J0824+0028",
+    "obsDate": null,
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "am4",
+    "srcname": "J0824+0028",
+    "obsDate": null,
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "am5",
+    "srcname": "J0824+0028",
+    "obsDate": null,
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "am6",
+    "srcname": "J0824+0028",
+    "obsDate": null,
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "am7",
+    "srcname": "J0824+0028",
+    "obsDate": null,
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "am8",
+    "srcname": "J0824+0028",
+    "obsDate": null,
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "bh0",
+    "srcname": "J1946+3417",
+    "obsDate": "2026-05-22",
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "bh1",
+    "srcname": "J1946+3417",
+    "obsDate": "2026-05-26",
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "bh2",
+    "srcname": "J1946+3417",
+    "obsDate": "2026-06-03",
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "bh3",
+    "srcname": "J1946+3417",
+    "obsDate": null,
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "bh4",
+    "srcname": "J1946+3417",
+    "obsDate": null,
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "bh5",
+    "srcname": "J1946+3417",
+    "obsDate": null,
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "bh6",
+    "srcname": "J1946+3417",
+    "obsDate": null,
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "bh7",
+    "srcname": "J1946+3417",
+    "obsDate": null,
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "bh8",
+    "srcname": "J1946+3417",
+    "obsDate": null,
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "bi0",
+    "srcname": "J1955+2908",
+    "obsDate": "2026-04-29",
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "bi1",
+    "srcname": "J1955+2908",
+    "obsDate": "2026-05-04",
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "bi2",
+    "srcname": "J1955+2908",
+    "obsDate": "2026-05-16",
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "bi3",
+    "srcname": "J1955+2908",
+    "obsDate": null,
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "bi4",
+    "srcname": "J1955+2908",
+    "obsDate": null,
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "bi5",
+    "srcname": "J1955+2908",
+    "obsDate": null,
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "bi6",
+    "srcname": "J1955+2908",
+    "obsDate": null,
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "bi7",
+    "srcname": "J1955+2908",
+    "obsDate": null,
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "bi8",
+    "srcname": "J1955+2908",
+    "obsDate": null,
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "bk0",
+    "srcname": "J2033+1734",
+    "obsDate": "2026-05-14",
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "bk1",
+    "srcname": "J2033+1734",
+    "obsDate": "2026-05-20",
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "bk2",
+    "srcname": "J2033+1734",
+    "obsDate": "2026-06-03",
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "bk3",
+    "srcname": "J2033+1734",
+    "obsDate": null,
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "bk4",
+    "srcname": "J2033+1734",
+    "obsDate": null,
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "bk5",
+    "srcname": "J2033+1734",
+    "obsDate": null,
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "bk6",
+    "srcname": "J2033+1734",
+    "obsDate": null,
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "bk7",
+    "srcname": "J2033+1734",
+    "obsDate": null,
+    "dur": 2.0
+  },
+  {
+    "project": "bd290",
+    "obs_code": "bk8",
+    "srcname": "J2033+1734",
+    "obsDate": null,
+    "dur": 2.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "ap0",
+    "srcname": "J1614-2230",
+    "obsDate": "2026-08-31",
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "ap1",
+    "srcname": "J1614-2230",
+    "obsDate": "2026-09-04",
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "ap2",
+    "srcname": "J1614-2230",
+    "obsDate": "2026-09-08",
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "ap3",
+    "srcname": "J1614-2230",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "ap4",
+    "srcname": "J1614-2230",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "ap5",
+    "srcname": "J1614-2230",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "ap6",
+    "srcname": "J1614-2230",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "ap7",
+    "srcname": "J1614-2230",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "ap8",
+    "srcname": "J1614-2230",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "ap9",
+    "srcname": "J1614-2230",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "ap10",
+    "srcname": "J1614-2230",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "ap11",
+    "srcname": "J1614-2230",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "ah0",
+    "srcname": "J0645+5158",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd299",
+    "obs_code": "ah1",
+    "srcname": "J0645+5158",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd299",
+    "obs_code": "ah2",
+    "srcname": "J0645+5158",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd299",
+    "obs_code": "ah3",
+    "srcname": "J0645+5158",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd299",
+    "obs_code": "ah4",
+    "srcname": "J0645+5158",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd299",
+    "obs_code": "ah5",
+    "srcname": "J0645+5158",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd299",
+    "obs_code": "aj0",
+    "srcname": "J0732+2314",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "aj1",
+    "srcname": "J0732+2314",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "aj2",
+    "srcname": "J0732+2314",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "aj3",
+    "srcname": "J0732+2314",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "aj4",
+    "srcname": "J0732+2314",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "aj5",
+    "srcname": "J0732+2314",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "al0",
+    "srcname": "J0751+1807",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "al1",
+    "srcname": "J0751+1807",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "al2",
+    "srcname": "J0751+1807",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "al3",
+    "srcname": "J0751+1807",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "al4",
+    "srcname": "J0751+1807",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "al5",
+    "srcname": "J0751+1807",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "ao0",
+    "srcname": "J1125+7819",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "ao1",
+    "srcname": "J1125+7819",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "ao2",
+    "srcname": "J1125+7819",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "ao3",
+    "srcname": "J1125+7819",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "ao4",
+    "srcname": "J1125+7819",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "ao5",
+    "srcname": "J1125+7819",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "av0",
+    "srcname": "J1744-1134",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "av1",
+    "srcname": "J1744-1134",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "av2",
+    "srcname": "J1744-1134",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "av3",
+    "srcname": "J1744-1134",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "av4",
+    "srcname": "J1744-1134",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "av5",
+    "srcname": "J1744-1134",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "ay0",
+    "srcname": "J1801-1417",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "ay1",
+    "srcname": "J1801-1417",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "ay2",
+    "srcname": "J1801-1417",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "ay3",
+    "srcname": "J1801-1417",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "ay4",
+    "srcname": "J1801-1417",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "ay5",
+    "srcname": "J1801-1417",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "be0",
+    "srcname": "J1911+1347",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "be1",
+    "srcname": "J1911+1347",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "be2",
+    "srcname": "J1911+1347",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "be3",
+    "srcname": "J1911+1347",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "be4",
+    "srcname": "J1911+1347",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "be5",
+    "srcname": "J1911+1347",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bg0",
+    "srcname": "J1944+0907",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bg1",
+    "srcname": "J1944+0907",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bg2",
+    "srcname": "J1944+0907",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bg3",
+    "srcname": "J1944+0907",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bg4",
+    "srcname": "J1944+0907",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bg5",
+    "srcname": "J1944+0907",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bj0",
+    "srcname": "J2019+2425",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bj1",
+    "srcname": "J2019+2425",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bj2",
+    "srcname": "J2019+2425",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bj3",
+    "srcname": "J2019+2425",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bj4",
+    "srcname": "J2019+2425",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bj5",
+    "srcname": "J2019+2425",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bl0",
+    "srcname": "J2150-0326",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bl1",
+    "srcname": "J2150-0326",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bl2",
+    "srcname": "J2150-0326",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bl3",
+    "srcname": "J2150-0326",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bl4",
+    "srcname": "J2150-0326",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bl5",
+    "srcname": "J2150-0326",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bl6",
+    "srcname": "J2150-0326",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bl7",
+    "srcname": "J2150-0326",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bl8",
+    "srcname": "J2150-0326",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bl9",
+    "srcname": "J2150-0326",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bl10",
+    "srcname": "J2150-0326",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bl11",
+    "srcname": "J2150-0326",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bm0",
+    "srcname": "J2214+3000",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bm1",
+    "srcname": "J2214+3000",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bm2",
+    "srcname": "J2214+3000",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bm3",
+    "srcname": "J2214+3000",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bm4",
+    "srcname": "J2214+3000",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bm5",
+    "srcname": "J2214+3000",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bp0",
+    "srcname": "J2234+0944",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bp1",
+    "srcname": "J2234+0944",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bp2",
+    "srcname": "J2234+0944",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bp3",
+    "srcname": "J2234+0944",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bp4",
+    "srcname": "J2234+0944",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bp5",
+    "srcname": "J2234+0944",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bq0",
+    "srcname": "J2302+4442",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bq1",
+    "srcname": "J2302+4442",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bq2",
+    "srcname": "J2302+4442",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bq3",
+    "srcname": "J2302+4442",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bq4",
+    "srcname": "J2302+4442",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "bq5",
+    "srcname": "J2302+4442",
+    "obsDate": null,
+    "dur": 1.0
+  },
+  {
+    "project": "bd299",
+    "obs_code": "br0",
+    "srcname": "J2322+2057",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd299",
+    "obs_code": "br1",
+    "srcname": "J2322+2057",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd299",
+    "obs_code": "br2",
+    "srcname": "J2322+2057",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd299",
+    "obs_code": "br3",
+    "srcname": "J2322+2057",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd299",
+    "obs_code": "br4",
+    "srcname": "J2322+2057",
+    "obsDate": null,
+    "dur": 1.5
+  },
+  {
+    "project": "bd299",
+    "obs_code": "br5",
+    "srcname": "J2322+2057",
+    "obsDate": null,
+    "dur": 1.5
+  }
+]

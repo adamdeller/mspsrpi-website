@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 import {
   ChevronLeft,
   ExternalLink,
-  Download,
+  Database,
   FileText,
   Radio,
   ChevronUp,
@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
+import { fetchObservationMetrics, enrichPulsarsWithObservationData } from '../utils/observationTracker';
 
 //------------------------------------------------------------------
 //               CENTRALISED THEME CONFIGURATIONS
@@ -302,11 +303,17 @@ const ProjectPhaseComponent = ({
           const pulsarsUrl = `${process.env.PUBLIC_URL}${pulsarsDataUrl}`;
           requests.push(fetch(pulsarsUrl));
         }
+
+        // For MSPSRπ2, also fetch the live observation metrics
+        if (projectType === 'mspsrpi2') {
+          requests.push(fetchObservationMetrics());
+        }
         
         const responses = await Promise.all(requests);
         
-        // Check if all responses are OK
-        for (const response of responses) {
+        // Check if fetch responses are OK (metrics is already parsed object)
+        const fetchResponses = responses.filter(r => r && typeof r.json === 'function');
+        for (const response of fetchResponses) {
           if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
           }
@@ -314,17 +321,46 @@ const ProjectPhaseComponent = ({
         
         // Parse JSON data
         const detailsData = await responses[0].json();
-        setData(detailsData);
         
-        // If we have separate pulsar data, parse and set it
-        if (hasSeparatePulsarData && responses[1]) {
-          const pulsarsData = await responses[1].json();
-          setPulsars(pulsarsData);
+        // If we have separate pulsar data, parse it
+        let pulsarsData = [];
+        if (hasSeparatePulsarData && responses[1] && typeof responses[1].json === 'function') {
+          pulsarsData = await responses[1].json();
         } else {
           // Otherwise, pulsars are included in the main data file
-          setPulsars(detailsData.pulsars || []);
+          pulsarsData = detailsData.pulsars || [];
         }
-        
+
+        // If MSPSRπ2, enrich pulsars and stats with live observation metrics
+        if (projectType === 'mspsrpi2') {
+          const metrics = responses.find(r => r && !r.json && r.totalHours !== undefined);
+          if (metrics) {
+            pulsarsData = enrichPulsarsWithObservationData(pulsarsData, metrics);
+            
+            if (detailsData.statistics) {
+              detailsData.statistics = detailsData.statistics.map(stat => {
+                if (stat.label === "Observation Hours") {
+                  return {
+                    ...stat,
+                    value: `${metrics.observedHours} / ${metrics.totalHours} hrs`,
+                    description: `${metrics.percentComplete}% observed (${metrics.remainingHours} hrs remaining)`
+                  };
+                }
+                if (stat.label === "Target Pulsars") {
+                  return {
+                    ...stat,
+                    value: `${metrics.totalPulsars}`,
+                    description: `${metrics.observedPulsars} pulsars currently observed`
+                  };
+                }
+                return stat;
+              });
+            }
+          }
+        }
+
+        setData(detailsData);
+        setPulsars(pulsarsData);
         setError(null);
       } catch (err) {
         console.error('Error fetching data:', err);
@@ -335,7 +371,7 @@ const ProjectPhaseComponent = ({
     };
 
     loadData();
-  }, [dataUrl, pulsarsDataUrl, hasSeparatePulsarData]);
+  }, [dataUrl, pulsarsDataUrl, hasSeparatePulsarData, projectType]);
 
   //------------------------------------------------------------------
   //                     FILTERING AND PAGINATION
@@ -546,7 +582,7 @@ const ProjectPhaseComponent = ({
                 href={data.dataReleaseUrl}
                 className={`inline-flex items-center px-5 py-2 ${colors.buttonPrimary} rounded-md transition duration-300`}
               >
-                <Download className="mr-2 h-5 w-5" />
+                <Database className="mr-2 h-5 w-5" />
                 {data.dataReleaseButtonText || "Access Data Release"}
               </a>
               <a 

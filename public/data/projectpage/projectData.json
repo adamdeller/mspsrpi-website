@@ -111,20 +111,20 @@
     "progressTracker": {
       "cards": {
         "target": {
-          "title": "Target",
-          "description": "Total number of pulsars"
+          "title": "Target Hours",
+          "description": "Total scheduled observation hours"
         },
-        "scheduled": {
-          "title": "Scheduled",
-          "description": "Waiting for initial observation"
+        "observed": {
+          "title": "Hours Observed",
+          "description": "Completed observation time"
         },
-        "inProgress": {
-          "title": "In Progress",
-          "description": "Currently being observed"
+        "remaining": {
+          "title": "Hours Remaining",
+          "description": "Hours awaiting observation"
         },
-        "completed": {
-          "title": "Completed",
-          "description": "All observations completed"
+        "pulsars": {
+          "title": "Pulsars Observed",
+          "description": "Targets with completed observations"
         }
       },
       "progressPercentage": "% Complete"
