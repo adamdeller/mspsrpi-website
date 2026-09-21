@@ -91,56 +91,32 @@ const ProjectPage = () => {
     // If we don't have data yet, return all zeros
     if (!observationData) {
       return {
-        total: 0,
-        scheduled: 0,
-        inProgress: 0,
-        complete: 0,
+        totalHours: 0,
+        observedHours: 0,
         percentComplete: 0
       };
     }
 
-    // track each pulsar's status
-    const pulsarStatusMap = new Map();
+    let totalHours = 0;
+    let observedHours = 0;
 
-    // For each observation in our data
     observationData.forEach(obs => {
-      // Get the current status of this pulsar 
-      const currentStatus = pulsarStatusMap.get(obs.srcname);
-
-      // The logic below:
-      // 1. If we've never observed this pulsar before, save its status
-      // 2. If it was "scheduled" before but now has any other status, update it
-      // 3. If it was "in-progress" before but now is "complete", update it
-      if (!currentStatus ||
-        (currentStatus === 'scheduled' && obs.status !== 'scheduled') ||
-        (currentStatus === 'in-progress' && obs.status === 'complete')) {
-        pulsarStatusMap.set(obs.srcname, obs.status);
+      const dur = parseFloat(obs.dur) || 0;
+      totalHours += dur;
+      
+      if (obs.obsDate && obs.obsDate.trim() !== '') {
+        observedHours += dur;
       }
     });
 
-    // count how many pulsars are in each status
-    let complete = 0;
-    let inProgress = 0;
-    let scheduled = 0;
+    const PRELIMINARY_HOURS = 44;
+    const projectTotalHours = totalHours + PRELIMINARY_HOURS;
+    const projectObservedHours = observedHours + PRELIMINARY_HOURS;
 
-    // Loop through each pulsar in the map
-    pulsarStatusMap.forEach(status => {
-      // Increase the right counter based on the status
-      if (status === 'complete') complete++;
-      else if (status === 'in-progress') inProgress++;
-      else if (status === 'scheduled') scheduled++;
-    });
-
-    // Total number of pulsars is just the size of the map
-    const total = pulsarStatusMap.size;
-
-    // Return an object with all the stats
     return {
-      total,
-      scheduled,
-      inProgress,
-      complete,
-      percentComplete: Math.round((complete / total) * 100) //round to the nearest whole number
+      totalHours: projectTotalHours,
+      observedHours: projectObservedHours,
+      percentComplete: projectTotalHours ? Math.round((projectObservedHours / projectTotalHours) * 100) : 0
     };
   }, [observationData]); // Only recalculate when observationData changes
 
@@ -423,32 +399,32 @@ const ProjectPage = () => {
 
           {/* Progress Summary Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
-            {/* Target Pulsars */}
+            {/* Initial Targets */}
             <div className="bg-slate-900/60 backdrop-blur-sm border-2 border-blue-500/30 rounded-lg p-4 text-center relative overflow-hidden group transition-all duration-300 hover:border-blue-500/50 hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]">
-              <h3 className="text-lg font-semibold text-blue-300 mb-2 relative z-10">{ui.progressTracker.cards.target.title}</h3>
-              <p className="text-4xl font-bold text-gray-100 relative z-10">{progressStats.total}</p>
-              <p className="text-sm text-blue-200 relative z-10">{ui.progressTracker.cards.target.description}</p>
+              <h3 className="text-lg font-semibold text-blue-300 mb-2 relative z-10">Initial Targets</h3>
+              <p className="text-4xl font-bold text-gray-100 relative z-10">44</p>
+              <p className="text-sm text-blue-200 relative z-10">Original target pulsars</p>
             </div>
 
-            {/* Scheduled */}
-            <div className="bg-slate-900/60 backdrop-blur-sm border-2 border-indigo-500/30 rounded-lg p-4 text-center relative overflow-hidden group transition-all duration-300 hover:border-indigo-500/50 hover:shadow-[0_0_15px_rgba(99,102,241,0.3)]">
-              <h3 className="text-lg font-semibold text-indigo-300 mb-2 relative z-10">{ui.progressTracker.cards.scheduled.title}</h3>
-              <p className="text-4xl font-bold text-gray-100 relative z-10">{progressStats.scheduled}</p>
-              <p className="text-sm text-indigo-200 relative z-10">{ui.progressTracker.cards.scheduled.description}</p>
+            {/* Rejected */}
+            <div className="bg-slate-900/60 backdrop-blur-sm border-2 border-red-500/30 rounded-lg p-4 text-center relative overflow-hidden group transition-all duration-300 hover:border-red-500/50 hover:shadow-[0_0_15px_rgba(239,68,68,0.3)]">
+              <h3 className="text-lg font-semibold text-red-300 mb-2 relative z-10">Rejected</h3>
+              <p className="text-4xl font-bold text-gray-100 relative z-10">9</p>
+              <p className="text-sm text-red-200 relative z-10">Removed from sample</p>
             </div>
 
-            {/* In Progress */}
+            {/* Deferred */}
             <div className="bg-slate-900/60 backdrop-blur-sm border-2 border-amber-500/30 rounded-lg p-4 text-center relative overflow-hidden group transition-all duration-300 hover:border-amber-500/50 hover:shadow-[0_0_15px_rgba(217,119,6,0.3)]">
-              <h3 className="text-lg font-semibold text-amber-300 mb-2 relative z-10">{ui.progressTracker.cards.inProgress.title}</h3>
-              <p className="text-4xl font-bold text-gray-100 relative z-10">{progressStats.inProgress}</p>
-              <p className="text-sm text-amber-200 relative z-10">{ui.progressTracker.cards.inProgress.description}</p>
+              <h3 className="text-lg font-semibold text-amber-300 mb-2 relative z-10">Deferred</h3>
+              <p className="text-4xl font-bold text-gray-100 relative z-10">8</p>
+              <p className="text-sm text-amber-200 relative z-10">Postponed observations</p>
             </div>
 
-            {/* Completed */}
+            {/* Final Sample */}
             <div className="bg-slate-900/60 backdrop-blur-sm border-2 border-emerald-500/30 rounded-lg p-4 text-center relative overflow-hidden group transition-all duration-300 hover:border-emerald-500/50 hover:shadow-[0_0_15px_rgba(16,185,129,0.3)]">
-              <h3 className="text-lg font-semibold text-emerald-300 mb-2 relative z-10">{ui.progressTracker.cards.completed.title}</h3>
-              <p className="text-4xl font-bold text-gray-100 relative z-10">{progressStats.complete}</p>
-              <p className="text-sm text-emerald-200 relative z-10">{ui.progressTracker.cards.completed.description}</p>
+              <h3 className="text-lg font-semibold text-emerald-300 mb-2 relative z-10">Final Sample</h3>
+              <p className="text-4xl font-bold text-gray-100 relative z-10">27</p>
+              <p className="text-sm text-emerald-200 relative z-10">Pulsars with results</p>
             </div>
           </div>
 
