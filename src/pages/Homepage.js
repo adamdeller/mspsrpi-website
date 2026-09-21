@@ -13,8 +13,9 @@ const Homepage = () => {
   const [teamMemberSlide, setTeamMemberSlide] = useState(0);
   const [projectStats, setProjectStats] = useState([]);
   const [phase2Progress, setPhase2Progress] = useState({
-    totalPulsars: 0,
-    observedPulsars: 0,
+    totalHours: 0,
+    observedHours: 0,
+    remainingHours: 0,
     percentComplete: 0
   });
   const [phase1Progress, setPhase1Progress] = useState([]);
@@ -54,7 +55,7 @@ const Homepage = () => {
       try {
         const [homepageRes, observationRes, teamRes] = await Promise.all([
           fetch(`${process.env.PUBLIC_URL}/data/homepage/HomePage.json`),
-          fetch(`${process.env.PUBLIC_URL}/data/mspsrpi2/observationData.json`),
+          fetch(`${process.env.PUBLIC_URL}/data/mspsrpi2/observationTrack.json`),
           fetch(`${process.env.PUBLIC_URL}/data/teamPage/teamMembers.json`)
         ]);
 
@@ -63,34 +64,38 @@ const Homepage = () => {
         const teamMemberData = await teamRes.json();
 
         // Compute dynamic stats
+        let totalHours = 0;
+        let observedHours = 0;
         const uniqueSources = new Set();
-        const completedSources = new Set();
         let earliestDate = new Date();
 
         observationData.forEach(obs => {
           uniqueSources.add(obs.srcname);
-          const obsDate = new Date(obs.obsDate);
-          if (obsDate < earliestDate) earliestDate = obsDate;
-          if (obs.status === 'complete') {
-            completedSources.add(obs.srcname);
+          const dur = parseFloat(obs.dur) || 0;
+          totalHours += dur;
+          
+          if (obs.obsDate && obs.obsDate.trim() !== '') {
+            observedHours += dur;
+            const obsDateObj = new Date(obs.obsDate);
+            if (obsDateObj < earliestDate) earliestDate = obsDateObj;
           }
         });
 
-        const total = uniqueSources.size;
-        const completed = completedSources.size;
-        const percent = total ? Math.round((completed / total) * 100) : 0;
+        const percent = totalHours ? Math.round((observedHours / totalHours) * 100) : 0;
+        const remainingHours = totalHours - observedHours;
         // const yearsOfResearch = new Date().getFullYear() - earliestDate.getFullYear();
 
         setProjectStats([
-          { value: total.toString(), label: "Pulsars Observed" },
+          { value: uniqueSources.size.toString(), label: "Pulsars Targeted" },
           { ...homepageData.projectStats.find(stat => stat.label === "Parallax Precision") },
-          { value: `${completed}+`, label: "Precise Distances" },
+          { value: `${observedHours}`, label: "Hours Observed" },
           { ...homepageData.projectStats.find(stat => stat.label === "Years of Research") }
         ]);
 
         setPhase2Progress({
-          totalPulsars: total,
-          observedPulsars: completed,
+          totalHours: totalHours,
+          observedHours: observedHours,
+          remainingHours: remainingHours,
           percentComplete: percent
         });
 
@@ -165,7 +170,7 @@ const Homepage = () => {
 
             {/* Progress Card for the project (the one you see first on the page) */}
             <div className="bg-indigo-950/60 backdrop-blur-sm border border-indigo-500/30 rounded-xl p-5 shadow-lg mb-8">
-              <h3 className="text-lg font-semibold text-indigo-100 mb-3">MSPSRπ2 Progress: {phase2Progress.totalPulsars} hours observed</h3>
+              <h3 className="text-lg font-semibold text-indigo-100 mb-3">MSPSRπ2 Progress: {phase2Progress.totalHours} total hours</h3>
 
               <div className="mb-2">
                 <div className="h-2.5 bg-indigo-950/70 rounded-full overflow-hidden">
@@ -185,7 +190,7 @@ const Homepage = () => {
 
               <div className="flex justify-between text-sm text-indigo-300 mb-3">
                 {/* <span>Phase 1: {phase1Progress.observedPulsars}/{phase1Progress.totalPulsars} Pulsars observed ✓</span> */}
-                <span>Phase 2: {phase2Progress.observedPulsars}/{phase2Progress.totalPulsars} Pulsars observed</span>
+                <span>Phase 2: {phase2Progress.observedHours} Hours Observed / {phase2Progress.remainingHours} Hours Remaining</span>
               </div>
 
               <div className="text-center">
