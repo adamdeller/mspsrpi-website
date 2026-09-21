@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { MapPin, ChevronRight, ChevronUp, Users, Search } from 'lucide-react';
 import { Rocket, Telescope, Ruler, BookOpen, Sparkles } from "lucide-react";
 import PulsarVisualizations from './PulsarVisualizations'; // Import the PulsarVisualizations component
 import Navbar from './Navbar'; // Import the Navbar component
-import { fetchObservationMetrics } from '../utils/observationTracker';
 
 
 const Homepage = () => {
+  const location = useLocation(); // Add this line to get current location
+  const [activeResearchQuestion, setActiveResearchQuestion] = useState(null);
   const [questionSlide, setQuestionSlide] = useState(0);
   const [teamMemberSlide, setTeamMemberSlide] = useState(0);
   const [projectStats, setProjectStats] = useState([]);
   const [phase2Progress, setPhase2Progress] = useState({
-    totalHours: 0,
-    observedHours: 0,
-    remainingHours: 0,
     totalPulsars: 0,
     observedPulsars: 0,
     percentComplete: 0
   });
+  const [phase1Progress, setPhase1Progress] = useState([]);
   const [researchQuestions, setResearchQuestions] = useState([]);
   const [researchQuestionsVisible, setResearchQuestionsVisible] = useState(true);
   const [keyDiscoveriesVisible, setKeyDiscoveriesVisible] = useState(true);
@@ -27,6 +26,7 @@ const Homepage = () => {
   const [headings, setHeadings] = useState({});
   const [pulsarJourney, setPulsarJourney] = useState({ title: "", subtitle: "", steps: [] });
   const [pulsarJourneyVisible, setPulsarJourneyVisible] = useState(true);
+  const [pulsarInfoVisible, setPulsarInfoVisible] = useState(true);
   const journeyIcons = [<Telescope />, <Rocket />, <Ruler />, <BookOpen />, <Sparkles />];
   // Calculate max slides for team members (showing 2 at a time)
   const maxTeamSlides = Math.ceil(teamMembers.length / 2) - 1;
@@ -52,37 +52,56 @@ const Homepage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [homepageRes, observationMetrics, teamRes] = await Promise.all([
+        const [homepageRes, observationRes, teamRes] = await Promise.all([
           fetch(`${process.env.PUBLIC_URL}/data/homepage/HomePage.json`),
-          fetchObservationMetrics(),
+          fetch(`${process.env.PUBLIC_URL}/data/mspsrpi2/observationData.json`),
           fetch(`${process.env.PUBLIC_URL}/data/teamPage/teamMembers.json`)
         ]);
 
         const homepageData = await homepageRes.json();
+        const observationData = await observationRes.json();
         const teamMemberData = await teamRes.json();
 
+        // Compute dynamic stats
+        const uniqueSources = new Set();
+        const completedSources = new Set();
+        let earliestDate = new Date();
+
+        observationData.forEach(obs => {
+          uniqueSources.add(obs.srcname);
+          const obsDate = new Date(obs.obsDate);
+          if (obsDate < earliestDate) earliestDate = obsDate;
+          if (obs.status === 'complete') {
+            completedSources.add(obs.srcname);
+          }
+        });
+
+        const total = uniqueSources.size;
+        const completed = completedSources.size;
+        const percent = total ? Math.round((completed / total) * 100) : 0;
+        // const yearsOfResearch = new Date().getFullYear() - earliestDate.getFullYear();
+
         setProjectStats([
-          { value: `${observationMetrics.observedHours} hrs`, label: "Hours Observed" },
+          { value: total.toString(), label: "Pulsars Observed" },
           { ...homepageData.projectStats.find(stat => stat.label === "Parallax Precision") },
-          { value: `${observationMetrics.observedPulsars}+`, label: "Precise Distances" },
+          { value: `${completed}+`, label: "Precise Distances" },
           { ...homepageData.projectStats.find(stat => stat.label === "Years of Research") }
         ]);
 
         setPhase2Progress({
-          totalHours: observationMetrics.totalHours,
-          observedHours: observationMetrics.observedHours,
-          remainingHours: observationMetrics.remainingHours,
-          percentComplete: observationMetrics.percentComplete,
-          totalPulsars: observationMetrics.totalPulsars,
-          observedPulsars: observationMetrics.observedPulsars
+          totalPulsars: total,
+          observedPulsars: completed,
+          percentComplete: percent
         });
 
+        setPhase1Progress(homepageData.phase1Progress);
         setPulsarJourney(homepageData.pulsarJourney);
         setHeadings(homepageData.sectionHeaders);
         setResearchQuestions(homepageData.researchQuestions);
         setResearchQuestionsVisible(homepageData.researchQuestionsVisible !== false);
         setPulsarJourneyVisible(homepageData.pulsarJourneyVisible !== false);
         setKeyDiscoveriesVisible(homepageData.keyDiscoveriesVisible !== false);
+        setPulsarInfoVisible(homepageData.pulsarInfoVisible !== false);
         setKeyFindings(homepageData.keyFindings);
         setTeamMembers(teamMemberData.teamMembers);
       } catch (err) {
@@ -146,14 +165,12 @@ const Homepage = () => {
 
             {/* Progress Card for the project (the one you see first on the page) */}
             <div className="bg-indigo-950/60 backdrop-blur-sm border border-indigo-500/30 rounded-xl p-5 shadow-lg mb-8">
-              <h3 className="text-lg font-semibold text-indigo-100 mb-3">
-                MSPSRπ2 Progress: {phase2Progress.observedHours} / {phase2Progress.totalHours} Hours Observed
-              </h3>
+              <h3 className="text-lg font-semibold text-indigo-100 mb-3">MSPSRπ2 Progress: {phase2Progress.totalPulsars} hours observed</h3>
 
               <div className="mb-2">
-                <div className="h-3 bg-indigo-950/70 rounded-full overflow-hidden border border-indigo-800/40">
+                <div className="h-2.5 bg-indigo-950/70 rounded-full overflow-hidden">
                   <div
-                    className="h-full rounded-full relative overflow-hidden transition-all duration-700 ease-out"
+                    className="h-full rounded-full relative overflow-hidden"
                     style={{ width: `${phase2Progress.percentComplete}%` }}
                   >
                     {/* Neon animated progress bar with glow effect */}
@@ -161,16 +178,14 @@ const Homepage = () => {
                     <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-indigo-400 to-purple-500 opacity-70 animate-shimmer"></div>
                   </div>
                 </div>
-                <div className="flex justify-between text-xs sm:text-sm text-indigo-200 mt-1.5 font-medium">
-                  <span>{phase2Progress.observedHours} hrs observed</span>
-                  <span className="text-cyan-300 font-semibold">{phase2Progress.percentComplete}% Complete</span>
-                  <span>{phase2Progress.remainingHours} hrs remaining</span>
+                <div className="flex justify-end text-sm text-indigo-200 mt-1">
+                  <span>{phase2Progress.percentComplete}% Complete</span>
                 </div>
               </div>
 
-              <div className="flex justify-between text-xs sm:text-sm text-indigo-300 mb-3 pt-2 border-t border-indigo-900/40">
-                <span>Total Target: {phase2Progress.totalHours} hours</span>
-                <span>Pulsars Targeted: {phase2Progress.observedPulsars}/{phase2Progress.totalPulsars} observed</span>
+              <div className="flex justify-between text-sm text-indigo-300 mb-3">
+                {/* <span>Phase 1: {phase1Progress.observedPulsars}/{phase1Progress.totalPulsars} Pulsars observed ✓</span> */}
+                <span>Phase 2: {phase2Progress.observedPulsars}/{phase2Progress.totalPulsars} Pulsars observed</span>
               </div>
 
               <div className="text-center">

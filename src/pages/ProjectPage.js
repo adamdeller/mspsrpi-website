@@ -2,10 +2,9 @@
 //                           LIBRARY IMPORTS
 //---------------------------------------------------------------------------
 import React, { useState, useEffect, useMemo } from 'react';
-import { ChevronRight, ChevronUp } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ChevronRight, ExternalLink, ChevronUp } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 import Navbar from './Navbar'; // Import the Navbar component
-import { fetchObservationMetrics } from '../utils/observationTracker';
 
 //---------------------------------------------------------------------------
 //                           COMPONENT DEFINITION
@@ -13,9 +12,10 @@ import { fetchObservationMetrics } from '../utils/observationTracker';
 const ProjectPage = () => {
 
   // STATE VARIABLES AND HOOKS
+  const location = useLocation();
   const [activePhase, setActivePhase] = useState('mspsrpi2');
   const [projectData, setProjectData] = useState(null);
-  const [observationMetrics, setObservationMetrics] = useState(null);
+  const [observationData, setObservationData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -25,19 +25,28 @@ const ProjectPage = () => {
     const loadData = async () => {
       setLoading(true);
       try {
-        const [projectResponse, metrics] = await Promise.all([
+        // Fetch both JSON files in parallel without cache-busting
+        const [projectResponse, observationResponse] = await Promise.all([
           fetch(`${process.env.PUBLIC_URL}/data/projectpage/projectData.json`),
-          fetchObservationMetrics()
+          fetch(`${process.env.PUBLIC_URL}/data/mspsrpi2/observationData.json`)
         ]);
 
+        // Check if both responses are ok
         if (!projectResponse.ok) {
           throw new Error(`HTTP error fetching project data! Status: ${projectResponse.status}`);
         }
 
-        const projectDataJson = await projectResponse.json();
+        if (!observationResponse.ok) {
+          throw new Error(`HTTP error fetching observation data! Status: ${observationResponse.status}`);
+        }
 
+        // Parse both JSON responses
+        const projectDataJson = await projectResponse.json();
+        const observationDataJson = await observationResponse.json();
+
+        // Update state with the fetched data
         setProjectData(projectDataJson);
-        setObservationMetrics(metrics);
+        setObservationData(observationDataJson);
         setError(null);
       } catch (err) {
         console.error('Error fetching data:', err);
@@ -79,26 +88,61 @@ const ProjectPage = () => {
   //                MSPSRPI2 Progress Tracker Calculation
   //---------------------------------------------------------------------------
   const progressStats = useMemo(() => {
-    if (!observationMetrics) {
+    // If we don't have data yet, return all zeros
+    if (!observationData) {
       return {
-        totalHours: 0,
-        observedHours: 0,
-        remainingHours: 0,
-        percentComplete: 0,
-        totalPulsars: 0,
-        observedPulsars: 0
+        total: 0,
+        scheduled: 0,
+        inProgress: 0,
+        complete: 0,
+        percentComplete: 0
       };
     }
 
+    // track each pulsar's status
+    const pulsarStatusMap = new Map();
+
+    // For each observation in our data
+    observationData.forEach(obs => {
+      // Get the current status of this pulsar 
+      const currentStatus = pulsarStatusMap.get(obs.srcname);
+
+      // The logic below:
+      // 1. If we've never observed this pulsar before, save its status
+      // 2. If it was "scheduled" before but now has any other status, update it
+      // 3. If it was "in-progress" before but now is "complete", update it
+      if (!currentStatus ||
+        (currentStatus === 'scheduled' && obs.status !== 'scheduled') ||
+        (currentStatus === 'in-progress' && obs.status === 'complete')) {
+        pulsarStatusMap.set(obs.srcname, obs.status);
+      }
+    });
+
+    // count how many pulsars are in each status
+    let complete = 0;
+    let inProgress = 0;
+    let scheduled = 0;
+
+    // Loop through each pulsar in the map
+    pulsarStatusMap.forEach(status => {
+      // Increase the right counter based on the status
+      if (status === 'complete') complete++;
+      else if (status === 'in-progress') inProgress++;
+      else if (status === 'scheduled') scheduled++;
+    });
+
+    // Total number of pulsars is just the size of the map
+    const total = pulsarStatusMap.size;
+
+    // Return an object with all the stats
     return {
-      totalHours: observationMetrics.totalHours,
-      observedHours: observationMetrics.observedHours,
-      remainingHours: observationMetrics.remainingHours,
-      percentComplete: observationMetrics.percentComplete,
-      totalPulsars: observationMetrics.totalPulsars,
-      observedPulsars: observationMetrics.observedPulsars
+      total,
+      scheduled,
+      inProgress,
+      complete,
+      percentComplete: Math.round((complete / total) * 100) //round to the nearest whole number
     };
-  }, [observationMetrics]);
+  }, [observationData]); // Only recalculate when observationData changes
 
   //---------------------------------------------------------------------------
   //                CONDITIONAL RENDERING BASED ON DATA STATE
@@ -133,7 +177,7 @@ const ProjectPage = () => {
     );
   }
   // If we have no data even though we're not loading
-  if (!projectData || !observationMetrics) {
+  if (!projectData || !observationData) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-indigo-950 via-slate-900 to-black text-gray-100 flex items-center justify-center">
         <div className="text-center">
@@ -379,66 +423,44 @@ const ProjectPage = () => {
 
           {/* Progress Summary Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
-            {/* Target Hours */}
+            {/* Target Pulsars */}
             <div className="bg-slate-900/60 backdrop-blur-sm border-2 border-blue-500/30 rounded-lg p-4 text-center relative overflow-hidden group transition-all duration-300 hover:border-blue-500/50 hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]">
-              <h3 className="text-lg font-semibold text-blue-300 mb-2 relative z-10">{ui.progressTracker?.cards?.target?.title || "Target Hours"}</h3>
-              <p className="text-4xl font-bold text-gray-100 relative z-10">{progressStats.totalHours} hrs</p>
-              <p className="text-sm text-blue-200 relative z-10">{ui.progressTracker?.cards?.target?.description || "Total scheduled observation hours"}</p>
+              <h3 className="text-lg font-semibold text-blue-300 mb-2 relative z-10">{ui.progressTracker.cards.target.title}</h3>
+              <p className="text-4xl font-bold text-gray-100 relative z-10">{progressStats.total}</p>
+              <p className="text-sm text-blue-200 relative z-10">{ui.progressTracker.cards.target.description}</p>
             </div>
 
-            {/* Hours Observed */}
+            {/* Scheduled */}
             <div className="bg-slate-900/60 backdrop-blur-sm border-2 border-indigo-500/30 rounded-lg p-4 text-center relative overflow-hidden group transition-all duration-300 hover:border-indigo-500/50 hover:shadow-[0_0_15px_rgba(99,102,241,0.3)]">
-              <h3 className="text-lg font-semibold text-indigo-300 mb-2 relative z-10">{ui.progressTracker?.cards?.observed?.title || "Hours Observed"}</h3>
-              <p className="text-4xl font-bold text-gray-100 relative z-10">{progressStats.observedHours} hrs</p>
-              <p className="text-sm text-indigo-200 relative z-10">{ui.progressTracker?.cards?.observed?.description || "Completed observation time"}</p>
+              <h3 className="text-lg font-semibold text-indigo-300 mb-2 relative z-10">{ui.progressTracker.cards.scheduled.title}</h3>
+              <p className="text-4xl font-bold text-gray-100 relative z-10">{progressStats.scheduled}</p>
+              <p className="text-sm text-indigo-200 relative z-10">{ui.progressTracker.cards.scheduled.description}</p>
             </div>
 
-            {/* Hours Remaining */}
+            {/* In Progress */}
             <div className="bg-slate-900/60 backdrop-blur-sm border-2 border-amber-500/30 rounded-lg p-4 text-center relative overflow-hidden group transition-all duration-300 hover:border-amber-500/50 hover:shadow-[0_0_15px_rgba(217,119,6,0.3)]">
-              <h3 className="text-lg font-semibold text-amber-300 mb-2 relative z-10">{ui.progressTracker?.cards?.remaining?.title || "Hours Remaining"}</h3>
-              <p className="text-4xl font-bold text-gray-100 relative z-10">{progressStats.remainingHours} hrs</p>
-              <p className="text-sm text-amber-200 relative z-10">{ui.progressTracker?.cards?.remaining?.description || "Hours awaiting observation"}</p>
+              <h3 className="text-lg font-semibold text-amber-300 mb-2 relative z-10">{ui.progressTracker.cards.inProgress.title}</h3>
+              <p className="text-4xl font-bold text-gray-100 relative z-10">{progressStats.inProgress}</p>
+              <p className="text-sm text-amber-200 relative z-10">{ui.progressTracker.cards.inProgress.description}</p>
             </div>
 
-            {/* Pulsars Observed */}
+            {/* Completed */}
             <div className="bg-slate-900/60 backdrop-blur-sm border-2 border-emerald-500/30 rounded-lg p-4 text-center relative overflow-hidden group transition-all duration-300 hover:border-emerald-500/50 hover:shadow-[0_0_15px_rgba(16,185,129,0.3)]">
-              <h3 className="text-lg font-semibold text-emerald-300 mb-2 relative z-10">{ui.progressTracker?.cards?.pulsars?.title || "Pulsars Observed"}</h3>
-              <p className="text-4xl font-bold text-gray-100 relative z-10">{progressStats.observedPulsars} / {progressStats.totalPulsars}</p>
-              <p className="text-sm text-emerald-200 relative z-10">{ui.progressTracker?.cards?.pulsars?.description || "Targets with completed observations"}</p>
+              <h3 className="text-lg font-semibold text-emerald-300 mb-2 relative z-10">{ui.progressTracker.cards.completed.title}</h3>
+              <p className="text-4xl font-bold text-gray-100 relative z-10">{progressStats.complete}</p>
+              <p className="text-sm text-emerald-200 relative z-10">{ui.progressTracker.cards.completed.description}</p>
             </div>
           </div>
 
-          {/* Progress Bar matching HomePage */}
-          <div className="bg-indigo-950/40 backdrop-blur-sm border border-indigo-500/30 rounded-xl p-6 shadow-xl mb-10 max-w-4xl mx-auto">
-            <div className="flex justify-between items-center mb-3">
-              <h3 className="text-lg font-semibold text-indigo-100">
-                Observing Progress: {progressStats.observedHours} / {progressStats.totalHours} Hours Observed
-              </h3>
-              <span className="text-cyan-300 font-bold text-lg">{progressStats.percentComplete}% Complete</span>
+          {/* Progress Bar */}
+          <div className="mb-10">
+            <div className="bg-slate-800/50 rounded-full h-4 overflow-hidden">
+              <div
+                className="bg-gradient-to-r from-indigo-500 to-blue-500 h-full rounded-full"
+                style={{ width: `${progressStats.percentComplete}%` }}
+              ></div>
             </div>
-
-            <div className="mb-3">
-              <div className="h-4 bg-indigo-950/80 rounded-full overflow-hidden border border-indigo-800/50">
-                <div
-                  className="h-full rounded-full relative overflow-hidden transition-all duration-700 ease-out"
-                  style={{ width: `${progressStats.percentComplete}%` }}
-                >
-                  {/* Neon animated progress bar matching homepage */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-indigo-400 to-purple-500 animate-pulse"></div>
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-indigo-400 to-purple-500 opacity-70 animate-shimmer"></div>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex justify-between text-sm text-indigo-200 font-medium">
-              <span>{progressStats.observedHours} hours observed</span>
-              <span>{progressStats.remainingHours} hours remaining</span>
-            </div>
-
-            <div className="mt-3 pt-3 border-t border-indigo-900/40 flex justify-between text-xs text-indigo-300">
-              <span>Total Target: {progressStats.totalHours} hours</span>
-              <span>Pulsars with observations: {progressStats.observedPulsars} of {progressStats.totalPulsars}</span>
-            </div>
+            <p className="text-center text-indigo-300 mt-2">{progressStats.percentComplete}{ui.progressTracker.progressPercentage}</p>
           </div>
         </div>
       </div>

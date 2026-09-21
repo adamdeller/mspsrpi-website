@@ -1,14 +1,19 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import PulsarGalaxy from './Galatic'
 import Navbar from './Navbar'; // Import the Navbar component
+import DownloadModal from './DownloadModal';
+import BatchDownloadHandler from './BatchDownloadHandler';
 import {
   Search,
+  Download,
   Map,
+  ChevronRight,
+  Filter,
   ExternalLink,
+  MaximizeIcon,
   ZoomIn,
   ChevronUp
 } from 'lucide-react';
-import { fetchObservationMetrics, enrichPulsarsWithObservationData } from '../utils/observationTracker';
 const referenceUrlMap = {
   "Burgay et al. 2006 (discovery)": "https://academic.oup.com/mnras/article/368/1/283/969706",
   "Pallanca et al. 2012 (companion mass)": "https://iopscience.iop.org/article/10.1088/0004-637X/755/2/180",
@@ -62,11 +67,14 @@ const DataReleasePage = () => {
   const [selectedMembership, setSelectedMembership] = useState('all');
 
   // Modal Management
+  const [downloadPulsar, setDownloadPulsar] = useState(null);
+  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
   const [activeVisualization, setActiveVisualization] = useState(null);
 
   // UI Enhancement
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isGalacticMaximized, setIsGalacticMaximized] = useState(false);
+  const [showFilters, setShowFilters] = useState(false);
 
   // SCROLL TO TOP FUNCTIONALITY
   const scrollToTop = () => {
@@ -74,6 +82,29 @@ const DataReleasePage = () => {
       top: 0,
       behavior: "smooth"
     });
+  };
+
+  const { handleBatchDownloadClick, BatchDownloadModalComponent } = BatchDownloadHandler({
+    allPhasesPulsars,
+    currentPulsars: pulsars
+  });
+
+  //check if the pulsar has visualisations
+  const hasPulsarVisualizations = (pulsar) => {
+    return true;
+  };
+
+  //Handling the download button clicking
+  const handleDownloadClick = (pulsar, e) => {
+    if (e) e.stopPropagation(); // 防止触发其他点击事件
+    setDownloadPulsar(pulsar);
+    setIsDownloadModalOpen(true);
+  };
+
+  //Closing download modal
+  const closeDownloadModal = () => {
+    setIsDownloadModalOpen(false);
+    setDownloadPulsar(null);
   };
 
   const showFullScreenVisualization = (visualization, pulsarName) => {
@@ -86,7 +117,7 @@ const DataReleasePage = () => {
   const calculateObservationProgress = (pulsarData) => {
     if (!pulsarData || pulsarData.length === 0) return { completed: 0, total: 0 };
 
-    const completed = pulsarData.filter(pulsar => pulsar.status === 'Completed' || pulsar.status === 'Complete').length;
+    const completed = pulsarData.filter(pulsar => pulsar.status === 'Completed').length;
     const total = pulsarData.length;
 
     return { completed, total };

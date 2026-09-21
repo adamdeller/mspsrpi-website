@@ -1,12 +1,12 @@
 {
   "sectionHeaders": {
     "researchTitle": "We're in Search Of...",
-    "researchSubtitle": "Astrometric observations with Very Long Baseline Interferometry (VLBI)"
+    "researchSubtitle": "Astrometric observations with Very Long Baseline Interferometery (VLBI)"
   },
   "projectStats": [
     {
-      "label": "Total Hours Target",
-      "value": "200"
+      "label": "Pulsars Observed",
+      "value": "44"
     },
     {
       "label": "Parallax Precision",
@@ -26,8 +26,6 @@
     "observedPulsars": 1
   },
   "phase2Progress": {
-    "totalHours": 200,
-    "observedHours": 95,
     "totalPulsars": 44,
     "observedPulsars": 21
   },
