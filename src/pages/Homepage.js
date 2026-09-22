@@ -98,7 +98,7 @@ const Homepage = () => {
 
         setPhase2Progress({
           totalHours: projectTotalHours,
-          observedHours: observedHours,
+          observedHours: projectObservedHours,
           remainingHours: remainingHours,
           percentComplete: percent
         });
