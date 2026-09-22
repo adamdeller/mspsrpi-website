@@ -192,9 +192,9 @@ const Homepage = () => {
                 </div>
               </div>
 
-              <div className="flex justify-between text-sm text-indigo-300 mb-3">
+              <div className="flex justify-center text-sm text-indigo-300 mb-3">
                 {/* <span>Phase 1: {phase1Progress.observedPulsars}/{phase1Progress.totalPulsars} Pulsars observed ✓</span> */}
-                <span>Astrometric Observations: {phase2Progress.observedHours} Hours Observed / {phase2Progress.remainingHours} Hours Remaining</span>
+                <span>{phase2Progress.observedHours} Hours Observed / {phase2Progress.remainingHours} Hours Remaining</span>
               </div>
 
               <div className="text-center">
